@@ -2,7 +2,7 @@
 <widget id="net.magmastone.PGP" version="0.0.2" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>PhoneGapProject</name>
     <description>
-        The beginnings of a PhoneGap Project
+        The beginnings of a PhoneGapProject
     </description>
     <author email="me@magmastone.net" href="http://magmastone.net">
         Alex Roth
