@@ -1,0 +1,633 @@
+TPhoneGapProject
+v5
+r1
+cCheck dependencies
+cProcessInfoPlistFile /Users/Alex/PhoneGapProject/platforms/ios/build/PhoneGapProject.app/Info.plist PhoneGapProject/PhoneGapProject-Info.plist
+cPhaseScriptExecution "Copy www directory" /Users/Alex/PhoneGapProject/platforms/ios/build/PhoneGapProject.build/Debug-iphonesimulator/PhoneGapProject.build/Script-304B58A110DAC018002A0835.sh
+cCpResource PhoneGapProject/config.xml build/PhoneGapProject.app/config.xml
+cCpResource PhoneGapProject/Resources/icons/icon-72.png build/PhoneGapProject.app/icon-72.png
+cCpResource PhoneGapProject/Resources/icons/icon.png build/PhoneGapProject.app/icon.png
+cCpResource PhoneGapProject/Resources/icons/icon@2x.png build/PhoneGapProject.app/icon@2x.png
+cCpResource PhoneGapProject/Resources/Capture.bundle build/PhoneGapProject.app/Capture.bundle
+cCopyStringsFile /Users/Alex/PhoneGapProject/platforms/ios/build/PhoneGapProject.app/en.lproj/Localizable.strings PhoneGapProject/Resources/en.lproj/Localizable.strings
+cCopyStringsFile /Users/Alex/PhoneGapProject/platforms/ios/build/PhoneGapProject.app/es.lproj/Localizable.strings PhoneGapProject/Resources/es.lproj/Localizable.strings
+cCompileXIB /Users/Alex/PhoneGapProject/platforms/ios/PhoneGapProject/Classes/MainViewController.xib
+cCopyStringsFile /Users/Alex/PhoneGapProject/platforms/ios/build/PhoneGapProject.app/de.lproj/Localizable.strings PhoneGapProject/Resources/de.lproj/Localizable.strings
+cCopyStringsFile /Users/Alex/PhoneGapProject/platforms/ios/build/PhoneGapProject.app/se.lproj/Localizable.strings PhoneGapProject/Resources/se.lproj/Localizable.strings
+cCpResource PhoneGapProject/Resources/splash/Default-Landscape@2x~ipad.png build/PhoneGapProject.app/Default-Landscape@2x~ipad.png
+cCpResource PhoneGapProject/Resources/splash/Default-Landscape~ipad.png build/PhoneGapProject.app/Default-Landscape~ipad.png
+cCpResource PhoneGapProject/Resources/splash/Default-Portrait@2x~ipad.png build/PhoneGapProject.app/Default-Portrait@2x~ipad.png
+cCpResource PhoneGapProject/Resources/splash/Default-Portrait~ipad.png build/PhoneGapProject.app/Default-Portrait~ipad.png
+cCpResource PhoneGapProject/Resources/splash/Default@2x~iphone.png build/PhoneGapProject.app/Default@2x~iphone.png
+cCpResource PhoneGapProject/Resources/splash/Default~iphone.png build/PhoneGapProject.app/Default~iphone.png
+cCpResource PhoneGapProject/Resources/splash/Default-568h@2x~iphone.png build/PhoneGapProject.app/Default-568h@2x~iphone.png
+cCpResource PhoneGapProject/Resources/icons/icon-72@2x.png build/PhoneGapProject.app/icon-72@2x.png
+cProcessPCH /var/folders/70/k4k52dx112s91fpdxn9fqvrc0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/PhoneGapProject-Prefix-atdvlgdyvplgtecgqmcfbucoviqg/PhoneGapProject-Prefix.pch.pth PhoneGapProject/PhoneGapProject-Prefix.pch normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/PhoneGapProject.build/Debug-iphonesimulator/PhoneGapProject.build/Objects-normal/i386/AppDelegate.o /Users/Alex/PhoneGapProject/platforms/ios/PhoneGapProject/Classes/AppDelegate.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/PhoneGapProject.build/Debug-iphonesimulator/PhoneGapProject.build/Objects-normal/i386/main.o /Users/Alex/PhoneGapProject/platforms/ios/PhoneGapProject/main.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/PhoneGapProject.build/Debug-iphonesimulator/PhoneGapProject.build/Objects-normal/i386/MainViewController.o /Users/Alex/PhoneGapProject/platforms/ios/PhoneGapProject/Classes/MainViewController.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cLd /Users/Alex/PhoneGapProject/platforms/ios/build/PhoneGapProject.app/PhoneGapProject normal i386
+cGenerateDSYMFile /Users/Alex/PhoneGapProject/platforms/ios/build/PhoneGapProject.app.dSYM /Users/Alex/PhoneGapProject/platforms/ios/build/PhoneGapProject.app/PhoneGapProject
+cTouch /Users/Alex/PhoneGapProject/platforms/ios/build/PhoneGapProject.app
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk
+c0000000050EDEAFB0000000000000110
+t1357769467
+s272
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/System/Library/Frameworks/AVFoundation.framework/AVFoundation
+c0000000051CCDB1500000000001EB540
+t1372379925
+s2012480
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/System/Library/Frameworks/AddressBook.framework/AddressBook
+c0000000051CCDB1400000000000C1030
+t1372379924
+s790576
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/System/Library/Frameworks/AddressBookUI.framework/AddressBookUI
+c0000000051CCDB150000000000193640
+t1372379925
+s1652288
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/System/Library/Frameworks/AssetsLibrary.framework/AssetsLibrary
+c0000000051CCDB1500000000000226E0
+t1372379925
+s141024
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/System/Library/Frameworks/AudioToolbox.framework/AudioToolbox
+c0000000051CCDB1500000000003D4DF0
+t1372379925
+s4017648
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/System/Library/Frameworks/CFNetwork.framework/CFNetwork
+c0000000051CCDB150000000000215DB0
+t1372379925
+s2186672
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/System/Library/Frameworks/CoreGraphics.framework/CoreGraphics
+c0000000051CCDB160000000000228FE0
+t1372379926
+s2265056
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/System/Library/Frameworks/CoreLocation.framework/CoreLocation
+c0000000051CCDB16000000000009C590
+t1372379926
+s640400
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/System/Library/Frameworks/CoreMedia.framework/CoreMedia
+c0000000051CCDB160000000000085620
+t1372379926
+s546336
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/System/Library/Frameworks/Foundation.framework/Foundation
+c0000000051CCDB1700000000003DDFA0
+t1372379927
+s4054944
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/System/Library/Frameworks/ImageIO.framework/ImageIO
+c0000000051CCDB1900000000002CFBE0
+t1372379929
+s2948064
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/System/Library/Frameworks/MediaPlayer.framework/MediaPlayer
+c0000000051CCDB1A00000000002DBA50
+t1372379930
+s2996816
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/System/Library/Frameworks/MobileCoreServices.framework/MobileCoreServices
+c0000000051CCDB1C00000000000BCC20
+t1372379932
+s773152
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/System/Library/Frameworks/OpenAL.framework/OpenAL
+c0000000051CCDB1C0000000000030EB0
+t1372379932
+s200368
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/System/Library/Frameworks/QuartzCore.framework/QuartzCore
+c0000000051CCDB1E00000000001D5750
+t1372379934
+s1922896
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/System/Library/Frameworks/SystemConfiguration.framework/SystemConfiguration
+c0000000051CCDB1E000000000006CC50
+t1372379934
+s445520
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk/System/Library/Frameworks/UIKit.framework/UIKit
+c0000000051CCDB210000000000AB6230
+t1372379937
+s11231792
+
+N/Users/Alex/PhoneGapProject/platforms/ios/PhoneGapProject/Classes/AppDelegate.m
+c0000000051F06A4A00000000000013E4
+t1374710346
+s5092
+
+N/Users/Alex/PhoneGapProject/platforms/ios/PhoneGapProject/Classes/MainViewController.m
+c0000000051F06A4A0000000000001270
+t1374710346
+s4720
+
+N/Users/Alex/PhoneGapProject/platforms/ios/PhoneGapProject/Classes/MainViewController.xib
+c0000000051F06A4A0000000000001759
+t1374710346
+s5977
+
+N/Users/Alex/PhoneGapProject/platforms/ios/PhoneGapProject/PhoneGapProject-Prefix.pch
+c0000000051F06A4A00000000000003CF
+t1374710346
+s975
+
+N/Users/Alex/PhoneGapProject/platforms/ios/PhoneGapProject/Resources/Capture.bundle
+c0000000051F06A4A000000000000030E
+t1374710346
+s782
+
+N/Users/Alex/PhoneGapProject/platforms/ios/PhoneGapProject/Resources/de.lproj/Localizable.strings
+c0000000051F06A4A00000000000004BF
+t1374710346
+s1215
+
+N/Users/Alex/PhoneGapProject/platforms/ios/PhoneGapProject/Resources/en.lproj/Localizable.strings
+c0000000051F06A4A00000000000004AA
+t1374710346
+s1194
+
+N/Users/Alex/PhoneGapProject/platforms/ios/PhoneGapProject/Resources/es.lproj/Localizable.strings
+c0000000051F06A4A00000000000004B7
+t1374710346
+s1207
+
+N/Users/Alex/PhoneGapProject/platforms/ios/PhoneGapProject/Resources/icons/icon-72.png
+c0000000051F06A4A0000000000001350
+t1374710346
+s4944
+
+N/Users/Alex/PhoneGapProject/platforms/ios/PhoneGapProject/Resources/icons/icon-72@2x.png
+c0000000051F06A4A0000000000002DBA
+t1374710346
+s11706
+
+N/Users/Alex/PhoneGapProject/platforms/ios/PhoneGapProject/Resources/icons/icon.png
+c0000000051F06A4A0000000000000F3E
+t1374710346
+s3902
+
+N/Users/Alex/PhoneGapProject/platforms/ios/PhoneGapProject/Resources/icons/icon@2x.png
+c0000000051F06A4A0000000000001EBD
+t1374710346
+s7869
+
+N/Users/Alex/PhoneGapProject/platforms/ios/PhoneGapProject/Resources/se.lproj/Localizable.strings
+c0000000051F06A4A00000000000004AB
+t1374710346
+s1195
+
+N/Users/Alex/PhoneGapProject/platforms/ios/PhoneGapProject/Resources/splash/Default-568h@2x~iphone.png
+c0000000051F06A4A00000000000085B1
+t1374710346
+s34225
+
+N/Users/Alex/PhoneGapProject/platforms/ios/PhoneGapProject/Resources/splash/Default-Landscape@2x~ipad.png
+c0000000051F06A4A0000000000012DF4
+t1374710346
+s77300
+
+N/Users/Alex/PhoneGapProject/platforms/ios/PhoneGapProject/Resources/splash/Default-Landscape~ipad.png
+c0000000051F06A4A0000000000008877
+t1374710346
+s34935
+
+N/Users/Alex/PhoneGapProject/platforms/ios/PhoneGapProject/Resources/splash/Default-Portrait@2x~ipad.png
+c0000000051F06A4A0000000000012B02
+t1374710346
+s76546
+
+N/Users/Alex/PhoneGapProject/platforms/ios/PhoneGapProject/Resources/splash/Default-Portrait~ipad.png
+c0000000051F06A4A00000000000085E6
+t1374710346
+s34278
+
+N/Users/Alex/PhoneGapProject/platforms/ios/PhoneGapProject/Resources/splash/Default@2x~iphone.png
+c0000000051F06A4A0000000000007323
+t1374710346
+s29475
+
+N/Users/Alex/PhoneGapProject/platforms/ios/PhoneGapProject/Resources/splash/Default~iphone.png
+c0000000051F06A4A000000000000289A
+t1374710346
+s10394
+
+N/Users/Alex/PhoneGapProject/platforms/ios/PhoneGapProject/config.xml
+c0000000051F06A500000000000000CFC
+t1374710352
+s3324
+
+N/Users/Alex/PhoneGapProject/platforms/ios/PhoneGapProject/main.m
+c0000000051F06A4A0000000000000461
+t1374710346
+s1121
+
+N/Users/Alex/PhoneGapProject/platforms/ios/build/PhoneGapProject.app
+t2
+s0
+
+N/Users/Alex/PhoneGapProject/platforms/ios/build/PhoneGapProject.app.dSYM
+t2
+s0
+
+N/Users/Alex/PhoneGapProject/platforms/ios/build/PhoneGapProject.app/Capture.bundle
+t2
+s0
+
+N/Users/Alex/PhoneGapProject/platforms/ios/build/PhoneGapProject.app/Default-568h@2x~iphone.png
+t2
+s0
+
+N/Users/Alex/PhoneGapProject/platforms/ios/build/PhoneGapProject.app/Default-Landscape@2x~ipad.png
+t2
+s0
+
+N/Users/Alex/PhoneGapProject/platforms/ios/build/PhoneGapProject.app/Default-Landscape~ipad.png
+t2
+s0
+
+N/Users/Alex/PhoneGapProject/platforms/ios/build/PhoneGapProject.app/Default-Portrait@2x~ipad.png
+t2
+s0
+
+N/Users/Alex/PhoneGapProject/platforms/ios/build/PhoneGapProject.app/Default-Portrait~ipad.png
+t2
+s0
+
+N/Users/Alex/PhoneGapProject/platforms/ios/build/PhoneGapProject.app/Default@2x~iphone.png
+t2
+s0
+
+N/Users/Alex/PhoneGapProject/platforms/ios/build/PhoneGapProject.app/Default~iphone.png
+t2
+s0
+
+N/Users/Alex/PhoneGapProject/platforms/ios/build/PhoneGapProject.app/Info.plist
+t2
+s0
+
+N/Users/Alex/PhoneGapProject/platforms/ios/build/PhoneGapProject.app/MainViewController.nib
+t2
+s0
+
+N/Users/Alex/PhoneGapProject/platforms/ios/build/PhoneGapProject.app/PhoneGapProject
+t2
+s0
+
+N/Users/Alex/PhoneGapProject/platforms/ios/build/PhoneGapProject.app/PkgInfo
+t2
+s0
+
+N/Users/Alex/PhoneGapProject/platforms/ios/build/PhoneGapProject.app/config.xml
+t2
+s0
+
+N/Users/Alex/PhoneGapProject/platforms/ios/build/PhoneGapProject.app/de.lproj/Localizable.strings
+t2
+s0
+
+N/Users/Alex/PhoneGapProject/platforms/ios/build/PhoneGapProject.app/en.lproj/Localizable.strings
+t2
+s0
+
+N/Users/Alex/PhoneGapProject/platforms/ios/build/PhoneGapProject.app/es.lproj/Localizable.strings
+t2
+s0
+
+N/Users/Alex/PhoneGapProject/platforms/ios/build/PhoneGapProject.app/icon-72.png
+t2
+s0
+
+N/Users/Alex/PhoneGapProject/platforms/ios/build/PhoneGapProject.app/icon-72@2x.png
+t2
+s0
+
+N/Users/Alex/PhoneGapProject/platforms/ios/build/PhoneGapProject.app/icon.png
+t2
+s0
+
+N/Users/Alex/PhoneGapProject/platforms/ios/build/PhoneGapProject.app/icon@2x.png
+t2
+s0
+
+N/Users/Alex/PhoneGapProject/platforms/ios/build/PhoneGapProject.app/se.lproj/Localizable.strings
+t2
+s0
+
+N/Users/Alex/PhoneGapProject/platforms/ios/build/PhoneGapProject.build/Debug-iphonesimulator/PhoneGapProject.build/Objects-normal/i386/AppDelegate.o
+t2
+s0
+
+N/Users/Alex/PhoneGapProject/platforms/ios/build/PhoneGapProject.build/Debug-iphonesimulator/PhoneGapProject.build/Objects-normal/i386/MainViewController.o
+t2
+s0
+
+N/Users/Alex/PhoneGapProject/platforms/ios/build/PhoneGapProject.build/Debug-iphonesimulator/PhoneGapProject.build/Objects-normal/i386/PhoneGapProject.LinkFileList
+c0000000051F06A5C00000000000001BC
+t1374710364
+s444
+
+N/Users/Alex/PhoneGapProject/platforms/ios/build/PhoneGapProject.build/Debug-iphonesimulator/PhoneGapProject.build/Objects-normal/i386/main.o
+t2
+s0
+
+N/Users/Alex/PhoneGapProject/platforms/ios/build/PhoneGapProject.build/Debug-iphonesimulator/PhoneGapProject.build/Script-304B58A110DAC018002A0835.sh
+c0000000051F06A5C000000000000051A
+t1374710364
+s1306
+
+N/Users/Alex/PhoneGapProject/platforms/ios/build/libCordova.a
+c0000000051F06A5C000000000036F280
+t1374710364
+s3601024
+
+N/var/folders/70/k4k52dx112s91fpdxn9fqvrc0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/PhoneGapProject-Prefix-atdvlgdyvplgtecgqmcfbucoviqg/PhoneGapProject-Prefix.pch.pth
+t2
+s0
+
+NPhoneGapProject/PhoneGapProject-Info.plist
+c0000000051F06A500000000000000741
+t1374710352
+s1857
+
+CCheck dependencies
+r0
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection18"Check dependencies946c6ddca1a0b741^17b96fdca1a0b741^---0#1#0#--18"Check dependencies36"A4D20520-5FD4-4A48-B4FA-A42209B0CD5E-
+
+CCompileC build/PhoneGapProject.build/Debug-iphonesimulator/PhoneGapProject.build/Objects-normal/i386/AppDelegate.o /Users/Alex/PhoneGapProject/platforms/ios/PhoneGapProject/Classes/AppDelegate.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s396403168.302820
+e396403168.431325
+r1
+xCompileC
+xbuild/PhoneGapProject.build/Debug-iphonesimulator/PhoneGapProject.build/Objects-normal/i386/AppDelegate.o
+x/Users/Alex/PhoneGapProject/platforms/ios/PhoneGapProject/Classes/AppDelegate.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+o/Users/Alex/PhoneGapProject/platforms/ios/PhoneGapProject/Classes/AppDelegate.m:80:25: warning: 'useSplashScreen' is deprecated: Deprecated in Cordova 2.5. Add/Remove the SplashScreen plugin instead of setting this property. [-Wdeprecated-declarations]
+o    self.viewController.useSplashScreen = YES;
+o                        ^
+o/Users/Alex/PhoneGapProject/platforms/ios/build/include/Cordova/CDVViewController.h:46:47: note: 'useSplashScreen' declared here
+o@property (nonatomic, readwrite, assign) BOOL useSplashScreen CDV_DEPRECATED(2.5, "Add/Remove the SplashScreen plugin instead of setting this property.");
+o                                              ^
+o1 warning generated.
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection87"Compile /Users/Alex/PhoneGapProject/platforms/ios/PhoneGapProject/Classes/AppDelegate.mcba14de0a1a0b741^556a6ee0a1a0b741^-679"/Users/Alex/PhoneGapProject/platforms/ios/PhoneGapProject/Classes/AppDelegate.m:80:25: warning: 'useSplashScreen' is deprecated: Deprecated in Cordova 2.5. Add/Remove the SplashScreen plugin instead of setting this property. [-Wdeprecated-declarations]    self.viewController.useSplashScreen = YES;                        ^/Users/Alex/PhoneGapProject/platforms/ios/build/include/Cordova/CDVViewController.h:46:47: note: 'useSplashScreen' declared here@property (nonatomic, readwrite, assign) BOOL useSplashScreen CDV_DEPRECATED(2.5, "Add/Remove the SplashScreen plugin instead of setting this property.");                                              ^1 warning generated.1(36%IDEClangDiagnosticActivityLogMessage2@128"'useSplashScreen' is deprecated: Deprecated in Cordova 2.5. Add/Remove the SplashScreen plugin instead of setting this property.-396403168#18446744073709551615#0#1(2@31"'useSplashScreen' declared here-396403168#18446744073709551615#0#-0#27"com.apple.dt.IDE.diagnostic23%DVTTextDocumentLocation3@96"file://localhost/Users/Alex/PhoneGapProject/platforms/ios/CordovaLib/Classes/CDVViewController.h0000000000000000^45#46#45#46#1826#0#14"Semantic Issue--1#27"com.apple.dt.IDE.diagnostic3@95"file://localhost/Users/Alex/PhoneGapProject/platforms/ios/PhoneGapProject/Classes/AppDelegate.m0000000000000000^79#24#79#24#2700#0#12"Deprecations--0#0#0#-19%DVTDocumentLocation4@95"file://localhost/Users/Alex/PhoneGapProject/platforms/ios/PhoneGapProject/Classes/AppDelegate.m0000000000000000^3852"CompileC build/PhoneGapProject.build/Debug-iphonesimulator/PhoneGapProject.build/Objects-normal/i386/AppDelegate.o PhoneGapProject/Classes/AppDelegate.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/Alex/PhoneGapProject/platforms/ios    setenv LANG en_US.US-ASCII    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/opt/iOSOpenDev/bin:/Library/Frameworks/Python.framework/Versions/2.7/bin:/opt/local/bin:/opt/local/sbin:/Library/Frameworks/Python.framework/Versions/2.6/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:/usr/local/CrossPack-AVR/bin:/usr/local/bin:/Users/Alex/.rvm/bin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch i386 -fmessage-length=0 -std=c99 -fobjc-arc -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wduplicate-method-match -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wno-empty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wconstant-conversion -Wint-conversion -Wenum-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk -fexceptions -fasm-blocks -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -g -fvisibility=hidden -Wno-sign-conversion -fobjc-abi-version=2 -fobjc-legacy-dispatch -mios-simulator-version-min=5.0 -iquote /Users/Alex/PhoneGapProject/platforms/ios/build/PhoneGapProject.build/Debug-iphonesimulator/PhoneGapProject.build/PhoneGapProject-generated-files.hmap -I/Users/Alex/PhoneGapProject/platforms/ios/build/PhoneGapProject.build/Debug-iphonesimulator/PhoneGapProject.build/PhoneGapProject-own-target-headers.hmap -I/Users/Alex/PhoneGapProject/platforms/ios/build/PhoneGapProject.build/Debug-iphonesimulator/PhoneGapProject.build/PhoneGapProject-all-target-headers.hmap -iquote /Users/Alex/PhoneGapProject/platforms/ios/build/PhoneGapProject.build/Debug-iphonesimulator/PhoneGapProject.build/PhoneGapProject-project-headers.hmap -I/Users/Alex/PhoneGapProject/platforms/ios/build/include -I/Users/Alex/PhoneGapProject/platforms/ios/build/usr/local/lib/include -I/Users/Alex/PhoneGapProject/platforms/ios/build/UninstalledProducts/include -I/Users/Alex/PhoneGapProject/platforms/ios/build -I/Users/Alex/PhoneGapProject/platforms/ios/build/PhoneGapProject.build/Debug-iphonesimulator/PhoneGapProject.build/DerivedSources/i386 -I/Users/Alex/PhoneGapProject/platforms/ios/build/PhoneGapProject.build/Debug-iphonesimulator/PhoneGapProject.build/DerivedSources -F/Users/Alex/PhoneGapProject/platforms/ios/build -include /var/folders/70/k4k52dx112s91fpdxn9fqvrc0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/PhoneGapProject-Prefix-atdvlgdyvplgtecgqmcfbucoviqg/PhoneGapProject-Prefix.pch -MMD -MT dependencies -MF /Users/Alex/PhoneGapProject/platforms/ios/build/PhoneGapProject.build/Debug-iphonesimulator/PhoneGapProject.build/Objects-normal/i386/AppDelegate.d --serialize-diagnostics /Users/Alex/PhoneGapProject/platforms/ios/build/PhoneGapProject.build/Debug-iphonesimulator/PhoneGapProject.build/Objects-normal/i386/AppDelegate.dia -c /Users/Alex/PhoneGapProject/platforms/ios/PhoneGapProject/Classes/AppDelegate.m -o /Users/Alex/PhoneGapProject/platforms/ios/build/PhoneGapProject.build/Debug-iphonesimulator/PhoneGapProject.build/Objects-normal/i386/AppDelegate.o36"8F70F223-C6FC-44B1-9BD7-315DEF8565B6-
+
+CCompileC build/PhoneGapProject.build/Debug-iphonesimulator/PhoneGapProject.build/Objects-normal/i386/MainViewController.o /Users/Alex/PhoneGapProject/platforms/ios/PhoneGapProject/Classes/MainViewController.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s396403168.338937
+e396403168.403526
+r1
+xCompileC
+xbuild/PhoneGapProject.build/Debug-iphonesimulator/PhoneGapProject.build/Objects-normal/i386/MainViewController.o
+x/Users/Alex/PhoneGapProject/platforms/ios/PhoneGapProject/Classes/MainViewController.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection94"Compile /Users/Alex/PhoneGapProject/platforms/ios/PhoneGapProject/Classes/MainViewController.md7df56e0a1a0b741^b05867e0a1a0b741^---0#0#0#-19%DVTDocumentLocation2@102"file://localhost/Users/Alex/PhoneGapProject/platforms/ios/PhoneGapProject/Classes/MainViewController.m0000000000000000^3894"CompileC build/PhoneGapProject.build/Debug-iphonesimulator/PhoneGapProject.build/Objects-normal/i386/MainViewController.o PhoneGapProject/Classes/MainViewController.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/Alex/PhoneGapProject/platforms/ios    setenv LANG en_US.US-ASCII    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/opt/iOSOpenDev/bin:/Library/Frameworks/Python.framework/Versions/2.7/bin:/opt/local/bin:/opt/local/sbin:/Library/Frameworks/Python.framework/Versions/2.6/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:/usr/local/CrossPack-AVR/bin:/usr/local/bin:/Users/Alex/.rvm/bin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch i386 -fmessage-length=0 -std=c99 -fobjc-arc -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wduplicate-method-match -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wno-empty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wconstant-conversion -Wint-conversion -Wenum-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk -fexceptions -fasm-blocks -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -g -fvisibility=hidden -Wno-sign-conversion -fobjc-abi-version=2 -fobjc-legacy-dispatch -mios-simulator-version-min=5.0 -iquote /Users/Alex/PhoneGapProject/platforms/ios/build/PhoneGapProject.build/Debug-iphonesimulator/PhoneGapProject.build/PhoneGapProject-generated-files.hmap -I/Users/Alex/PhoneGapProject/platforms/ios/build/PhoneGapProject.build/Debug-iphonesimulator/PhoneGapProject.build/PhoneGapProject-own-target-headers.hmap -I/Users/Alex/PhoneGapProject/platforms/ios/build/PhoneGapProject.build/Debug-iphonesimulator/PhoneGapProject.build/PhoneGapProject-all-target-headers.hmap -iquote /Users/Alex/PhoneGapProject/platforms/ios/build/PhoneGapProject.build/Debug-iphonesimulator/PhoneGapProject.build/PhoneGapProject-project-headers.hmap -I/Users/Alex/PhoneGapProject/platforms/ios/build/include -I/Users/Alex/PhoneGapProject/platforms/ios/build/usr/local/lib/include -I/Users/Alex/PhoneGapProject/platforms/ios/build/UninstalledProducts/include -I/Users/Alex/PhoneGapProject/platforms/ios/build -I/Users/Alex/PhoneGapProject/platforms/ios/build/PhoneGapProject.build/Debug-iphonesimulator/PhoneGapProject.build/DerivedSources/i386 -I/Users/Alex/PhoneGapProject/platforms/ios/build/PhoneGapProject.build/Debug-iphonesimulator/PhoneGapProject.build/DerivedSources -F/Users/Alex/PhoneGapProject/platforms/ios/build -include /var/folders/70/k4k52dx112s91fpdxn9fqvrc0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/PhoneGapProject-Prefix-atdvlgdyvplgtecgqmcfbucoviqg/PhoneGapProject-Prefix.pch -MMD -MT dependencies -MF /Users/Alex/PhoneGapProject/platforms/ios/build/PhoneGapProject.build/Debug-iphonesimulator/PhoneGapProject.build/Objects-normal/i386/MainViewController.d --serialize-diagnostics /Users/Alex/PhoneGapProject/platforms/ios/build/PhoneGapProject.build/Debug-iphonesimulator/PhoneGapProject.build/Objects-normal/i386/MainViewController.dia -c /Users/Alex/PhoneGapProject/platforms/ios/PhoneGapProject/Classes/MainViewController.m -o /Users/Alex/PhoneGapProject/platforms/ios/build/PhoneGapProject.build/Debug-iphonesimulator/PhoneGapProject.build/Objects-normal/i386/MainViewController.o36"F98F29FC-4964-4026-AA86-6C46205DF608-
+
+CCompileC build/PhoneGapProject.build/Debug-iphonesimulator/PhoneGapProject.build/Objects-normal/i386/main.o /Users/Alex/PhoneGapProject/platforms/ios/PhoneGapProject/main.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s396403168.303398
+e396403168.337698
+r1
+xCompileC
+xbuild/PhoneGapProject.build/Debug-iphonesimulator/PhoneGapProject.build/Objects-normal/i386/main.o
+x/Users/Alex/PhoneGapProject/platforms/ios/PhoneGapProject/main.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection72"Compile /Users/Alex/PhoneGapProject/platforms/ios/PhoneGapProject/main.mdec74de0a1a0b741^527e56e0a1a0b741^---0#0#0#-19%DVTDocumentLocation2@80"file://localhost/Users/Alex/PhoneGapProject/platforms/ios/PhoneGapProject/main.m0000000000000000^3794"CompileC build/PhoneGapProject.build/Debug-iphonesimulator/PhoneGapProject.build/Objects-normal/i386/main.o PhoneGapProject/main.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/Alex/PhoneGapProject/platforms/ios    setenv LANG en_US.US-ASCII    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/opt/iOSOpenDev/bin:/Library/Frameworks/Python.framework/Versions/2.7/bin:/opt/local/bin:/opt/local/sbin:/Library/Frameworks/Python.framework/Versions/2.6/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:/usr/local/CrossPack-AVR/bin:/usr/local/bin:/Users/Alex/.rvm/bin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch i386 -fmessage-length=0 -std=c99 -fobjc-arc -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wduplicate-method-match -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wno-empty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wconstant-conversion -Wint-conversion -Wenum-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk -fexceptions -fasm-blocks -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -g -fvisibility=hidden -Wno-sign-conversion -fobjc-abi-version=2 -fobjc-legacy-dispatch -mios-simulator-version-min=5.0 -iquote /Users/Alex/PhoneGapProject/platforms/ios/build/PhoneGapProject.build/Debug-iphonesimulator/PhoneGapProject.build/PhoneGapProject-generated-files.hmap -I/Users/Alex/PhoneGapProject/platforms/ios/build/PhoneGapProject.build/Debug-iphonesimulator/PhoneGapProject.build/PhoneGapProject-own-target-headers.hmap -I/Users/Alex/PhoneGapProject/platforms/ios/build/PhoneGapProject.build/Debug-iphonesimulator/PhoneGapProject.build/PhoneGapProject-all-target-headers.hmap -iquote /Users/Alex/PhoneGapProject/platforms/ios/build/PhoneGapProject.build/Debug-iphonesimulator/PhoneGapProject.build/PhoneGapProject-project-headers.hmap -I/Users/Alex/PhoneGapProject/platforms/ios/build/include -I/Users/Alex/PhoneGapProject/platforms/ios/build/usr/local/lib/include -I/Users/Alex/PhoneGapProject/platforms/ios/build/UninstalledProducts/include -I/Users/Alex/PhoneGapProject/platforms/ios/build -I/Users/Alex/PhoneGapProject/platforms/ios/build/PhoneGapProject.build/Debug-iphonesimulator/PhoneGapProject.build/DerivedSources/i386 -I/Users/Alex/PhoneGapProject/platforms/ios/build/PhoneGapProject.build/Debug-iphonesimulator/PhoneGapProject.build/DerivedSources -F/Users/Alex/PhoneGapProject/platforms/ios/build -include /var/folders/70/k4k52dx112s91fpdxn9fqvrc0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/PhoneGapProject-Prefix-atdvlgdyvplgtecgqmcfbucoviqg/PhoneGapProject-Prefix.pch -MMD -MT dependencies -MF /Users/Alex/PhoneGapProject/platforms/ios/build/PhoneGapProject.build/Debug-iphonesimulator/PhoneGapProject.build/Objects-normal/i386/main.d --serialize-diagnostics /Users/Alex/PhoneGapProject/platforms/ios/build/PhoneGapProject.build/Debug-iphonesimulator/PhoneGapProject.build/Objects-normal/i386/main.dia -c /Users/Alex/PhoneGapProject/platforms/ios/PhoneGapProject/main.m -o /Users/Alex/PhoneGapProject/platforms/ios/build/PhoneGapProject.build/Debug-iphonesimulator/PhoneGapProject.build/Objects-normal/i386/main.o36"BF0A5B1C-B2F4-4300-AD9A-975F8E3DA6D5-
+
+CCompileXIB /Users/Alex/PhoneGapProject/platforms/ios/PhoneGapProject/Classes/MainViewController.xib
+s396403164.730540
+e396403167.943655
+r1
+xCompileXIB
+x/Users/Alex/PhoneGapProject/platforms/ios/PhoneGapProject/Classes/MainViewController.xib
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection98"Compiling /Users/Alex/PhoneGapProject/platforms/ios/PhoneGapProject/Classes/MainViewController.xib7a1bbbdca1a0b741^8ba4f1dfa1a0b741^---0#0#0#-19%DVTDocumentLocation2@104"file://localhost/Users/Alex/PhoneGapProject/platforms/ios/PhoneGapProject/Classes/MainViewController.xib0000000000000000^1178"CompileXIB PhoneGapProject/Classes/MainViewController.xib    cd /Users/Alex/PhoneGapProject/platforms/ios    setenv IBC_MINIMUM_COMPATIBILITY_VERSION 5.0    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/opt/iOSOpenDev/bin:/Library/Frameworks/Python.framework/Versions/2.7/bin:/opt/local/bin:/opt/local/sbin:/Library/Frameworks/Python.framework/Versions/2.6/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:/usr/local/CrossPack-AVR/bin:/usr/local/bin:/Users/Alex/.rvm/bin"    setenv XCODE_DEVELOPER_USR_PATH /Applications/Xcode.app/Contents/Developer/usr/bin/..    /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/ibtool --errors --warnings --notices --output-format human-readable-text --compile /Users/Alex/PhoneGapProject/platforms/ios/build/PhoneGapProject.app/MainViewController.nib /Users/Alex/PhoneGapProject/platforms/ios/PhoneGapProject/Classes/MainViewController.xib --sdk /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk36"DA1B2829-E23E-4682-B424-C5D0C900C4D6-
+
+CCopyStringsFile /Users/Alex/PhoneGapProject/platforms/ios/build/PhoneGapProject.app/de.lproj/Localizable.strings PhoneGapProject/Resources/de.lproj/Localizable.strings
+s396403164.738949
+e396403164.878065
+r1
+xCopyStringsFile
+x/Users/Alex/PhoneGapProject/platforms/ios/build/PhoneGapProject.app/de.lproj/Localizable.strings
+xPhoneGapProject/Resources/de.lproj/Localizable.strings
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection59"Copy PhoneGapProject/Resources/de.lproj/Localizable.strings6744bddca1a0b741^0fd5e0dca1a0b741^---0#0#0#-19%DVTDocumentLocation2@112"file://localhost/Users/Alex/PhoneGapProject/platforms/ios/PhoneGapProject/Resources/de.lproj/Localizable.strings0000000000000000^847"CopyStringsFile build/PhoneGapProject.app/de.lproj/Localizable.strings PhoneGapProject/Resources/de.lproj/Localizable.strings    cd /Users/Alex/PhoneGapProject/platforms/ios    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/opt/iOSOpenDev/bin:/Library/Frameworks/Python.framework/Versions/2.7/bin:/opt/local/bin:/opt/local/sbin:/Library/Frameworks/Python.framework/Versions/2.6/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:/usr/local/CrossPack-AVR/bin:/usr/local/bin:/Users/Alex/.rvm/bin"    builtin-copyStrings --validate --inputencoding utf-8 --outputencoding binary --outdir /Users/Alex/PhoneGapProject/platforms/ios/build/PhoneGapProject.app/de.lproj -- PhoneGapProject/Resources/de.lproj/Localizable.strings36"A2C1A4B8-42F7-4345-91ED-25E78E5ACF77-
+
+CCopyStringsFile /Users/Alex/PhoneGapProject/platforms/ios/build/PhoneGapProject.app/en.lproj/Localizable.strings PhoneGapProject/Resources/en.lproj/Localizable.strings
+s396403164.700651
+e396403164.729289
+r1
+xCopyStringsFile
+x/Users/Alex/PhoneGapProject/platforms/ios/build/PhoneGapProject.app/en.lproj/Localizable.strings
+xPhoneGapProject/Resources/en.lproj/Localizable.strings
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection59"Copy PhoneGapProject/Resources/en.lproj/Localizable.strings6974b3dca1a0b741^1bbdbadca1a0b741^---0#0#0#-19%DVTDocumentLocation2@112"file://localhost/Users/Alex/PhoneGapProject/platforms/ios/PhoneGapProject/Resources/en.lproj/Localizable.strings0000000000000000^847"CopyStringsFile build/PhoneGapProject.app/en.lproj/Localizable.strings PhoneGapProject/Resources/en.lproj/Localizable.strings    cd /Users/Alex/PhoneGapProject/platforms/ios    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/opt/iOSOpenDev/bin:/Library/Frameworks/Python.framework/Versions/2.7/bin:/opt/local/bin:/opt/local/sbin:/Library/Frameworks/Python.framework/Versions/2.6/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:/usr/local/CrossPack-AVR/bin:/usr/local/bin:/Users/Alex/.rvm/bin"    builtin-copyStrings --validate --inputencoding utf-8 --outputencoding binary --outdir /Users/Alex/PhoneGapProject/platforms/ios/build/PhoneGapProject.app/en.lproj -- PhoneGapProject/Resources/en.lproj/Localizable.strings36"09430E97-7F49-41C0-A5FE-4E7CECDB0EDA-
+
+CCopyStringsFile /Users/Alex/PhoneGapProject/platforms/ios/build/PhoneGapProject.app/es.lproj/Localizable.strings PhoneGapProject/Resources/es.lproj/Localizable.strings
+s396403164.707551
+e396403164.737718
+r1
+xCopyStringsFile
+x/Users/Alex/PhoneGapProject/platforms/ios/build/PhoneGapProject.app/es.lproj/Localizable.strings
+xPhoneGapProject/Resources/es.lproj/Localizable.strings
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection59"Copy PhoneGapProject/Resources/es.lproj/Localizable.strings1d3ab5dca1a0b741^c1fdbcdca1a0b741^---0#0#0#-19%DVTDocumentLocation2@112"file://localhost/Users/Alex/PhoneGapProject/platforms/ios/PhoneGapProject/Resources/es.lproj/Localizable.strings0000000000000000^847"CopyStringsFile build/PhoneGapProject.app/es.lproj/Localizable.strings PhoneGapProject/Resources/es.lproj/Localizable.strings    cd /Users/Alex/PhoneGapProject/platforms/ios    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/opt/iOSOpenDev/bin:/Library/Frameworks/Python.framework/Versions/2.7/bin:/opt/local/bin:/opt/local/sbin:/Library/Frameworks/Python.framework/Versions/2.6/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:/usr/local/CrossPack-AVR/bin:/usr/local/bin:/Users/Alex/.rvm/bin"    builtin-copyStrings --validate --inputencoding utf-8 --outputencoding binary --outdir /Users/Alex/PhoneGapProject/platforms/ios/build/PhoneGapProject.app/es.lproj -- PhoneGapProject/Resources/es.lproj/Localizable.strings36"074849BD-EE0D-472C-8B7F-D5A965D57D70-
+
+CCopyStringsFile /Users/Alex/PhoneGapProject/platforms/ios/build/PhoneGapProject.app/se.lproj/Localizable.strings PhoneGapProject/Resources/se.lproj/Localizable.strings
+s396403164.879293
+e396403164.886037
+r1
+xCopyStringsFile
+x/Users/Alex/PhoneGapProject/platforms/ios/build/PhoneGapProject.app/se.lproj/Localizable.strings
+xPhoneGapProject/Resources/se.lproj/Localizable.strings
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection59"Copy PhoneGapProject/Resources/se.lproj/Localizable.strings842ee1dca1a0b741^7bdde2dca1a0b741^---0#0#0#-19%DVTDocumentLocation2@112"file://localhost/Users/Alex/PhoneGapProject/platforms/ios/PhoneGapProject/Resources/se.lproj/Localizable.strings0000000000000000^847"CopyStringsFile build/PhoneGapProject.app/se.lproj/Localizable.strings PhoneGapProject/Resources/se.lproj/Localizable.strings    cd /Users/Alex/PhoneGapProject/platforms/ios    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/opt/iOSOpenDev/bin:/Library/Frameworks/Python.framework/Versions/2.7/bin:/opt/local/bin:/opt/local/sbin:/Library/Frameworks/Python.framework/Versions/2.6/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:/usr/local/CrossPack-AVR/bin:/usr/local/bin:/Users/Alex/.rvm/bin"    builtin-copyStrings --validate --inputencoding utf-8 --outputencoding binary --outdir /Users/Alex/PhoneGapProject/platforms/ios/build/PhoneGapProject.app/se.lproj -- PhoneGapProject/Resources/se.lproj/Localizable.strings36"663CBB11-926B-485C-82DA-0EEE5ABEC17A-
+
+CCpResource PhoneGapProject/Resources/Capture.bundle build/PhoneGapProject.app/Capture.bundle
+s396403164.697244
+e396403164.706353
+r1
+xCpResource
+xPhoneGapProject/Resources/Capture.bundle
+xbuild/PhoneGapProject.app/Capture.bundle
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection45"Copy build/PhoneGapProject.app/Capture.bundle2e92b2dca1a0b741^a8ffb4dca1a0b741^---0#0#0#-19%DVTDocumentLocation2@98"file://localhost/Users/Alex/PhoneGapProject/platforms/ios/build/PhoneGapProject.app/Capture.bundle000000000080d041^852"CpResource PhoneGapProject/Resources/Capture.bundle build/PhoneGapProject.app/Capture.bundle    cd /Users/Alex/PhoneGapProject/platforms/ios    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/opt/iOSOpenDev/bin:/Library/Frameworks/Python.framework/Versions/2.7/bin:/opt/local/bin:/opt/local/sbin:/Library/Frameworks/Python.framework/Versions/2.6/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:/usr/local/CrossPack-AVR/bin:/usr/local/bin:/Users/Alex/.rvm/bin"    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks /Users/Alex/PhoneGapProject/platforms/ios/PhoneGapProject/Resources/Capture.bundle /Users/Alex/PhoneGapProject/platforms/ios/build/PhoneGapProject.app36"97717746-9457-428C-A827-A4D47819848D-
+
+CCpResource PhoneGapProject/Resources/icons/icon-72.png build/PhoneGapProject.app/icon-72.png
+s396403164.690612
+e396403164.695683
+r1
+xCpResource
+xPhoneGapProject/Resources/icons/icon-72.png
+xbuild/PhoneGapProject.app/icon-72.png
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection42"Copy build/PhoneGapProject.app/icon-72.pngbddfb0dca1a0b741^d23ab2dca1a0b741^---0#0#0#-19%DVTDocumentLocation2@95"file://localhost/Users/Alex/PhoneGapProject/platforms/ios/build/PhoneGapProject.app/icon-72.png000000000080d041^855"CpResource PhoneGapProject/Resources/icons/icon-72.png build/PhoneGapProject.app/icon-72.png    cd /Users/Alex/PhoneGapProject/platforms/ios    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/opt/iOSOpenDev/bin:/Library/Frameworks/Python.framework/Versions/2.7/bin:/opt/local/bin:/opt/local/sbin:/Library/Frameworks/Python.framework/Versions/2.6/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:/usr/local/CrossPack-AVR/bin:/usr/local/bin:/Users/Alex/.rvm/bin"    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks /Users/Alex/PhoneGapProject/platforms/ios/PhoneGapProject/Resources/icons/icon-72.png /Users/Alex/PhoneGapProject/platforms/ios/build/PhoneGapProject.app36"F38A73C4-FD0D-4257-8BCD-EC4E18E4B5F7-
+
+CCpResource PhoneGapProject/Resources/icons/icon-72@2x.png build/PhoneGapProject.app/icon-72@2x.png
+s396403164.940437
+e396403164.943056
+r1
+xCpResource
+xPhoneGapProject/Resources/icons/icon-72@2x.png
+xbuild/PhoneGapProject.app/icon-72@2x.png
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection45"Copy build/PhoneGapProject.app/icon-72@2x.png52d5f0dca1a0b741^8673f1dca1a0b741^---0#0#0#-19%DVTDocumentLocation2@98"file://localhost/Users/Alex/PhoneGapProject/platforms/ios/build/PhoneGapProject.app/icon-72@2x.png000000000080d041^870"CpResource "PhoneGapProject/Resources/icons/icon-72@2x.png" "build/PhoneGapProject.app/icon-72@2x.png"    cd /Users/Alex/PhoneGapProject/platforms/ios    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/opt/iOSOpenDev/bin:/Library/Frameworks/Python.framework/Versions/2.7/bin:/opt/local/bin:/opt/local/sbin:/Library/Frameworks/Python.framework/Versions/2.6/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:/usr/local/CrossPack-AVR/bin:/usr/local/bin:/Users/Alex/.rvm/bin"    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks "/Users/Alex/PhoneGapProject/platforms/ios/PhoneGapProject/Resources/icons/icon-72@2x.png" /Users/Alex/PhoneGapProject/platforms/ios/build/PhoneGapProject.app36"C9D64B84-631A-4894-8400-2D368B053809-
+
+CCpResource PhoneGapProject/Resources/icons/icon.png build/PhoneGapProject.app/icon.png
+s396403164.694101
+e396403164.696235
+r1
+xCpResource
+xPhoneGapProject/Resources/icons/icon.png
+xbuild/PhoneGapProject.app/icon.png
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection39"Copy build/PhoneGapProject.app/icon.png44c4b1dca1a0b741^1c41b2dca1a0b741^---0#0#0#-19%DVTDocumentLocation2@92"file://localhost/Users/Alex/PhoneGapProject/platforms/ios/build/PhoneGapProject.app/icon.png000000000080d041^846"CpResource PhoneGapProject/Resources/icons/icon.png build/PhoneGapProject.app/icon.png    cd /Users/Alex/PhoneGapProject/platforms/ios    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/opt/iOSOpenDev/bin:/Library/Frameworks/Python.framework/Versions/2.7/bin:/opt/local/bin:/opt/local/sbin:/Library/Frameworks/Python.framework/Versions/2.6/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:/usr/local/CrossPack-AVR/bin:/usr/local/bin:/Users/Alex/.rvm/bin"    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks /Users/Alex/PhoneGapProject/platforms/ios/PhoneGapProject/Resources/icons/icon.png /Users/Alex/PhoneGapProject/platforms/ios/build/PhoneGapProject.app36"9FCD5475-F26E-4EB7-958B-E3F7AE32EA03-
+
+CCpResource PhoneGapProject/Resources/icons/icon@2x.png build/PhoneGapProject.app/icon@2x.png
+s396403164.696820
+e396403164.699375
+r1
+xCpResource
+xPhoneGapProject/Resources/icons/icon@2x.png
+xbuild/PhoneGapProject.app/icon@2x.png
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection42"Copy build/PhoneGapProject.app/icon@2x.png5376b2dca1a0b741^3d0ab3dca1a0b741^---0#0#0#-19%DVTDocumentLocation2@95"file://localhost/Users/Alex/PhoneGapProject/platforms/ios/build/PhoneGapProject.app/icon@2x.png000000000080d041^861"CpResource "PhoneGapProject/Resources/icons/icon@2x.png" "build/PhoneGapProject.app/icon@2x.png"    cd /Users/Alex/PhoneGapProject/platforms/ios    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/opt/iOSOpenDev/bin:/Library/Frameworks/Python.framework/Versions/2.7/bin:/opt/local/bin:/opt/local/sbin:/Library/Frameworks/Python.framework/Versions/2.6/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:/usr/local/CrossPack-AVR/bin:/usr/local/bin:/Users/Alex/.rvm/bin"    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks "/Users/Alex/PhoneGapProject/platforms/ios/PhoneGapProject/Resources/icons/icon@2x.png" /Users/Alex/PhoneGapProject/platforms/ios/build/PhoneGapProject.app36"85C7E6D2-CC13-4F8F-8043-19118398F619-
+
+CCpResource PhoneGapProject/Resources/splash/Default-568h@2x~iphone.png build/PhoneGapProject.app/Default-568h@2x~iphone.png
+s396403164.935562
+e396403164.939203
+r1
+xCpResource
+xPhoneGapProject/Resources/splash/Default-568h@2x~iphone.png
+xbuild/PhoneGapProject.app/Default-568h@2x~iphone.png
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection57"Copy build/PhoneGapProject.app/Default-568h@2x~iphone.png9ad1efdca1a0b741^0377f0dca1a0b741^---0#0#0#-19%DVTDocumentLocation2@110"file://localhost/Users/Alex/PhoneGapProject/platforms/ios/build/PhoneGapProject.app/Default-568h@2x~iphone.png000000000080d041^908"CpResource "PhoneGapProject/Resources/splash/Default-568h@2x~iphone.png" "build/PhoneGapProject.app/Default-568h@2x~iphone.png"    cd /Users/Alex/PhoneGapProject/platforms/ios    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/opt/iOSOpenDev/bin:/Library/Frameworks/Python.framework/Versions/2.7/bin:/opt/local/bin:/opt/local/sbin:/Library/Frameworks/Python.framework/Versions/2.6/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:/usr/local/CrossPack-AVR/bin:/usr/local/bin:/Users/Alex/.rvm/bin"    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks "/Users/Alex/PhoneGapProject/platforms/ios/PhoneGapProject/Resources/splash/Default-568h@2x~iphone.png" /Users/Alex/PhoneGapProject/platforms/ios/build/PhoneGapProject.app36"92617634-C436-4119-8B31-BDB21931A1B9-
+
+CCpResource PhoneGapProject/Resources/splash/Default-Landscape@2x~ipad.png build/PhoneGapProject.app/Default-Landscape@2x~ipad.png
+s396403164.887184
+e396403164.889927
+r1
+xCpResource
+xPhoneGapProject/Resources/splash/Default-Landscape@2x~ipad.png
+xbuild/PhoneGapProject.app/Default-Landscape@2x~ipad.png
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection60"Copy build/PhoneGapProject.app/Default-Landscape@2x~ipad.pnga933e3dca1a0b741^90dbe3dca1a0b741^---0#0#0#-19%DVTDocumentLocation2@113"file://localhost/Users/Alex/PhoneGapProject/platforms/ios/build/PhoneGapProject.app/Default-Landscape@2x~ipad.png000000000080d041^917"CpResource "PhoneGapProject/Resources/splash/Default-Landscape@2x~ipad.png" "build/PhoneGapProject.app/Default-Landscape@2x~ipad.png"    cd /Users/Alex/PhoneGapProject/platforms/ios    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/opt/iOSOpenDev/bin:/Library/Frameworks/Python.framework/Versions/2.7/bin:/opt/local/bin:/opt/local/sbin:/Library/Frameworks/Python.framework/Versions/2.6/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:/usr/local/CrossPack-AVR/bin:/usr/local/bin:/Users/Alex/.rvm/bin"    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks "/Users/Alex/PhoneGapProject/platforms/ios/PhoneGapProject/Resources/splash/Default-Landscape@2x~ipad.png" /Users/Alex/PhoneGapProject/platforms/ios/build/PhoneGapProject.app36"6F3ED05C-6586-4F6A-84E1-7F39AE4148DB-
+
+CCpResource PhoneGapProject/Resources/splash/Default-Landscape~ipad.png build/PhoneGapProject.app/Default-Landscape~ipad.png
+s396403164.891148
+e396403164.893824
+r1
+xCpResource
+xPhoneGapProject/Resources/splash/Default-Landscape~ipad.png
+xbuild/PhoneGapProject.app/Default-Landscape~ipad.png
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection57"Copy build/PhoneGapProject.app/Default-Landscape~ipad.pngfc36e4dca1a0b741^94d9e4dca1a0b741^---0#0#0#-19%DVTDocumentLocation2@110"file://localhost/Users/Alex/PhoneGapProject/platforms/ios/build/PhoneGapProject.app/Default-Landscape~ipad.png000000000080d041^908"CpResource "PhoneGapProject/Resources/splash/Default-Landscape~ipad.png" "build/PhoneGapProject.app/Default-Landscape~ipad.png"    cd /Users/Alex/PhoneGapProject/platforms/ios    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/opt/iOSOpenDev/bin:/Library/Frameworks/Python.framework/Versions/2.7/bin:/opt/local/bin:/opt/local/sbin:/Library/Frameworks/Python.framework/Versions/2.6/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:/usr/local/CrossPack-AVR/bin:/usr/local/bin:/Users/Alex/.rvm/bin"    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks "/Users/Alex/PhoneGapProject/platforms/ios/PhoneGapProject/Resources/splash/Default-Landscape~ipad.png" /Users/Alex/PhoneGapProject/platforms/ios/build/PhoneGapProject.app36"A72B93CB-C65E-46A3-B80D-1C0A11AB2C1D-
+
+CCpResource PhoneGapProject/Resources/splash/Default-Portrait@2x~ipad.png build/PhoneGapProject.app/Default-Portrait@2x~ipad.png
+s396403164.895053
+e396403164.897848
+r1
+xCpResource
+xPhoneGapProject/Resources/splash/Default-Portrait@2x~ipad.png
+xbuild/PhoneGapProject.app/Default-Portrait@2x~ipad.png
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection59"Copy build/PhoneGapProject.app/Default-Portrait@2x~ipad.png3b37e5dca1a0b741^a4e0e5dca1a0b741^---0#0#0#-19%DVTDocumentLocation2@112"file://localhost/Users/Alex/PhoneGapProject/platforms/ios/build/PhoneGapProject.app/Default-Portrait@2x~ipad.png000000000080d041^914"CpResource "PhoneGapProject/Resources/splash/Default-Portrait@2x~ipad.png" "build/PhoneGapProject.app/Default-Portrait@2x~ipad.png"    cd /Users/Alex/PhoneGapProject/platforms/ios    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/opt/iOSOpenDev/bin:/Library/Frameworks/Python.framework/Versions/2.7/bin:/opt/local/bin:/opt/local/sbin:/Library/Frameworks/Python.framework/Versions/2.6/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:/usr/local/CrossPack-AVR/bin:/usr/local/bin:/Users/Alex/.rvm/bin"    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks "/Users/Alex/PhoneGapProject/platforms/ios/PhoneGapProject/Resources/splash/Default-Portrait@2x~ipad.png" /Users/Alex/PhoneGapProject/platforms/ios/build/PhoneGapProject.app36"19914326-7A28-4265-A20D-01B25B70252D-
+
+CCpResource PhoneGapProject/Resources/splash/Default-Portrait~ipad.png build/PhoneGapProject.app/Default-Portrait~ipad.png
+s396403164.903919
+e396403164.925967
+r1
+xCpResource
+xPhoneGapProject/Resources/splash/Default-Portrait~ipad.png
+xbuild/PhoneGapProject.app/Default-Portrait~ipad.png
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection56"Copy build/PhoneGapProject.app/Default-Portrait~ipad.pnged80e7dca1a0b741^fd12eddca1a0b741^---0#0#0#-19%DVTDocumentLocation2@109"file://localhost/Users/Alex/PhoneGapProject/platforms/ios/build/PhoneGapProject.app/Default-Portrait~ipad.png000000000080d041^905"CpResource "PhoneGapProject/Resources/splash/Default-Portrait~ipad.png" "build/PhoneGapProject.app/Default-Portrait~ipad.png"    cd /Users/Alex/PhoneGapProject/platforms/ios    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/opt/iOSOpenDev/bin:/Library/Frameworks/Python.framework/Versions/2.7/bin:/opt/local/bin:/opt/local/sbin:/Library/Frameworks/Python.framework/Versions/2.6/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:/usr/local/CrossPack-AVR/bin:/usr/local/bin:/Users/Alex/.rvm/bin"    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks "/Users/Alex/PhoneGapProject/platforms/ios/PhoneGapProject/Resources/splash/Default-Portrait~ipad.png" /Users/Alex/PhoneGapProject/platforms/ios/build/PhoneGapProject.app36"093AD939-E6E5-47CB-AAA2-20106488E05D-
+
+CCpResource PhoneGapProject/Resources/splash/Default@2x~iphone.png build/PhoneGapProject.app/Default@2x~iphone.png
+s396403164.927212
+e396403164.929863
+r1
+xCpResource
+xPhoneGapProject/Resources/splash/Default@2x~iphone.png
+xbuild/PhoneGapProject.app/Default@2x~iphone.png
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection52"Copy build/PhoneGapProject.app/Default@2x~iphone.png8a72eddca1a0b741^2b13eedca1a0b741^---0#0#0#-19%DVTDocumentLocation2@105"file://localhost/Users/Alex/PhoneGapProject/platforms/ios/build/PhoneGapProject.app/Default@2x~iphone.png000000000080d041^893"CpResource "PhoneGapProject/Resources/splash/Default@2x~iphone.png" "build/PhoneGapProject.app/Default@2x~iphone.png"    cd /Users/Alex/PhoneGapProject/platforms/ios    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/opt/iOSOpenDev/bin:/Library/Frameworks/Python.framework/Versions/2.7/bin:/opt/local/bin:/opt/local/sbin:/Library/Frameworks/Python.framework/Versions/2.6/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:/usr/local/CrossPack-AVR/bin:/usr/local/bin:/Users/Alex/.rvm/bin"    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks "/Users/Alex/PhoneGapProject/platforms/ios/PhoneGapProject/Resources/splash/Default@2x~iphone.png" /Users/Alex/PhoneGapProject/platforms/ios/build/PhoneGapProject.app36"3E77821E-6388-42DC-9F04-205052EB9C9E-
+
+CCpResource PhoneGapProject/Resources/splash/Default~iphone.png build/PhoneGapProject.app/Default~iphone.png
+s396403164.931094
+e396403164.934342
+r1
+xCpResource
+xPhoneGapProject/Resources/splash/Default~iphone.png
+xbuild/PhoneGapProject.app/Default~iphone.png
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection49"Copy build/PhoneGapProject.app/Default~iphone.png4771eedca1a0b741^6138efdca1a0b741^---0#0#0#-19%DVTDocumentLocation2@102"file://localhost/Users/Alex/PhoneGapProject/platforms/ios/build/PhoneGapProject.app/Default~iphone.png000000000080d041^884"CpResource "PhoneGapProject/Resources/splash/Default~iphone.png" "build/PhoneGapProject.app/Default~iphone.png"    cd /Users/Alex/PhoneGapProject/platforms/ios    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/opt/iOSOpenDev/bin:/Library/Frameworks/Python.framework/Versions/2.7/bin:/opt/local/bin:/opt/local/sbin:/Library/Frameworks/Python.framework/Versions/2.6/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:/usr/local/CrossPack-AVR/bin:/usr/local/bin:/Users/Alex/.rvm/bin"    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks "/Users/Alex/PhoneGapProject/platforms/ios/PhoneGapProject/Resources/splash/Default~iphone.png" /Users/Alex/PhoneGapProject/platforms/ios/build/PhoneGapProject.app36"84529733-3E31-4688-8771-25FF70C563A9-
+
+CCpResource PhoneGapProject/config.xml build/PhoneGapProject.app/config.xml
+s396403164.690007
+e396403164.692846
+r1
+xCpResource
+xPhoneGapProject/config.xml
+xbuild/PhoneGapProject.app/config.xml
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection41"Copy build/PhoneGapProject.app/config.xml83beb0dca1a0b741^295eb1dca1a0b741^---0#0#0#-19%DVTDocumentLocation2@94"file://localhost/Users/Alex/PhoneGapProject/platforms/ios/build/PhoneGapProject.app/config.xml000000000080d041^820"CpResource PhoneGapProject/config.xml build/PhoneGapProject.app/config.xml    cd /Users/Alex/PhoneGapProject/platforms/ios    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/opt/iOSOpenDev/bin:/Library/Frameworks/Python.framework/Versions/2.7/bin:/opt/local/bin:/opt/local/sbin:/Library/Frameworks/Python.framework/Versions/2.6/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:/usr/local/CrossPack-AVR/bin:/usr/local/bin:/Users/Alex/.rvm/bin"    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks /Users/Alex/PhoneGapProject/platforms/ios/PhoneGapProject/config.xml /Users/Alex/PhoneGapProject/platforms/ios/build/PhoneGapProject.app36"CD0851D9-C113-4842-B3A5-69E22BBEB4B6-
+
+CGenerateDSYMFile /Users/Alex/PhoneGapProject/platforms/ios/build/PhoneGapProject.app.dSYM /Users/Alex/PhoneGapProject/platforms/ios/build/PhoneGapProject.app/PhoneGapProject
+s396403168.958282
+e396403169.318064
+r1
+xGenerateDSYMFile
+x/Users/Alex/PhoneGapProject/platforms/ios/build/PhoneGapProject.app.dSYM
+x/Users/Alex/PhoneGapProject/platforms/ios/build/PhoneGapProject.app/PhoneGapProject
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection81"Generate /Users/Alex/PhoneGapProject/platforms/ios/build/PhoneGapProject.app.dSYM5567f5e0a1a0b741^1e6c51e1a1a0b741^---0#0#0#-19%DVTDocumentLocation2@88"file://localhost/Users/Alex/PhoneGapProject/platforms/ios/build/PhoneGapProject.app.dSYM000000000080d041^846"GenerateDSYMFile build/PhoneGapProject.app.dSYM build/PhoneGapProject.app/PhoneGapProject    cd /Users/Alex/PhoneGapProject/platforms/ios    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/opt/iOSOpenDev/bin:/Library/Frameworks/Python.framework/Versions/2.7/bin:/opt/local/bin:/opt/local/sbin:/Library/Frameworks/Python.framework/Versions/2.6/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:/usr/local/CrossPack-AVR/bin:/usr/local/bin:/Users/Alex/.rvm/bin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/dsymutil /Users/Alex/PhoneGapProject/platforms/ios/build/PhoneGapProject.app/PhoneGapProject -o /Users/Alex/PhoneGapProject/platforms/ios/build/PhoneGapProject.app.dSYM36"9CEA7ACA-A13B-487E-BDFE-47A241082135-
+
+CLd /Users/Alex/PhoneGapProject/platforms/ios/build/PhoneGapProject.app/PhoneGapProject normal i386
+s396403168.438075
+e396403168.951549
+r1
+xLd
+x/Users/Alex/PhoneGapProject/platforms/ios/build/PhoneGapProject.app/PhoneGapProject
+xnormal
+xi386
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection88"Link /Users/Alex/PhoneGapProject/platforms/ios/build/PhoneGapProject.app/PhoneGapProjectc93e70e0a1a0b741^0ea4f3e0a1a0b741^---0#0#0#--2013"Ld build/PhoneGapProject.app/PhoneGapProject normal i386    cd /Users/Alex/PhoneGapProject/platforms/ios    setenv IPHONEOS_DEPLOYMENT_TARGET 5.0    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/opt/iOSOpenDev/bin:/Library/Frameworks/Python.framework/Versions/2.7/bin:/opt/local/bin:/opt/local/sbin:/Library/Frameworks/Python.framework/Versions/2.6/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:/usr/local/CrossPack-AVR/bin:/usr/local/bin:/Users/Alex/.rvm/bin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -arch i386 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk -L/Users/Alex/PhoneGapProject/platforms/ios/build -F/Users/Alex/PhoneGapProject/platforms/ios/build -filelist /Users/Alex/PhoneGapProject/platforms/ios/build/PhoneGapProject.build/Debug-iphonesimulator/PhoneGapProject.build/Objects-normal/i386/PhoneGapProject.LinkFileList -Xlinker -objc_abi_version -Xlinker 2 -weak_framework CoreFoundation -weak_framework UIKit -weak_framework AVFoundation -weak_framework CoreMedia -weak-lSystem -force_load /Users/Alex/PhoneGapProject/platforms/ios/build/libCordova.a -ObjC -fobjc-arc -fobjc-link-runtime -Xlinker -no_implicit_dylibs -mios-simulator-version-min=5.0 -framework CoreLocation -framework ImageIO -framework OpenAL -framework AssetsLibrary /Users/Alex/PhoneGapProject/platforms/ios/build/libCordova.a -framework Foundation -weak_framework UIKit -framework CoreGraphics -framework AddressBook -framework AddressBookUI -framework AudioToolbox -weak_framework AVFoundation -framework CFNetwork -framework MediaPlayer -framework QuartzCore -framework SystemConfiguration -framework MobileCoreServices -weak_framework CoreMedia -framework CoreLocation -o /Users/Alex/PhoneGapProject/platforms/ios/build/PhoneGapProject.app/PhoneGapProject36"9764B0CE-2DB2-4FCF-A288-A12A6134FD84-
+
+CPhaseScriptExecution "Copy www directory" /Users/Alex/PhoneGapProject/platforms/ios/build/PhoneGapProject.build/Debug-iphonesimulator/PhoneGapProject.build/Script-304B58A110DAC018002A0835.sh
+s396403164.450516
+e396403164.673445
+r1
+xPhaseScriptExecution
+xCopy www directory
+x/Users/Alex/PhoneGapProject/platforms/ios/build/PhoneGapProject.build/Debug-iphonesimulator/PhoneGapProject.build/Script-304B58A110DAC018002A0835.sh
+o
+oreal	0m0.196s
+ouser	0m0.076s
+osys	0m0.085s
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection44"Run custom shell script 'Copy www directory'fcfc73dca1a0b741^af3eaedca1a0b741^-42"real	0m0.196suser	0m0.076ssys	0m0.085s3(21%IDEActivityLogMessage2@14"real	0m0.196s-396403164#1#14#-0#-----2@14"user	0m0.076s-396403164#15#14#-0#-----2@13"sys	0m0.085s-396403164#29#13#-0#-----0#0#0#--21148"PhaseScriptExecution "Copy www directory" build/PhoneGapProject.build/Debug-iphonesimulator/PhoneGapProject.build/Script-304B58A110DAC018002A0835.sh    cd /Users/Alex/PhoneGapProject/platforms/ios    setenv ACTION build    setenv ALTERNATE_GROUP staff    setenv ALTERNATE_MODE u+w,go-w,a+rX    setenv ALTERNATE_OWNER Alex    setenv ALWAYS_SEARCH_USER_PATHS NO    setenv APPLE_INTERNAL_DEVELOPER_DIR /AppleInternal/Developer    setenv APPLE_INTERNAL_DIR /AppleInternal    setenv APPLE_INTERNAL_DOCUMENTATION_DIR /AppleInternal/Documentation    setenv APPLE_INTERNAL_LIBRARY_DIR /AppleInternal/Library    setenv APPLE_INTERNAL_TOOLS /AppleInternal/Developer/Tools    setenv APPLY_RULES_IN_COPY_FILES NO    setenv ARCHS i386    setenv ARCHS_STANDARD_32_BIT i386    setenv ARCHS_UNIVERSAL_IPHONE_OS i386    setenv AVAILABLE_PLATFORMS "iphonesimulator macosx iphoneos"    setenv BUILD_COMPONENTS "headers build"    setenv BUILD_DIR /Users/Alex/PhoneGapProject/platforms/ios/build    setenv BUILD_ROOT /Users/Alex/PhoneGapProject/platforms/ios/build    setenv BUILD_STYLE     setenv BUILD_VARIANTS normal    setenv BUILT_PRODUCTS_DIR /Users/Alex/PhoneGapProject/platforms/ios/build    setenv CACHE_ROOT /var/folders/70/k4k52dx112s91fpdxn9fqvrc0000gn/C/com.apple.Xcode.501    setenv CCHROOT /var/folders/70/k4k52dx112s91fpdxn9fqvrc0000gn/C/com.apple.Xcode.501    setenv CHMOD /bin/chmod    setenv CHOWN /usr/sbin/chown    setenv CLANG_ENABLE_OBJC_ARC YES    setenv CLANG_WARN_CONSTANT_CONVERSION YES    setenv CLANG_WARN_ENUM_CONVERSION YES    setenv CLANG_WARN_INT_CONVERSION YES    setenv CLANG_WARN__DUPLICATE_METHOD_MATCH YES    setenv CLASS_FILE_DIR /Users/Alex/PhoneGapProject/platforms/ios/build/PhoneGapProject.build/Debug-iphonesimulator/PhoneGapProject.build/JavaClasses    setenv CLEAN_PRECOMPS YES    setenv CLONE_HEADERS NO    setenv CODESIGNING_FOLDER_PATH /Users/Alex/PhoneGapProject/platforms/ios/build/PhoneGapProject.app    setenv COMMAND_MODE legacy    setenv COMPOSITE_SDK_DIRS /var/folders/70/k4k52dx112s91fpdxn9fqvrc0000gn/C/com.apple.Xcode.501/CompositeSDKs    setenv COMPRESS_PNG_FILES YES    setenv CONFIGURATION Debug    setenv CONFIGURATION_BUILD_DIR /Users/Alex/PhoneGapProject/platforms/ios/build    setenv CONFIGURATION_TEMP_DIR /Users/Alex/PhoneGapProject/platforms/ios/build/PhoneGapProject.build/Debug-iphonesimulator    setenv CONTENTS_FOLDER_PATH PhoneGapProject.app    setenv COPYING_PRESERVES_HFS_DATA NO    setenv COPY_PHASE_STRIP NO    setenv COPY_RESOURCES_FROM_STATIC_FRAMEWORKS YES    setenv CP /bin/cp    setenv CURRENT_ARCH i386    setenv CURRENT_VARIANT normal    setenv DEAD_CODE_STRIPPING NO    setenv DEBUGGING_SYMBOLS YES    setenv DEBUG_INFORMATION_FORMAT dwarf-with-dsym    setenv DEFAULT_COMPILER com.apple.compilers.llvm.clang.1_0    setenv DEPLOYMENT_LOCATION NO    setenv DEPLOYMENT_POSTPROCESSING NO    setenv DERIVED_FILES_DIR /Users/Alex/PhoneGapProject/platforms/ios/build/PhoneGapProject.build/Debug-iphonesimulator/PhoneGapProject.build/DerivedSources    setenv DERIVED_FILE_DIR /Users/Alex/PhoneGapProject/platforms/ios/build/PhoneGapProject.build/Debug-iphonesimulator/PhoneGapProject.build/DerivedSources    setenv DERIVED_SOURCES_DIR /Users/Alex/PhoneGapProject/platforms/ios/build/PhoneGapProject.build/Debug-iphonesimulator/PhoneGapProject.build/DerivedSources    setenv DEVELOPER_APPLICATIONS_DIR /Applications/Xcode.app/Contents/Developer/Applications    setenv DEVELOPER_BIN_DIR /Applications/Xcode.app/Contents/Developer/usr/bin    setenv DEVELOPER_DIR /Applications/Xcode.app/Contents/Developer    setenv DEVELOPER_FRAMEWORKS_DIR /Applications/Xcode.app/Contents/Developer/Library/Frameworks    setenv DEVELOPER_FRAMEWORKS_DIR_QUOTED "\"/Applications/Xcode.app/Contents/Developer/Library/Frameworks\""    setenv DEVELOPER_LIBRARY_DIR /Applications/Xcode.app/Contents/Developer/Library    setenv DEVELOPER_SDK_DIR /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs    setenv DEVELOPER_TOOLS_DIR /Applications/Xcode.app/Contents/Developer/Tools    setenv DEVELOPER_USR_DIR /Applications/Xcode.app/Contents/Developer/usr    setenv DEVELOPMENT_LANGUAGE English    setenv DOCUMENTATION_FOLDER_PATH PhoneGapProject.app/English.lproj/Documentation    setenv DO_HEADER_SCANNING_IN_JAM NO    setenv DSTROOT /tmp/PhoneGapProject.dst    setenv DT_TOOLCHAIN_DIR /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain    setenv DWARF_DSYM_FILE_NAME PhoneGapProject.app.dSYM    setenv DWARF_DSYM_FILE_SHOULD_ACCOMPANY_PRODUCT NO    setenv DWARF_DSYM_FOLDER_PATH /Users/Alex/PhoneGapProject/platforms/ios/build    setenv EFFECTIVE_PLATFORM_NAME -iphonesimulator    setenv ENABLE_HEADER_DEPENDENCIES YES    setenv EXCLUDED_INSTALLSRC_SUBDIRECTORY_PATTERNS ".DS_Store .svn .git .hg CVS"    setenv EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES "*.nib *.lproj *.framework *.gch (*) .DS_Store CVS .svn .git .hg *.xcodeproj *.xcode *.pbproj *.pbxproj"    setenv EXECUTABLES_FOLDER_PATH PhoneGapProject.app/Executables    setenv EXECUTABLE_FOLDER_PATH PhoneGapProject.app    setenv EXECUTABLE_NAME PhoneGapProject    setenv EXECUTABLE_PATH PhoneGapProject.app/PhoneGapProject    setenv FILE_LIST /Users/Alex/PhoneGapProject/platforms/ios/build/PhoneGapProject.build/Debug-iphonesimulator/PhoneGapProject.build/Objects/LinkFileList    setenv FIXED_FILES_DIR /Users/Alex/PhoneGapProject/platforms/ios/build/PhoneGapProject.build/Debug-iphonesimulator/PhoneGapProject.build/FixedFiles    setenv FRAMEWORKS_FOLDER_PATH PhoneGapProject.app/Frameworks    setenv FRAMEWORK_FLAG_PREFIX -framework    setenv FRAMEWORK_SEARCH_PATHS "\"/Users/Alex/PhoneGapProject/platforms/ios/build\" "    setenv FRAMEWORK_VERSION A    setenv FULL_PRODUCT_NAME PhoneGapProject.app    setenv GCC3_VERSION 3.3    setenv GCC_C_LANGUAGE_STANDARD c99    setenv GCC_DYNAMIC_NO_PIC NO    setenv GCC_INLINES_ARE_PRIVATE_EXTERN YES    setenv GCC_OBJC_LEGACY_DISPATCH YES    setenv GCC_OPTIMIZATION_LEVEL 0    setenv GCC_PFE_FILE_C_DIALECTS "c objective-c c++ objective-c++"    setenv GCC_PRECOMPILE_PREFIX_HEADER YES    setenv GCC_PREFIX_HEADER PhoneGapProject/PhoneGapProject-Prefix.pch    setenv GCC_SYMBOLS_PRIVATE_EXTERN YES    setenv GCC_THUMB_SUPPORT NO    setenv GCC_TREAT_WARNINGS_AS_ERRORS NO    setenv GCC_VERSION com.apple.compilers.llvm.clang.1_0    setenv GCC_VERSION_IDENTIFIER com_apple_compilers_llvm_clang_1_0    setenv GCC_WARN_ABOUT_RETURN_TYPE YES    setenv GCC_WARN_UNINITIALIZED_AUTOS YES    setenv GCC_WARN_UNUSED_VARIABLE YES    setenv GENERATE_MASTER_OBJECT_FILE NO    setenv GENERATE_PKGINFO_FILE YES    setenv GENERATE_PROFILING_CODE NO    setenv GID 20    setenv GROUP staff    setenv HEADERMAP_INCLUDES_FLAT_ENTRIES_FOR_TARGET_BEING_BUILT YES    setenv HEADERMAP_INCLUDES_FRAMEWORK_ENTRIES_FOR_ALL_PRODUCT_TYPES YES    setenv HEADERMAP_INCLUDES_NONPUBLIC_NONPRIVATE_HEADERS YES    setenv HEADERMAP_INCLUDES_PROJECT_HEADERS YES    setenv HEADER_SEARCH_PATHS "\"/Users/Alex/PhoneGapProject/platforms/ios/build/include\" \"/Users/Alex/PhoneGapProject/platforms/ios/build/usr/local/lib/include\" \"/Users/Alex/PhoneGapProject/platforms/ios/build/UninstalledProducts/include\" \"/Users/Alex/PhoneGapProject/platforms/ios/build\""    setenv ICONV /usr/bin/iconv    setenv INFOPLIST_EXPAND_BUILD_SETTINGS YES    setenv INFOPLIST_FILE PhoneGapProject/PhoneGapProject-Info.plist    setenv INFOPLIST_OUTPUT_FORMAT binary    setenv INFOPLIST_PATH PhoneGapProject.app/Info.plist    setenv INFOPLIST_PREPROCESS NO    setenv INFOSTRINGS_PATH PhoneGapProject.app/English.lproj/InfoPlist.strings    setenv INSTALL_DIR /tmp/PhoneGapProject.dst/Applications    setenv INSTALL_GROUP staff    setenv INSTALL_MODE_FLAG u+w,go-w,a+rX    setenv INSTALL_OWNER Alex    setenv INSTALL_PATH /Applications    setenv INSTALL_ROOT /tmp/PhoneGapProject.dst    setenv IPHONEOS_DEPLOYMENT_TARGET 5.0    setenv JAVAC_DEFAULT_FLAGS "-J-Xms64m -J-XX:NewSize=4M -J-Dfile.encoding=UTF8"    setenv JAVA_APP_STUB /System/Library/Frameworks/JavaVM.framework/Resources/MacOS/JavaApplicationStub    setenv JAVA_ARCHIVE_CLASSES YES    setenv JAVA_ARCHIVE_TYPE JAR    setenv JAVA_COMPILER /usr/bin/javac    setenv JAVA_FOLDER_PATH PhoneGapProject.app/Java    setenv JAVA_FRAMEWORK_RESOURCES_DIRS Resources    setenv JAVA_JAR_FLAGS cv    setenv JAVA_SOURCE_SUBDIR .    setenv JAVA_USE_DEPENDENCIES YES    setenv JAVA_ZIP_FLAGS -urg    setenv JIKES_DEFAULT_FLAGS "+E +OLDCSO"    setenv KEEP_PRIVATE_EXTERNS NO    setenv LD_GENERATE_MAP_FILE NO    setenv LD_MAP_FILE_PATH /Users/Alex/PhoneGapProject/platforms/ios/build/PhoneGapProject.build/Debug-iphonesimulator/PhoneGapProject.build/PhoneGapProject-LinkMap-normal-i386.txt    setenv LD_NO_PIE NO    setenv LEGACY_DEVELOPER_DIR /Applications/Xcode.app/Contents/PlugIns/Xcode3Core.ideplugin/Contents/SharedSupport/Developer    setenv LEX lex    setenv LIBRARY_FLAG_NOSPACE YES    setenv LIBRARY_FLAG_PREFIX -l    setenv LIBRARY_SEARCH_PATHS "\"/Users/Alex/PhoneGapProject/platforms/ios/build\" "    setenv LINKER_DISPLAYS_MANGLED_NAMES NO    setenv LINK_FILE_LIST_normal_i386 /Users/Alex/PhoneGapProject/platforms/ios/build/PhoneGapProject.build/Debug-iphonesimulator/PhoneGapProject.build/Objects-normal/i386/PhoneGapProject.LinkFileList    setenv LINK_WITH_STANDARD_LIBRARIES YES    setenv LOCALIZED_RESOURCES_FOLDER_PATH PhoneGapProject.app/English.lproj    setenv LOCAL_ADMIN_APPS_DIR /Applications/Utilities    setenv LOCAL_APPS_DIR /Applications    setenv LOCAL_DEVELOPER_DIR /Library/Developer    setenv LOCAL_LIBRARY_DIR /Library    setenv MACH_O_TYPE mh_execute    setenv MACOSX_DEPLOYMENT_TARGET 10.6    setenv MAC_OS_X_PRODUCT_BUILD_VERSION 12E55    setenv MAC_OS_X_VERSION_ACTUAL 1084    setenv MAC_OS_X_VERSION_MAJOR 1080    setenv MAC_OS_X_VERSION_MINOR 0804    setenv NATIVE_ARCH i386    setenv NATIVE_ARCH_32_BIT i386    setenv NATIVE_ARCH_64_BIT x86_64    setenv NATIVE_ARCH_ACTUAL x86_64    setenv NO_COMMON YES    setenv OBJC_ABI_VERSION 2    setenv OBJECT_FILE_DIR /Users/Alex/PhoneGapProject/platforms/ios/build/PhoneGapProject.build/Debug-iphonesimulator/PhoneGapProject.build/Objects    setenv OBJECT_FILE_DIR_normal /Users/Alex/PhoneGapProject/platforms/ios/build/PhoneGapProject.build/Debug-iphonesimulator/PhoneGapProject.build/Objects-normal    setenv OBJROOT /Users/Alex/PhoneGapProject/platforms/ios/build    setenv ONLY_ACTIVE_ARCH NO    setenv OPTIMIZATION_LEVEL 0    setenv OS MACOS    setenv OSAC /usr/bin/osacompile    setenv OTHER_LDFLAGS "-weak_framework CoreFoundation -weak_framework UIKit -weak_framework AVFoundation -weak_framework CoreMedia -weak-lSystem -force_load /Users/Alex/PhoneGapProject/platforms/ios/build/libCordova.a -ObjC"    setenv PACKAGE_TYPE com.apple.package-type.wrapper.application    setenv PASCAL_STRINGS YES    setenv PATH "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin:/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/libexec:/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/local/bin:/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/usr/bin:/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/usr/local/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/local/bin:/Applications/Xcode.app/Contents/Developer/Tools:/opt/iOSOpenDev/bin:/Library/Frameworks/Python.framework/Versions/2.7/bin:/opt/local/bin:/opt/local/sbin:/Library/Frameworks/Python.framework/Versions/2.6/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:/usr/local/CrossPack-AVR/bin:/Users/Alex/.rvm/bin"    setenv PATH_PREFIXES_EXCLUDED_FROM_HEADER_DEPENDENCIES "/usr/include /usr/local/include /System/Library/Frameworks /System/Library/PrivateFrameworks /Applications/Xcode.app/Contents/Developer/Headers /Applications/Xcode.app/Contents/Developer/SDKs /Applications/Xcode.app/Contents/Developer/Platforms"    setenv PBDEVELOPMENTPLIST_PATH PhoneGapProject.app/pbdevelopment.plist    setenv PFE_FILE_C_DIALECTS objective-c    setenv PKGINFO_FILE_PATH /Users/Alex/PhoneGapProject/platforms/ios/build/PhoneGapProject.build/Debug-iphonesimulator/PhoneGapProject.build/PkgInfo    setenv PKGINFO_PATH PhoneGapProject.app/PkgInfo    setenv PLATFORM_DEVELOPER_APPLICATIONS_DIR /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Applications    setenv PLATFORM_DEVELOPER_BIN_DIR /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin    setenv PLATFORM_DEVELOPER_LIBRARY_DIR /Applications/Xcode.app/Contents/PlugIns/Xcode3Core.ideplugin/Contents/SharedSupport/Developer/Library    setenv PLATFORM_DEVELOPER_SDK_DIR /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs    setenv PLATFORM_DEVELOPER_TOOLS_DIR /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Tools    setenv PLATFORM_DEVELOPER_USR_DIR /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr    setenv PLATFORM_DIR /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform    setenv PLATFORM_NAME iphonesimulator    setenv PLATFORM_PREFERRED_ARCH i386    setenv PLATFORM_PRODUCT_BUILD_VERSION 10B141    setenv PLATFORM_VERSION_AVAILABILITY_H_FORMAT 60100    setenv PLIST_FILE_OUTPUT_FORMAT binary    setenv PLUGINS_FOLDER_PATH PhoneGapProject.app/PlugIns    setenv PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR YES    setenv PRECOMP_DESTINATION_DIR /Users/Alex/PhoneGapProject/platforms/ios/build/PhoneGapProject.build/Debug-iphonesimulator/PhoneGapProject.build/PrefixHeaders    setenv PRESERVE_DEAD_CODE_INITS_AND_TERMS NO    setenv PRIVATE_HEADERS_FOLDER_PATH PhoneGapProject.app/PrivateHeaders    setenv PRODUCT_NAME PhoneGapProject    setenv PRODUCT_SETTINGS_PATH /Users/Alex/PhoneGapProject/platforms/ios/PhoneGapProject/PhoneGapProject-Info.plist    setenv PRODUCT_TYPE com.apple.product-type.application    setenv PROFILING_CODE NO    setenv PROJECT PhoneGapProject    setenv PROJECT_DERIVED_FILE_DIR /Users/Alex/PhoneGapProject/platforms/ios/build/PhoneGapProject.build/DerivedSources    setenv PROJECT_DIR /Users/Alex/PhoneGapProject/platforms/ios    setenv PROJECT_FILE_PATH /Users/Alex/PhoneGapProject/platforms/ios/PhoneGapProject.xcodeproj    setenv PROJECT_NAME PhoneGapProject    setenv PROJECT_TEMP_DIR /Users/Alex/PhoneGapProject/platforms/ios/build/PhoneGapProject.build    setenv PROJECT_TEMP_ROOT /Users/Alex/PhoneGapProject/platforms/ios/build    setenv PUBLIC_HEADERS_FOLDER_PATH PhoneGapProject.app/Headers    setenv RECURSIVE_SEARCH_PATHS_FOLLOW_SYMLINKS YES    setenv REMOVE_CVS_FROM_RESOURCES YES    setenv REMOVE_GIT_FROM_RESOURCES YES    setenv REMOVE_HG_FROM_RESOURCES YES    setenv REMOVE_SVN_FROM_RESOURCES YES    setenv REZ_COLLECTOR_DIR /Users/Alex/PhoneGapProject/platforms/ios/build/PhoneGapProject.build/Debug-iphonesimulator/PhoneGapProject.build/ResourceManagerResources    setenv REZ_OBJECTS_DIR /Users/Alex/PhoneGapProject/platforms/ios/build/PhoneGapProject.build/Debug-iphonesimulator/PhoneGapProject.build/ResourceManagerResources/Objects    setenv REZ_SEARCH_PATHS "\"/Users/Alex/PhoneGapProject/platforms/ios/build\" "    setenv RUN_CLANG_STATIC_ANALYZER NO    setenv SCAN_ALL_SOURCE_FILES_FOR_INCLUDES NO    setenv SCRIPTS_FOLDER_PATH PhoneGapProject.app/Scripts    setenv SCRIPT_INPUT_FILE_COUNT 0    setenv SCRIPT_OUTPUT_FILE_COUNT 0    setenv SDKROOT /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk    setenv SDK_DIR /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk    setenv SDK_NAME iphonesimulator6.1    setenv SDK_PRODUCT_BUILD_VERSION 10B141    setenv SED /usr/bin/sed    setenv SEPARATE_STRIP NO    setenv SEPARATE_SYMBOL_EDIT NO    setenv SET_DIR_MODE_OWNER_GROUP YES    setenv SET_FILE_MODE_OWNER_GROUP NO    setenv SHALLOW_BUNDLE YES    setenv SHARED_DERIVED_FILE_DIR /Users/Alex/PhoneGapProject/platforms/ios/build/DerivedSources    setenv SHARED_FRAMEWORKS_FOLDER_PATH PhoneGapProject.app/SharedFrameworks    setenv SHARED_PRECOMPS_DIR /var/folders/70/k4k52dx112s91fpdxn9fqvrc0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders    setenv SHARED_SUPPORT_FOLDER_PATH PhoneGapProject.app/SharedSupport    setenv SKIP_INSTALL NO    setenv SOURCE_ROOT /Users/Alex/PhoneGapProject/platforms/ios    setenv SRCROOT /Users/Alex/PhoneGapProject/platforms/ios    setenv STRINGS_FILE_OUTPUT_ENCODING binary    setenv STRIP_INSTALLED_PRODUCT YES    setenv STRIP_STYLE all    setenv SUPPORTED_DEVICE_FAMILIES "1 2"    setenv SUPPORTED_PLATFORMS "iphonesimulator iphoneos"    setenv SYMROOT /Users/Alex/PhoneGapProject/platforms/ios/build    setenv SYSTEM_ADMIN_APPS_DIR /Applications/Utilities    setenv SYSTEM_APPS_DIR /Applications    setenv SYSTEM_CORE_SERVICES_DIR /System/Library/CoreServices    setenv SYSTEM_DEMOS_DIR /Applications/Extras    setenv SYSTEM_DEVELOPER_APPS_DIR /Applications/Xcode.app/Contents/Developer/Applications    setenv SYSTEM_DEVELOPER_BIN_DIR /Applications/Xcode.app/Contents/Developer/usr/bin    setenv SYSTEM_DEVELOPER_DEMOS_DIR "/Applications/Xcode.app/Contents/Developer/Applications/Utilities/Built Examples"    setenv SYSTEM_DEVELOPER_DIR /Applications/Xcode.app/Contents/Developer    setenv SYSTEM_DEVELOPER_DOC_DIR "/Applications/Xcode.app/Contents/Developer/ADC Reference Library"    setenv SYSTEM_DEVELOPER_GRAPHICS_TOOLS_DIR "/Applications/Xcode.app/Contents/Developer/Applications/Graphics Tools"    setenv SYSTEM_DEVELOPER_JAVA_TOOLS_DIR "/Applications/Xcode.app/Contents/Developer/Applications/Java Tools"    setenv SYSTEM_DEVELOPER_PERFORMANCE_TOOLS_DIR "/Applications/Xcode.app/Contents/Developer/Applications/Performance Tools"    setenv SYSTEM_DEVELOPER_RELEASENOTES_DIR "/Applications/Xcode.app/Contents/Developer/ADC Reference Library/releasenotes"    setenv SYSTEM_DEVELOPER_TOOLS /Applications/Xcode.app/Contents/Developer/Tools    setenv SYSTEM_DEVELOPER_TOOLS_DOC_DIR "/Applications/Xcode.app/Contents/Developer/ADC Reference Library/documentation/DeveloperTools"    setenv SYSTEM_DEVELOPER_TOOLS_RELEASENOTES_DIR "/Applications/Xcode.app/Contents/Developer/ADC Reference Library/releasenotes/DeveloperTools"    setenv SYSTEM_DEVELOPER_USR_DIR /Applications/Xcode.app/Contents/Developer/usr    setenv SYSTEM_DEVELOPER_UTILITIES_DIR /Applications/Xcode.app/Contents/Developer/Applications/Utilities    setenv SYSTEM_DOCUMENTATION_DIR /Library/Documentation    setenv SYSTEM_LIBRARY_DIR /System/Library    setenv TARGETED_DEVICE_FAMILY 1,2    setenv TARGETNAME PhoneGapProject    setenv TARGET_BUILD_DIR /Users/Alex/PhoneGapProject/platforms/ios/build    setenv TARGET_NAME PhoneGapProject    setenv TARGET_TEMP_DIR /Users/Alex/PhoneGapProject/platforms/ios/build/PhoneGapProject.build/Debug-iphonesimulator/PhoneGapProject.build    setenv TEMP_DIR /Users/Alex/PhoneGapProject/platforms/ios/build/PhoneGapProject.build/Debug-iphonesimulator/PhoneGapProject.build    setenv TEMP_FILES_DIR /Users/Alex/PhoneGapProject/platforms/ios/build/PhoneGapProject.build/Debug-iphonesimulator/PhoneGapProject.build    setenv TEMP_FILE_DIR /Users/Alex/PhoneGapProject/platforms/ios/build/PhoneGapProject.build/Debug-iphonesimulator/PhoneGapProject.build    setenv TEMP_ROOT /Users/Alex/PhoneGapProject/platforms/ios/build    setenv TEST_AFTER_BUILD NO    setenv TOOLCHAINS com.apple.dt.toolchain.XcodeDefault    setenv UID 501    setenv UNLOCALIZED_RESOURCES_FOLDER_PATH PhoneGapProject.app    setenv UNSTRIPPED_PRODUCT NO    setenv USER Alex    setenv USER_APPS_DIR /Users/Alex/Applications    setenv USER_LIBRARY_DIR /Users/Alex/Library    setenv USE_DYNAMIC_NO_PIC YES    setenv USE_HEADERMAP YES    setenv USE_HEADER_SYMLINKS NO    setenv VALIDATE_PRODUCT NO    setenv VALID_ARCHS i386    setenv VERBOSE_PBXCP NO    setenv VERSIONPLIST_PATH PhoneGapProject.app/version.plist    setenv VERSION_INFO_BUILDER Alex    setenv VERSION_INFO_FILE PhoneGapProject_vers.c    setenv VERSION_INFO_STRING "\"@(#)PROGRAM:PhoneGapProject  PROJECT:PhoneGapProject-\""    setenv WRAPPER_EXTENSION app    setenv WRAPPER_NAME PhoneGapProject.app    setenv WRAPPER_SUFFIX .app    setenv XCODE_APP_SUPPORT_DIR /Applications/Xcode.app/Contents/Developer/Library/Xcode    setenv XCODE_PRODUCT_BUILD_VERSION 4H1503    setenv XCODE_VERSION_ACTUAL 0463    setenv XCODE_VERSION_MAJOR 0400    setenv XCODE_VERSION_MINOR 0460    setenv YACC yacc    /bin/sh -c /Users/Alex/PhoneGapProject/platforms/ios/build/PhoneGapProject.build/Debug-iphonesimulator/PhoneGapProject.build/Script-304B58A110DAC018002A0835.sh36"13F871F1-4FCA-410C-BF44-8BF1B08A0912-
+
+CProcessInfoPlistFile /Users/Alex/PhoneGapProject/platforms/ios/build/PhoneGapProject.app/Info.plist PhoneGapProject/PhoneGapProject-Info.plist
+s396403164.439185
+e396403164.442683
+r1
+xProcessInfoPlistFile
+x/Users/Alex/PhoneGapProject/platforms/ios/build/PhoneGapProject.app/Info.plist
+xPhoneGapProject/PhoneGapProject-Info.plist
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection50"Process PhoneGapProject/PhoneGapProject-Info.plist1f8470dca1a0b741^e65971dca1a0b741^---0#0#0#-19%DVTDocumentLocation2@100"file://localhost/Users/Alex/PhoneGapProject/platforms/ios/PhoneGapProject/PhoneGapProject-Info.plist0000000000000000^901"ProcessInfoPlistFile build/PhoneGapProject.app/Info.plist PhoneGapProject/PhoneGapProject-Info.plist    cd /Users/Alex/PhoneGapProject/platforms/ios    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/opt/iOSOpenDev/bin:/Library/Frameworks/Python.framework/Versions/2.7/bin:/opt/local/bin:/opt/local/sbin:/Library/Frameworks/Python.framework/Versions/2.6/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:/usr/local/CrossPack-AVR/bin:/usr/local/bin:/Users/Alex/.rvm/bin"    builtin-infoPlistUtility PhoneGapProject/PhoneGapProject-Info.plist -genpkginfo /Users/Alex/PhoneGapProject/platforms/ios/build/PhoneGapProject.app/PkgInfo -expandbuildsettings -format binary -platform iphonesimulator -o /Users/Alex/PhoneGapProject/platforms/ios/build/PhoneGapProject.app/Info.plist36"E7BB0A80-B9E0-4F25-895F-6C3386920B80-
+
+CProcessPCH /var/folders/70/k4k52dx112s91fpdxn9fqvrc0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/PhoneGapProject-Prefix-atdvlgdyvplgtecgqmcfbucoviqg/PhoneGapProject-Prefix.pch.pth PhoneGapProject/PhoneGapProject-Prefix.pch normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s396403167.963661
+e396403168.296090
+r1
+xProcessPCH
+x/var/folders/70/k4k52dx112s91fpdxn9fqvrc0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/PhoneGapProject-Prefix-atdvlgdyvplgtecgqmcfbucoviqg/PhoneGapProject-Prefix.pch.pth
+xPhoneGapProject/PhoneGapProject-Prefix.pch
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection53"Precompile PhoneGapProject/PhoneGapProject-Prefix.pchd5d0f6dfa1a0b741^76dd4be0a1a0b741^---0#0#0#-19%DVTDocumentLocation2@100"file://localhost/Users/Alex/PhoneGapProject/platforms/ios/PhoneGapProject/PhoneGapProject-Prefix.pch0000000000000000^3843"ProcessPCH /var/folders/70/k4k52dx112s91fpdxn9fqvrc0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/PhoneGapProject-Prefix-atdvlgdyvplgtecgqmcfbucoviqg/PhoneGapProject-Prefix.pch.pth PhoneGapProject/PhoneGapProject-Prefix.pch normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/Alex/PhoneGapProject/platforms/ios    setenv LANG en_US.US-ASCII    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/opt/iOSOpenDev/bin:/Library/Frameworks/Python.framework/Versions/2.7/bin:/opt/local/bin:/opt/local/sbin:/Library/Frameworks/Python.framework/Versions/2.6/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:/usr/local/CrossPack-AVR/bin:/usr/local/bin:/Users/Alex/.rvm/bin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c-header -arch i386 -fmessage-length=0 -std=c99 -fobjc-arc -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wduplicate-method-match -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wno-empty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wconstant-conversion -Wint-conversion -Wenum-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator6.1.sdk -fexceptions -fasm-blocks -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -g -fvisibility=hidden -Wno-sign-conversion -fobjc-abi-version=2 -fobjc-legacy-dispatch -mios-simulator-version-min=5.0 -iquote /Users/Alex/PhoneGapProject/platforms/ios/build/PhoneGapProject.build/Debug-iphonesimulator/PhoneGapProject.build/PhoneGapProject-generated-files.hmap -I/Users/Alex/PhoneGapProject/platforms/ios/build/PhoneGapProject.build/Debug-iphonesimulator/PhoneGapProject.build/PhoneGapProject-own-target-headers.hmap -I/Users/Alex/PhoneGapProject/platforms/ios/build/PhoneGapProject.build/Debug-iphonesimulator/PhoneGapProject.build/PhoneGapProject-all-target-headers.hmap -iquote /Users/Alex/PhoneGapProject/platforms/ios/build/PhoneGapProject.build/Debug-iphonesimulator/PhoneGapProject.build/PhoneGapProject-project-headers.hmap -I/Users/Alex/PhoneGapProject/platforms/ios/build/include -I/Users/Alex/PhoneGapProject/platforms/ios/build/usr/local/lib/include -I/Users/Alex/PhoneGapProject/platforms/ios/build/UninstalledProducts/include -I/Users/Alex/PhoneGapProject/platforms/ios/build -I/Users/Alex/PhoneGapProject/platforms/ios/build/PhoneGapProject.build/Debug-iphonesimulator/PhoneGapProject.build/DerivedSources/i386 -I/Users/Alex/PhoneGapProject/platforms/ios/build/PhoneGapProject.build/Debug-iphonesimulator/PhoneGapProject.build/DerivedSources -F/Users/Alex/PhoneGapProject/platforms/ios/build --serialize-diagnostics /var/folders/70/k4k52dx112s91fpdxn9fqvrc0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/PhoneGapProject-Prefix-atdvlgdyvplgtecgqmcfbucoviqg/PhoneGapProject-Prefix.pch.dia -c /Users/Alex/PhoneGapProject/platforms/ios/PhoneGapProject/PhoneGapProject-Prefix.pch -o /var/folders/70/k4k52dx112s91fpdxn9fqvrc0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/PhoneGapProject-Prefix-atdvlgdyvplgtecgqmcfbucoviqg/PhoneGapProject-Prefix.pch.pth -MMD -MT dependencies -MF /var/folders/70/k4k52dx112s91fpdxn9fqvrc0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/PhoneGapProject-Prefix-atdvlgdyvplgtecgqmcfbucoviqg/PhoneGapProject-Prefix.pch.d36"3C8295F6-7768-4E0D-B230-1FBBA2B2A3E3-
+
+CTouch /Users/Alex/PhoneGapProject/platforms/ios/build/PhoneGapProject.app
+s396403169.326127
+e396403169.331203
+r1
+xTouch
+x/Users/Alex/PhoneGapProject/platforms/ios/build/PhoneGapProject.app
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection73"Touch /Users/Alex/PhoneGapProject/platforms/ios/build/PhoneGapProject.app048f53e1a1a0b741^6ccf54e1a1a0b741^---0#0#0#--618"Touch build/PhoneGapProject.app    cd /Users/Alex/PhoneGapProject/platforms/ios    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/opt/iOSOpenDev/bin:/Library/Frameworks/Python.framework/Versions/2.7/bin:/opt/local/bin:/opt/local/sbin:/Library/Frameworks/Python.framework/Versions/2.6/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:/usr/local/CrossPack-AVR/bin:/usr/local/bin:/Users/Alex/.rvm/bin"    /usr/bin/touch -c /Users/Alex/PhoneGapProject/platforms/ios/build/PhoneGapProject.app36"A5BB7847-D0CB-46F1-88E4-422A706A36F4-
+
