@@ -12,7 +12,6 @@
     </engines>    
 
     <asset src="www/barcodescanner.js" target="barcodescanner.js" />
-
     <license>MIT</license>
 
     <!-- ios -->
