@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="net.magmastone.PGP" versionCode="002" version="0.0.2" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>PhoneGapProject</name>
+    <description>
+        The beginnings of a PhoneGapProject
+    </description>
+    <author email="me@magmastone.net" href="http://magmastone.net">
+        Alex Roth
+    </author>
+    <access origin="*" />
+    <preference name="fullscreen" value="false" />
+    <preference name="webviewbounce" value="true" />
+    <gap:plugin name="com.phonegap.plugins.barcodescanner" />
+</widget>
