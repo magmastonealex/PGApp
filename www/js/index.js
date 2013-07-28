@@ -34,13 +34,18 @@ var app = {
     // function, we must explicity call 'app.receivedEvent(...);'
     onDeviceReady: function() {
     $(document).ready(function(){
-        $('#logi').bind("tap",function(event){
+        $('#logi').on("tap",function(event){
 
             $.mobile.showPageLoadingMsg("a", "Logging In");
             $.mobile.changePage("#formSelect");
             $.mobile.hidePageLoadingMsg();
         });
-
+        $('.formlink').on("tap",function(){
+            //Populate the form page with proper content here.
+            console.log(this.id);
+            $('#FormName').html($(this).html());
+            $('#formContent').html('<label for="select-choice-1" class="select">Select, native menu</label><select name="select-choice-1" id="select-choice-1">    <option value="standard">Standard: 7 day</option>    <option value="rush">Rush: 3 days</option>    <option value="express">Express: next day</option>    <option value="overnight">Overnight</option></select>');
+        });
     });
    app.receivedEvent('deviceready');
     },
