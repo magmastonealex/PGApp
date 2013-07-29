@@ -16,7 +16,7 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-var formData=JSON.parse('{"form":[["text",["This is text data, as a test element."]],["select","Name",["Option 1","Option 2"]]]}');
+var formData=JSON.parse('{"form":[["text",["This is text data, as a test element."]],["select","Name",["Option 1","Option 2"]],["MultipleChoice","MC",["The Option 1","The Option 2","The Option 3"]],["CheckBoxes","CB",["CB1","CB2","CB3"]]]}');
 var app = {
     // Application Constructor
     initialize: function() {
@@ -44,7 +44,7 @@ var app = {
 
         $('.formlink').on("tap",function(){
             //Populate the form page with proper content here.
-            $('#formContent').html("");
+            $('#formContent').html("<br>");
             console.log(this.id);
             $('#FormName').html($(this).html());
             for (var formPart = 0; formPart < formData["form"].length; formPart++) {
@@ -57,9 +57,7 @@ var app = {
                     console.log("Select");
                     var options = "";
                     options += '<p>'+formData["form"][formPart][1]+"</p>";
-
-                    options +='<select name="select1" id="select1">';
-                    
+                    options +='<select name="select'+formPart+'" id="select'+formPart+'">';
                     for (var i = 0; i < formData["form"][formPart][2].length; i++) {
                         options += '<option>'+formData["form"][formPart][2][i]+'</option>';
                     }
@@ -68,8 +66,28 @@ var app = {
                     console.log($('#formContent').html());
                     break;
                 case "MultipleChoice":
+                    var options = "";
+                    console.log("MC");
+                    options += '<fieldset data-role="controlgroup"><legend>'+formData["form"][formPart][1]+"</legend>";
+                     for (var i = 0; i < formData["form"][formPart][2].length; i++) {
+                        options += '<input type="radio" name="rChoice-'+formPart+'" id="rChoice-'+formPart+'-'+i+'" value="'+formData["form"][formPart][2][i]+'" />'
+                        options += '<label for="rChoice-'+formPart+'-'+i+'">'+formData["form"][formPart][2][i]+'</label>';
+                    }
+                    options += '</fieldset>'
+                    console.log(options)
+                    $('#formContent').append(options);
                     break;
                 case "CheckBoxes":
+                    var options = "";
+                    console.log("MC");
+                    options += '<fieldset data-role="controlgroup"><legend>'+formData["form"][formPart][1]+"</legend>";
+                     for (var i = 0; i < formData["form"][formPart][2].length; i++) {
+                        options += '<input type="checkbox" name="cChoice-'+formPart+'" id="cChoice-'+formPart+'-'+i+'" value="'+formData["form"][formPart][2][i]+'" />'
+                        options += '<label for="cChoice-'+formPart+'-'+i+'">'+formData["form"][formPart][2][i]+'</label>';
+                    }
+                    options += '</fieldset>'
+                    console.log(options)
+                    $('#formContent').append(options);
                     break;
                 case "ImageCapture":
                     break;
