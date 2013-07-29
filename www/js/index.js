@@ -41,9 +41,9 @@
     onDeviceReady: function() {
         $(document).ready(function(){
 
-            $('#geo5min').on("tap",fuction(event){inter=5;doGeoPush();});
-            $('#geo10min').on("tap",fuction(event){inter=10;doGeoPush();});
-            $('#geo15min').on("tap",fuction(event){inter=15;doGeoPush();});
+            $('#geo5min').on("tap",function(event){inter=5;doGeoPush();});
+            $('#geo10min').on("tap",function(event){inter=10;doGeoPush();});
+            $('#geo15min').on("tap",function(event){inter=15;doGeoPush();});
             $('#logi').on("tap",function(event){
 
                 $.mobile.showPageLoadingMsg("a", "Logging In");
