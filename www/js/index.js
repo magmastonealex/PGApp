@@ -41,8 +41,10 @@ var app = {
             $.mobile.changePage("#formSelect");
             $.mobile.hidePageLoadingMsg();
         });
+
         $('.formlink').on("tap",function(){
             //Populate the form page with proper content here.
+            $('#formContent').html("");
             console.log(this.id);
             $('#FormName').html($(this).html());
             for (var formPart = 0; formPart < formData["form"].length; formPart++) {
