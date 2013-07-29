@@ -20,7 +20,7 @@
  var inter=5
  function doGeoPush(){
     alert("Geod");
-    setInterval(doGeoPush, inter);
+    setInterval(doGeoPush, inter*1000);
  }
  var app = {
     // Application Constructor
