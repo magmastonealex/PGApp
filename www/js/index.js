@@ -41,9 +41,13 @@
     onDeviceReady: function() {
         $(document).ready(function(){
 
-            $('#geo5min').on("tap",function(event){inter=5;alert(5);});
-            $('#geo10min').on("tap",function(event){inter=10;window.doGeoPush();});
-            $('#geo15min').on("tap",function(event){inter=15;window.doGeoPush();});
+            $('#geo5min').on("tap",function(){inter=5;alert(5);});
+            $('#geo10min').on("tap",function(){inter=10;window.doGeoPush();});
+            $('#geo15min').on("tap",function(){inter=15;window.doGeoPush();});
+
+            $('#submitButton').on("tap", function(){
+                alert("ClickedSubmit");
+            });
 
             $('#logi').on("tap",function(event){
 
@@ -166,7 +170,6 @@
                     $('#formContent').append("<hr>");
                 }
             }
-            $('#formContent').append('<a data-role="button" href="#formSelect" id="submitButton">Submit</a>')
         });
 });
 app.receivedEvent('deviceready');
