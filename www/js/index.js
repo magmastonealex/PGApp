@@ -102,7 +102,6 @@
                       function (result) {
                         var FP = $(this).attr("formPart");
                         $('Cap-'+FP+'-Data').html(result.text);
-                        alert("Success!");
                       }, 
                       function (error) {
                           alert("Scanning failed: " + error);
