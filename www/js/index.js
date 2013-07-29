@@ -17,6 +17,11 @@
  * under the License.
  */
  var formData=JSON.parse('{"form":[["text",["This is text data, as a test element."]],["select","Name",["Option 1","Option 2"]],["MultipleChoice","MC",["The Option 1","The Option 2","The Option 3"]],["CheckBoxes","CB",["CB1","CB2","CB3"]],["ImageCapture","CapIm"],["VideoCapture","VidCap"],["AudioCapture","AudCap"],["Geolocation","LocCap"],["text",["This is text data, just to test repeat elements."]]]}');
+ var inter=5
+ function doGeoPush(){
+    alert("Geod");
+    setInterval(doGeoPush, inter);
+ }
  var app = {
     // Application Constructor
     initialize: function() {
@@ -35,6 +40,10 @@
     // function, we must explicity call 'app.receivedEvent(...);'
     onDeviceReady: function() {
         $(document).ready(function(){
+
+            $('#geo5min').on("tap",fuction(event){inter=5;doGeoPush();});
+            $('#geo10min').on("tap",fuction(event){inter=10;doGeoPush();});
+            $('#geo15min').on("tap",fuction(event){inter=15;doGeoPush();})
             $('#logi').on("tap",function(event){
 
                 $.mobile.showPageLoadingMsg("a", "Logging In");
