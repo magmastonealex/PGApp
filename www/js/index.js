@@ -16,6 +16,7 @@
  * specific language governing permissions and limitations
  * under the License.
  */
+var formData=JSON.parse('{"form":[["text",["This is text data, as a test element."]],["select","Name",["Option 1","Option 2"]]]}');
 var app = {
     // Application Constructor
     initialize: function() {
@@ -44,7 +45,35 @@ var app = {
             //Populate the form page with proper content here.
             console.log(this.id);
             $('#FormName').html($(this).html());
-            $('#formContent').html('<label for="select-choice-1" class="select">Select, native menu</label><select name="select-choice-1" id="select-choice-1">    <option value="standard">Standard: 7 day</option>    <option value="rush">Rush: 3 days</option>    <option value="express">Express: next day</option>    <option value="overnight">Overnight</option></select>');
+            for (var formPart = 0; formPart < formData["form"].length; formPart++) {
+            switch(formData["form"][formPart][0]){
+                case "text":
+                    console.log("Text");
+                    $('#formContent').append("<p>"+formData["form"][formPart][1]+"</p>");
+                    break;
+                case "select":
+                    console.log("Select");
+                    var options = "";
+                    options += '<p>'+formData["form"][formPart][1]+"</p>";
+
+                    options +='<select name="select1" id="select1">';
+                    
+                    for (var i = 0; i < formData["form"][formPart][2].length; i++) {
+                        options += '<option>'+formData["form"][formPart][2][i]+'</option>';
+                    }
+                    options += '</select>';
+                    $('#formContent').append(options);
+                    console.log($('#formContent').html());
+                    break;
+                default:
+                    console.log("Unknown... work to do");
+                    break;
+            }
+            if(formPart+1 != formData["form"].length){
+            $('#formContent').append("<hr>");
+        }
+        }
+        $('#formContent').append('<a data-role="button" href="#formSelect" id="submitButton">Submit</a>')
         });
     });
    app.receivedEvent('deviceready');
