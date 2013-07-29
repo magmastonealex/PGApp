@@ -111,18 +111,14 @@
                  });
                     break;
                     case "VideoCapture":
-                    var captureSuccess = function(mediaFiles) {
-                    var i, path, len;
-                    for (i = 0, len = mediaFiles.length; i < len; i += 1) {
-                       path = mediaFiles[i].fullPath;
-                        alert(path);
-                    }
-                    };
-                    var captureError = function(error) {
-                        alert('Error Capturing');
-                    };
-                    
-                    navigator.device.capture.captureVideo(captureSuccess, captureError, {limit:2});
+                    console.log("VC");
+                    options += '<p>'+formData["form"][formPart][1]+'</p>'
+                    options += '<a data-role="button" data-rel="dialog" formPart="'+formPart+'"id="VCap-'+formPart+'">Capture Video</a>'
+                    options += '<p id="VCap-'+formPart+'-Data"></p>'
+                    $('#formContent').append(options);
+                    $('#VCap-'+formPart).on("tap",function(event){
+                    navigator.device.capture.captureVideo(function(mediaFiles){path = mediaFiles[0].fullPath;alert(path);}, function(error){alert('Error Capturing');}, {limit:1});
+                    });
                     break;
                     case "AudioCapture":
                     break;
