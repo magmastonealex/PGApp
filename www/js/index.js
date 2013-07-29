@@ -93,15 +93,16 @@
                     var options = "";
                     console.log("IC");
                     options += '<p>'+formData["form"][formPart][1]+'</p>'
-                    options += '<a data-role="button" data-rel="dialog" id="Cap-'+formPart+'">Capture Image</a>'
-                    options += '<p id="Cap-Data"></p>'
+                    options += '<a data-role="button" data-rel="dialog" formPart="'+formPart+'"id="Cap-'+formPart+'">Capture Image</a>'
+                    options += '<p id="Cap-'+formPart+'-Data"></p>'
                     $('#formContent').append(options);
-                    $('#Cap-'+formPart).on("tap",function(){
+                    $('#Cap-'+formPart).on("tap",function(event){
                      var scanner = cordova.require("cordova/plugin/BarcodeScanner");
                      scanner.scan(
                       function (result) {
-                        $('#Cap-Data').html(result.text);
-                        alert(result.text);
+                        var FP = $(this).attr("formPart");
+                        $('Cap-'+FP+'-Data').html(result.text);
+                        alert("Success!");
                       }, 
                       function (error) {
                           alert("Scanning failed: " + error);
@@ -110,6 +111,18 @@
                  });
                     break;
                     case "VideoCapture":
+                    var captureSuccess = function(mediaFiles) {
+                    var i, path, len;
+                    for (i = 0, len = mediaFiles.length; i < len; i += 1) {
+                       path = mediaFiles[i].fullPath;
+                        alert(path);
+                    }
+                    };
+                    var captureError = function(error) {
+                        alert('Error Capturing');
+                    };
+                    
+                    navigator.device.capture.captureVideo(captureSuccess, captureError, {limit:2});
                     break;
                     case "AudioCapture":
                     break;
