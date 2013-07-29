@@ -93,13 +93,13 @@
                     var options = "";
                     console.log("IC");
                     options += '<a data-role="button" data-rel="dialog" id="Cap-'+formPart+'">Capture Image</a>'
-                    options += '<p id="Cap-'+formPart+'-Data"></p>'
+                    options += '<p id="Cap-Data"></p>'
                     $('#formContent').append(options);
                     $('#Cap-'+formPart).on("tap",function(){
                      var scanner = cordova.require("cordova/plugin/BarcodeScanner");
                      scanner.scan(
                       function (result) {
-                        $('#Cap-'+formPart+'-Data').html(result.text);
+                        $('#Cap-Data').html(result.text);
                         alert(result.text);
                       }, 
                       function (error) {
