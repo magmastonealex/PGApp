@@ -16,7 +16,7 @@
  * specific language governing permissions and limitations
  * under the License.
  */
- var formData=JSON.parse('{"form":[["text",["This is text data, as a test element."]],["select","Name",["Option 1","Option 2"]],["MultipleChoice","MC",["The Option 1","The Option 2","The Option 3"]],["CheckBoxes","CB",["CB1","CB2","CB3"]],["ImageCapture","CapIm"],["VideoCapture","CapVid"],["text",["This is text data, just to test repeat elements."]]]}');
+ var formData=JSON.parse('{"form":[["text",["This is text data, as a test element."]],["select","Name",["Option 1","Option 2"]],["MultipleChoice","MC",["The Option 1","The Option 2","The Option 3"]],["CheckBoxes","CB",["CB1","CB2","CB3"]],["ImageCapture","CapIm"],["VideoCapture","VidCap"],["text",["This is text data, just to test repeat elements."]]]}');
  var app = {
     // Application Constructor
     initialize: function() {
@@ -74,7 +74,7 @@
                         options += '<label for="rChoice-'+formPart+'-'+i+'">'+formData["form"][formPart][2][i]+'</label>';
                     }
                     options += '</fieldset>'
-                    console.log(options)
+                    
                     $('#formContent').append(options);
                     break;
                     case "CheckBoxes":
@@ -86,7 +86,7 @@
                         options += '<label for="cChoice-'+formPart+'-'+i+'">'+formData["form"][formPart][2][i]+'</label>';
                     }
                     options += '</fieldset>'
-                    console.log(options)
+                    
                     $('#formContent').append(options);
                     break;
                     case "ImageCapture":
@@ -108,13 +108,15 @@
                           alert("Scanning failed: " + error);
                       }
                       );
-                 });
+                    });
                     break;
                     case "VideoCapture":
                     console.log("VC");
+                    options = "";
                     options += '<p>'+formData["form"][formPart][1]+'</p>'
                     options += '<a data-role="button" data-rel="dialog" formPart="'+formPart+'"id="VCap-'+formPart+'">Capture Video</a>'
                     options += '<p id="VCap-'+formPart+'-Data"></p>'
+                    console.log(options);
                     $('#formContent').append(options);
                     $('#VCap-'+formPart).on("tap",function(event){
                     navigator.device.capture.captureVideo(function(mediaFiles){path = mediaFiles[0].fullPath;alert(path);}, function(error){alert('Error Capturing');}, {limit:1});
