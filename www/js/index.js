@@ -98,12 +98,13 @@
                     options += '<p id="Cap-Data"></p>'
                     $('#formContent').append(options);
                     $('#Cap-'+formPart).on("tap",function(event){
+                        window.scannedformpart = $(this).attr("formPart");
+                        console.log("Form:" + $(this).attr("formPart"));
                      var scanner = cordova.require("cordova/plugin/BarcodeScanner");
                      scanner.scan(
                       function (result) {
-                        var FP = $(this).attr("formPart");
-                        $('#Cap-Data').html(result.text);
-                        alert(result.text);
+                        var FP = window.scannedformpart;
+                        $('#Cap-'+FP+'-Data').html(result.text);
                       }, 
                       function (error) {
                           alert("Scanning failed: " + error);
