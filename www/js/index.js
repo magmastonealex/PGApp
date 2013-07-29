@@ -16,7 +16,7 @@
  * specific language governing permissions and limitations
  * under the License.
  */
- var formData=JSON.parse('{"form":[["text",["This is text data, as a test element."]],["select","Name",["Option 1","Option 2"]],["MultipleChoice","MC",["The Option 1","The Option 2","The Option 3"]],["CheckBoxes","CB",["CB1","CB2","CB3"]],["ImageCapture","CapIm"],["VideoCapture","VidCap"],["text",["This is text data, just to test repeat elements."]]]}');
+ var formData=JSON.parse('{"form":[["text",["This is text data, as a test element."]],["select","Name",["Option 1","Option 2"]],["MultipleChoice","MC",["The Option 1","The Option 2","The Option 3"]],["CheckBoxes","CB",["CB1","CB2","CB3"]],["ImageCapture","CapIm"],["VideoCapture","VidCap"],["AudioCapture","AudCap"],["text",["This is text data, just to test repeat elements."]]]}');
  var app = {
     // Application Constructor
     initialize: function() {
@@ -123,6 +123,16 @@
                     });
                     break;
                     case "AudioCapture":
+                    console.log("AC");
+                    options = "";
+                    options += '<p>'+formData["form"][formPart][1]+'</p>'
+                    options += '<a data-role="button" data-rel="dialog" formPart="'+formPart+'"id="ACap-'+formPart+'">Capture Audio</a>'
+                    options += '<p id="ACap-'+formPart+'-Data"></p>'
+                    console.log(options);
+                    $('#formContent').append(options);
+                    $('#ACap-'+formPart).on("tap",function(event){
+                    navigator.device.capture.captureAudio(function(mediaFiles){path = mediaFiles[0].fullPath;alert(path);}, function(error){alert('Error Capturing');}, {limit:1});
+                    });
                     break;
                     case "Geolocation":
                     break;
