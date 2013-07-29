@@ -18,7 +18,7 @@
  */
  var formData=JSON.parse('{"form":[["text",["This is text data, as a test element."]],["select","Name",["Option 1","Option 2"]],["MultipleChoice","MC",["The Option 1","The Option 2","The Option 3"]],["CheckBoxes","CB",["CB1","CB2","CB3"]],["ImageCapture","CapIm"],["VideoCapture","VidCap"],["AudioCapture","AudCap"],["Geolocation","LocCap"],["text",["This is text data, just to test repeat elements."]]]}');
  var inter=5
- function doGeoPush(){
+ window.doGeoPush = function(){
     alert("Geod");
     setInterval(doGeoPush, inter*1000);
  }
@@ -41,9 +41,10 @@
     onDeviceReady: function() {
         $(document).ready(function(){
 
-            $('#geo5min').on("tap",function(event){inter=5;window.doGeoPush();});
+            $('#geo5min').on("tap",function(event){inter=5;alert(5);});
             $('#geo10min').on("tap",function(event){inter=10;window.doGeoPush();});
             $('#geo15min').on("tap",function(event){inter=15;window.doGeoPush();});
+
             $('#logi').on("tap",function(event){
 
                 $.mobile.showPageLoadingMsg("a", "Logging In");
