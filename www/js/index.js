@@ -143,7 +143,7 @@
                     console.log(options);
                     $('#formContent').append(options);
                     $('#LCap-'+formPart).on("tap",function(event){
-                    navigator.geolocation.getCurrentPosition(function(position){alert(position.coords.latitiude+","+position.coords.longitude+",A: " + position.coords.accuracy);}, function(error){alert('Error Capturing');});
+                    navigator.geolocation.getCurrentPosition(function(position){alert(position.coords.latitude+","+position.coords.longitude+",A: " + position.coords.accuracy);}, function(error){alert('Error Capturing');});
                     });
                     break;
                     default:
