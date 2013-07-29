@@ -16,7 +16,7 @@
  * specific language governing permissions and limitations
  * under the License.
  */
- var formData=JSON.parse('{"form":[["text",["This is text data, as a test element."]],["select","Name",["Option 1","Option 2"]],["MultipleChoice","MC",["The Option 1","The Option 2","The Option 3"]],["CheckBoxes","CB",["CB1","CB2","CB3"]],["ImageCapture","CapIm"]]}');
+ var formData=JSON.parse('{"form":[["text",["This is text data, as a test element."]],["select","Name",["Option 1","Option 2"]],["MultipleChoice","MC",["The Option 1","The Option 2","The Option 3"]],["CheckBoxes","CB",["CB1","CB2","CB3"]],["ImageCapture","CapIm"],["text",["This is text data, just to test repeat elements."]]]}');
  var app = {
     // Application Constructor
     initialize: function() {
@@ -92,6 +92,7 @@
                     case "ImageCapture":
                     var options = "";
                     console.log("IC");
+                    options += '<p>'+formData["form"][formPart][1]+'</p>'
                     options += '<a data-role="button" data-rel="dialog" id="Cap-'+formPart+'">Capture Image</a>'
                     options += '<p id="Cap-Data"></p>'
                     $('#formContent').append(options);
