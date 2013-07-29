@@ -16,8 +16,8 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-var formData=JSON.parse('{"form":[["text",["This is text data, as a test element."]],["select","Name",["Option 1","Option 2"]],["MultipleChoice","MC",["The Option 1","The Option 2","The Option 3"]],["CheckBoxes","CB",["CB1","CB2","CB3"]]]}');
-var app = {
+ var formData=JSON.parse('{"form":[["text",["This is text data, as a test element."]],["select","Name",["Option 1","Option 2"]],["MultipleChoice","MC",["The Option 1","The Option 2","The Option 3"]],["CheckBoxes","CB",["CB1","CB2","CB3"]],["ImageCapture","CapIm"]]}');
+ var app = {
     // Application Constructor
     initialize: function() {
         this.bindEvents();
@@ -34,26 +34,26 @@ var app = {
     // The scope of 'this' is the event. In order to call the 'receivedEvent'
     // function, we must explicity call 'app.receivedEvent(...);'
     onDeviceReady: function() {
-    $(document).ready(function(){
-        $('#logi').on("tap",function(event){
+        $(document).ready(function(){
+            $('#logi').on("tap",function(event){
 
-            $.mobile.showPageLoadingMsg("a", "Logging In");
-            $.mobile.changePage("#formSelect");
-            $.mobile.hidePageLoadingMsg();
-        });
+                $.mobile.showPageLoadingMsg("a", "Logging In");
+                $.mobile.changePage("#formSelect");
+                $.mobile.hidePageLoadingMsg();
+            });
 
-        $('.formlink').on("tap",function(){
+            $('.formlink').on("tap",function(){
             //Populate the form page with proper content here.
             $('#formContent').html("<br>");
             console.log(this.id);
             $('#FormName').html($(this).html());
             for (var formPart = 0; formPart < formData["form"].length; formPart++) {
-            switch(formData["form"][formPart][0]){
-                case "text":
+                switch(formData["form"][formPart][0]){
+                    case "text":
                     console.log("Text");
                     $('#formContent').append("<p>"+formData["form"][formPart][1]+"</p>");
                     break;
-                case "select":
+                    case "select":
                     console.log("Select");
                     var options = "";
                     options += '<p>'+formData["form"][formPart][1]+"</p>";
@@ -65,11 +65,11 @@ var app = {
                     $('#formContent').append(options);
                     console.log($('#formContent').html());
                     break;
-                case "MultipleChoice":
+                    case "MultipleChoice":
                     var options = "";
                     console.log("MC");
                     options += '<fieldset data-role="controlgroup"><legend>'+formData["form"][formPart][1]+"</legend>";
-                     for (var i = 0; i < formData["form"][formPart][2].length; i++) {
+                    for (var i = 0; i < formData["form"][formPart][2].length; i++) {
                         options += '<input type="radio" name="rChoice-'+formPart+'" id="rChoice-'+formPart+'-'+i+'" value="'+formData["form"][formPart][2][i]+'" />'
                         options += '<label for="rChoice-'+formPart+'-'+i+'">'+formData["form"][formPart][2][i]+'</label>';
                     }
@@ -77,11 +77,11 @@ var app = {
                     console.log(options)
                     $('#formContent').append(options);
                     break;
-                case "CheckBoxes":
+                    case "CheckBoxes":
                     var options = "";
                     console.log("MC");
                     options += '<fieldset data-role="controlgroup"><legend>'+formData["form"][formPart][1]+"</legend>";
-                     for (var i = 0; i < formData["form"][formPart][2].length; i++) {
+                    for (var i = 0; i < formData["form"][formPart][2].length; i++) {
                         options += '<input type="checkbox" name="cChoice-'+formPart+'" id="cChoice-'+formPart+'-'+i+'" value="'+formData["form"][formPart][2][i]+'" />'
                         options += '<label for="cChoice-'+formPart+'-'+i+'">'+formData["form"][formPart][2][i]+'</label>';
                     }
@@ -89,30 +89,46 @@ var app = {
                     console.log(options)
                     $('#formContent').append(options);
                     break;
-                case "ImageCapture":
+                    case "ImageCapture":
+                    var options = "";
+                    console.log("IC");
+                    options += '<a data-role="button" data-rel="dialog" id="Cap-'+formPart+'">Capture Image</a>'
+                    $('#formContent').append(options);
+                    $('#Cap-'+formPart).on("tap",function(){
+                     var scanner = cordova.require("cordova/plugin/BarcodeScanner");
+                     scanner.scan(
+                      function (result) {
+                          alert("We got a barcode\n" +
+                            "Result: " + result.text + "\n");
+                      }, 
+                      function (error) {
+                          alert("Scanning failed: " + error);
+                      }
+                      );
+                 });
                     break;
-                case "VideoCapture":
+                    case "VideoCapture":
                     break;
-                case "AudioCapture":
+                    case "AudioCapture":
                     break;
-                case "Geolocation":
+                    case "Geolocation":
                     break;
-                default:
+                    default:
                     console.log("Unknown... work to do");
                     break;
+                }
+                if(formPart+1 != formData["form"].length){
+                    $('#formContent').append("<hr>");
+                }
             }
-            if(formPart+1 != formData["form"].length){
-            $('#formContent').append("<hr>");
-        }
-        }
-        $('#formContent').append('<a data-role="button" href="#formSelect" id="submitButton">Submit</a>')
+            $('#formContent').append('<a data-role="button" href="#formSelect" id="submitButton">Submit</a>')
         });
-    });
-   app.receivedEvent('deviceready');
-    },
+});
+app.receivedEvent('deviceready');
+},
     // Update DOM on a Received Event
     receivedEvent: function(id) {
 
-        
+
     }
 };
