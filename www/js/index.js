@@ -67,6 +67,18 @@ var app = {
                     $('#formContent').append(options);
                     console.log($('#formContent').html());
                     break;
+                case "MultipleChoice":
+                    break;
+                case "CheckBoxes":
+                    break;
+                case "ImageCapture":
+                    break;
+                case "VideoCapture":
+                    break;
+                case "AudioCapture":
+                    break;
+                case "Geolocation":
+                    break;
                 default:
                     console.log("Unknown... work to do");
                     break;
