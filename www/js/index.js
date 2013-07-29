@@ -95,13 +95,14 @@
                     options += '<p>'+formData["form"][formPart][1]+'</p>'
                     options += '<a data-role="button" data-rel="dialog" formPart="'+formPart+'"id="Cap-'+formPart+'">Capture Image</a>'
                     options += '<p id="Cap-'+formPart+'-Data"></p>'
+                    options += '<p id="Cap-Data"></p>'
                     $('#formContent').append(options);
                     $('#Cap-'+formPart).on("tap",function(event){
                      var scanner = cordova.require("cordova/plugin/BarcodeScanner");
                      scanner.scan(
                       function (result) {
                         var FP = $(this).attr("formPart");
-                        $('#Cap-'+FP+'-Data').html(result.text);
+                        $('#Cap-Data').html(result.text);
                       }, 
                       function (error) {
                           alert("Scanning failed: " + error);
