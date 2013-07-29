@@ -17,11 +17,39 @@
  * under the License.
  */
  var formData=JSON.parse('{"form":[["text",["This is text data, as a test element."]],["select","Name",["Option 1","Option 2"]],["MultipleChoice","MC",["The Option 1","The Option 2","The Option 3"]],["CheckBoxes","CB",["CB1","CB2","CB3"]],["ImageCapture","CapIm"],["VideoCapture","VidCap"],["AudioCapture","AudCap"],["Geolocation","LocCap"],["text",["This is text data, just to test repeat elements."]]]}');
+ var formIDs=[];
+ var formValues=[]
  var inter=5
  window.doGeoPush = function(){
     alert("Geod");
     setInterval(doGeoPush, inter*1000);
  }
+ window.getData = function(){
+    for (var formPart = 0; formPart < formIDs.length; formPart++) {
+        switch(formIDs[formPart][0]){
+            case "select":
+            formValues.push([formData["form"][formPart][1], $('#'+formIDs[formPart][1]).val()]);
+            break;
+            case "MultipleChoice":
+            formValues.push([formData["form"][formPart][1], $('input:radio[name="'+formIDs[formPart][1]+'"]:checked').val()]);
+            break;
+            case "CheckBoxes":
+              var allVals = [];
+             $(':checkbox[name="'+formIDs[formPart][1]+'"]:checked').each(function() {
+                console.log("check");
+                allVals.push($(this).val());
+              });
+            formValues.push([formData["form"][formPart][1], allVals]);
+            break;
+            case "ImageCapture":
+            formValues.push([formData["form"][formPart][1], $('#'+formIDs[formPart][1]).html()]);
+            default:
+            break;
+        }
+    }
+    $.mobile.allowCrossDomainPages = true;
+    $.post("http://fashify.net/offlineform/frmprc.php", "formsubmission="+JSON.stringify(formValues));
+}
  var app = {
     // Application Constructor
     initialize: function() {
@@ -46,7 +74,9 @@
             $('#geo15min').on("tap",function(){inter=15;window.doGeoPush();});
 
             $('#submitButton').on("tap", function(){
-                alert("ClickedSubmit");
+                //console.log($('#formContent').serialize());
+                getData();
+
             });
 
             $('#logi').on("tap",function(event){
@@ -66,7 +96,9 @@
                     case "text":
                     console.log("Text");
                     $('#formContent').append("<p>"+formData["form"][formPart][1]+"</p>");
+                    formIDs.push(["text","text"]);
                     break;
+
                     case "select":
                     console.log("Select");
                     var options = "";
@@ -76,9 +108,11 @@
                         options += '<option>'+formData["form"][formPart][2][i]+'</option>';
                     }
                     options += '</select>';
+                    formIDs.push(["select", "select"+formPart]);
                     $('#formContent').append(options);
                     console.log($('#formContent').html());
                     break;
+
                     case "MultipleChoice":
                     var options = "";
                     console.log("MC");
@@ -88,28 +122,31 @@
                         options += '<label for="rChoice-'+formPart+'-'+i+'">'+formData["form"][formPart][2][i]+'</label>';
                     }
                     options += '</fieldset>'
-                    
+                    formIDs.push(["MultipleChoice", "rChoice-"+formPart]);
                     $('#formContent').append(options);
                     break;
+
                     case "CheckBoxes":
                     var options = "";
-                    console.log("MC");
+                    console.log("CB");
                     options += '<fieldset data-role="controlgroup"><legend>'+formData["form"][formPart][1]+"</legend>";
                     for (var i = 0; i < formData["form"][formPart][2].length; i++) {
                         options += '<input type="checkbox" name="cChoice-'+formPart+'" id="cChoice-'+formPart+'-'+i+'" value="'+formData["form"][formPart][2][i]+'" />'
                         options += '<label for="cChoice-'+formPart+'-'+i+'">'+formData["form"][formPart][2][i]+'</label>';
                     }
                     options += '</fieldset>'
-                    
+                    formIDs.push(["CheckBoxes", "cChoice-"+formPart]);
                     $('#formContent').append(options);
                     break;
+
                     case "ImageCapture":
                     var options = "";
                     console.log("IC");
-                    options += '<p>'+formData["form"][formPart][1]+'</p>'
-                    options += '<a data-role="button" data-rel="dialog" formPart="'+formPart+'"id="Cap-'+formPart+'">Capture Image</a>'
-                    options += '<p id="Cap-'+formPart+'-Data"></p>'
-                    options += '<p id="Cap-Data"></p>'
+                    options += '<p>'+formData["form"][formPart][1]+'</p>';
+                    options += '<a data-role="button" data-rel="dialog" formPart="'+formPart+'"id="Cap-'+formPart+'">Capture Image</a>';
+                    options += '<p id="Cap-'+formPart+'-Data"></p>';
+                    options += '<p id="Cap-Data"></p>';
+                    formIDs.push(["ImageCapture", "Cap-"+formPart+"-Data"]);
                     $('#formContent').append(options);
                     $('#Cap-'+formPart).on("tap",function(event){
                         window.scannedformpart = $(this).attr("formPart");
@@ -157,9 +194,11 @@
                     options += '<a data-role="button" data-rel="dialog" formPart="'+formPart+'"id="LCap-'+formPart+'">Capture Location</a>'
                     options += '<p id="LCap-'+formPart+'-Data"></p>'
                     console.log(options);
+                    formIDs.push(["Geolocation", "LCap-"+formPart+"-Data"]);
                     $('#formContent').append(options);
                     $('#LCap-'+formPart).on("tap",function(event){
-                    navigator.geolocation.getCurrentPosition(function(position){alert(position.coords.latitude+","+position.coords.longitude+",A: " + position.coords.accuracy);}, function(error){alert('Error Capturing');});
+                    window.scannedformpart = $(this).attr("formPart");
+                    navigator.geolocation.getCurrentPosition(function(position){$("#LCap-"+window.scannedformpart+"-Data").html(position.coords.latitude+","+position.coords.longitude);}, function(error){alert('Error Capturing');});
                     });
                     break;
                     default:
