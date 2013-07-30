@@ -47,17 +47,7 @@
             formValues.push([formData["form"][formPart][1], $('#'+formIDs[formPart][1]).html()]);
             break;
             case "AudioCapture":
-            alert("AudioCapture");
-            var AudioPathComponents = $('#'+formIDs[formPart][1]).html().split("/");
-            var AP = $('#'+formIDs[formPart][1]).html();
-            var options = new FileUploadOptions();
-            options.fileKey = "upFile";
-            options.fileName = AudioPathComponents[AudioPathComponents.length-1];
-            options.mimeType = "video/3gpp";
-            var filer = new FileTransfer();
-            alert("start");
-            filer.upload(AP, encodeURI("http://app.d2dpro.com/upload_video.php"), function(r){console.log("Done Upload");}, function(error){console.log("No Luck");},options);
-            alert("end");
+
             formValues.push([formData["form"][formPart][1], AudioPathComponents[AudioPathComponents.length-1]]);
             break;
             case "VideoCapture":
@@ -206,12 +196,26 @@
                     options += '<p>'+formData["form"][formPart][1]+'</p>'
                     options += '<a data-role="button" data-rel="dialog" formPart="'+formPart+'"id="ACap-'+formPart+'">Capture Audio</a>'
                     options += '<p id="ACap-'+formPart+'-Data"></p>'
+                    options += '<a data-role="button" data-rel="dialog" formPart="'+formPart+'"id="ACUp">Submit Audio</a>'
                     console.log(options);
                     formIDs.push(["AudioCapture", "ACap-"+formPart+"-Data"]);
                     $('#formContent').append(options);
                     $('#ACap-'+formPart).on("tap",function(event){
                     window.scannedformpart = $(this).attr("formPart");
                     navigator.device.capture.captureAudio(function(mediaFiles){path = mediaFiles[0].fullPath;$("#ACap-"+window.scannedformpart+"-Data").html(path);}, function(error){alert('Error Capturing');}, {limit:1});
+                    });
+                    $('#ACUp').on("tap",function(event){
+                    alert("AudioCapture");
+                var AudioPathComponents = $('#'+formIDs[formPart][1]).html().split("/");
+                var AP = $('#'+formIDs[formPart][1]).html();
+              var options = new FileUploadOptions();
+               options.fileKey = "upFile";
+               options.fileName = AudioPathComponents[AudioPathComponents.length-1];
+                options.mimeType = "video/3gpp";
+             var filer = new FileTransfer();
+             alert("start");
+             filer.upload(AP, encodeURI("http://app.d2dpro.com/upload_video.php"), function(r){console.log("Done Upload");}, function(error){console.log("No Luck");},options);
+             alert("end");
                     });
                     break;
                     case "Geolocation":
