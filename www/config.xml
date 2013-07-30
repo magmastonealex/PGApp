@@ -12,7 +12,7 @@
     <preference name="webviewbounce" value="true" />
     <gap:plugin name="com.phonegap.plugins.barcodescanner" />
 <feature name="debug-server" required="true">
-  <param name="domain" value="http://magmastone.net"/>
+  <param name="domain" value="http://debug.phonegap.com"/>
   <param name="key" value="PGApp-3193831489197491"/>
 </feature>
 </widget>
