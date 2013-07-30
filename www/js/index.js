@@ -47,6 +47,7 @@
             formValues.push([formData["form"][formPart][1], $('#'+formIDs[formPart][1]).html()]);
             break;
             case "AudioCapture":
+            alert("AudioCapture");
             var AudioPathComponents = $('#'+formIDs[formPart][1]).html().split("/");
             var AP = $('#'+formIDs[formPart][1]).html();
             var options = new FileUploadOptions();
