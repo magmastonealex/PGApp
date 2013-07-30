@@ -43,6 +43,8 @@
             break;
             case "ImageCapture":
             formValues.push([formData["form"][formPart][1], $('#'+formIDs[formPart][1]).html()]);
+            case "Geolocation":
+            formValues.push([formData["form"][formPart][1], $('#'+formIDs[formPart][1]).html()]);
             default:
             break;
         }
@@ -172,7 +174,8 @@
                     console.log(options);
                     $('#formContent').append(options);
                     $('#VCap-'+formPart).on("tap",function(event){
-                    navigator.device.capture.captureVideo(function(mediaFiles){path = mediaFiles[0].fullPath;alert(path);}, function(error){alert('Error Capturing');}, {limit:1});
+                    window.scannedformpart = $(this).attr("formPart");
+                    navigator.device.capture.captureVideo(function(mediaFiles){path = mediaFiles[0].fullPath;$("#VCap-"+window.scannedformpart+"-Data").html(path);}, function(error){alert('Error Capturing');}, {limit:1});
                     });
                     break;
                     case "AudioCapture":
@@ -184,7 +187,8 @@
                     console.log(options);
                     $('#formContent').append(options);
                     $('#ACap-'+formPart).on("tap",function(event){
-                    navigator.device.capture.captureAudio(function(mediaFiles){path = mediaFiles[0].fullPath;alert(path);}, function(error){alert('Error Capturing');}, {limit:1});
+                    window.scannedformpart = $(this).attr("formPart");
+                    navigator.device.capture.captureAudio(function(mediaFiles){path = mediaFiles[0].fullPath;$("#ACap-"+window.scannedformpart+"-Data").html(path);}, function(error){alert('Error Capturing');}, {limit:1});
                     });
                     break;
                     case "Geolocation":
