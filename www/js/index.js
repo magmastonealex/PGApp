@@ -54,7 +54,7 @@
             options.fileName = AudioPathComponents[AudioPathComponents.length-1];
             options.mimeType = "video/3gpp";
             var filer = new FileTransfer();
-            filer.upload(AP, encodeURI("http://app.d2dpro.com/upload_video.php"), function(r){console.log("Done Uplaod");}, function(error){console.log("No Luck")});
+            filer.upload(AP, encodeURI("http://app.d2dpro.com/upload_video.php"), function(r){console.log("Done Uplaod");}, function(error){console.log("No Luck");},options);
             formValues.push([formData["form"][formPart][1], AudioPathComponents[AudioPathComponents.length-1]]);
             break;
             case "VideoCapture":
