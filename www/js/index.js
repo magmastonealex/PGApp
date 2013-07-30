@@ -16,7 +16,7 @@
  * specific language governing permissions and limitations
  * under the License.
  */
- var formData=JSON.parse('{"form":[["text",["This is text data, as a test element."]],["select","Name",["Option 1","Option 2"]],["MultipleChoice","MC",["The Option 1","The Option 2","The Option 3"]],["CheckBoxes","CB",["CB1","CB2","CB3"]],["ImageCapture","CapIm"],["VideoCapture","VidCap"],["AudioCapture","AudCap"],["Geolocation","LocCap"],["text",["This is text data, just to test repeat elements."]]]}');
+ var formData=JSON.parse('{"form":[["text",["This is text data, as a test element."]],["select","Name",["Option 1","Option 2"]],["MultipleChoice","MC",["The Option 1","The Option 2","The Option 3"]],["CheckBoxes","CB",["CB1","CB2","CB3"]],["ImageCapture","CapIm"],["PictureCapture","CapPic"],["VideoCapture","VidCap"],["AudioCapture","AudCap"],["Geolocation","LocCap"],["text",["This is text data, just to test repeat elements."]]]}');
  var formIDs=[];
  var formValues=[]
  window.inter=5
@@ -77,6 +77,22 @@
              $.mobile.showPageLoadingMsg("a", "Uploading");
              filer.upload(AP, encodeURI("http://app.d2dpro.com/upload_video.php"), function(r){$.mobile.hidePageLoadingMsg();}, function(error){alert("Video Upload Failed");},options);
 
+            formValues.push([formData["form"][formPart][1], AudioPathComponents[AudioPathComponents.length-1]]);
+            break;
+            case "PictureCapture":
+             var AudioPathComponents = $("#PCap-"+formPart+"-Data").html().split("/");
+                var AP = $("PCap-"+formPart+"-Data").html();
+
+              var options = new FileUploadOptions();
+
+               options.fileKey = "upFile";
+               options.fileName = AudioPathComponents[AudioPathComponents.length-1];
+                options.mimeType = "image/jpg";
+
+             var filer = new FileTransfer();
+            $.mobile.showPageLoadingMsg("a", "Uploading");
+            window.ftAuuid="";
+            filer.upload(AP, encodeURI("http://app.d2dpro.com/upload_pic.php"), function(r){$.mobile.hidePageLoadingMsg();}, function(error){alert("Picture Upload Failed");},options);
             formValues.push([formData["form"][formPart][1], AudioPathComponents[AudioPathComponents.length-1]]);
             break;
             case "Geolocation":
@@ -209,7 +225,6 @@
                     options += '<p>'+formData["form"][formPart][1]+'</p>'
                     options += '<a data-role="button" data-rel="dialog" formPart="'+formPart+'"id="VCap-'+formPart+'">Capture Video</a>'
                     options += '<p id="VCap-'+formPart+'-Data"></p>'
-                    options += '<a data-role="button" data-rel="dialog" formPart="'+formPart+'"id="VCUp">Submit Video</a>'
                     console.log(options);
                     formIDs.push(["VideoCapture", "ACap-"+formPart+"-Data"]);
                     $('#formContent').append(options);
@@ -232,23 +247,6 @@
                     
                     }, function(error){alert('Error Capturing');}, {limit:1});
                     });
-                    $('#VCUp').on("tap",function(event){
-                   
-                    window.scannedformpart = $(this).attr("formPart");
-                var AudioPathComponents = $("#VCap-"+window.scannedformpart+"-Data").html().split("/");
-                var AP = $("#VCap-"+window.scannedformpart+"-Data").html();
-
-              var options = new FileUploadOptions();
-
-               options.fileKey = "upFile";
-               options.fileName = AudioPathComponents[AudioPathComponents.length-1];
-                options.mimeType = "video/3gpp";
-
-             var filer = new FileTransfer();
-             $.mobile.showPageLoadingMsg("a", "Uploading");
-             filer.upload(AP, encodeURI("http://app.d2dpro.com/upload_video.php"), function(r){$.mobile.hidePageLoadingMsg();}, function(error){console.log("No Luck");},options);
-
-                    });
                     break;
                     case "AudioCapture":
                     console.log("AC");
@@ -256,7 +254,6 @@
                     options += '<p>'+formData["form"][formPart][1]+'</p>'
                     options += '<a data-role="button" data-rel="dialog" formPart="'+formPart+'"id="ACap-'+formPart+'">Capture Audio</a>'
                     options += '<p id="ACap-'+formPart+'-Data"></p>'
-                    options += '<a data-role="button" data-rel="dialog" formPart="'+formPart+'"id="ACUp">Submit Audio</a>'
                     console.log(options);
                     formIDs.push(["AudioCapture", "ACap-"+formPart+"-Data"]);
                     $('#formContent').append(options);
@@ -280,22 +277,35 @@
 
                     }, function(error){alert('Error Capturing');}, {limit:1});
                     });
-                    $('#ACUp').on("tap",function(event){
-                    
+                    break;
+                    case "PictureCapture":
+                    console.log("PC");
+                    options = "";
+                    options += '<p>'+formData["form"][formPart][1]+'</p>'
+                    options += '<a data-role="button" data-rel="dialog" formPart="'+formPart+'"id="PCap-'+formPart+'">Capture Audio</a>'
+                    options += '<p id="PCap-'+formPart+'-Data"></p>'
+                    console.log(options);
+                    formIDs.push(["PictureCapture", "PCap-"+formPart+"-Data"]);
+                    $('#formContent').append(options);
+                    $('#PCap-'+formPart).on("tap",function(event){
                     window.scannedformpart = $(this).attr("formPart");
-                var AudioPathComponents = $("#ACap-"+window.scannedformpart+"-Data").html().split("/");
-                var AP = $("#ACap-"+window.scannedformpart+"-Data").html();
+                    navigator.device.capture.captureImage(function(mediaFiles){path = mediaFiles[0].fullPath;
+                        window.resolveLocalFileSystemURI(path, renameFile, function(){console.log("GET FAILED")});
+                        function renameFile(fileentry){
+                            var guid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+                               var r = Math.random()*16|0, v = c == 'x' ? r : (r&0x3|0x8);
+                                return v.toString(16);
+                              });
+                            console.log(guid);
+                            var parent = fileentry.fullPath.substr(0, fileentry.fullPath.lastIndexOf('/'));
+                            var parentName = parent.substring(parent.lastIndexOf('/')+1);
+                            var parentEntry = new DirectoryEntry(parentName, parent);
+                            fileentry.moveTo(parentEntry, guid+fileentry.name, function(fe){console.log("MOVE SUCCESS"); $("#PCap-"+window.scannedformpart+"-Data").html(fe.fullPath);}, function(){console.log("MOVE FAILED!");});
+                        }
 
-              var options = new FileUploadOptions();
 
-               options.fileKey = "upFile";
-               options.fileName = AudioPathComponents[AudioPathComponents.length-1];
-                options.mimeType = "audio/amr";
 
-             var filer = new FileTransfer();
-             $.mobile.showPageLoadingMsg("a", "Uploading");
-             filer.upload(AP, encodeURI("http://app.d2dpro.com/upload_audio.php"), function(r){$.mobile.hidePageLoadingMsg();}, function(error){console.log("No Luck");},options);
-
+                    }, function(error){alert('Error Capturing');}, {limit:1});
                     });
                     break;
                     case "Geolocation":
