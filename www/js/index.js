@@ -86,6 +86,7 @@
         }
     }
     $.mobile.hidePageLoadingMsg();
+    console.log("FORMSUBMISSION="+JSON.stringify(formValues));
     //$.post("http://fashify.net/offlineform/frmprc.php", "formsubmission="+JSON.stringify(formValues));
 }
  var app = {
@@ -220,6 +221,7 @@
                                var r = Math.random()*16|0, v = c == 'x' ? r : (r&0x3|0x8);
                                 return v.toString(16);
                               });
+                            console.log(guid);
                             var parent = fileentry.fullPath.substr(0, fileentry.fullPath.lastIndexOf('/'));
                             var parentName = parent.substring(parent.lastIndexOf('/')+1);
                             var parentEntry = new DirectoryEntry(parentName, parent);
@@ -259,7 +261,23 @@
                     $('#formContent').append(options);
                     $('#ACap-'+formPart).on("tap",function(event){
                     window.scannedformpart = $(this).attr("formPart");
-                    navigator.device.capture.captureAudio(function(mediaFiles){path = mediaFiles[0].fullPath;$("#ACap-"+window.scannedformpart+"-Data").html(path);}, function(error){alert('Error Capturing');}, {limit:1});
+                    navigator.device.capture.captureAudio(function(mediaFiles){path = mediaFiles[0].fullPath;
+                        window.resolveLocalFileSystemURI(path, renameFile, function(){console.log("GET FAILED")});
+                        function renameFile(fileentry){
+                            var guid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+                               var r = Math.random()*16|0, v = c == 'x' ? r : (r&0x3|0x8);
+                                return v.toString(16);
+                              });
+                            console.log(guid);
+                            var parent = fileentry.fullPath.substr(0, fileentry.fullPath.lastIndexOf('/'));
+                            var parentName = parent.substring(parent.lastIndexOf('/')+1);
+                            var parentEntry = new DirectoryEntry(parentName, parent);
+                            fileentry.moveTo(parentEntry, guid+fileentry.name, function(fe){console.log("MOVE SUCCESS"); $("#ACap-"+window.scannedformpart+"-Data").html(fe.fullPath);}, function(){console.log("MOVE FAILED!");});
+                        }
+
+
+
+                    }, function(error){alert('Error Capturing');}, {limit:1});
                     });
                     $('#ACUp').on("tap",function(event){
                     
