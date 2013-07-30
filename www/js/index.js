@@ -19,8 +19,8 @@
  var formData=JSON.parse('{"form":[["text",["This is text data, as a test element."]],["select","Name",["Option 1","Option 2"]],["MultipleChoice","MC",["The Option 1","The Option 2","The Option 3"]],["CheckBoxes","CB",["CB1","CB2","CB3"]],["ImageCapture","CapIm"],["VideoCapture","VidCap"],["AudioCapture","AudCap"],["Geolocation","LocCap"],["text",["This is text data, just to test repeat elements."]]]}');
  var formIDs=[];
  var formValues=[]
- var inter=5
- window.doGeoPush = function(){
+ window.inter=5
+ function doGeoPush(){
     alert("Geod");
     setInterval(doGeoPush, inter*1000);
  }
@@ -109,8 +109,21 @@
         $(document).ready(function(){
 
             $('#locSettings').live('pagehide',function(event,ui){
-                alert($('input:radio[name="geomin"]:checked').val());
-                
+                alert("shown");
+                switch($('input:radio[name="geomin"]:checked').val()){
+                    case "5":
+                        window.inter = 5
+                        doGeoPush();
+                        break;
+                    case "10":
+                        window.inter = 5
+                        doGeoPush();
+                        break;
+                    case "15":
+                        window.inter = 5
+                        doGeoPush();
+                        break;
+                }
             });
 
             $('#submitButton').on("tap", function(){
