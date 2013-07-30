@@ -108,9 +108,10 @@
     onDeviceReady: function() {
         $(document).ready(function(){
 
-            $('#geo5min').on("tap",function(){inter=5;alert(5);});
-            $('#geo10min').on("tap",function(){inter=10;window.doGeoPush();});
-            $('#geo15min').on("tap",function(){inter=15;window.doGeoPush();});
+            $('#locSettings').live('pagehide',function(event,ui){
+                alert($('input:radio[name="geomin"]:checked').val());
+                
+            });
 
             $('#submitButton').on("tap", function(){
                 //console.log($('#formContent').serialize());
