@@ -25,6 +25,8 @@
     setInterval(doGeoPush, inter*1000);
  }
  window.getData = function(){
+    $.mobile.allowCrossDomainPages = true;
+    $.mobile.showPageLoadingMsg("a", "Submitting");
     for (var formPart = 0; formPart < formIDs.length; formPart++) {
         switch(formIDs[formPart][0]){
             case "select":
@@ -43,14 +45,30 @@
             break;
             case "ImageCapture":
             formValues.push([formData["form"][formPart][1], $('#'+formIDs[formPart][1]).html()]);
+            break;
+            case "AudioCapture":
+            var AudioPathComponents = $('#'+formIDs[formPart][1]).html().split("/");
+            var AP = $('#'+formIDs[formPart][1]).html();
+            var options = new FileUploadOptions();
+            options.fileKey = "upFile";
+            options.fileName = AudioPathComponents[AudioPathComponents.length-1];
+            options.mimeType = "video/mp4";
+            var filer = new FileTransfer();
+            filer.upload(AP, encodeURI("http://app.d2dpro.com/upload_video.php"), function(r){console.log("Done Uplaod");}, function(error){console.log("No Luck")});
+            formValues.push([formData["form"][formPart][1], AudioPathComponents[AudioPathComponents.length-1]]);
+            break;
+            case "VideoCapture":
+            VideoPathComponents = $('#'+formIDs[formPart][1]).html().split("/");
+            formValues.push([formData["form"][formPart][1], VideoPathComponents[VideoPathComponents.length-1]]);
+            break;
             case "Geolocation":
             formValues.push([formData["form"][formPart][1], $('#'+formIDs[formPart][1]).html()]);
             default:
             break;
         }
     }
-    $.mobile.allowCrossDomainPages = true;
-    $.post("http://fashify.net/offlineform/frmprc.php", "formsubmission="+JSON.stringify(formValues));
+    $.mobile.hidePageLoadingMsg();
+    //$.post("http://fashify.net/offlineform/frmprc.php", "formsubmission="+JSON.stringify(formValues));
 }
  var app = {
     // Application Constructor
@@ -172,6 +190,7 @@
                     options += '<a data-role="button" data-rel="dialog" formPart="'+formPart+'"id="VCap-'+formPart+'">Capture Video</a>'
                     options += '<p id="VCap-'+formPart+'-Data"></p>'
                     console.log(options);
+                    formIDs.push(["VideoCapture", "ACap-"+formPart+"-Data"]);
                     $('#formContent').append(options);
                     $('#VCap-'+formPart).on("tap",function(event){
                     window.scannedformpart = $(this).attr("formPart");
@@ -185,6 +204,7 @@
                     options += '<a data-role="button" data-rel="dialog" formPart="'+formPart+'"id="ACap-'+formPart+'">Capture Audio</a>'
                     options += '<p id="ACap-'+formPart+'-Data"></p>'
                     console.log(options);
+                    formIDs.push(["AudioCapture", "ACap-"+formPart+"-Data"]);
                     $('#formContent').append(options);
                     $('#ACap-'+formPart).on("tap",function(event){
                     window.scannedformpart = $(this).attr("formPart");
