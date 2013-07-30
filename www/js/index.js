@@ -182,7 +182,7 @@
                     options += '<p>'+formData["form"][formPart][1]+'</p>'
                     options += '<a data-role="button" data-rel="dialog" formPart="'+formPart+'"id="VCap-'+formPart+'">Capture Video</a>'
                     options += '<p id="VCap-'+formPart+'-Data"></p>'
-                    options += '<a data-role="button" data-rel="dialog" formPart="'+formPart+'"id="VCUp">Submit Audio</a>'
+                    options += '<a data-role="button" data-rel="dialog" formPart="'+formPart+'"id="VCUp">Submit Video</a>'
                     console.log(options);
                     formIDs.push(["VideoCapture", "ACap-"+formPart+"-Data"]);
                     $('#formContent').append(options);
@@ -204,7 +204,7 @@
 
              var filer = new FileTransfer();
 
-             filer.upload(AP, encodeURI("http://app.d2dpro.com/upload_audio.php"), function(r){console.log("Done Upload");}, function(error){console.log("No Luck");},options);
+             filer.upload(AP, encodeURI("http://app.d2dpro.com/upload_video.php"), function(r){alert("Done Upload");}, function(error){console.log("No Luck");},options);
 
                     });
                     break;
