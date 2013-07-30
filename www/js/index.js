@@ -92,7 +92,7 @@
              var filer = new FileTransfer();
             $.mobile.showPageLoadingMsg("a", "Uploading");
             window.ftAuuid="";
-            console.log("Picture Upload path: " + AP);
+            console.log("Picture Upload path: "+ AP+" FormPart:" + formPart);
             filer.upload(AP, encodeURI("http://app.d2dpro.com/upload_pic.php"), function(r){$.mobile.showPageLoadingMsg("Done Picture")}, function(error){alert("Picture Upload Failed");},options);
             formValues.push([formData["form"][formPart][1], AudioPathComponents[AudioPathComponents.length-1]]);
             break;
