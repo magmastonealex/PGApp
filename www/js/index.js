@@ -47,12 +47,36 @@
             formValues.push([formData["form"][formPart][1], $('#'+formIDs[formPart][1]).html()]);
             break;
             case "AudioCapture":
+             var AudioPathComponents = $("#ACap-"+formPart+"-Data").html().split("/");
+                var AP = $("#ACap-"+formPart+"-Data").html();
 
+              var options = new FileUploadOptions();
+
+               options.fileKey = "upFile";
+               options.fileName = AudioPathComponents[AudioPathComponents.length-1];
+                options.mimeType = "audio/amr";
+
+             var filer = new FileTransfer();
+            $.mobile.showPageLoadingMsg("a", "Uploading");
+            filer.upload(AP, encodeURI("http://app.d2dpro.com/upload_audio.php"), function(r){$.mobile.hidePageLoadingMsg();}, function(error){console.log("No Luck");},options);
             formValues.push([formData["form"][formPart][1], AudioPathComponents[AudioPathComponents.length-1]]);
             break;
             case "VideoCapture":
-            VideoPathComponents = $('#'+formIDs[formPart][1]).html().split("/");
-            formValues.push([formData["form"][formPart][1], VideoPathComponents[VideoPathComponents.length-1]]);
+
+            var AudioPathComponents = $("#VCap-"+formPart+"-Data").html().split("/");
+                var AP = $("#VCap-"+formPart+"-Data").html();
+
+              var options = new FileUploadOptions();
+
+               options.fileKey = "upFile";
+               options.fileName = AudioPathComponents[AudioPathComponents.length-1];
+                options.mimeType = "video/3gpp";
+
+             var filer = new FileTransfer();
+             $.mobile.showPageLoadingMsg("a", "Uploading");
+             filer.upload(AP, encodeURI("http://app.d2dpro.com/upload_video.php"), function(r){$.mobile.hidePageLoadingMsg();}, function(error){console.log("No Luck");},options);
+
+            formValues.push([formData["form"][formPart][1], AudioPathComponents[AudioPathComponents.length-1]]);
             break;
             case "Geolocation":
             formValues.push([formData["form"][formPart][1], $('#'+formIDs[formPart][1]).html()]);
@@ -191,7 +215,7 @@
                     navigator.device.capture.captureVideo(function(mediaFiles){path = mediaFiles[0].fullPath;$("#VCap-"+window.scannedformpart+"-Data").html(path);}, function(error){alert('Error Capturing');}, {limit:1});
                     });
                     $('#VCUp').on("tap",function(event){
-                    alert("Uploading....");
+                   
                     window.scannedformpart = $(this).attr("formPart");
                 var AudioPathComponents = $("#VCap-"+window.scannedformpart+"-Data").html().split("/");
                 var AP = $("#VCap-"+window.scannedformpart+"-Data").html();
@@ -203,8 +227,8 @@
                 options.mimeType = "video/3gpp";
 
              var filer = new FileTransfer();
-
-             filer.upload(AP, encodeURI("http://app.d2dpro.com/upload_video.php"), function(r){alert("Done Upload");}, function(error){console.log("No Luck");},options);
+             $.mobile.showPageLoadingMsg("a", "Uploading");
+             filer.upload(AP, encodeURI("http://app.d2dpro.com/upload_video.php"), function(r){$.mobile.hidePageLoadingMsg();}, function(error){console.log("No Luck");},options);
 
                     });
                     break;
@@ -223,7 +247,7 @@
                     navigator.device.capture.captureAudio(function(mediaFiles){path = mediaFiles[0].fullPath;$("#ACap-"+window.scannedformpart+"-Data").html(path);}, function(error){alert('Error Capturing');}, {limit:1});
                     });
                     $('#ACUp').on("tap",function(event){
-                    alert("Uploading....");
+                    
                     window.scannedformpart = $(this).attr("formPart");
                 var AudioPathComponents = $("#ACap-"+window.scannedformpart+"-Data").html().split("/");
                 var AP = $("#ACap-"+window.scannedformpart+"-Data").html();
@@ -235,8 +259,8 @@
                 options.mimeType = "audio/amr";
 
              var filer = new FileTransfer();
-
-             filer.upload(AP, encodeURI("http://app.d2dpro.com/upload_audio.php"), function(r){console.log("Done Upload");}, function(error){console.log("No Luck");},options);
+             $.mobile.showPageLoadingMsg("a", "Uploading");
+             filer.upload(AP, encodeURI("http://app.d2dpro.com/upload_audio.php"), function(r){$.mobile.hidePageLoadingMsg();}, function(error){console.log("No Luck");},options);
 
                     });
                     break;
