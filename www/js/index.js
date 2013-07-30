@@ -112,15 +112,15 @@
                 alert("shown");
                 switch($('input:radio[name="geomin"]:checked').val()){
                     case "5":
-                        window.inter = 5
+                        window.inter = 5;
                         doGeoPush();
                         break;
                     case "10":
-                        window.inter = 5
+                        window.inter = 10;
                         doGeoPush();
                         break;
                     case "15":
-                        window.inter = 5
+                        window.inter = 15;
                         doGeoPush();
                         break;
                 }
