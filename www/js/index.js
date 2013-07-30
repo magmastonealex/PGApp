@@ -109,7 +109,7 @@
         $(document).ready(function(){
 
             $('#locSettings').on('pagehide',function(event,ui){
-                alert($('input:radio[name="geomin"]:checked').val());
+                alert($('input:radio[name="geomin"]:checked').attr("content"));
                
             });
 
