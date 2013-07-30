@@ -109,23 +109,8 @@
         $(document).ready(function(){
 
             $('#locSettings').on('pagehide',function(event,ui){
-                alert("shown");
-                switch($('input:radio[name="geomin"]:checked').val()){
-                    case "5":
-                        window.inter = 5;
-                        doGeoPush();
-                        console.log(doGeoPush);
-                        console.log("Test");
-                        break;
-                    case "10":
-                        window.inter = 10;
-                        doGeoPush();
-                        break;
-                    case "15":
-                        window.inter = 15;
-                        doGeoPush();
-                        break;
-                }
+                alert($('input:radio[name="geomin"]:checked').val());
+               
             });
 
             $('#submitButton').on("tap", function(){
