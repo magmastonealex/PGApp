@@ -206,7 +206,8 @@
                     });
                     $('#ACUp').on("tap",function(event){
                     alert("AudioCapture");
-                var AudioPathComponents = $('#'+formIDs[formPart][1]).html().split("/");
+                    window.scannedformpart = $(this).attr("formPart");
+                var AudioPathComponents = $("#ACap-"+window.scannedformpart+"-Data").html().split("/");
                 alert("AudioCapture1");
                 var AP = $('#'+formIDs[formPart][1]).html();
                 alert("AudioCapture2");
