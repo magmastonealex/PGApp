@@ -108,7 +108,7 @@
     onDeviceReady: function() {
         $(document).ready(function(){
 
-            $('#locSettings').live('pagehide',function(event,ui){
+            $('#locSettings').on('pagehide',function(event,ui){
                 alert("shown");
                 switch($('input:radio[name="geomin"]:checked').val()){
                     case "5":
