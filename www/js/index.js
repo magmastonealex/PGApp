@@ -58,6 +58,7 @@
 
              var filer = new FileTransfer();
             $.mobile.showPageLoadingMsg("a", "Uploading");
+            window.ftAuuid="";
             filer.upload(AP, encodeURI("http://app.d2dpro.com/upload_audio.php"), function(r){$.mobile.hidePageLoadingMsg();}, function(error){console.log("No Luck");},options);
             formValues.push([formData["form"][formPart][1], AudioPathComponents[AudioPathComponents.length-1]]);
             break;
@@ -212,7 +213,20 @@
                     $('#formContent').append(options);
                     $('#VCap-'+formPart).on("tap",function(event){
                     window.scannedformpart = $(this).attr("formPart");
-                    navigator.device.capture.captureVideo(function(mediaFiles){path = mediaFiles[0].fullPath;$("#VCap-"+window.scannedformpart+"-Data").html(path);}, function(error){alert('Error Capturing');}, {limit:1});
+                    navigator.device.capture.captureVideo(function(mediaFiles){path = mediaFiles[0].fullPath;
+                        window.resolveLocalFileSystemURI(path, renameFile, function(){console.log("GET FAILED")});
+                        function renameFile(fileentry){
+                            var guid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+                               var r = Math.random()*16|0, v = c == 'x' ? r : (r&0x3|0x8);
+                                return v.toString(16);
+                              });
+                            var parentString = fileentry.fullPath.substr(0, fileentry.fullPath.lastIndexOf('/');
+                            var parentEntry = new DirectoryEntry({fullPath: parentString});
+                            fileentry.moveTo(parentEntry, guid+fileentry.name, function(fe){console.log("MOVE SUCCESS"); $("#VCap-"+window.scannedformpart+"-Data").html(fe.fullPath);}, function(){console.log("MOVE FAILED!");});
+                        }
+                        
+                    
+                    }, function(error){alert('Error Capturing');}, {limit:1});
                     });
                     $('#VCUp').on("tap",function(event){
                    
