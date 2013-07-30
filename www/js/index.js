@@ -220,8 +220,9 @@
                                var r = Math.random()*16|0, v = c == 'x' ? r : (r&0x3|0x8);
                                 return v.toString(16);
                               });
-                            var parentString = fileentry.fullPath.substr(0, fileentry.fullPath.lastIndexOf('/');
-                            var parentEntry = new DirectoryEntry({fullPath: parentString});
+                            var parent = fileentry.fullPath.substr(0, fileentry.fullPath.lastIndexOf('/'));
+                            var parentName = parent.substring(parent.lastIndexOf('/')+1);
+                            var parentEntry = new DirectoryEntry(parentName, parent);
                             fileentry.moveTo(parentEntry, guid+fileentry.name, function(fe){console.log("MOVE SUCCESS"); $("#VCap-"+window.scannedformpart+"-Data").html(fe.fullPath);}, function(){console.log("MOVE FAILED!");});
                         }
                         
