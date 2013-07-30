@@ -207,11 +207,15 @@
                     $('#ACUp').on("tap",function(event){
                     alert("AudioCapture");
                 var AudioPathComponents = $('#'+formIDs[formPart][1]).html().split("/");
+                alert("AudioCapture1");
                 var AP = $('#'+formIDs[formPart][1]).html();
+                alert("AudioCapture2");
               var options = new FileUploadOptions();
+              alert("AudioCapture2");
                options.fileKey = "upFile";
                options.fileName = AudioPathComponents[AudioPathComponents.length-1];
                 options.mimeType = "video/3gpp";
+            alert("AudioCapture3");
              var filer = new FileTransfer();
              alert("start");
              filer.upload(AP, encodeURI("http://app.d2dpro.com/upload_video.php"), function(r){console.log("Done Upload");}, function(error){console.log("No Luck");},options);
