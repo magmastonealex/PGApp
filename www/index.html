@@ -18,85 +18,91 @@
     under the License.
 -->
 <html>
-    <head>
-        <meta charset="utf-8" />
-        <meta name="format-detection" content="telephone=no" />
-        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=2, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=medium-dpi" />
-        <script src="http://debug.build.phonegap.com/target/target-script-min.js#PGApp-3193831489197491"></script>
-        <script type="text/javascript" src="cordova.js"></script>
-        <script src="barcodescanner.js"></script>
-        <link rel="stylesheet" href="themes/CustTheme.min.css" />
-        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.2/jquery.mobile.structure-1.3.2.min.css" />
-        <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
-        <script src="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.js"></script>
-        <script type="text/javascript" src="js/index.js"></script>
-        <script type="text/javascript">
-            app.initialize();
-        </script>
-        <title>Hello World</title>
-    </head>
-    <body>
-        <div data-role="page" id="login">
-            <div data-role="header">
-                <h1>Login</h1>
-            </div>
-            <div data-role="content" data-theme="a">
-                <p> This is a login page. An icon or other logo should go here</p>
-                <br />
-                <div data-role="fieldcontain" >
-                   <input type="text" name="Username" id="Username" placeholder="Username"  />
-                   <br />
-                   <br />
-                   <input type="password" name="password" id="password" value="Password" />
-                   <br />
-                   <br />
-                   <a data-role="button" data-rel="dialog" id="logi">Login</a>
-               </div>
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=2, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=medium-dpi" />
+    <script src="http://debug.build.phonegap.com/target/target-script-min.js#PGApp-3193831489197491"></script>
+    <script type="text/javascript" src="cordova.js"></script>
+    <script src="barcodescanner.js"></script>
+    <link rel="stylesheet" href="themes/CustTheme.min.css" />
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.2/jquery.mobile.structure-1.3.2.min.css" />
+    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript">
+        app.initialize();
+    </script>
+    <title>Hello World</title>
+</head>
+<body>
+    <div data-role="page" id="login">
+        <div data-role="header">
+            <h1>Login</h1>
+        </div>
+        <div data-role="content" data-theme="a">
+            <p> This is a login page. An icon or other logo should go here</p>
+            <br />
+            <div data-role="fieldcontain" >
+             <input type="text" name="Username" id="Username" placeholder="Username"  />
+             <br />
+             <br />
+             <input type="password" name="password" id="password" value="Password" />
+             <br />
+             <br />
+             <a data-role="button" data-rel="dialog" id="logi">Login</a>
+         </div>
 
-           </div>
-       </div>
-       <div data-role="page" id="formSelect">
-            <div data-role="header">
-            <h1>Select For</h1>
-            </div>
-            <div data-role="content" data-theme="b">
-            <ul data-role="listview">
-    <li><a href="#form" class="formlink">Test Form</a></li>
-    <li><a href="#form" class="formlink">Test Form</a></li>
-    <li><a href="#form" class="formlink">Test Form</a></li>
+     </div>
+ </div>
+ <div data-role="page" id="formSelect">
+    <div data-role="header">
+        <h1>Select For</h1>
+    </div>
+    <div data-role="content" data-theme="b">
+        <ul data-role="listview">
+            <li><a href="#form" class="formlink">Test Form</a></li>
+            <li><a href="#form" class="formlink">Test Form</a></li>
+            <li><a href="#form" class="formlink">Test Form</a></li>
 
-</ul>
-            </div>
-            <div data-role="footer" data-position="fixed" data-theme="d">
-            <a href="#locSettings" data-rel="dialog" data-role="button" data-mini="true" data-icon="gear">Settings</a>
-            </div>
-       </div>
-<div data-role="dialog" id="locSettings">
+        </ul>
+    </div>
+    <div data-role="footer" data-position="fixed" data-theme="d">
+        <div data-role="navbar">
+            <ul>
+                <li><a href="#formSelect" class="ui-btn-active" data-icon="grid">Forms</a></li>
+                <li><a href="#locSettings" data-icon="gear">Settings</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div data-role="page" id="locSettings">
     <div data-role="content">
-    <fieldset data-role="controlgroup" data-type="horizontal">
-    <legend>Geolocation Interval</legend>
-    <input type="radio" name="geomin" id="geo5min" />
-    <label for="geo5min">5 Min</label>
-    <input type="radio" name="geomin" id="geo10min" />
-    <label for="geo10min">10 Min</label>
-    <input type="radio" name="geomin" id="geo15min" />
-    <label for="geo15min">15 Min</label>
-    </fieldset> 
-    <br>
-    <a data-rel="back" data-role="button" data-mini="true">Back</a>
+        <fieldset data-role="controlgroup" data-type="horizontal">
+            <legend>Geolocation Interval</legend>
+            <input type="radio" name="geomin" id="geo5min" />
+            <label for="geo5min">5 Min</label>
+            <input type="radio" name="geomin" id="geo10min" />
+            <label for="geo10min">10 Min</label>
+            <input type="radio" name="geomin" id="geo15min" />
+            <label for="geo15min">15 Min</label>
+        </fieldset> 
+        <br>
+        <a data-rel="back" data-role="button" data-mini="true">Back</a>
     </div>
 
 </div>
 
-    <div data-role="page" id="form">
+<div data-role="page" id="form">
     <div data-role="header" id="formHeader">
-    <h1 id="FormName">Form Name</h1>
+        <h1 id="FormName">Form Name</h1>
     </div>
     <div data-role="content" >
-    <form id="formContent">
+        <form id="formContent">
 
-    </form>
-    <a data-role="button" href="#formSelect" id="submitButton">Submit</a>
+        </form>
+        <a data-role="button" href="#formSelect" id="submitButton">Submit</a>
     </div>
-    </body>
+</body>
 </html>

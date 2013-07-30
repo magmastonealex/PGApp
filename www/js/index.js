@@ -59,7 +59,7 @@
              var filer = new FileTransfer();
             $.mobile.showPageLoadingMsg("a", "Uploading");
             window.ftAuuid="";
-            filer.upload(AP, encodeURI("http://app.d2dpro.com/upload_audio.php"), function(r){$.mobile.hidePageLoadingMsg();}, function(error){console.log("No Luck");},options);
+            filer.upload(AP, encodeURI("http://app.d2dpro.com/upload_audio.php"), function(r){$.mobile.hidePageLoadingMsg();}, function(error){alert("Audio Upload Failed");},options);
             formValues.push([formData["form"][formPart][1], AudioPathComponents[AudioPathComponents.length-1]]);
             break;
             case "VideoCapture":
@@ -75,7 +75,7 @@
 
              var filer = new FileTransfer();
              $.mobile.showPageLoadingMsg("a", "Uploading");
-             filer.upload(AP, encodeURI("http://app.d2dpro.com/upload_video.php"), function(r){$.mobile.hidePageLoadingMsg();}, function(error){console.log("No Luck");},options);
+             filer.upload(AP, encodeURI("http://app.d2dpro.com/upload_video.php"), function(r){$.mobile.hidePageLoadingMsg();}, function(error){alert("Video Upload Failed");},options);
 
             formValues.push([formData["form"][formPart][1], AudioPathComponents[AudioPathComponents.length-1]]);
             break;
