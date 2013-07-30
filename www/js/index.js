@@ -209,7 +209,7 @@
                     window.scannedformpart = $(this).attr("formPart");
                 var AudioPathComponents = $("#ACap-"+window.scannedformpart+"-Data").html().split("/");
                 alert("AudioCapture1");
-                var AP = $('#'+formIDs[formPart][1]).html();
+                var AP = $("#ACap-"+window.scannedformpart+"-Data").html();
                 alert("AudioCapture2");
               var options = new FileUploadOptions();
               alert("AudioCapture2");
