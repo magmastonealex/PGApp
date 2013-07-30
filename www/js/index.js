@@ -38,7 +38,6 @@
             case "CheckBoxes":
               var allVals = [];
              $(':checkbox[name="'+formIDs[formPart][1]+'"]:checked').each(function() {
-                console.log("check");
                 allVals.push($(this).val());
               });
             formValues.push([formData["form"][formPart][1], allVals]);
@@ -58,7 +57,7 @@
 
              var filer = new FileTransfer();
             $.mobile.showPageLoadingMsg("a", "Uploading");
-            window.ftAuuid="";
+            console.log("Audio Upload path: " + AP);
             filer.upload(AP, encodeURI("http://app.d2dpro.com/upload_audio.php"), function(r){$.mobile.hidePageLoadingMsg();}, function(error){alert("Audio Upload Failed");},options);
             formValues.push([formData["form"][formPart][1], AudioPathComponents[AudioPathComponents.length-1]]);
             break;
@@ -75,6 +74,7 @@
 
              var filer = new FileTransfer();
              $.mobile.showPageLoadingMsg("a", "Uploading");
+             console.log("Video Upload path: " + AP);
              filer.upload(AP, encodeURI("http://app.d2dpro.com/upload_video.php"), function(r){$.mobile.hidePageLoadingMsg();}, function(error){alert("Video Upload Failed");},options);
 
             formValues.push([formData["form"][formPart][1], AudioPathComponents[AudioPathComponents.length-1]]);
@@ -92,7 +92,8 @@
              var filer = new FileTransfer();
             $.mobile.showPageLoadingMsg("a", "Uploading");
             window.ftAuuid="";
-            filer.upload(AP, encodeURI("http://app.d2dpro.com/upload_pic.php"), function(r){$.mobile.hidePageLoadingMsg();}, function(error){alert("Picture Upload Failed");},options);
+            console.log("Picture Upload path: " + AP);
+            filer.upload(AP, encodeURI("http://app.d2dpro.com/upload_pic.php"), function(r){$.mobile.showPageLoadingMsg("Done Picture")}, function(error){alert("Picture Upload Failed");},options);
             formValues.push([formData["form"][formPart][1], AudioPathComponents[AudioPathComponents.length-1]]);
             break;
             case "Geolocation":
@@ -199,7 +200,7 @@
                     var options = "";
                     console.log("IC");
                     options += '<p>'+formData["form"][formPart][1]+'</p>';
-                    options += '<a data-role="button" data-rel="dialog" formPart="'+formPart+'"id="Cap-'+formPart+'">Capture Image</a>';
+                    options += '<a data-role="button" data-rel="dialog" formPart="'+formPart+'"id="Cap-'+formPart+'">Capture Barcode</a>';
                     options += '<p id="Cap-'+formPart+'-Data"></p>';
                     options += '<p id="Cap-Data"></p>';
                     formIDs.push(["ImageCapture", "Cap-"+formPart+"-Data"]);
@@ -282,7 +283,7 @@
                     console.log("PC");
                     options = "";
                     options += '<p>'+formData["form"][formPart][1]+'</p>'
-                    options += '<a data-role="button" data-rel="dialog" formPart="'+formPart+'"id="PCap-'+formPart+'">Capture Audio</a>'
+                    options += '<a data-role="button" data-rel="dialog" formPart="'+formPart+'"id="PCap-'+formPart+'">Capture Picture</a>'
                     options += '<p id="PCap-'+formPart+'-Data"></p>'
                     console.log(options);
                     formIDs.push(["PictureCapture", "PCap-"+formPart+"-Data"]);
