@@ -61,17 +61,19 @@
     </div>
     <div data-role="content" data-theme="b">
         <ul data-role="listview">
-            <li><a href="#form" class="formlink">Test Form</a></li>
-            <li><a href="#form" class="formlink">Test Form</a></li>
-            <li><a href="#form" class="formlink">Test Form</a></li>
+            <li><a href="#form" class="formlink" data-transition="slide">Test Form</a></li>
+            <li><a href="#form" class="formlink" data-transition="slide">Test Form</a></li>
+            <li><a href="#form" class="formlink" data-transition="slide">Test Form</a></li>
 
         </ul>
     </div>
     <div data-role="footer" data-position="fixed" data-theme="d">
         <div data-role="navbar">
             <ul>
-                <li><a href="#formSelect" class="ui-btn-active" data-icon="grid">Forms</a></li>
-                <li><a href="#locSettings" data-icon="gear">Settings</a></li>
+                <li><a href="#formSelect" class="ui-btn-active" data-icon="grid" data-transition="slide">Forms</a></li>
+                <li><a href="#mapScreen" data-icon="star">Map</a></li>
+                <li><a href="#entries" data-icon="info">Entries</a></li>
+                <li><a href="#locSettings" data-icon="gear" data-transition="slide">Settings</a></li>
             </ul>
         </div>
     </div>
@@ -88,10 +90,61 @@
             <input type="radio" name="geomin" id="geo15min" />
             <label for="geo15min">15 Min</label>
         </fieldset> 
-        <br>
-        <a data-rel="back" data-role="button" data-mini="true">Back</a>
     </div>
 
+    <div data-role="footer" data-position="fixed" data-theme="d">
+        <div data-role="navbar">
+            <ul>
+                <li><a href="#formSelect" data-icon="grid" data-transition="slide">Forms</a></li>
+                <li><a href="#mapScreen" data-icon="star">Map</a></li>
+                <li><a href="#entries" data-icon="info">Entries</a></li>
+                <li><a href="#locSettings" class="ui-btn-active" data-icon="gear" data-transition="slide">Settings</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div data-role="page" id="mapScreen">
+
+<div data-role="header">
+</div>
+
+<div data-role="content">
+
+</div>
+
+<div data-role="footer" data-position="fixed" data-theme="d">
+<div data-role="navbar">
+            <ul>
+                <li><a href="#formSelect" data-icon="grid" data-transition="slide">Forms</a></li>
+                <li><a href="#mapScreen" class="ui-btn-active" data-icon="star">Map</a></li>
+                <li><a href="#entries" data-icon="info">Entries</a></li>
+                <li><a href="#locSettings"  data-icon="gear" data-transition="slide">Settings</a></li>
+            </ul>
+        </div>
+</div>
+</div>
+
+
+<div data-role="page" id="entries">
+
+<div data-role="header">
+</div>
+
+<div data-role="content">
+
+</div>
+
+<div data-role="footer" data-position="fixed" data-theme="d">
+<div data-role="navbar">
+            <ul>
+                <li><a href="#formSelect" data-icon="grid" data-transition="slide">Forms</a></li>
+                <li><a href="#mapScreen" data-icon="star">Map</a></li>
+                <li><a href="#entries" class="ui-btn-active" data-icon="info">Entries</a></li>
+                <li><a href="#locSettings"  data-icon="gear" data-transition="slide">Settings</a></li>
+            </ul>
+        </div>
+</div>
 </div>
 
 <div data-role="page" id="form">
