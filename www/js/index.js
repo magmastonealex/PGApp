@@ -74,7 +74,7 @@
 
              var filer = new FileTransfer();
              $.mobile.showPageLoadingMsg("a", "Uploading");
-             console.log("Video Upload path: " + AP);
+             console.log("Video Upload path: " + AP+" FormPart:" + formPart);
              filer.upload(AP, encodeURI("http://app.d2dpro.com/upload_video.php"), function(r){$.mobile.hidePageLoadingMsg();}, function(error){alert("Video Upload Failed");},options);
 
             formValues.push([formData["form"][formPart][1], AudioPathComponents[AudioPathComponents.length-1]]);
@@ -301,7 +301,7 @@
                             var parent = fileentry.fullPath.substr(0, fileentry.fullPath.lastIndexOf('/'));
                             var parentName = parent.substring(parent.lastIndexOf('/')+1);
                             var parentEntry = new DirectoryEntry(parentName, parent);
-                            fileentry.moveTo(parentEntry, guid+fileentry.name, function(fe){console.log("MOVE SUCCESS"); $("#PCap-"+window.scannedformpart+"-Data").html(fe.fullPath);}, function(){console.log("MOVE FAILED!");});
+                            fileentry.moveTo(parentEntry, guid+fileentry.name, function(fe){console.log("MOVE SUCCESS: "+window.scannedformpart); $("#PCap-"+window.scannedformpart+"-Data").html(fe.fullPath);}, function(){console.log("MOVE FAILED!");});
                         }
 
 
