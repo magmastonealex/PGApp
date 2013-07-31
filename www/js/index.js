@@ -44,155 +44,10 @@ var isMobile = {
     navigator.geolocation.getCurrentPosition(function(position){$("#geoSettingsData").html(position.coords.latitude+","+position.coords.longitude);}, function(error){console.log('Error Capturing');});
     window.lastInterval = setInterval(doGeoPush, window.inter*1000);
  }
- window.getData = function(){
-    $.mobile.allowCrossDomainPages = true;
-    $.mobile.showPageLoadingMsg("a", "Submitting");
-    for (var formPart = 0; formPart < formIDs.length; formPart++) {
-        switch(formIDs[formPart][0]){
-            case "select":
-            formValues.push([formData[formPart][1], $('#'+formIDs[formPart][1]).val()]);
-            break;
-            case "MultipleChoice":
-            formValues.push([formData[formPart][1], $('input:radio[name="'+formIDs[formPart][1]+'"]:checked').val()]);
-            break;
-            case "CheckBoxes":
-              var allVals = [];
-             $(':checkbox[name="'+formIDs[formPart][1]+'"]:checked').each(function() {
-                allVals.push($(this).val());
-              });
-            formValues.push([formData[formPart][1], allVals]);
-            break;
-            case "ImageCapture":
-            formValues.push([formData[formPart][1], $('#'+formIDs[formPart][1]).html()]);
-            break;
-            case "AudioCapture":
-             var AudioPathComponents = $("#ACap-"+formPart+"-Data").html().split("/");
-                var AP = $("#ACap-"+formPart+"-Data").html();
-
-              var options = new FileUploadOptions();
-
-               options.fileKey = "upFile";
-               options.fileName = AudioPathComponents[AudioPathComponents.length-1];
-                options.mimeType = "audio/amr";
-
-             var filer = new FileTransfer();
-            $.mobile.showPageLoadingMsg("a", "Uploading");
-            console.log("Audio Upload path: " + AP);
-            filer.upload(AP, encodeURI("http://app.d2dpro.com/upload_audio.php"), function(r){$.mobile.hidePageLoadingMsg();}, function(error){alert("Audio Upload Failed");},options);
-            formValues.push([formData[formPart][1], AudioPathComponents[AudioPathComponents.length-1]]);
-            break;
-            case "VideoCapture":
-
-            var AudioPathComponents = $("#VCap-"+formPart+"-Data").html().split("/");
-                var AP = $("#VCap-"+formPart+"-Data").html();
-
-              var options = new FileUploadOptions();
-
-               options.fileKey = "upFile";
-               options.fileName = AudioPathComponents[AudioPathComponents.length-1];
-                options.mimeType = "video/3gpp";
-
-             var filer = new FileTransfer();
-             $.mobile.showPageLoadingMsg("a", "Uploading");
-             console.log("Video Upload path: " + AP+" ");
-             filer.upload(AP, encodeURI("http://app.d2dpro.com/upload_video.php"), function(r){$.mobile.hidePageLoadingMsg();}, function(error){alert("Video Upload Failed");},options);
-
-            formValues.push([formData[formPart][1], AudioPathComponents[AudioPathComponents.length-1]]);
-            break;
-            case "PictureCapture":
-             var AudioPathComponents = $("#PCap-"+formPart+"-Data").html().split("/");
-                var AP = $("#PCap-"+formPart+"-Data").html();
-
-              var options = new FileUploadOptions();
-
-               options.fileKey = "upFile";
-               options.fileName = AudioPathComponents[AudioPathComponents.length-1];
-                options.mimeType = "image/jpg";
-
-             var filer = new FileTransfer();
-            $.mobile.showPageLoadingMsg("a", "Uploading");
-            window.ftAuuid="";
-            console.log("Picture Upload path: " + AP);
-            filer.upload(AP, encodeURI("http://app.d2dpro.com/upload_pic.php"), function(r){$.mobile.showPageLoadingMsg("Done Picture")}, function(error){alert("Picture Upload Failed");},options);
-            formValues.push([formData[formPart][1], AudioPathComponents[AudioPathComponents.length-1]]);
-            break;
-            case "Geolocation":
-            formValues.push([formData[formPart][1], $('#'+formIDs[formPart][1]).html()]);
-            default:
-            break;
-        }
-    }
-    $.mobile.hidePageLoadingMsg();
-    console.log("FORMSUBMISSION="+JSON.stringify(formValues));
-    $.post("http://app.d2dpro.com/submit_form.php", "formsubmission="+JSON.stringify(formValues));
-}
- var app = {
-    // Application Constructor
-    initialize: function() {
-        this.bindEvents();
-
-    },
-    // Bind Event Listeners
-    //
-    // Bind any events that are required on startup. Common events are:
-    // 'load', 'deviceready', 'offline', and 'online'.
-    bindEvents: function() {
-        document.addEventListener('deviceready', this.onDeviceReady, false);
-    },
-    // deviceready Event Handler
-    //
-    // The scope of 'this' is the event. In order to call the 'receivedEvent'
-    // function, we must explicity call 'app.receivedEvent(...);'
-    onDeviceReady: function() {
-        $(document).ready(function(){
-            $.getJSON("http://app.d2dpro.com/get_form.php", function(data){
-                allForms = data;
-                console.log("GOT DATA" + data);
-                for (var formNumber = 0; formNumber < data.length; formNumber++) {
-                    formLinkOptions = '<li><a href="#form" class="formlink" formID="'+allForms[formNumber][0]+'" data-transition="pop">'+allForms[formNumber][1]+'</a></li>'
-                    $('#linksForm').append(formLinkOptions);
-                }
-
-            });
 
 
-            
-            $('#locSettings').on('pagehide',function(event,ui){
-               switch($('input:radio[name="geomin"]:checked').attr("content")){
-                case "5":
-                    inter = 5;
-                    clearInterval(window.lastInterval);
-                    doGeoPush();
-                    break;
-                case "10":
-                    inter = 10;
-                    clearInterval(window.lastInterval);
-                    doGeoPush();
-                    break;
-                case "15":
-                    inter = 15;
-                    clearInterval(window.lastInterval);
-                    doGeoPush();
-                    break;
-                case "never":
-                    inter = 10000;
-                    clearInterval(window.lastInterval);
-               }
-            });
-
-            $('#submitButton').on("tap", function(){
-                //console.log($('#formContent').serialize());
-                getData();
-
-            });
-
-            $('#logi').on("tap",function(event){
-                $.mobile.showPageLoadingMsg("a", "Logging In");
-                $.mobile.changePage("#formSelect");
-                $.mobile.hidePageLoadingMsg();
-            });
-
-            $('.formlink').on("tap",function(){
+function setupPageClickHandler(){
+    $('.formlink').on("tap",function(){
 
             alert("GETTING FORM DATA: " + $(this).attr("formID"));
 
@@ -399,6 +254,160 @@ var isMobile = {
                 }
             }
         });
+}
+
+
+
+
+ window.getData = function(){
+    $.mobile.allowCrossDomainPages = true;
+    $.mobile.showPageLoadingMsg("a", "Submitting");
+    for (var formPart = 0; formPart < formIDs.length; formPart++) {
+        switch(formIDs[formPart][0]){
+            case "select":
+            formValues.push([formData[formPart][1], $('#'+formIDs[formPart][1]).val()]);
+            break;
+            case "MultipleChoice":
+            formValues.push([formData[formPart][1], $('input:radio[name="'+formIDs[formPart][1]+'"]:checked').val()]);
+            break;
+            case "CheckBoxes":
+              var allVals = [];
+             $(':checkbox[name="'+formIDs[formPart][1]+'"]:checked').each(function() {
+                allVals.push($(this).val());
+              });
+            formValues.push([formData[formPart][1], allVals]);
+            break;
+            case "ImageCapture":
+            formValues.push([formData[formPart][1], $('#'+formIDs[formPart][1]).html()]);
+            break;
+            case "AudioCapture":
+             var AudioPathComponents = $("#ACap-"+formPart+"-Data").html().split("/");
+                var AP = $("#ACap-"+formPart+"-Data").html();
+
+              var options = new FileUploadOptions();
+
+               options.fileKey = "upFile";
+               options.fileName = AudioPathComponents[AudioPathComponents.length-1];
+                options.mimeType = "audio/amr";
+
+             var filer = new FileTransfer();
+            $.mobile.showPageLoadingMsg("a", "Uploading");
+            console.log("Audio Upload path: " + AP);
+            filer.upload(AP, encodeURI("http://app.d2dpro.com/upload_audio.php"), function(r){$.mobile.hidePageLoadingMsg();}, function(error){alert("Audio Upload Failed");},options);
+            formValues.push([formData[formPart][1], AudioPathComponents[AudioPathComponents.length-1]]);
+            break;
+            case "VideoCapture":
+
+            var AudioPathComponents = $("#VCap-"+formPart+"-Data").html().split("/");
+                var AP = $("#VCap-"+formPart+"-Data").html();
+
+              var options = new FileUploadOptions();
+
+               options.fileKey = "upFile";
+               options.fileName = AudioPathComponents[AudioPathComponents.length-1];
+                options.mimeType = "video/3gpp";
+
+             var filer = new FileTransfer();
+             $.mobile.showPageLoadingMsg("a", "Uploading");
+             console.log("Video Upload path: " + AP+" ");
+             filer.upload(AP, encodeURI("http://app.d2dpro.com/upload_video.php"), function(r){$.mobile.hidePageLoadingMsg();}, function(error){alert("Video Upload Failed");},options);
+
+            formValues.push([formData[formPart][1], AudioPathComponents[AudioPathComponents.length-1]]);
+            break;
+            case "PictureCapture":
+             var AudioPathComponents = $("#PCap-"+formPart+"-Data").html().split("/");
+                var AP = $("#PCap-"+formPart+"-Data").html();
+
+              var options = new FileUploadOptions();
+
+               options.fileKey = "upFile";
+               options.fileName = AudioPathComponents[AudioPathComponents.length-1];
+                options.mimeType = "image/jpg";
+
+             var filer = new FileTransfer();
+            $.mobile.showPageLoadingMsg("a", "Uploading");
+            window.ftAuuid="";
+            console.log("Picture Upload path: " + AP);
+            filer.upload(AP, encodeURI("http://app.d2dpro.com/upload_pic.php"), function(r){$.mobile.showPageLoadingMsg("Done Picture")}, function(error){alert("Picture Upload Failed");},options);
+            formValues.push([formData[formPart][1], AudioPathComponents[AudioPathComponents.length-1]]);
+            break;
+            case "Geolocation":
+            formValues.push([formData[formPart][1], $('#'+formIDs[formPart][1]).html()]);
+            default:
+            break;
+        }
+    }
+    $.mobile.hidePageLoadingMsg();
+    console.log("FORMSUBMISSION="+JSON.stringify(formValues));
+    $.post("http://app.d2dpro.com/submit_form.php", "formsubmission="+JSON.stringify(formValues));
+}
+ var app = {
+    // Application Constructor
+    initialize: function() {
+        this.bindEvents();
+
+    },
+    // Bind Event Listeners
+    //
+    // Bind any events that are required on startup. Common events are:
+    // 'load', 'deviceready', 'offline', and 'online'.
+    bindEvents: function() {
+        document.addEventListener('deviceready', this.onDeviceReady, false);
+    },
+    // deviceready Event Handler
+    //
+    // The scope of 'this' is the event. In order to call the 'receivedEvent'
+    // function, we must explicity call 'app.receivedEvent(...);'
+    onDeviceReady: function() {
+        $(document).ready(function(){
+            $.getJSON("http://app.d2dpro.com/get_form.php", function(data){
+                allForms = data;
+                console.log("GOT DATA" + data);
+                for (var formNumber = 0; formNumber < data.length; formNumber++) {
+                    formLinkOptions = '<li><a href="#form" class="formlink" formID="'+allForms[formNumber][0]+'" data-transition="pop">'+allForms[formNumber][1]+'</a></li>'
+                    $('#linksForm').append(formLinkOptions);
+                }
+                setupPageClickHandler();
+            });
+
+
+            
+            $('#locSettings').on('pagehide',function(event,ui){
+               switch($('input:radio[name="geomin"]:checked').attr("content")){
+                case "5":
+                    inter = 5;
+                    clearInterval(window.lastInterval);
+                    doGeoPush();
+                    break;
+                case "10":
+                    inter = 10;
+                    clearInterval(window.lastInterval);
+                    doGeoPush();
+                    break;
+                case "15":
+                    inter = 15;
+                    clearInterval(window.lastInterval);
+                    doGeoPush();
+                    break;
+                case "never":
+                    inter = 10000;
+                    clearInterval(window.lastInterval);
+               }
+            });
+
+            $('#submitButton').on("tap", function(){
+                //console.log($('#formContent').serialize());
+                getData();
+
+            });
+
+            $('#logi').on("tap",function(event){
+                $.mobile.showPageLoadingMsg("a", "Logging In");
+                $.mobile.changePage("#formSelect");
+                $.mobile.hidePageLoadingMsg();
+            });
+
+            
 });
 app.receivedEvent('deviceready');
 },
