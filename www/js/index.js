@@ -255,8 +255,7 @@ var isMobile = {
                     window.requestFileSystem(LocalFileSystem.TEMPORARY, 0, goMove, function(error){console.log("Could not get temp folder");});
                     function goMove(fileSys){
                         window.picRoot = fileSys.root;
-                        window.resolveLocalFileSystemURI(window.picpath, renameFile, function(){window.resolveLocalFileSystemURI("file://"+window.picpath, renameFile,alert("REALLY FAILED:" + "file://"+window.picpath);});
-
+                        window.resolveLocalFileSystemURI(window.picpath, renameFile,function(error){window.resolveLocalFileSystemURI("file://"+window.picpath, renameFile,function(error){alert("REALLY FAILED:" + "file://"+window.picpath);})});
                     }
                         function renameFile(fileentry){
                             var guid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
@@ -287,7 +286,7 @@ var isMobile = {
                     window.requestFileSystem(LocalFileSystem.TEMPORARY, 0, goMove, function(error){console.log("Could not get temp folder");});
                     function goMove(fileSys){
                         window.picRoot = fileSys.root;
-                        window.resolveLocalFileSystemURI(window.picpath, renameFile, function(){window.resolveLocalFileSystemURI("file://"+window.picpath, renameFile,alert("REALLY FAILED:" + "file://"+window.picpath);});
+                        window.resolveLocalFileSystemURI(window.picpath, renameFile,function(error){window.resolveLocalFileSystemURI("file://"+window.picpath, renameFile,function(error){alert("REALLY FAILED:" + "file://"+window.picpath);})});
 
                     }
                         function renameFile(fileentry){
@@ -322,7 +321,7 @@ var isMobile = {
                         window.picRoot = fileSys.root;
                         alert("Got a temp folder:" + fileSys.root.name);
                         alert(window.picpath);
-                         window.resolveLocalFileSystemURI(window.picpath, renameFile, function(){window.resolveLocalFileSystemURI("file://"+window.picpath, renameFile,alert("REALLY FAILED:" + "file://"+window.picpath);});
+                         window.resolveLocalFileSystemURI(window.picpath, renameFile,function(error){window.resolveLocalFileSystemURI("file://"+window.picpath, renameFile,function(error){alert("REALLY FAILED:" + "file://"+window.picpath);})});
                     }
                         function renameFile(fileentry){
                             var guid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
