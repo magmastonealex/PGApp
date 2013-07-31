@@ -129,6 +129,9 @@ var isMobile = {
     // Application Constructor
     initialize: function() {
         this.bindEvents();
+        $.getJSON("http://app.d2dpro.com/get_form_field.php", function(data){
+         formData = data;
+        });
     },
     // Bind Event Listeners
     //
