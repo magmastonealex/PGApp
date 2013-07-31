@@ -32,7 +32,7 @@
 
 function setupPageClickHandler(){
     $('.formlink').on("tap",function(){
-        $.ajaxSetup({async: false});
+        $.ajaxSetup({async: false, error: function(error){alert("Error downloading");}});
                 console.log("BEGIN DOWNLOAD");
             $.getJSON("http://app.d2dpro.com/get_form_field.php","formID=2",function(data){
                 formData = data;
@@ -344,7 +344,9 @@ function updateData(){
     // The scope of 'this' is the event. In order to call the 'receivedEvent'
     // function, we must explicity call 'app.receivedEvent(...);'
     onDeviceReady: function() {
+
         $(document).ready(function(){
+            $.mobile.allowCrossDomainPages = true;
             $.getJSON("http://app.d2dpro.com/get_form.php", function(data){
                 allForms = data;
                 console.log("GOT DATA" + data);
