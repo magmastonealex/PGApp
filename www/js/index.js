@@ -18,8 +18,27 @@
  */
  var formData=JSON.parse('{"form":[["text",["This is text data, as a test element."]],["select","Name",["Option 1","Option 2"]],["MultipleChoice","MC",["The Option 1","The Option 2","The Option 3"]],["CheckBoxes","CB",["CB1","CB2","CB3"]],["ImageCapture","CapIm"],["PictureCapture","CapPic"],["VideoCapture","VidCap"],["AudioCapture","AudCap"],["Geolocation","LocCap"],["text",["This is text data, just to test repeat elements."]]]}');
  var formIDs=[];
- var formValues=[]
- window.inter=5
+ var formValues=[];
+ window.inter=5;
+
+var isMobile = {
+    Android: function() {
+        return navigator.userAgent.match(/Android/i) ? true : false;
+    },
+    BlackBerry: function() {
+        return navigator.userAgent.match(/BlackBerry/i) ? true : false;
+    },
+    iOS: function() {
+        return navigator.userAgent.match(/iPhone|iPad|iPod/i) ? true : false;
+    },
+    Windows: function() {
+        return navigator.userAgent.match(/IEMobile/i) ? true : false;
+    },
+    any: function() {
+        return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Windows());
+    }
+};
+
  function doGeoPush(){
     alert("Geod");
     setInterval(doGeoPush, inter*1000);
@@ -236,6 +255,7 @@
                     window.requestFileSystem(LocalFileSystem.TEMPORARY, 0, goMove, function(error){console.log("Could not get temp folder");});
                     function goMove(fileSys){
                         window.picRoot = fileSys.root;
+                        if(isMobile.iOS()){ window.picpath = "file://"+window.picpath;}
                         window.resolveLocalFileSystemURI(window.picpath, renameFile, function(){console.log("GET FAILED")});
                     }
                         function renameFile(fileentry){
@@ -267,6 +287,7 @@
                     window.requestFileSystem(LocalFileSystem.TEMPORARY, 0, goMove, function(error){console.log("Could not get temp folder");});
                     function goMove(fileSys){
                         window.picRoot = fileSys.root;
+                        if(isMobile.iOS()){ window.picpath = "file://"+window.picpath;}
                         window.resolveLocalFileSystemURI(window.picpath, renameFile, function(){console.log("GET FAILED")});
                     }
                         function renameFile(fileentry){
@@ -301,6 +322,7 @@
                         window.picRoot = fileSys.root;
                         alert("Got a temp folder:" + fileSys.root.name);
                         alert(window.picpath);
+                        if(isMobile.iOS()){ window.picpath = "file://"+window.picpath;}
                         window.resolveLocalFileSystemURI(window.picpath, renameFile, function(){alert("GET FAILED")});
                     }
                         function renameFile(fileentry){
