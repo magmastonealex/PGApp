@@ -1,6 +1,7 @@
 <?php
 $db = new mysqli('localhost', 'appd2dpr_php', '9&3mPMjCJM8+uKy6o', 'appd2dpr_mobileApp');
-$injson = json_decode($_POST["formsubmission"]);
+$injson_proc = str_replace("\\", "", $_POST["formsubmission"]);
+$injson = json_decode();
 
 
 if($db->connect_errno > 0){
@@ -8,6 +9,9 @@ if($db->connect_errno > 0){
 }
 $subid = uniqid();
 echo $_POST["formsubmission"];
+echo "<br>"
+echo $injson_proc;
+echo "<br>"
 echo $injson;
 foreach($injson as $field){
 	$fieldidquery = "SELECT formfieldID FROM form_fields WHERE fldName=".mysqli_real_escape_string($db,$field[0]).";";
