@@ -187,16 +187,21 @@ var isMobile = {
             });
 
             $('#logi').on("tap",function(event){
-            $.getJSON("http://app.d2dpro.com/get_form_data.php","formID="+$(this).attr("formID"),function(data){
-                formData = data;
-            });
                 $.mobile.showPageLoadingMsg("a", "Logging In");
                 $.mobile.changePage("#formSelect");
                 $.mobile.hidePageLoadingMsg();
             });
 
             $('.formlink').on("tap",function(){
-
+            $.ajaxSetup({
+              async: false
+            });
+            $.getJSON("http://app.d2dpro.com/get_form_data.php","formID="+$(this).attr("formID"),function(data){
+                formData = data;
+            });
+            $.ajaxSetup({
+              async: true
+            });
             //Populate the form page with proper content here.
             $('#formContent').html("<br>");
             console.log(this.id);
