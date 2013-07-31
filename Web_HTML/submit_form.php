@@ -7,6 +7,7 @@ if($db->connect_errno > 0){
     die('Error :  ' . $db->connect_error);
 }
 $subid = uniqid();
+r_print($injson);
 foreach($injson as $field){
 	$fieldidquery = "SELECT formfieldID FROM form_fields WHERE fldName=".mysqli_real_escape_string($db,$field[0]).";";
 	if(!$result = $db->query($fieldidquery)){
