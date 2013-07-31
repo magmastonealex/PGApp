@@ -80,8 +80,8 @@
             formValues.push([formData["form"][formPart][1], AudioPathComponents[AudioPathComponents.length-1]]);
             break;
             case "PictureCapture":
-             var AudioPathComponents = $("#PCap-"+formPart+"-Data").html().split("/");
-                var AP = $("PCap-"+formPart+"-Data").html();
+            var AudioPathComponents = $("#PCap-Data").html().split("/");
+            var AP = $("PCap-Data").html();
 
               var options = new FileUploadOptions();
 
@@ -285,6 +285,7 @@
                     options += '<p>'+formData["form"][formPart][1]+'</p>'
                     options += '<a data-role="button" data-rel="dialog" formPart="'+formPart+'"id="PCap-'+formPart+'">Capture Picture</a>'
                     options += '<p id="PCap-'+formPart+'-Data"></p>'
+                    options += '<p id="PCap-Data"></p>'
                     console.log(options);
                     formIDs.push(["PictureCapture", "PCap-"+formPart+"-Data"]);
                     $('#formContent').append(options);
@@ -301,7 +302,7 @@
                             var parent = fileentry.fullPath.substr(0, fileentry.fullPath.lastIndexOf('/'));
                             var parentName = parent.substring(parent.lastIndexOf('/')+1);
                             var parentEntry = new DirectoryEntry(parentName, parent);
-                            fileentry.moveTo(parentEntry, guid+fileentry.name, function(fe){console.log("MOVE SUCCESS: "+window.scannedformpart); $("#PCap-"+window.scannedformpart+"-Data").html(fe.fullPath);}, function(){console.log("MOVE FAILED!");});
+                            fileentry.moveTo(parentEntry, guid+fileentry.name, function(fe){console.log("MOVE SUCCESS: "+window.scannedformpart); $("#PCap-Data").html(fe.fullPath);}, function(){console.log("MOVE FAILED!");});
                         }
 
 
