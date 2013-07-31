@@ -296,10 +296,10 @@
                     window.scannedformpart = $(this).attr("formPart");
                     navigator.device.capture.captureImage(function(mediaFiles){
                     window.picpath = mediaFiles[0].fullPath;
-                    window.requestFileSystem(LocalFileSystem.TEMPORARY, 0, goMove, function(error){console.log("Could not get temp folder");});
+                    window.requestFileSystem(LocalFileSystem.TEMPORARY, 0, goMove, function(error){alert("Could not get temp folder");});
                     function goMove(fileSys){
                         window.picRoot = fileSys.root;
-                        window.resolveLocalFileSystemURI(window.picpath, renameFile, function(){console.log("GET FAILED")});
+                        window.resolveLocalFileSystemURI(window.picpath, renameFile, function(){alert("GET FAILED")});
                     }
                         function renameFile(fileentry){
                             var guid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
@@ -307,7 +307,7 @@
                                 return v.toString(16);
                               });
                             console.log(guid);
-                            fileentry.copyTo(window.picRoot, guid+fileentry.name, function(fe){console.log("MOVE SUCCESS: "+window.scannedformpart); $("#PCap-"+window.scannedformpart+"-Data").html(fe.fullPath);}, function(){console.log("MOVE FAILED!");});
+                            fileentry.copyTo(window.picRoot, guid+fileentry.name, function(fe){console.log("MOVE SUCCESS: "+window.scannedformpart); $("#PCap-"+window.scannedformpart+"-Data").html(fe.fullPath);}, function(){alert("MOVE FAILED!");});
                         }
 
 
