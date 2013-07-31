@@ -16,7 +16,7 @@
  * specific language governing permissions and limitations
  * under the License.
  */
- var formData=JSON.parse('[["text","TextTest",["This is a test of mySQL."]],["MultipleChoice","MultiTest",["MySQL option1","MySQL Option 2"]]]');
+ var formData=0;
  var formIDs=[];
  var formValues=[];
  var allForms=0;
