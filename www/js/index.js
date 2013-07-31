@@ -20,7 +20,6 @@
  var formIDs=[];
  var formValues=[];
  window.inter=5;
-
 var isMobile = {
     Android: function() {
         return navigator.userAgent.match(/Android/i) ? true : false;
@@ -41,7 +40,7 @@ var isMobile = {
 
  function doGeoPush(){
     alert("Geod");
-    setInterval(doGeoPush, inter*1000);
+    window.lastInterval = setInterval(doGeoPush, window.inter*1000);
  }
  window.getData = function(){
     $.mobile.allowCrossDomainPages = true;
@@ -148,14 +147,17 @@ var isMobile = {
                switch($('input:radio[name="geomin"]:checked').attr("content")){
                 case "5":
                     inter = 5;
+                    clearInterval(window.lastInterval);
                     doGeoPush();
                     break;
                 case "10":
                     inter = 10;
+                    clearInterval(window.lastInterval);
                     doGeoPush();
                     break;
                 case "15":
                     inter = 15;
+                    clearInterval(window.lastInterval);
                     doGeoPush();
                     break;
                }
