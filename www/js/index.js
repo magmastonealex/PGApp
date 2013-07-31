@@ -196,6 +196,7 @@ var isMobile = {
             $.ajaxSetup({
               async: false
             });
+            console.log("GETTING FORM DATA: " + $(this).attr("formID"));
             $.getJSON("http://app.d2dpro.com/get_form_data.php","formID="+$(this).attr("formID"),function(data){
                 formData = data;
                 console.log("GOT FORM DATA: " + data);
