@@ -16,7 +16,7 @@
  * specific language governing permissions and limitations
  * under the License.
  */
- var formData=JSON.parse('{"form":[["text",["This is text data, as a test element."]],["select","Name",["Option 1","Option 2"]],["MultipleChoice","MC",["The Option 1","The Option 2","The Option 3"]],["CheckBoxes","CB",["CB1","CB2","CB3"]],["ImageCapture","CapIm"],["PictureCapture","CapPic"]]}');
+ var formData=JSON.parse('{"form":[["text",["This is text data, as a test element."]],["select","Name",["Option 1","Option 2"]],["MultipleChoice","MC",["The Option 1","The Option 2","The Option 3"]],["CheckBoxes","CB",["CB1","CB2","CB3"]],["ImageCapture","CapIm"],["PictureCapture","CapPic"],["VideoCapture","VidCap"],["AudioCapture","AudCap"],["Geolocation","LocCap"],["text",["This is text data, just to test repeat elements."]]]}');
  var formIDs=[];
  var formValues=[]
  window.inter=5
@@ -300,6 +300,7 @@
                     function goMove(fileSys){
                         window.picRoot = fileSys.root;
                         alert("Got a temp folder:" + fileSys.root.name);
+                        alert(window.picpath);
                         window.resolveLocalFileSystemURI(window.picpath, renameFile, function(){alert("GET FAILED")});
                     }
                         function renameFile(fileentry){
