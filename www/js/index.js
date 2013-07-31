@@ -49,14 +49,12 @@ var isMobile = {
 function setupPageClickHandler(){
     $('.formlink').on("tap",function(){
 
-            alert("GETTING FORM DATA: " + $(this).attr("formID"));
 
             $.getJSON("http://app.d2dpro.com/get_form_data.php","formID="+$(this).attr("formID"),function(data){
                 formData = data;
-                alert("GOT FORM DATA: " + data);
+
             });
 
-            alert("POPULATING FORM");
             //Populate the form page with proper content here.
             $('#formContent').html("<br>");
             console.log(this.id);
