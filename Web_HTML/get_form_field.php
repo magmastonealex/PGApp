@@ -8,7 +8,10 @@ if(!$result = $db->query($query)){
     die('Error: ' . $db->error . ']');
 }
 echo "Here";
+$allArray = array();
 while($row = $result->fetch_assoc()){
-    echo $row['fldOrder'] . '<br />';
+    $fieldArray =  array($row['fldType'], $row['fieldOptions'].explode(';'));
+    array_push($allArray, $fieldArray);
 }
+print_r($allArray);
 ?>
