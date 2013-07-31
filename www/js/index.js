@@ -21,7 +21,7 @@
  var formValues=[];
  var allForms=0;
  window.inter=5;
-
+ window.currentFormID=0;
  function doGeoPush(){
     clearInterval(window.lastInterval);
     navigator.geolocation.getCurrentPosition(function(position){$("#geoSettingsData").html(position.coords.latitude+","+position.coords.longitude);}, function(error){console.log('Error Capturing');});
@@ -34,6 +34,7 @@ function setupPageClickHandler(){
     $('.formlink').on("tap",function(){
         $.ajaxSetup({async: false, error: function(error){alert("Error downloading");}});
                 console.log("BEGIN DOWNLOAD: "+$(this).attr("formID"));
+                window.currentFormID = $(this).attr("formID");
             $.getJSON("http://app.d2dpro.com/get_form_field.php",{'formID':$(this).attr("formID")).done(function(data){
                 formData = data;
                 console.log("DONE DOWNLOAD");
@@ -260,7 +261,7 @@ function updateData(){
              $(':checkbox[name="'+formIDs[formPart][1]+'"]:checked').each(function() {
                 allVals.push($(this).val());
               });
-            formValues.push([formData[formPart][1], allVals]);
+            formValues.push([formData[formPart][1], allVals.join(";")]);
             break;
             case "ImageCapture":
             formValues.push([formData[formPart][1], $('#'+formIDs[formPart][1]).html()]);
@@ -323,8 +324,8 @@ function updateData(){
         }
     }
     $.mobile.hidePageLoadingMsg();
-    console.log("FORMSUBMISSION="+JSON.stringify(formValues));
-    $.post("http://app.d2dpro.com/submit_form.php", "formsubmission="+JSON.stringify(formValues));
+    console.log("FORMSUBMISSION="+JSON.stringify(formValues)+);
+    $.post("http://app.d2dpro.com/submit_form.php", {"formsubmission":JSON.stringify(formValues),"formID":window.currentFormID});
 }
  var app = {
     // Application Constructor
