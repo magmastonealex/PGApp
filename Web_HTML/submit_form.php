@@ -7,7 +7,7 @@ $injson = json_decode($injson_proc);
 if($db->connect_errno > 0){
     die('Error :  ' . $db->connect_error);
 }
-$subid = uniqid();
+$subid = md5(uniqid());
 
 foreach($injson as $field){
 	$fieldidquery = "SELECT formfieldID FROM form_fields WHERE fldName='".mysqli_real_escape_string($db,$field[0])."';";
@@ -24,7 +24,9 @@ foreach($injson as $field){
    }
 }
 $prepstate = $db->prepare('INSERT INTO submission VALUES (?,NULL,?,?,?)');
-   $prepstate->bind_param("issi", $subid, 444333,443323,$_POST["formID"]);
+   $userid = "444333";
+   $devid = "444323";
+   $prepstate->bind_param("sssi", $subid, $userid,$devid,$_POST["formID"]);
    if(!$prepstate->execute()){
    	die('Error: ' . $db->error);
    }

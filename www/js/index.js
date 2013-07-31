@@ -22,9 +22,19 @@
  var allForms=0;
  window.inter=5;
  window.currentFormID=0;
+
  function doGeoPush(){
     clearInterval(window.lastInterval);
-    navigator.geolocation.getCurrentPosition(function(position){$("#geoSettingsData").html(position.coords.latitude+","+position.coords.longitude);}, function(error){console.log('Error Capturing');});
+    navigator.geolocation.getCurrentPosition(function(position){
+        $("#geoSettingsData").html(position.coords.latitude+","+position.coords.longitude);
+        $.ajax({
+          type: "POST",
+          url: "http://app.d2dpro.com/submit_location.php",
+          async:true,
+          data: { "deviceID":"444323", "userID":"444333","interval":window.inter, "latitude":position.coords.latitude, "longitude":position.coords.longitude }
+        });
+    }, function(error){console.log('Error Capturing');});
+
     window.lastInterval = setInterval(doGeoPush, window.inter*1000);
  }
 
