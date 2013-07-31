@@ -49,6 +49,7 @@ var isMobile = {
 function setupPageClickHandler(){
     $('.formlink').on("tap",function(){
         $.ajaxSetup({async: false});
+                console.log("BEGIN DOWNLOAD");
             $.getJSON("http://app.d2dpro.com/get_form_field.php","formID=2",function(data){
                 formData = data;
                 console.log("DONE DOWNLOAD");
