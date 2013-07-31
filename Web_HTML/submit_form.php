@@ -4,11 +4,18 @@ $db = new mysqli('localhost', 'appd2dpr_php', '9&3mPMjCJM8+uKy6o', 'appd2dpr_mob
 if($db->connect_errno > 0){
     die('Error :  ' . $db->connect_error);
 }
-$query = "INSERT INTO devices VALUES (4901313441, 994832,99223344);";
+
+$query = $db->prepare("INSERT INTO formsubmit_temp VALUES (?,?,?,?,?);");
+$id = uniqid();
+$formid = 44932;
+$deviceid= 44422;
+$userid=44293923;
+$form_data="Test Data";
+
+$query->bind_param('iiiis', $id, $formid, $deviceid, $userid, $form_data);
+
 if(!$result=$db->query($query)){
-    $query = "UPDATE devices SET userid=994832,timestamp=99253344 WHERE deviceid=4901313441;";
-    if(!$result=$db->query($query)){
-    	die("Error updating:" . $db->error);
-	}
+
+    	die("Error inserting values:" . $db->error);
 }
 ?>
