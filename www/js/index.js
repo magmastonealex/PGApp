@@ -40,6 +40,7 @@ var isMobile = {
 
  function doGeoPush(){
     alert("Geod");
+    clearInterval(window.lastInterval);
     window.lastInterval = setInterval(doGeoPush, window.inter*1000);
  }
  window.getData = function(){
