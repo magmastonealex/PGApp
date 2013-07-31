@@ -21,8 +21,8 @@ foreach($injson as $field){
 	if(!$fid=$result->fetch_field()){
 		die('Error: ' . $db->error);
 	}
-   $prepstate = $db->prepare("INSERT INTO submission_details VALUES (NULL,?,?,'?')");
-   $prepstate->bind_param("iis", $subid, $fid, $field[1]);
+   $prepstate = $db->prepare('INSERT INTO submission_details VALUES (NULL,?,?,"?")');
+   $prepstate->bind_param("iis", $subid, $fid, mysqli_real_escape_string($db,$field[1]));
    if(!$prepstate->execute()){
    	die('Error: ' . $db->error);
    }
