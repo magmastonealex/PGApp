@@ -10,7 +10,7 @@ if(!$result = $db->query($query)){
 echo "Here";
 $allArray = array();
 while($row = $result->fetch_assoc()){
-	$fieldData = $row['fieldOptions']
+	$fieldData = $row['fieldOptions'];
     $fieldArray =  array($row['fldType'], explode(';', $fieldData));
     array_push($allArray, $fieldArray);
 }
