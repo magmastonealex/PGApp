@@ -21,29 +21,13 @@
  var formValues=[];
  var allForms=0;
  window.inter=5;
-var isMobile = {
-    Android: function() {
-        return navigator.userAgent.match(/Android/i) ? true : false;
-    },
-    BlackBerry: function() {
-        return navigator.userAgent.match(/BlackBerry/i) ? true : false;
-    },
-    iOS: function() {
-        return navigator.userAgent.match(/iPhone|iPad|iPod/i) ? true : false;
-    },
-    Windows: function() {
-        return navigator.userAgent.match(/IEMobile/i) ? true : false;
-    },
-    any: function() {
-        return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Windows());
-    }
-};
 
  function doGeoPush(){
     clearInterval(window.lastInterval);
     navigator.geolocation.getCurrentPosition(function(position){$("#geoSettingsData").html(position.coords.latitude+","+position.coords.longitude);}, function(error){console.log('Error Capturing');});
     window.lastInterval = setInterval(doGeoPush, window.inter*1000);
  }
+
 
 
 function setupPageClickHandler(){
@@ -53,8 +37,14 @@ function setupPageClickHandler(){
             $.getJSON("http://app.d2dpro.com/get_form_field.php","formID=2",function(data){
                 formData = data;
                 console.log("DONE DOWNLOAD");
-            });
-            console.log("PROCESSING");
+                updateData();
+            });      
+    });
+}
+
+
+function updateData(){
+     console.log("PROCESSING");
             //Populate the form page with proper content here.
             $('#formContent').html("<br>");
             $('#FormName').html($(this).html());
@@ -250,9 +240,7 @@ function setupPageClickHandler(){
                     $('#formContent').append("<hr>");
                 }
             }
-        });
 }
-
 
 
 
