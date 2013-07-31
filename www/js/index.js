@@ -299,6 +299,7 @@
                     window.requestFileSystem(LocalFileSystem.TEMPORARY, 0, goMove, function(error){alert("Could not get temp folder");});
                     function goMove(fileSys){
                         window.picRoot = fileSys.root;
+                        alert("Got a temp folder:" + fileSys.root.name);
                         window.resolveLocalFileSystemURI(window.picpath, renameFile, function(){alert("GET FAILED")});
                     }
                         function renameFile(fileentry){
