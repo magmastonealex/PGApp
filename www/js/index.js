@@ -49,20 +49,20 @@ var isMobile = {
     for (var formPart = 0; formPart < formIDs.length; formPart++) {
         switch(formIDs[formPart][0]){
             case "select":
-            formValues.push([formData["form"][formPart][1], $('#'+formIDs[formPart][1]).val()]);
+            formValues.push([formData[formPart][1], $('#'+formIDs[formPart][1]).val()]);
             break;
             case "MultipleChoice":
-            formValues.push([formData["form"][formPart][1], $('input:radio[name="'+formIDs[formPart][1]+'"]:checked').val()]);
+            formValues.push([formData[formPart][1], $('input:radio[name="'+formIDs[formPart][1]+'"]:checked').val()]);
             break;
             case "CheckBoxes":
               var allVals = [];
              $(':checkbox[name="'+formIDs[formPart][1]+'"]:checked').each(function() {
                 allVals.push($(this).val());
               });
-            formValues.push([formData["form"][formPart][1], allVals]);
+            formValues.push([formData[formPart][1], allVals]);
             break;
             case "ImageCapture":
-            formValues.push([formData["form"][formPart][1], $('#'+formIDs[formPart][1]).html()]);
+            formValues.push([formData[formPart][1], $('#'+formIDs[formPart][1]).html()]);
             break;
             case "AudioCapture":
              var AudioPathComponents = $("#ACap-"+formPart+"-Data").html().split("/");
@@ -78,7 +78,7 @@ var isMobile = {
             $.mobile.showPageLoadingMsg("a", "Uploading");
             console.log("Audio Upload path: " + AP);
             filer.upload(AP, encodeURI("http://app.d2dpro.com/upload_audio.php"), function(r){$.mobile.hidePageLoadingMsg();}, function(error){alert("Audio Upload Failed");},options);
-            formValues.push([formData["form"][formPart][1], AudioPathComponents[AudioPathComponents.length-1]]);
+            formValues.push([formData[formPart][1], AudioPathComponents[AudioPathComponents.length-1]]);
             break;
             case "VideoCapture":
 
@@ -96,7 +96,7 @@ var isMobile = {
              console.log("Video Upload path: " + AP+" ");
              filer.upload(AP, encodeURI("http://app.d2dpro.com/upload_video.php"), function(r){$.mobile.hidePageLoadingMsg();}, function(error){alert("Video Upload Failed");},options);
 
-            formValues.push([formData["form"][formPart][1], AudioPathComponents[AudioPathComponents.length-1]]);
+            formValues.push([formData[formPart][1], AudioPathComponents[AudioPathComponents.length-1]]);
             break;
             case "PictureCapture":
              var AudioPathComponents = $("#PCap-"+formPart+"-Data").html().split("/");
@@ -113,10 +113,10 @@ var isMobile = {
             window.ftAuuid="";
             console.log("Picture Upload path: " + AP);
             filer.upload(AP, encodeURI("http://app.d2dpro.com/upload_pic.php"), function(r){$.mobile.showPageLoadingMsg("Done Picture")}, function(error){alert("Picture Upload Failed");},options);
-            formValues.push([formData["form"][formPart][1], AudioPathComponents[AudioPathComponents.length-1]]);
+            formValues.push([formData[formPart][1], AudioPathComponents[AudioPathComponents.length-1]]);
             break;
             case "Geolocation":
-            formValues.push([formData["form"][formPart][1], $('#'+formIDs[formPart][1]).html()]);
+            formValues.push([formData[formPart][1], $('#'+formIDs[formPart][1]).html()]);
             default:
             break;
         }
@@ -185,21 +185,21 @@ var isMobile = {
             $('#formContent').html("<br>");
             console.log(this.id);
             $('#FormName').html($(this).html());
-            for (var formPart = 0; formPart < formData["form"].length; formPart++) {
-                switch(formData["form"][formPart][0]){
+            for (var formPart = 0; formPart < formData.length; formPart++) {
+                switch(formData[formPart][0]){
                     case "text":
                     console.log("Text");
-                    $('#formContent').append("<p>"+formData["form"][formPart][1]+"</p>");
+                    $('#formContent').append("<p>"+formData[formPart][2][0]+"</p>");
                     formIDs.push(["text","text"]);
                     break;
 
                     case "select":
                     console.log("Select");
                     var options = "";
-                    options += '<p>'+formData["form"][formPart][1]+"</p>";
+                    options += '<p>'+formData[formPart][1]+"</p>";
                     options +='<select name="select'+formPart+'" id="select'+formPart+'">';
-                    for (var i = 0; i < formData["form"][formPart][2].length; i++) {
-                        options += '<option>'+formData["form"][formPart][2][i]+'</option>';
+                    for (var i = 0; i < formData[formPart][2].length; i++) {
+                        options += '<option>'+formData[formPart][2][i]+'</option>';
                     }
                     options += '</select>';
                     formIDs.push(["select", "select"+formPart]);
@@ -210,10 +210,10 @@ var isMobile = {
                     case "MultipleChoice":
                     var options = "";
                     console.log("MC");
-                    options += '<fieldset data-role="controlgroup"><legend>'+formData["form"][formPart][1]+"</legend>";
-                    for (var i = 0; i < formData["form"][formPart][2].length; i++) {
-                        options += '<input type="radio" name="rChoice-'+formPart+'" id="rChoice-'+formPart+'-'+i+'" value="'+formData["form"][formPart][2][i]+'" />'
-                        options += '<label for="rChoice-'+formPart+'-'+i+'">'+formData["form"][formPart][2][i]+'</label>';
+                    options += '<fieldset data-role="controlgroup"><legend>'+formData[formPart][1]+"</legend>";
+                    for (var i = 0; i < formData[formPart][2].length; i++) {
+                        options += '<input type="radio" name="rChoice-'+formPart+'" id="rChoice-'+formPart+'-'+i+'" value="'+formData[formPart][2][i]+'" />'
+                        options += '<label for="rChoice-'+formPart+'-'+i+'">'+formData[formPart][2][i]+'</label>';
                     }
                     options += '</fieldset>'
                     formIDs.push(["MultipleChoice", "rChoice-"+formPart]);
@@ -223,10 +223,10 @@ var isMobile = {
                     case "CheckBoxes":
                     var options = "";
                     console.log("CB");
-                    options += '<fieldset data-role="controlgroup"><legend>'+formData["form"][formPart][1]+"</legend>";
-                    for (var i = 0; i < formData["form"][formPart][2].length; i++) {
-                        options += '<input type="checkbox" name="cChoice-'+formPart+'" id="cChoice-'+formPart+'-'+i+'" value="'+formData["form"][formPart][2][i]+'" />'
-                        options += '<label for="cChoice-'+formPart+'-'+i+'">'+formData["form"][formPart][2][i]+'</label>';
+                    options += '<fieldset data-role="controlgroup"><legend>'+formData[formPart][1]+"</legend>";
+                    for (var i = 0; i < formData[formPart][2].length; i++) {
+                        options += '<input type="checkbox" name="cChoice-'+formPart+'" id="cChoice-'+formPart+'-'+i+'" value="'+formData[formPart][2][i]+'" />'
+                        options += '<label for="cChoice-'+formPart+'-'+i+'">'+formData[formPart][2][i]+'</label>';
                     }
                     options += '</fieldset>'
                     formIDs.push(["CheckBoxes", "cChoice-"+formPart]);
@@ -236,7 +236,7 @@ var isMobile = {
                     case "ImageCapture":
                     var options = "";
                     console.log("IC");
-                    options += '<p>'+formData["form"][formPart][1]+'</p>';
+                    options += '<p>'+formData[formPart][1]+'</p>';
                     options += '<a data-role="button" data-rel="dialog" formPart="'+formPart+'"id="Cap-'+formPart+'">Capture Barcode</a>';
                     options += '<p id="Cap-'+formPart+'-Data"></p>';
                     options += '<p id="Cap-Data"></p>';
@@ -260,7 +260,7 @@ var isMobile = {
                     case "VideoCapture":
                     console.log("VC");
                     options = "";
-                    options += '<p>'+formData["form"][formPart][1]+'</p>'
+                    options += '<p>'+formData[formPart][1]+'</p>'
                     options += '<a data-role="button" data-rel="dialog" formPart="'+formPart+'"id="VCap-'+formPart+'">Capture Video</a>'
                     options += '<p id="VCap-'+formPart+'-Data"></p>'
                     console.log(options);
@@ -291,7 +291,7 @@ var isMobile = {
                     case "AudioCapture":
                     console.log("AC");
                     options = "";
-                    options += '<p>'+formData["form"][formPart][1]+'</p>'
+                    options += '<p>'+formData[formPart][1]+'</p>'
                     options += '<a data-role="button" data-rel="dialog" formPart="'+formPart+'"id="ACap-'+formPart+'">Capture Audio</a>'
                     options += '<p id="ACap-'+formPart+'-Data"></p>'
                     console.log(options);
@@ -324,7 +324,7 @@ var isMobile = {
                     case "PictureCapture":
                     console.log("PC");
                     options = "";
-                    options += '<p>'+formData["form"][formPart][1]+'</p>'
+                    options += '<p>'+formData[formPart][1]+'</p>'
                     options += '<a data-role="button" data-rel="dialog" formPart="'+formPart+'"id="PCap-'+formPart+'">Capture Picture</a>'
                     options += '<p id="PCap-'+formPart+'-Data"></p>'
                     console.log(options);
@@ -358,7 +358,7 @@ var isMobile = {
                     case "Geolocation":
                     console.log("GL");
                     options = "";
-                    options += '<p>'+formData["form"][formPart][1]+'</p>'
+                    options += '<p>'+formData[formPart][1]+'</p>'
                     options += '<a data-role="button" data-rel="dialog" formPart="'+formPart+'"id="LCap-'+formPart+'">Capture Location</a>'
                     options += '<p id="LCap-'+formPart+'-Data"></p>'
                     console.log(options);
@@ -373,7 +373,7 @@ var isMobile = {
                     console.log("Unknown... work to do");
                     break;
                 }
-                if(formPart+1 != formData["form"].length){
+                if(formPart+1 != formData.length){
                     $('#formContent').append("<hr>");
                 }
             }

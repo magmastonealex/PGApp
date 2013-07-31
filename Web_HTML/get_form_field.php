@@ -10,7 +10,7 @@ if(!$result = $db->query($query)){
 $allArray = array();
 while($row = $result->fetch_assoc()){
 	$fieldData = $row['fieldOptions'];
-    $fieldArray =  array($row['fldType'], explode(';', $fieldData));
+    $fieldArray =  array($row['fldType'], $row['fldName'],explode(';', $fieldData));
     array_push($allArray, $fieldArray);
 }
 echo json_encode($allArray);
