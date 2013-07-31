@@ -56,7 +56,6 @@ function setupPageClickHandler(){
             console.log("PROCESSING");
             //Populate the form page with proper content here.
             $('#formContent').html("<br>");
-            console.log(this.id);
             $('#FormName').html($(this).html());
             for (var formPart = 0; formPart < formData.length; formPart++) {
                 switch(formData[formPart][0]){
