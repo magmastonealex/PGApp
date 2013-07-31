@@ -19,6 +19,7 @@
  var formData=JSON.parse('[["text","TextTest",["This is a test of mySQL."]],["MultipleChoice","MultiTest",["MySQL option1","MySQL Option 2"]]]');
  var formIDs=[];
  var formValues=[];
+ var allForms=0;
  window.inter=5;
 var isMobile = {
     Android: function() {
@@ -129,9 +130,7 @@ var isMobile = {
     // Application Constructor
     initialize: function() {
         this.bindEvents();
-        $.getJSON("http://app.d2dpro.com/get_form_field.php", function(data){
-         formData = data;
-        });
+
     },
     // Bind Event Listeners
     //
@@ -146,7 +145,17 @@ var isMobile = {
     // function, we must explicity call 'app.receivedEvent(...);'
     onDeviceReady: function() {
         $(document).ready(function(){
+            $.getJSON("http://app.d2dpro.com/get_form.php", function(data){
+                allForms = data;
+                for (var formNumber = 0; formNumber < allForms.length; formNumber++) {
+                    formLinkOptions = '<li><a href="#form" class="formlink" formID="'+allForms[formNumber][0]+'" data-transition="pop">'+allForms[formNumber][1]+'</a></li>'
+                }
+            });
 
+            $.getJSON("http://app.d2dpro.com/get_form_data.php", function(data){
+                formData = data;
+            });
+            
             $('#locSettings').on('pagehide',function(event,ui){
                switch($('input:radio[name="geomin"]:checked').attr("content")){
                 case "5":
