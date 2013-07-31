@@ -8,24 +8,24 @@ if($db->connect_errno > 0){
     die('Error :  ' . $db->connect_error);
 }
 $subid = uniqid();
-echo $_POST["formsubmission"];
-echo "<br>";
-echo $injson_proc;
-echo "<br>";
-echo $injson;
+
 foreach($injson as $field){
-	$fieldidquery = "SELECT formfieldID FROM form_fields WHERE fldName=".mysqli_real_escape_string($db,$field[0]).";";
+	$fieldidquery = "SELECT formfieldID FROM form_fields WHERE fldName='".mysqli_real_escape_string($db,$field[0])."';";
 	if(!$result = $db->query($fieldidquery)){
     	die('Error: ' . $db->error);
 	}
 	if(!$fid=$result->fetch_field()){
 		die('Error: ' . $db->error);
 	}
-   $prepstate = $db->prepare('INSERT INTO submission_details VALUES (NULL,?,?,"?")');
-   $prepstate->bind_param("iis", $subid, $fid, mysqli_real_escape_string($db,$field[1]));
+   $prepstate = $db->prepare('INSERT INTO submission_details VALUES (NULL,?,?,?)');
+   $prepstate->bind_param("iss", $fid, mysqli_real_escape_string($db,$field[1]),$subid);
    if(!$prepstate->execute()){
    	die('Error: ' . $db->error);
    }
 }
-
+$prepstate = $db->prepare('INSERT INTO submission VALUES (?,NULL,?,?,?)');
+   $prepstate->bind_param("issi", $subid, 444333,443323,$_POST["formID"]);
+   if(!$prepstate->execute()){
+   	die('Error: ' . $db->error);
+   }
 ?>
