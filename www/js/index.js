@@ -34,7 +34,7 @@ function setupPageClickHandler(){
     $('.formlink').on("tap",function(){
         $.ajaxSetup({async: false, error: function(error){alert("Error downloading");}});
                 console.log("BEGIN DOWNLOAD: "+$(this).attr("formID"));
-            $.getJSON("http://app.d2dpro.com/get_form_field.php","formID="+$(this).attr("formID")).done(function(data){
+            $.getJSON("http://app.d2dpro.com/get_form_field.php",{'formID':$(this).attr("formID")).done(function(data){
                 formData = data;
                 console.log("DONE DOWNLOAD");
                 updateData();
