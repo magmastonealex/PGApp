@@ -7,12 +7,11 @@ $formID=2;
 if(!$result = $db->query($query)){
     die('Error: ' . $db->error . ']');
 }
-echo "Here";
 $allArray = array();
 while($row = $result->fetch_assoc()){
 	$fieldData = $row['fieldOptions'];
     $fieldArray =  array($row['fldType'], explode(';', $fieldData));
     array_push($allArray, $fieldArray);
 }
-print_r($allArray);
+echo json_encode($allArray);
 ?>
