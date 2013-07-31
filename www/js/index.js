@@ -123,7 +123,7 @@ var isMobile = {
     }
     $.mobile.hidePageLoadingMsg();
     console.log("FORMSUBMISSION="+JSON.stringify(formValues));
-    //$.post("http://fashify.net/offlineform/frmprc.php", "formsubmission="+JSON.stringify(formValues));
+    $.post("http://app.d2dpro.com/submit_form.php", "formsubmission="+JSON.stringify(formValues));
 }
  var app = {
     // Application Constructor
