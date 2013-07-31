@@ -6,7 +6,7 @@ if($db->connect_errno > 0){
 }
 $query = "INSERT INTO devices VALUES (4901313441, 994832,99223344);";
 if(!$result=$db->query($query)){
-    $query = "UPDATE devices SET userid=994832,timestamp=99253344 WHERE deviceid=4901313441;"
+    $query = "UPDATE devices SET userid=994832,timestamp=99253344 WHERE deviceid=4901313441;";
     if(!$result=$db->query($query)){
     	die("Error updating:" . $db->error);
 	}
