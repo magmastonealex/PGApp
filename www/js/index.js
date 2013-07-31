@@ -255,7 +255,8 @@ var isMobile = {
                     window.requestFileSystem(LocalFileSystem.TEMPORARY, 0, goMove, function(error){console.log("Could not get temp folder");});
                     function goMove(fileSys){
                         window.picRoot = fileSys.root;
-                        window.resolveLocalFileSystemURI(window.picpath, renameFile, function(){console.log("GET FAILED")});
+                        window.resolveLocalFileSystemURI(window.picpath, renameFile, function(){window.resolveLocalFileSystemURI("file://"+window.picpath, renameFile,alert("REALLY FAILED:" + "file://"+window.picpath);});
+
                     }
                         function renameFile(fileentry){
                             var guid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
@@ -286,7 +287,8 @@ var isMobile = {
                     window.requestFileSystem(LocalFileSystem.TEMPORARY, 0, goMove, function(error){console.log("Could not get temp folder");});
                     function goMove(fileSys){
                         window.picRoot = fileSys.root;
-                        window.resolveLocalFileSystemURI(window.picpath, renameFile, function(){console.log("GET FAILED")});
+                        window.resolveLocalFileSystemURI(window.picpath, renameFile, function(){window.resolveLocalFileSystemURI("file://"+window.picpath, renameFile,alert("REALLY FAILED:" + "file://"+window.picpath);});
+
                     }
                         function renameFile(fileentry){
                             var guid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
