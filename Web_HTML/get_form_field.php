@@ -1,20 +1,14 @@
 <?php
 $db = new mysqli('localhost', 'appd2dpr_php', '9&3mPMjCJM8+uKy6o', 'appd2dpr_mobileApp');
 
-$query = $db->prepare("SELECT * FROM form_fields WHERE formID=? ORDER BY fldOrder ASC;");
+$query = "SELECT * FROM form_fields WHERE formID=2 ORDER BY fldOrder ASC;";
 $formID=2;
-$query->bind_param('i', $formid);
-$query->execute();
-echo $db->error;
-echo $query->error;
-$query->bind_result($fldID, $formID, $fldType, $fieldOptions, $fldOrder, $fldStatus);
-echo "Here";
-while($query->fetch()){
-	echo "Test";
-	echo $db->error;
-	echo $query->error;
-	echo $fldID."<br>";
+
+if(!$result = $db->query($sql)){
+    die('Error: ' . $db->error . ']');
 }
-echo $db->error;
-echo $query->error;
+echo "Here";
+while($row = $result->fetch_assoc()){
+    echo $row['fldOrder'] . '<br />';
+}
 ?>
