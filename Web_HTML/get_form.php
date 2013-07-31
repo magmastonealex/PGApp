@@ -2,7 +2,7 @@
 $db = new mysqli('localhost', 'appd2dpr_php', '9&3mPMjCJM8+uKy6o', 'appd2dpr_mobileApp');
 
 
-$query = "SELECT formID FROM users WHERE userID=444333";
+$query = "SELECT formID FROM users_forms WHERE userID=444333";
 
 
 if(!$result = $db->query($query)){
