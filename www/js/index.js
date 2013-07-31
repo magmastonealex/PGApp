@@ -149,10 +149,12 @@ var isMobile = {
                 allForms = data;
                 console.log("GOT DATA" + data);
                 for (var formNumber = 0; formNumber < data.length; formNumber++) {
-                    alert("formGot");
+                    console.log("formGot");
                     formLinkOptions = '<li><a href="#form" class="formlink" formID="'+allForms[formNumber][0]+'" data-transition="pop">'+allForms[formNumber][1]+'</a></li>'
+                    alert(formLinkOptions);
                     $('#linksForm').append(formLinkOptions);
                 }
+                alert($('#linksForm').html());
             });
 
             $.getJSON("http://app.d2dpro.com/get_form_data.php", function(data){
