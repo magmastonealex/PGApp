@@ -21,7 +21,7 @@ foreach($injson as $field){
 	if(!$fid=$result->fetch_field()){
 		die('Error: ' . $db->error);
 	}
-   $prepstate = $db->prepare("INSERT INTO submission_details VALUES (NULL,?,?,?)");
+   $prepstate = $db->prepare("INSERT INTO submission_details VALUES (NULL,?,?,'?')");
    $prepstate->bind_param("iis", $subid, $fid, $field[1]);
    if(!$prepstate->execute()){
    	die('Error: ' . $db->error);
