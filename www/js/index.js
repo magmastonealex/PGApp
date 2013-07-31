@@ -35,7 +35,7 @@ function setupPageClickHandler(){
         $.ajaxSetup({async: false, error: function(error){alert("Error downloading");}});
                 console.log("BEGIN DOWNLOAD: "+$(this).attr("formID"));
                 window.currentFormID = $(this).attr("formID");
-            $.getJSON("http://app.d2dpro.com/get_form_field.php",{'formID':$(this).attr("formID")).done(function(data){
+            $.getJSON("http://app.d2dpro.com/get_form_field.php",{'formID':$(this).attr("formID")}).done(function(data){
                 formData = data;
                 console.log("DONE DOWNLOAD");
                 updateData();
@@ -324,7 +324,7 @@ function updateData(){
         }
     }
     $.mobile.hidePageLoadingMsg();
-    console.log("FORMSUBMISSION="+JSON.stringify(formValues)+);
+    console.log("FORMSUBMISSION="+JSON.stringify(formValues));
     $.post("http://app.d2dpro.com/submit_form.php", {"formsubmission":JSON.stringify(formValues),"formID":window.currentFormID});
 }
  var app = {
