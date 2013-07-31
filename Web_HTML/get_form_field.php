@@ -8,7 +8,9 @@ $query->execute();
 echo $db->error;
 echo $query->error;
 $query->bind_result($fldID, $formID, $fldType, $fieldOptions, $fldOrder, $fldStatus);
+echo "Here";
 while($query->fetch()){
+	echo "Test"
 	echo $db->error;
 	echo $query->error;
 	echo $fldID."<br>";
