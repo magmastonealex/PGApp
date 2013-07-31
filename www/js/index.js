@@ -193,18 +193,15 @@ var isMobile = {
             });
 
             $('.formlink').on("tap",function(){
-            $.ajaxSetup({
-              async: false
-            });
-            console.log("GETTING FORM DATA: " + $(this).attr("formID"));
+
+            alert("GETTING FORM DATA: " + $(this).attr("formID"));
+
             $.getJSON("http://app.d2dpro.com/get_form_data.php","formID="+$(this).attr("formID"),function(data){
                 formData = data;
-                console.log("GOT FORM DATA: " + data);
+                alert("GOT FORM DATA: " + data);
             });
-            $.ajaxSetup({
-              async: true
-            });
-            console.log("POPULATING FORM");
+
+            alert("POPULATING FORM");
             //Populate the form page with proper content here.
             $('#formContent').html("<br>");
             console.log(this.id);
