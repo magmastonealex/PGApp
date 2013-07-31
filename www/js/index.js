@@ -198,10 +198,12 @@ var isMobile = {
             });
             $.getJSON("http://app.d2dpro.com/get_form_data.php","formID="+$(this).attr("formID"),function(data){
                 formData = data;
+                console.log("GOT FORM DATA: " + data);
             });
             $.ajaxSetup({
               async: true
             });
+            console.log("POPULATING FORM");
             //Populate the form page with proper content here.
             $('#formContent').html("<br>");
             console.log(this.id);
