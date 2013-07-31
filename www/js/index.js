@@ -145,8 +145,20 @@ var isMobile = {
         $(document).ready(function(){
 
             $('#locSettings').on('pagehide',function(event,ui){
-                alert($('input:radio[name="geomin"]:checked').attr("content"));
-               
+               switch($('input:radio[name="geomin"]:checked').attr("content")){
+                case "5":
+                    inter = 5;
+                    doGeoPush();
+                    break;
+                case "10":
+                    inter = 10;
+                    doGeoPush();
+                    break;
+                case "15":
+                    inter = 15;
+                    doGeoPush();
+                    break;
+               }
             });
 
             $('#submitButton').on("tap", function(){
