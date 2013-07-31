@@ -231,18 +231,20 @@
                     $('#formContent').append(options);
                     $('#VCap-'+formPart).on("tap",function(event){
                     window.scannedformpart = $(this).attr("formPart");
-                    navigator.device.capture.captureVideo(function(mediaFiles){path = mediaFiles[0].fullPath;
-                        window.resolveLocalFileSystemURI(path, renameFile, function(){console.log("GET FAILED")});
+                    navigator.device.capture.captureVideo(function(mediaFiles){
+                       window.picpath = mediaFiles[0].fullPath;
+                    window.requestFileSystem(LocalFileSystem.TEMPORARY, 0, goMove, function(error){console.log("Could not get temp folder");});
+                    function goMove(fileSys){
+                        window.picRoot = fileSys.root;
+                        window.resolveLocalFileSystemURI(window.picpath, renameFile, function(){console.log("GET FAILED")});
+                    }
                         function renameFile(fileentry){
                             var guid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
                                var r = Math.random()*16|0, v = c == 'x' ? r : (r&0x3|0x8);
                                 return v.toString(16);
                               });
                             console.log(guid);
-                            var parent = fileentry.fullPath.substr(0, fileentry.fullPath.lastIndexOf('/'));
-                            var parentName = parent.substring(parent.lastIndexOf('/')+1);
-                            var parentEntry = new DirectoryEntry(parentName, parent);
-                            fileentry.moveTo(parentEntry, guid+fileentry.name, function(fe){console.log("MOVE SUCCESS"); $("#VCap-"+window.scannedformpart+"-Data").html(fe.fullPath);}, function(){console.log("MOVE FAILED!");});
+                            fileentry.copyTo(window.picRoot, guid+fileentry.name, function(fe){console.log("MOVE SUCCESS: "+window.scannedformpart); $("#VCap-"+window.scannedformpart+"-Data").html(fe.fullPath);}, function(){console.log("MOVE FAILED!");});
                         }
                         
                     
@@ -260,18 +262,20 @@
                     $('#formContent').append(options);
                     $('#ACap-'+formPart).on("tap",function(event){
                     window.scannedformpart = $(this).attr("formPart");
-                    navigator.device.capture.captureAudio(function(mediaFiles){path = mediaFiles[0].fullPath;
-                        window.resolveLocalFileSystemURI(path, renameFile, function(){console.log("GET FAILED")});
+                    navigator.device.capture.captureAudio(function(mediaFiles){
+                        window.picpath = mediaFiles[0].fullPath;
+                    window.requestFileSystem(LocalFileSystem.TEMPORARY, 0, goMove, function(error){console.log("Could not get temp folder");});
+                    function goMove(fileSys){
+                        window.picRoot = fileSys.root;
+                        window.resolveLocalFileSystemURI(window.picpath, renameFile, function(){console.log("GET FAILED")});
+                    }
                         function renameFile(fileentry){
                             var guid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
                                var r = Math.random()*16|0, v = c == 'x' ? r : (r&0x3|0x8);
                                 return v.toString(16);
                               });
                             console.log(guid);
-                            var parent = fileentry.fullPath.substr(0, fileentry.fullPath.lastIndexOf('/'));
-                            var parentName = parent.substring(parent.lastIndexOf('/')+1);
-                            var parentEntry = new DirectoryEntry(parentName, parent);
-                            fileentry.moveTo(parentEntry, guid+fileentry.name, function(fe){console.log("MOVE SUCCESS"); $("#ACap-"+window.scannedformpart+"-Data").html(fe.fullPath);}, function(){console.log("MOVE FAILED!");});
+                            fileentry.copyTo(window.picRoot, guid+fileentry.name, function(fe){console.log("MOVE SUCCESS: "+window.scannedformpart); $("#ACap-"+window.scannedformpart+"-Data").html(fe.fullPath);}, function(){console.log("MOVE FAILED!");});
                         }
 
 
@@ -290,18 +294,20 @@
                     $('#formContent').append(options);
                     $('#PCap-'+formPart).on("tap",function(event){
                     window.scannedformpart = $(this).attr("formPart");
-                    navigator.device.capture.captureImage(function(mediaFiles){path = mediaFiles[0].fullPath;
-                        window.resolveLocalFileSystemURI(path, renameFile, function(){console.log("GET FAILED")});
+                    navigator.device.capture.captureImage(function(mediaFiles){
+                    window.picpath = mediaFiles[0].fullPath;
+                    window.requestFileSystem(LocalFileSystem.TEMPORARY, 0, goMove, function(error){console.log("Could not get temp folder");});
+                    function goMove(fileSys){
+                        window.picRoot = fileSys.root;
+                        window.resolveLocalFileSystemURI(window.picpath, renameFile, function(){console.log("GET FAILED")});
+                    }
                         function renameFile(fileentry){
                             var guid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
                                var r = Math.random()*16|0, v = c == 'x' ? r : (r&0x3|0x8);
                                 return v.toString(16);
                               });
                             console.log(guid);
-                            var parent = fileentry.fullPath.substr(0, fileentry.fullPath.lastIndexOf('/'));
-                            var parentName = parent.substring(parent.lastIndexOf('/')+1);
-                            var parentEntry = new DirectoryEntry(parentName, parent);
-                            fileentry.moveTo(parentEntry, guid+fileentry.name, function(fe){console.log("MOVE SUCCESS: "+window.scannedformpart); $("#PCap-"+window.scannedformpart+"-Data").html(fe.fullPath);}, function(){console.log("MOVE FAILED!");});
+                            fileentry.copyTo(window.picRoot, guid+fileentry.name, function(fe){console.log("MOVE SUCCESS: "+window.scannedformpart); $("#PCap-"+window.scannedformpart+"-Data").html(fe.fullPath);}, function(){console.log("MOVE FAILED!");});
                         }
 
 
