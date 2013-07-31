@@ -13,9 +13,5 @@ $userid=44293923;
 $form_data="Test Data";
 
 $query->bind_param('iiiis', $id, $formid, $deviceid, $userid, $form_data);
-
-if(!$result=$db->query($query)){
-
-    	die("Error inserting values:" . $db->error);
-}
+$query->execute();
 ?>
