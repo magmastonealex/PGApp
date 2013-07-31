@@ -5,6 +5,7 @@ $query = $db->prepare("SELECT * FROM form_fields WHERE formID=? ORDER BY fldOrde
 $formID=2;
 $query->bind_param('i', $formid);
 $query->execute();
+echo $db->error;
 $query->bind_result($fldID, $formID, $fldType, $fieldOptions, $fldOrder, $fldStatus);
 while($query->fetch()){
 	echo $fldID."<br>";
