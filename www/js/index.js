@@ -39,8 +39,8 @@ var isMobile = {
 };
 
  function doGeoPush(){
-    alert("Geod");
     clearInterval(window.lastInterval);
+    navigator.geolocation.getCurrentPosition(function(position){$("#geoSettingsData").html(position.coords.latitude+","+position.coords.longitude);}, function(error){console.log('Error Capturing');});
     window.lastInterval = setInterval(doGeoPush, window.inter*1000);
  }
  window.getData = function(){
