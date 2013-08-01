@@ -81,7 +81,6 @@ function formEntryHandler(){
                 options = '<li><a href="#entries_super_detail" class="formDDetail" subID="'+data[iter][1]+'" data-transition="slide">'+data[iter][0]+'</a></li>'
                 $('#entries_detail_list').append(options);
                 $('#entries_detail_list').trigger("create");
-                $('#entries_detail_list').listview('refresh');
             }
             formDetailHandle();
         });
@@ -504,7 +503,9 @@ function updateData(){
                         formEntryHandler();
                     });
             });
-
+                $('#entries_detail').bind('pageinit', function(event) {
+                    $('#entries_detail_list').listview('refresh');
+                });
         });
 
 
