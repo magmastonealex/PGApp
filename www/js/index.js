@@ -46,6 +46,7 @@ function loadForms(){
                     formLinkOptions = '<li><a href="#form" class="formlink" formID="'+allForms[formNumber][0]+'" data-transition="pop">'+allForms[formNumber][1]+'</a></li>'
                     $('#linksForm').append(formLinkOptions);
                 }
+                $('#formSelect').trigger("create");
                 setupPageClickHandler();
             });
 }
@@ -263,7 +264,7 @@ function updateData(){
                 }
 
             }
-    $('#formContent').trigger( "create" );
+    $('#formContent').trigger("create");
 }
 
 
