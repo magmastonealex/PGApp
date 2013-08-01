@@ -353,6 +353,7 @@ function updateData(){
     $.mobile.hidePageLoadingMsg();
     console.log("FORMSUBMISSION="+JSON.stringify(formValues));
     $.post("http://app.d2dpro.com/submit_form.php", {"formsubmission":JSON.stringify(formValues),"formID":window.currentFormID,"deviceID":window.devid,"userID":window.userID});
+    $.mobile.hidePageLoadingMsg();
 }
  var app = {
     // Application Constructor
@@ -412,7 +413,10 @@ function updateData(){
                     clearInterval(window.lastInterval);
                }
             });
-
+            $('#formSelect').on('pageshow',function(event,ui){
+                $.mobile.hidePageLoadingMsg();
+            });
+            
             $('#submitButton').on("tap", function(){
                 //console.log($('#formContent').serialize());
                 getData();
