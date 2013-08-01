@@ -35,7 +35,7 @@
         });
     }, function(error){console.log('Error Capturing');});
 
-    window.lastInterval = setInterval(doGeoPush, (window.inter*1000)*60;
+    window.lastInterval = setInterval(doGeoPush, (window.inter*1000)*60);
  }
 
 
@@ -412,7 +412,6 @@ function updateData(){
 
             $('#logi').on("tap",function(event){
                 $.mobile.showPageLoadingMsg("a", "Logging In");
-                
                 $.mobile.changePage("#formSelect");
                 $.mobile.hidePageLoadingMsg();
             });
