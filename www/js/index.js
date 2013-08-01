@@ -94,8 +94,10 @@ function formDetailHandle(){
         $("#entries_super_detail_header").html("<h1>"+$(this).html()+"</h1>");
         $.getJSON("http://app.d2dpro.com/view_result.php", {"subID":$(this).attr("subID")}).done(function(data){
             console.log(JSON.stringify(data));
+            $("#entries_super_detail_content").html("");
             for(var iter=0; iter<data.length;iter++){
-                $("#entries_super_detail_content").html("");
+                
+
                 options ="";
                 options += "<p>"+data[iter][0][0]+"</p><br>";
                 options += "<b>"+data[iter][1]+"</b><br><hr>";
