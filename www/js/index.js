@@ -424,8 +424,6 @@ function updateData(){
 
             $('#logi').on("tap",function(event){
                 $.mobile.showPageLoadingMsg("a", "Logging In");
-                $('#userIDBox').attr("disabled", "true");
-                $('#uPasswordBox').attr("disabled", "true");
                 $.ajax({
                   type: "POST",
                   url: "http://app.d2dpro.com/login.php",
