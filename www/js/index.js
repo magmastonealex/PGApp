@@ -70,7 +70,7 @@ function setupPageClickHandler(){
 }
 
 function formEntryHandler(){
-    $('.formEntry').on("tap",function(){
+    $('.formEntry_old').on("tap",function(){
         $.ajaxSetup({async: false, error: function(error){alert("Error downloading");}});
         $.getJSON("http://app.d2dpro.com/get_form_entries.php",{"formID":$(this).attr("formID")}).done(function(data){
             for(var iter=0; iter<data.length;iter++){
@@ -474,7 +474,7 @@ function updateData(){
                         alert("Finished");
                         alert(data);
                         for(var iter=0; iter<data.length;iter++){
-                            options = '<li><a href="#form" class="formEntry" formID="'+data[iter][1]+'" data-transition="slide">'+data[iter][0]+'</a></li>'
+                            options = '<li><a href="#entries_detail" class="formEntry_old" formID="'+data[iter][1]+'" data-transition="slide">'+data[iter][0]+'</a></li>'
                             $('#entriesList').append(options);
                             $('#entriesList').trigger("create");
                             $('#entriesList').listview('refresh');

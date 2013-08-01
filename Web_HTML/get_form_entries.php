@@ -1,6 +1,6 @@
 <?php
 $db = new mysqli('localhost', 'appd2dpr_php', '9&3mPMjCJM8+uKy6o', 'appd2dpr_mobileApp');
-$formID=$db->real_escape_string($_POST["formID"]);
+$formID=$db->real_escape_string($_GET["formID"]);
 
 	$getFormFieldIDQuery='SELECT * FROM form_fields WHERE formID="'.$formID.'" ORDER BY formFieldID ASC';
 	if(!$FFIDR=$db->query($getFormFieldIDQuery)){

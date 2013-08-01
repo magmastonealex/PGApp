@@ -1,6 +1,6 @@
 <?php
 $db = new mysqli('localhost', 'appd2dpr_php', '9&3mPMjCJM8+uKy6o', 'appd2dpr_mobileApp');
-$userID=$db->real_escape_string($_POST["userID"]);
+$userID=$db->real_escape_string($_GET["userID"]);
 
 $formIDQuery = 'SELECT * FROM users_forms WHERE userID="'.$userID.'"';
 if(!$allFormIds=$db->query($formIDQuery)){
