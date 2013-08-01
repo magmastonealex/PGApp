@@ -92,7 +92,7 @@ function formDetailHandle(){
         console.log($(this).attr("subID"));
         $.ajaxSetup({async: false, error: function(error){alert("Error downloading Detail");}});
         $("#entries_super_detail_header").html("<h1>"+$(this).html+"</h1>");
-        $.getJSON("http://app.d2dpro.com/view_results.php", {"subID":$(this).attr("subID")}).done(function(data){
+        $.getJSON("http://app.d2dpro.com/view_result.php", {"subID":$(this).attr("subID")}).done(function(data){
             for(var iter=0; iter<data.length;iter++){
                 $("#entries_super_detail_content").html("");
                 options ="";
