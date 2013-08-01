@@ -24,7 +24,7 @@ foreach($injson as $field){
    }
 }
 $prepstate = $db->prepare('INSERT INTO submission VALUES (?,NULL,?,?,?)');
-   $userid = "444333";
+   $userid = $db->real_escape_string($_POST["userID"];
    $devid = $db->real_escape_string($_POST["deviceID"]);
    $prepstate->bind_param("sssi", $subid, $userid,$devid,$_POST["formID"]);
    if(!$prepstate->execute()){

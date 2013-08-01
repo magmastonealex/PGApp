@@ -31,7 +31,7 @@
           type: "POST",
           url: "http://app.d2dpro.com/submit_location.php",
           async:true,
-          data: { "deviceID":window.devid, "userID":"444333","interval":window.inter, "latitude":position.coords.latitude, "longitude":position.coords.longitude }
+          data: { "deviceID":window.devid, "userID":window.userID,"interval":window.inter, "latitude":position.coords.latitude, "longitude":position.coords.longitude }
         });
     }, function(error){console.log('Error Capturing');});
     window.lastInterval = setInterval(doGeoPush, window.inter*1000);
@@ -348,7 +348,7 @@ function updateData(){
     }
     $.mobile.hidePageLoadingMsg();
     console.log("FORMSUBMISSION="+JSON.stringify(formValues));
-    $.post("http://app.d2dpro.com/submit_form.php", {"formsubmission":JSON.stringify(formValues),"formID":window.currentFormID,"deviceID":window.devid});
+    $.post("http://app.d2dpro.com/submit_form.php", {"formsubmission":JSON.stringify(formValues),"formID":window.currentFormID,"deviceID":window.devid,"userID":window.userID});
 }
  var app = {
     // Application Constructor
