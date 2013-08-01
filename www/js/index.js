@@ -47,7 +47,7 @@ function loadForms(){
                     formLinkOptions = '<li><a href="#form" class="formlink" formID="'+allForms[formNumber][0]+'" data-transition="pop">'+allForms[formNumber][1]+'</a></li>'
                     $('#linksForm').append(formLinkOptions);
                 }
-                $('#formSelect').trigger("create");
+                $('#linksForm').trigger("create");
                 setupPageClickHandler();
             });
 }
@@ -430,7 +430,6 @@ function updateData(){
                   dataType: "text",
                   success: function(data){
                     if(data == "SUCCESS"){
-
                         $.mobile.changePage("#formSelect");
                         window.userID = $('#userIDBox').val();
                         loadForms();
