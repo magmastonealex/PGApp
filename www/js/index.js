@@ -47,6 +47,7 @@ function loadForms(){
                     formLinkOptions = '<li><a href="#form" class="formlink" formID="'+allForms[formNumber][0]+'" data-transition="pop">'+allForms[formNumber][1]+'</a></li>'
                     $('#linksForm').append(formLinkOptions);
                     $('#linksForm').trigger("create");
+                    $('#linksForm').listview('refresh');
                 }
                 
                 setupPageClickHandler();
