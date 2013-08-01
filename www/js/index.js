@@ -454,7 +454,7 @@ function updateData(){
                 });
                 
             });
-                $('#entries').on('pagebeforeshow',function(event,ui){
+                $('#entries').on('pagebeforeshow',function(event){
                   $.ajax({
                     type: "POST",
                     url: "http://app.d2dpro.com/get_form_data.php",
@@ -468,8 +468,12 @@ function updateData(){
                         for(var iter=0; iter<data.length;iter++){
                             $("#entriesContent").append(data[iter][0]);
                         }
+                    },
+                    error: function(){
+                        alert("Errored");
                     }
                 });
+                  alert("Past");
             });
 
         });
