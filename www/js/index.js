@@ -87,7 +87,16 @@ function formEntryHandler(){
 
 function formDetailHandle(){
     $('.formDDetail').on("tap",function(){
-        
+        $.getJSON("http://app.d2dpro.com/view_results.php", {"subID":$(this).attr("subID")}).done(function(data){
+            for(var iter=0; iter<data.length;iter++){
+                $("#entries_super_detail_content").html("");
+                options ="";
+                options += "<p>"+data[iter][0][0]+"</p><br>";
+                options += "<b>"+data[iter][0][0]+"</b><br><hr>";
+
+            }
+        });
+
     });
 }
 
@@ -249,9 +258,7 @@ function updateData(){
                     window.requestFileSystem(LocalFileSystem.TEMPORARY, 0, goMove, function(error){alert("Could not get temp folder");});
                     function goMove(fileSys){
                         window.picRoot = fileSys.root;
-                        alert("Got a temp folder:" + fileSys.root.name);
-                        alert(window.picpath);
-                         window.resolveLocalFileSystemURI(window.picpath, renameFile,function(error){window.resolveLocalFileSystemURI("file://"+window.picpath, renameFile,function(error){alert("REALLY FAILED:" + "file://"+window.picpath);})});
+                        window.resolveLocalFileSystemURI(window.picpath, renameFile,function(error){window.resolveLocalFileSystemURI("file://"+window.picpath, renameFile,function(error){alert("REALLY FAILED:" + "file://"+window.picpath);})});
                     }
                         function renameFile(fileentry){
                             var guid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
@@ -478,8 +485,7 @@ function updateData(){
             });
                 $('#entries').on('pagebeforeshow',function(event){
                   $.getJSON("http://app.d2dpro.com/get_form_data.php",{"userID":window.userID}).done(function(data){
-                        alert("Finished");
-                        alert(data);
+
                         for(var iter=0; iter<data.length;iter++){
                             options = '<li><a href="#entries_detail" class="formEntry_old" formID="'+data[iter][1]+'" data-transition="slide">'+data[iter][0]+'</a></li>'
                             $('#entriesList').append(options);
@@ -488,7 +494,6 @@ function updateData(){
                         }
                         formEntryHandler();
                     });
-                  alert("Past");
             });
 
         });

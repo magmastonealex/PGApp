@@ -1,6 +1,6 @@
 <?php
 $db = new mysqli('localhost', 'appd2dpr_php', '9&3mPMjCJM8+uKy6o', 'appd2dpr_mobileApp');
-$subID = $db->real_escape_string($_POST["subID"]);
+$subID = $db->real_escape_string($_GET["subID"]);
 $formIDQuery = 'SELECT * FROM submission WHERE `subID`="'.$subID.'"';
 if(!$formIDResult=$db->query($formIDQuery)){
 	die("error with query: " . $db->error);
@@ -38,8 +38,7 @@ if(!$finalResult=$db->query($resultsQuery)){
 $finalarray=array();
 $increment = 0;
 while($row = $finalResult->fetch_assoc()){
-
-	array_push($finalarray, array($fieldNames[$increment][0],$row["submissionValue"]);
+	array_push($finalarray, array($fieldNames[$increment],$row["submissionValue"]));
 	$increment = $increment+1;
 }
 echo json_encode($finalarray);
