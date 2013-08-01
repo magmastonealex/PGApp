@@ -462,9 +462,10 @@ function updateData(){
                     async: false,
                     cache: false,
                     dataType: "json",
-                    success: function(data){
+                    success: function(data,status,jqhxrthing){
                         alert("Finished");
                         alert(data);
+                        
                         for(var iter=0; iter<data.length;iter++){
                             $("#entriesContent").append(data[iter][0]);
                         }
