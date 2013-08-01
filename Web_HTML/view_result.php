@@ -21,9 +21,6 @@ if(!$formNameResult=$db->query($formNameQuery)){
 while($row = $formNameResult->fetch_assoc()){
 	$formName=$row["frmName"];
 }
-echo "<h2><b>Form: " . $formName . "</b></h2><br>";
-echo "<h3><b>User: " . $subUser . " on device: " .$subDevice."</b></h3>";
-echo "<br><hr><br>";
 $fieldNames = array();
 
 $fieldNamesQuery = 'SELECT * from form_fields WHERE formID='.$formID.' ORDER BY formFieldID ASC;';
@@ -38,14 +35,12 @@ $resultsQuery= 'SELECT * from submission_details WHERE subID="'.$subID.'" ORDER 
 if(!$finalResult=$db->query($resultsQuery)){
 	die("error with query: " . $db->error);
 }
+$finalarray=array();
 $increment = 0;
 while($row = $finalResult->fetch_assoc()){
 
-	echo "<br>" . $fieldNames[$increment][0] . ": " . $row["submissionValue"];
-	if($fieldNames[$increment][1] == "PictureCapture"){
-		echo '<img src="http://app.d2dpro.com/upload_picture/'.$row["submissionValue"].'"></img';
-	}
+	array_push($finalarray, array($fieldNames[$increment][0],$row["submissionValue"]);
 	$increment = $increment+1;
 }
-
+echo json_encode($finalarray);
 ?>

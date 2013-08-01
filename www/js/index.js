@@ -71,16 +71,23 @@ function setupPageClickHandler(){
 
 function formEntryHandler(){
     $('.formEntry_old').on("tap",function(){
+        $('#entries_detail_header').html("<h1>"+$(this).html()+"</h1>");
         $.ajaxSetup({async: false, error: function(error){alert("Error downloading");}});
         $.getJSON("http://app.d2dpro.com/get_form_entries.php",{"formID":$(this).attr("formID")}).done(function(data){
             for(var iter=0; iter<data.length;iter++){
-                options = '<li><a href="" class="formDetail" subID="'+data[iter][1]+'" data-transition="slide">'+data[iter][0]+'</a></li>'
+                options = '<li><a href="#entries_super_detail" class="formDDetail" subID="'+data[iter][1]+'" data-transition="slide">'+data[iter][0]+'</a></li>'
                 $('#entries_detail_list').append(options);
                 $('#entries_detail_list').trigger("create");
                 $('#entries_detail_list').listview('refresh');
             }
-
+            formDetailHandle();
         });
+    });
+}
+
+function formDetailHandle(){
+    $('.formDDetail').on("tap",function(){
+        
     });
 }
 
