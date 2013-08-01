@@ -39,7 +39,7 @@
 
 
 function loadForms(){
-    $.ajaxSetup({async: false, error: function(error){alert("Error downloading");}});
+    $.ajaxSetup({async: true, error: function(error){alert("Error downloading");}});
     $.getJSON("http://app.d2dpro.com/get_form.php", {"userID":window.userID}).done(function(data){
                 allForms = data;
                 console.log("GOT DATA" + data);
@@ -97,6 +97,7 @@ function formDetailHandle(){
                 $("#entries_super_detail_content").append(options);
                 $("#entries_super_detail_content").trigger("create");
             }
+            alert("done");
         });
 
     });
@@ -307,6 +308,7 @@ function updateData(){
  window.getData = function(){
     $.mobile.allowCrossDomainPages = true;
     $.mobile.showPageLoadingMsg("a", "Submitting");
+    formValues=[];
     for (var formPart = 0; formPart < formIDs.length; formPart++) {
         switch(formIDs[formPart][0]){
             case "select":
@@ -384,6 +386,7 @@ function updateData(){
     }
     $.mobile.hidePageLoadingMsg();
     console.log("FORMSUBMISSION="+JSON.stringify(formValues));
+    $.ajaxSetup({async: true});
     $.post("http://app.d2dpro.com/submit_form.php", {"formsubmission":JSON.stringify(formValues),"formID":window.currentFormID,"deviceID":window.devid,"userID":window.userID});
     $.mobile.hidePageLoadingMsg();
 }
