@@ -421,9 +421,9 @@ function updateData(){
                   success: function(data){
                     if(data == "SUCCESS"){
                         $.mobile.changePage("#formSelect");
-                        $.mobile.hidePageLoadingMsg();
                     }else{
                         alert(data);
+                        $.mobile.hidePageLoadingMsg();
                     }
                 }
 
