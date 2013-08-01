@@ -4,7 +4,7 @@ $password_hash = sha1($db->real_escape_string($_POST["password"]));
 $loginQuery = 'SELECT * FROM users_passwords WHERE userID="'.$db->real_escape_string($_POST["userid"]).'" AND password_hash="'.$password_hash.'"';
 
 if(!$login_results = $db->query($loginQuery)){
-	die("Error: " + $login_results);
+	die("Error: " . $login_results);
 }
 if($login_results->num_rows == 1){
 

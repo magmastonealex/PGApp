@@ -16,7 +16,7 @@ foreach($injson as $field){
 	}
   $fid = 0;
 	while($resurow=$result->fetch_assoc()){
-		$fid = $resurow["formfieldID"];
+		$fid = $resurow["formFieldID"];
 	}
   
    $prepstate = $db->prepare('INSERT INTO submission_details VALUES (NULL,?,?,?)');
