@@ -423,7 +423,7 @@ function updateData(){
             });
 
             $('#logi').on("tap",function(event){
-                $.mobile.showPageLoadingMsg("a", "Logging In");
+                $.mobile.showPageLoadingMsg("a", "Logging In");4
                 $.ajax({
                   type: "POST",
                   url: "http://app.d2dpro.com/login.php",
@@ -455,9 +455,21 @@ function updateData(){
             });
                 
             });
-
-            
-});
+                $('#entries').on('pagebeforeshow',function(event,ui){
+                  $.ajax({
+                    type: "POST",
+                    url: "http://app.d2dpro.com/get_form_data.php",
+                    data: {"userid":window.userID},
+                    async: true,
+                    cache: false,
+                    dataType: "json",
+                    success: function(data){
+                        for(var iter=0; iter<data.length;iter++){
+                            $("#entriesContent").append(data[iter][0]);
+                        }
+                    }
+                });
+            });
 app.receivedEvent('deviceready');
 },
     // Update DOM on a Received Event
