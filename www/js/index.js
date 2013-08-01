@@ -249,7 +249,9 @@ function updateData(){
                 if(formPart+1 != formData.length){
                     $('#formContent').append("<hr>");
                 }
+
             }
+    $('#formContent').trigger( "create" );
 }
 
 
@@ -416,7 +418,7 @@ function updateData(){
                 $.ajax({
                   type: "POST",
                   url: "http://app.d2dpro.com/login.php",
-                  data: {"userid":"testusername", "password":"testpassword"},
+                  data: {"userid":$('#userIDBox').val(), "password":$('#uPasswordBox').val()},
                   async: false,
                   cache: false,
                   dataType: "text",
