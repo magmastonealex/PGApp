@@ -455,25 +455,14 @@ function updateData(){
                 
             });
                 $('#entries').on('pagebeforeshow',function(event){
-                  $.ajax({
-                    type: "POST",
-                    url: "http://app.d2dpro.com/get_form_data.php",
-                    data: {"userid":window.userID},
-                    async: false,
-                    cache: false,
-                    dataType: "json",
-                    success: function(data,status,jqhxrthing){
+                  $.getJSON("http://app.d2dpro.com/get_form_data.php",{"userid":window.userID}).done(function(data){
                         alert("Finished");
                         alert(data);
-                        
+
                         for(var iter=0; iter<data.length;iter++){
                             $("#entriesContent").append(data[iter][0]);
                         }
-                    },
-                    error: function(){
-                        alert("Errored");
-                    }
-                });
+                    });
                   alert("Past");
             });
 
