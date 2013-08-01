@@ -111,6 +111,7 @@ function formDetailHandle(){
                 $("#entries_super_detail_content").trigger("create");
             }
         });
+        console.log($("#entries_super_detail_content").html());
 
     });
 }
