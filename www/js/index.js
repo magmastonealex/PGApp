@@ -411,8 +411,8 @@ function updateData(){
 
             $('#logi').on("tap",function(event){
                 $.mobile.showPageLoadingMsg("a", "Logging In");
-                $('#userIDBox').disable();
-                $('#uPasswordBox').disable();
+                $('#userIDBox').attr("disabled", "true");
+                $('#uPasswordBox').attr("disabled", "true");
                 $.ajax({
                   type: "POST",
                   url: "http://app.d2dpro.com/login.php",
@@ -429,15 +429,15 @@ function updateData(){
                     }else{
                         alert(data);
                         $.mobile.hidePageLoadingMsg();
-                        $('#userIDBox').enable();
-                        $('#uPasswordBox').enable();
+                        $('#userIDBox').attr("disabled", "false");
+                        $('#uPasswordBox').attr("disabled", "false");
                     }
                 },
                 error: function(){
                     alert("Failed (jq)");
                     $.mobile.hidePageLoadingMsg();
-                    $('#userIDBox').enable();
-                    $('#uPasswordBox').enable();
+                    $('#userIDBox').attr("disabled", "false");
+                    $('#uPasswordBox').attr("disabled", "false");
                 }
 
             });
