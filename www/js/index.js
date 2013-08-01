@@ -91,8 +91,9 @@ function formDetailHandle(){
     $('.formDDetail').on("tap",function(){
         console.log($(this).attr("subID"));
         $.ajaxSetup({async: true, error: function(error){alert("Error downloading Detail");}});
-        $("#entries_super_detail_header").html("<h1>"+$(this).html+"</h1>");
+        $("#entries_super_detail_header").html("<h1>"+$(this).html()+"</h1>");
         $.getJSON("http://app.d2dpro.com/view_result.php", {"subID":$(this).attr("subID")}).done(function(data){
+            console.log(JSON.stringify(data));
             for(var iter=0; iter<data.length;iter++){
                 $("#entries_super_detail_content").html("");
                 options ="";
@@ -101,7 +102,6 @@ function formDetailHandle(){
                 $("#entries_super_detail_content").append(options);
                 $("#entries_super_detail_content").trigger("create");
             }
-            alert("done");
         });
 
     });
