@@ -14,7 +14,7 @@ $formID=$db->real_escape_string($_GET["formID"]);
 	if(!$submissionIDs=$db->query($subIDsQuery)){
 		die("Error: " . $db->error);
 	}
-	
+
 	while($subIDRow = $submissionIDs->fetch_assoc()){
 		$firstResultGet='SELECT * FROM submission_details WHERE subID="'.$subIDRow["subID"].'" AND formFieldID="'.$fFID.'"';
 		if(!$firstResult=$db->query($firstResultGet)){
