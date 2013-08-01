@@ -416,7 +416,7 @@ function updateData(){
                 $.ajax({
                   type: "POST",
                   url: "http://app.d2dpro.com/login.php",
-                  data: {"userid":$('#userIDBox').val(), "password":$('#uPasswordBox').val()},
+                  data: {"userid":"testusername", "password":"testpassword"},
                   async: false,
                   cache: false,
                   dataType: "text",
