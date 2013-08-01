@@ -443,15 +443,15 @@ function updateData(){
                     }else{
                         alert(data);
                         $.mobile.hidePageLoadingMsg();
-                        $('#userIDBox').attr("disabled", "false");
-                        $('#uPasswordBox').attr("disabled", "false");
+                        $('#userIDBox').removeAttr("disabled");
+                        $('#uPasswordBox').removeAttr("disabled");
                     }
                 },
                 error: function(){
                     alert("Failed (jq)");
                     $.mobile.hidePageLoadingMsg();
-                    $('#userIDBox').attr("disabled", "false");
-                    $('#uPasswordBox').attr("disabled", "false");
+                    $('#userIDBox').removeAttr("disabled");
+                    $('#uPasswordBox').removeAttr("disabled");
                 }
 
             });

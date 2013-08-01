@@ -31,16 +31,20 @@ if(!$fieldNameResult=$db->query($fieldNamesQuery)){
 	die("error with query: " . $db->error);
 }
 while($row = $fieldNameResult->fetch_assoc()){
-	array_push($fieldNames, $row["fldName"]);
+	array_push($fieldNames, array($row["fldName"], $row["fldType"]));
 }
 
 $resultsQuery= 'SELECT * from submission_details WHERE subID="'.$subID.'" ORDER BY formFieldID ASC';
 if(!$finalResult=$db->query($resultsQuery)){
 	die("error with query: " . $db->error);
 }
-$increment = 0
+$increment = 0;
 while($row = $finalResult->fetch_assoc()){
-	echo "<br>" . $fieldNames[$increment]; . ": " . $row["submissionValue"];
+
+	echo "<br>" . $fieldNames[$increment][0] . ": " . $row["submissionValue"];
+	if($fieldNames[$increment][1] == "PictureCapture"){
+		echo '<img src="http://app.d2dpro.com/upload_picture/'.$row["submissionValue"].'"></img';
+	}
 	$increment = $increment+1;
 }
 
