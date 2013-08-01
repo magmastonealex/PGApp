@@ -52,6 +52,7 @@ function loadForms(){
                 
                 setupPageClickHandler();
             });
+    $.ajaxSetup({async: true});
 }
 
 
@@ -388,9 +389,6 @@ function updateData(){
         $(document).ready(function(){
             $.mobile.allowCrossDomainPages = true;
             
-
-
-            
             $('#locSettings').on('pagehide',function(event,ui){
                switch($('input:radio[name="geomin"]:checked').attr("content")){
                 case "5":
@@ -413,6 +411,7 @@ function updateData(){
                     clearInterval(window.lastInterval);
                }
             });
+
             $('#formSelect').on('pageshow',function(event,ui){
                 $.mobile.hidePageLoadingMsg();
             });
@@ -440,7 +439,7 @@ function updateData(){
                         window.userID = $('#userIDBox').val();
                         loadForms();
                         $.mobile.hidePageLoadingMsg();
-
+                        $.post("http://app.d2dpro.com/checkin.php", {"deviceID":window.devid,"userID":window.userID});
                     }else{
                         alert(data);
                         $.mobile.hidePageLoadingMsg();
