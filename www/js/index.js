@@ -80,7 +80,7 @@ function formEntryHandler(){
                 options = '<li><a href="#entries_super_detail" class="formDDetail" subID="'+data[iter][1]+'" data-transition="slide">'+data[iter][0]+'</a></li>'
                 $('#entries_detail_list').append(options);
                 $('#entries_detail_list').trigger("create");
-                $('#entries_detail_list').listview('refresh');
+                $('#entries_detail_list:visible').listview('refresh');
             }
             formDetailHandle();
         });
@@ -97,7 +97,6 @@ function formDetailHandle(){
             $("#entries_super_detail_content").html("");
             for(var iter=0; iter<data.length;iter++){
                 
-
                 options ="";
                 options += "<p>"+data[iter][0][0]+"</p><br>";
                 options += "<b>"+data[iter][1]+"</b><br><hr>";
