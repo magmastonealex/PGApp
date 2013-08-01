@@ -13,7 +13,7 @@ while($row = $allFormIds->fetch_assoc()){
 		die("Error: " . $db->error);
 	}
 	while($nameRow = $formNames->fetch_assoc()){
-		array_push($form_list, array($nameRow["frmName"],0));
+		array_push($form_list, array($nameRow["frmName"],$nameRow["formID"]));
 	}
 }
 echo json_encode($form_list);

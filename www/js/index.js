@@ -455,10 +455,9 @@ function updateData(){
                 
             });
                 $('#entries').on('pagebeforeshow',function(event){
-                  $.getJSON("http://app.d2dpro.com/get_form_data.php",{"userid":window.userID}).done(function(data){
+                  $.getJSON("http://app.d2dpro.com/get_form_data.php",{"userID":window.userID}).done(function(data){
                         alert("Finished");
                         alert(data);
-
                         for(var iter=0; iter<data.length;iter++){
                             $("#entriesContent").append(data[iter][0]);
                         }
