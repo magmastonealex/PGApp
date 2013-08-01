@@ -38,6 +38,18 @@
  }
 
 
+function loadForms(){
+    $.getJSON("http://app.d2dpro.com/get_form.php", {"userID":window.userID}).done(function(data){
+                allForms = data;
+                console.log("GOT DATA" + data);
+                for (var formNumber = 0; formNumber < data.length; formNumber++) {
+                    formLinkOptions = '<li><a href="#form" class="formlink" formID="'+allForms[formNumber][0]+'" data-transition="pop">'+allForms[formNumber][1]+'</a></li>'
+                    $('#linksForm').append(formLinkOptions);
+                }
+                setupPageClickHandler();
+            });
+}
+
 
 function setupPageClickHandler(){
     $('.formlink').on("tap",function(){
@@ -370,15 +382,7 @@ function updateData(){
 
         $(document).ready(function(){
             $.mobile.allowCrossDomainPages = true;
-            $.getJSON("http://app.d2dpro.com/get_form.php", function(data){
-                allForms = data;
-                console.log("GOT DATA" + data);
-                for (var formNumber = 0; formNumber < data.length; formNumber++) {
-                    formLinkOptions = '<li><a href="#form" class="formlink" formID="'+allForms[formNumber][0]+'" data-transition="pop">'+allForms[formNumber][1]+'</a></li>'
-                    $('#linksForm').append(formLinkOptions);
-                }
-                setupPageClickHandler();
-            });
+            
 
 
             
@@ -424,8 +428,10 @@ function updateData(){
                   dataType: "text",
                   success: function(data){
                     if(data == "SUCCESS"){
+
                         $.mobile.changePage("#formSelect");
                         window.userID = $('#userIDBox').val();
+                        loadForms();
                         $.mobile.hidePageLoadingMsg();
 
                     }else{
