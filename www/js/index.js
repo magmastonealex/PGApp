@@ -80,6 +80,7 @@ function formEntryHandler(){
                 options = '<li><a href="#entries_super_detail" class="formDDetail" subID="'+data[iter][1]+'" data-transition="slide">'+data[iter][0]+'</a></li>'
                 $('#entries_detail_list').append(options);
                 $('#entries_detail_list').trigger("create");
+                $('#entries_detail_list').listview('refresh');
             }
             formDetailHandle();
         });
@@ -89,7 +90,7 @@ function formEntryHandler(){
 function formDetailHandle(){
     $('.formDDetail').on("tap",function(){
         console.log($(this).attr("subID"));
-        $.ajaxSetup({async: false, error: function(error){alert("Error downloading Detail");}});
+        $.ajaxSetup({async: true, error: function(error){alert("Error downloading Detail");}});
         $("#entries_super_detail_header").html("<h1>"+$(this).html+"</h1>");
         $.getJSON("http://app.d2dpro.com/view_result.php", {"subID":$(this).attr("subID")}).done(function(data){
             for(var iter=0; iter<data.length;iter++){
