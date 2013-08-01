@@ -9,7 +9,7 @@ if(!$allFormIds=$db->query($formIDQuery)){
 $form_list=array();
 while($row = $allFormIds->fetch_assoc()){
 	$formNamesQuery = 'SELECT * FROM forms WHERE formID="'.$row["formID"].'"';
-	if(!$formNames=$db->query($formIDQuery)){
+	if(!$formNames=$db->query($formNamesQuery)){
 		die("Error: " . $db->error);
 	}
 	while($nameRow = $formNames->fetch_assoc()){
