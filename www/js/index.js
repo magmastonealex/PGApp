@@ -39,6 +39,7 @@
 
 
 function loadForms(){
+    $.ajaxSetup({async: false, error: function(error){alert("Error downloading");}});
     $.getJSON("http://app.d2dpro.com/get_form.php", {"userID":window.userID}).done(function(data){
                 allForms = data;
                 console.log("GOT DATA" + data);
