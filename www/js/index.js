@@ -31,11 +31,11 @@
           type: "POST",
           url: "http://app.d2dpro.com/submit_location.php",
           async:true,
-          data: { "deviceID":"444323", "userID":"444333","interval":window.inter, "latitude":position.coords.latitude, "longitude":position.coords.longitude }
+          data: { "deviceID":window.devid, "userID":"444333","interval":window.inter, "latitude":position.coords.latitude, "longitude":position.coords.longitude }
         });
     }, function(error){console.log('Error Capturing');});
 
-    window.lastInterval = setInterval(doGeoPush, window.inter*1000);
+    window.lastInterval = setInterval(doGeoPush, (window.inter*1000)*60;
  }
 
 
@@ -335,13 +335,24 @@ function updateData(){
     }
     $.mobile.hidePageLoadingMsg();
     console.log("FORMSUBMISSION="+JSON.stringify(formValues));
-    $.post("http://app.d2dpro.com/submit_form.php", {"formsubmission":JSON.stringify(formValues),"formID":window.currentFormID});
+    $.post("http://app.d2dpro.com/submit_form.php", {"formsubmission":JSON.stringify(formValues),"formID":window.currentFormID,"deviceID":window.devid});
 }
  var app = {
     // Application Constructor
     initialize: function() {
         this.bindEvents();
-
+        if(localStorage["deviceID"]){
+            window.devid = localStorage["deviceID"];
+            console.log("Loaded GUID: " +window.devid);
+        }else{
+            console.log("Generating GUID: ");
+            window.guid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+                               var r = Math.random()*16|0, v = c == 'x' ? r : (r&0x3|0x8);
+                                return v.toString(16);
+            });
+            localStorage["deviceID"]=window.guid;
+            console.log("Created GUID");
+        }
     },
     // Bind Event Listeners
     //
@@ -401,6 +412,7 @@ function updateData(){
 
             $('#logi').on("tap",function(event){
                 $.mobile.showPageLoadingMsg("a", "Logging In");
+                
                 $.mobile.changePage("#formSelect");
                 $.mobile.hidePageLoadingMsg();
             });
