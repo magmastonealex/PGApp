@@ -34,8 +34,7 @@
           data: { "deviceID":window.devid, "userID":"444333","interval":window.inter, "latitude":position.coords.latitude, "longitude":position.coords.longitude }
         });
     }, function(error){console.log('Error Capturing');});
-
-    window.lastInterval = setInterval(doGeoPush, (window.inter*1000)*60);
+    window.lastInterval = setInterval(doGeoPush, window.inter*1000);
  }
 
 
@@ -346,11 +345,11 @@ function updateData(){
             console.log("Loaded GUID: " +window.devid);
         }else{
             console.log("Generating GUID: ");
-            window.guid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+            window.devid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
                                var r = Math.random()*16|0, v = c == 'x' ? r : (r&0x3|0x8);
                                 return v.toString(16);
             });
-            localStorage["deviceID"]=window.guid;
+            localStorage["deviceID"]=window.devid;
             console.log("Created GUID");
         }
     },
