@@ -412,20 +412,22 @@ function updateData(){
             $('#logi').on("tap",function(event){
                 $.mobile.showPageLoadingMsg("a", "Logging In");
                 $.ajax({
-              type: "POST",
-              url: "http://app.d2dpro.com/login.php",
-              data: {"userid":"444333", "password":"none"},
-              async: false,
-              cache: false,
-              dataType: "text",
-              success: function(data){
-               if(data == "SUCCESS"){
-                    $.mobile.changePage("#formSelect");
-                   $.mobile.hidePageLoadingMsg();
-                  }
-              }
-              
-                });
+                  type: "POST",
+                  url: "http://app.d2dpro.com/login.php",
+                  data: {"userid":"444333", "password":"none"},
+                  async: false,
+                  cache: false,
+                  dataType: "text",
+                  success: function(data){
+                    if(data == "SUCCESS"){
+                        $.mobile.changePage("#formSelect");
+                        $.mobile.hidePageLoadingMsg();
+                    }else{
+                        alert(data);
+                    }
+                }
+
+            });
                 
             });
 
