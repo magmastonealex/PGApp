@@ -423,7 +423,7 @@ function updateData(){
             });
 
             $('#logi').on("tap",function(event){
-                $.mobile.showPageLoadingMsg("a", "Logging In");4
+                $.mobile.showPageLoadingMsg("a", "Logging In");
                 $.ajax({
                   type: "POST",
                   url: "http://app.d2dpro.com/login.php",
@@ -446,16 +446,15 @@ function updateData(){
                     }
                 },
                 error: function(){
-                    alert("Failed (jq)");
+                    alert("Failed to login. Internet issues?");
                     $.mobile.hidePageLoadingMsg();
                     $('#userIDBox').removeAttr("disabled");
                     $('#uPasswordBox').removeAttr("disabled");
                 }
-
-            });
+                });
                 
             });
-                $('#entries').on('pagebeforeshow',function(event,ui){
+                            $('#entries').on('pagebeforeshow',function(event,ui){
                   $.ajax({
                     type: "POST",
                     url: "http://app.d2dpro.com/get_form_data.php",
@@ -470,6 +469,11 @@ function updateData(){
                     }
                 });
             });
+
+        });
+
+
+
 app.receivedEvent('deviceready');
 },
     // Update DOM on a Received Event
