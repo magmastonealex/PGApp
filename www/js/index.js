@@ -432,6 +432,12 @@ function updateData(){
                         $('#userIDBox').enable();
                         $('#uPasswordBox').enable();
                     }
+                },
+                error: function(){
+                    alert("Failed (jq)");
+                    $.mobile.hidePageLoadingMsg();
+                    $('#userIDBox').enable();
+                    $('#uPasswordBox').enable();
                 }
 
             });
