@@ -10,13 +10,15 @@ if($db->connect_errno > 0){
 $subid = md5(uniqid());
 
 foreach($injson as $field){
-	$fieldidquery = "SELECT formfieldID FROM form_fields WHERE fldName='".mysqli_real_escape_string($db,$field[0])."';";
+	$fieldidquery = "SELECT * FROM form_fields WHERE fldName='".mysqli_real_escape_string($db,$field[0])."';";
 	if(!$result = $db->query($fieldidquery)){
     	die('Error: ' . $db->error);
 	}
-	if(!$fid=$result->fetch_field()){
-		die('Error: ' . $db->error);
+  $fid = 0;
+	while($resurow=$result->fetch_assoc()){
+		$fid = $resurow["formfieldID"];
 	}
+  
    $prepstate = $db->prepare('INSERT INTO submission_details VALUES (NULL,?,?,?)');
    $prepstate->bind_param("iss", $fid, mysqli_real_escape_string($db,$field[1]),$subid);
    if(!$prepstate->execute()){
