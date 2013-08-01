@@ -102,7 +102,7 @@ function formDetailHandle(){
                 options += "<b>"+data[iter][1]+"</b><br>";
                 switch(data[iter][0][1]){
                     case "PictureCapture":
-                        options += '<img src="http://app.d2dpro.com/picture_upload/'+data[iter][1]+'"></img>';
+                        options += '<img src="http://app.d2dpro.com/upload_picture/'+data[iter][1]+'"></img>';
                     default:
                         options += "<br>"
                 }
