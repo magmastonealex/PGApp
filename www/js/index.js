@@ -586,8 +586,7 @@ function updateData(){
                             $('#mapdiv').gmap('refresh');
                             console.log("Map DONE");
                         });
-                            
-
+                        });
                 });
         });
 
