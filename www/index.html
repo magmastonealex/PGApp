@@ -121,8 +121,14 @@
     </div>
 
     <div data-role="content">
-    <div id="#mapdiv">
-    </div>
+    <script type="text/javascript">
+        $(function() {
+                // Also works with: var yourStartLatLng = '59.3426606750, 18.0736160278';
+                var yourStartLatLng = new google.maps.LatLng(59.3426606750, 18.0736160278);
+                $('#mapdiv').gmap({'center': yourStartLatLng});
+        });
+    </script>
+    <div id="mapdiv" style="width:250px;height:250px"></div>
     </div>
 
     <div data-role="footer" data-position="fixed" data-theme="d">

@@ -546,10 +546,7 @@ function updateData(){
                     $('#entries_detail').trigger("create");
                 });
                 $('#mapScreen').on('pageinit',function(event){
-                    console.log("Map INIT:");
-                    $('#mapdiv').gmap().on('init', function(event, goooooglmap) {
-                        $('#mapdiv').gmap('addMarker', {'position': '57.732333,12.04242407', 'bounds': true});
-                    });
+
                     console.log("Map DONE");
                 })
         });
