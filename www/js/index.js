@@ -491,6 +491,7 @@ function updateData(){
             if(localStorage["lastuser"]){
             console.log("Retreived" + localStorage["lastuser"]);
             $("#userIDBox").attr("value", localStorage["lastuser"]);
+            $("#userIDBox").attr("placeholder", "");
             }
             $('#deviceident').html(window.devid);
             $.mobile.allowCrossDomainPages = true;
