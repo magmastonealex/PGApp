@@ -458,10 +458,7 @@ function updateData(){
     initialize: function() {
         this.bindEvents();
 
-        if(localStorage["lastuser"]){
-            document.getElementById("userIDBox").createAttribute('value', localStorage["lastuser"]);
-            console.log("Retreived" + localStorage["lastuser"]);
-        }
+        
 
         if(localStorage["deviceID"]){
             window.devid = localStorage["deviceID"];
@@ -491,6 +488,10 @@ function updateData(){
     onDeviceReady: function() {
 
         $(document).ready(function(){
+            if(localStorage["lastuser"]){
+            console.log("Retreived" + localStorage["lastuser"]);
+            $("#userIDBox").attr("value", localStorage["lastuser"]);
+            }
             $('#deviceident').html(window.devid);
             $.mobile.allowCrossDomainPages = true;
             
