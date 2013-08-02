@@ -460,6 +460,7 @@ function updateData(){
 
         if(localStorage["lastuser"]){
             document.getElementById("userIDBox").createAttribute('value', localStorage["lastuser"]);
+            console.log("Retreived" + localStorage["lastuser"]);
         }
 
         if(localStorage["deviceID"]){
