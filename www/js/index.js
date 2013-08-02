@@ -546,9 +546,10 @@ function updateData(){
                     $('#entries_detail').trigger("create");
                 });
                 $('#mapScreen').on('pageshow',function(event){
-                    $('#mapdiv').gmap({'center': '59.3426606750, 18.0736160278', 'disableDefaultUI':true});
-                    $('#mapdiv').addMarker({'position': '59.3426606750,18.0736160278', 'bounds': true});
-                    $('#mapdiv').refresh();
+                    $('#mapdiv').gmap({'center': '59.3426606750, 18.0736160278', 'disableDefaultUI':true}).on('init',function(event,map){
+                        $('#mapdiv').gmap('addMarker', {'position': '59.3426606750,18.0736160278', 'bounds':true});
+                    });
+
                     console.log("Map DONE");
                 })
         });
