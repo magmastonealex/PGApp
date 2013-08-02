@@ -86,6 +86,8 @@ function formEntryHandler(){
             }
             formDetailHandle();
             $("#entries_detail").trigger("create");
+            $("#entries_detail_content").trigger("create");
+            $("#entries_detail").trigger("create");
         });
     });
 }
@@ -551,8 +553,11 @@ function updateData(){
                         formEntryHandler();
                     });
             });
-                $('#entries_detail').bind('pageinit', function(event) {
+                $('#entries_detail').bind('pagebeforeshow', function(event) {
                     $('#entries_detail_list').listview('refresh');
+                    $('#entries_detail_list').trigger("create");
+                    $('#entries_detail_header').trigger("create");
+                    $('#entries_detail').trigger("create");
                 });
         });
 
