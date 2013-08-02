@@ -584,9 +584,8 @@ function updateData(){
                             console.log(data[dataiter][2]);
                             }
                         });
-                    });
-                    console.log("Map DONE");
-                })
+                            console.log("Map DONE");
+                });
         });
 
 
