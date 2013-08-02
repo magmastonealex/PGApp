@@ -620,8 +620,8 @@ function updateData(){
                             var ourdata=data[dataiter][2];
                             $('#mapdiv').gmap('addMarker', {'position': data[dataiter][0]+","+data[dataiter][1], 'bounds':true}).click(function(){
                                 var thisdata = ourdata;
-
-                                $('#mapdiv').gmap('openInfoWindow', {'content':'<a href="#entries_detail" data-role="button">More Information:'+thisdata+'</a>'}, this);
+                                populate_detail(thisdata);
+                                $('#mapdiv').gmap('openInfoWindow', {'content':'<a href="#entries_detail" data-role="button">More Information</a>'}, this);
                             });
                                 console.log(data[dataiter][2]);
                             }
