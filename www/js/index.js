@@ -582,7 +582,7 @@ function updateData(){
                             console.log("Map START");
                             for (var dataiter=0; dataiter < data.length; dataiter++){
                             console.log("Pos: " + data[dataiter][0]+","+data[dataiter][1]);
-                            $('#mapdiv').gmap('addMarker', {'position': data[dataiter][0]+","+data[dataiter][1]}, 'bounds':true );
+                            $('#mapdiv').gmap('addMarker', {'position': data[dataiter][0]+","+data[dataiter][1], 'bounds':true} );
                             console.log(data[dataiter][2]);
                             }
                           
