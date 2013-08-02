@@ -544,7 +544,10 @@ function updateData(){
                   $.getJSON("http://app.d2dpro.com/get_form_data.php",{"userID":window.userID}).done(function(data){
 
                         for(var iter=0; iter<data.length;iter++){
-                            options = '<li><a href="#entries_detail" class="formEntry_old" formID="'+data[iter][1]+'" data-transition="slide">'+data[iter][0]+'</a></li>'
+                            options = '<li data-role="list-divider">'+data[iter][0]+'</li>'
+                            for(var z=0; z<data[iter][2].length;z++){
+                                options += '<li><a href="#entries_detail" class="detailshow" subID="'+data[iter][2][z][1]+'">'+data[iter][2][z][0]+'</a></li>';
+                            }
                             $('#entriesList').append(options);
                             $('#entriesList').trigger("create");
                             $('#entriesList').listview('refresh');
