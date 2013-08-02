@@ -45,7 +45,7 @@ function loadForms(){
                 allForms = data;
                 console.log("GOT DATA" + data);
                 for (var formNumber = 0; formNumber < data.length; formNumber++) {
-                    formLinkOptions = '<li><a href="" class="formlink" formID="'+allForms[formNumber][0]+'" data-transition="pop">'+allForms[formNumber][1]+'</a></li>'
+                    formLinkOptions = '<li><a href="#form" class="formlink" formID="'+allForms[formNumber][0]+'" data-transition="pop">'+allForms[formNumber][1]+'</a></li>'
                     $('#linksForm').append(formLinkOptions);
                     $('#linksForm').trigger("create");
                     $('#linksForm').listview('refresh');
@@ -128,7 +128,7 @@ function formDetailHandle(){
                 $("#entries_detail_content").trigger("create");
             }
         $("#entries_detail").trigger("create");
-        $.mobile.navigate("#form");
+
         });
         console.log($("#entries_detail_content").html());
         $("#entries_detail").trigger("create");
