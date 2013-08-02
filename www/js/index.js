@@ -545,8 +545,12 @@ function updateData(){
                     $('#entries_detail_content').trigger("create");
                     $('#entries_detail').trigger("create");
                 });
-                $('#mapScreen').on('pageinit',function(event){
-
+                $('#mapScreen').on('pageshow',function(event){
+                    $('#mapdiv').gmap({'center': '59.3426606750, 18.0736160278', 'disableDefaultUI':true});
+                    $('#mapdiv').gmap({'callback': function() {
+                      this.addMarker({'position': '59.3426606750,18.0736160278', 'bounds': true})
+                    }});
+                    $('#mapdiv').gmap('refresh');
                     console.log("Map DONE");
                 })
         });
