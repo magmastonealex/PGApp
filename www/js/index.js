@@ -580,12 +580,12 @@ function updateData(){
                     $('#mapdiv').gmap({'disableDefaultUI':true}).bind('init',function(event,map){
                         $.getJSON( 'http://app.d2dpro.com/get_locations.php',{"userID":window.userID}).done(function(data) {
                             console.log("Map START");
-                            for (var dataiter=0; dataiter < data.length-1; dataiter++){
+                            for (var dataiter=0; dataiter < data.length; dataiter++){
                             console.log("Pos: " + data[dataiter][0]+","+data[dataiter][1]);
-                            $('#mapdiv').gmap('addMarker', {'position': data[dataiter][0]+","+data[dataiter][1]} );
+                            $('#mapdiv').gmap('addMarker', {'position': data[dataiter][0]+","+data[dataiter][1]}, 'bounds':true );
                             console.log(data[dataiter][2]);
                             }
-                            $('#mapdiv').gmap('addMarker', {'position': data[data.length-1][0]+","+data[data.length-1][1], 'bounds':true} );
+                          
                             $('#mapdiv').gmap('refresh');
                             console.log("Map DONE");
                         });
