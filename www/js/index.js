@@ -72,7 +72,7 @@ function setupPageClickHandler(){
 
 
 function formDetailHandle(){
-    $('.detailshow').on("tap",function(event){
+    $('.detail_shower').on("tap",function(event){
         console.log($(this).attr("subID"));
         if($(event.target).html() != undefined){
         $("#entries_detail_header").html("<h1>"+$(this).html()+"</h1>");
@@ -527,7 +527,7 @@ function updateData(){
                         for(var iter=0; iter<data.length;iter++){
                             options = '<li data-role="list-divider">'+data[iter][0]+'</li>'
                             for(var z=0; z<data[iter][2].length;z++){
-                                options += '<li><a href="#entries_detail" class="detailshow" subID="'+data[iter][2][z][1]+'">'+data[iter][2][z][0]+'</a></li>';
+                                options += '<li><a href="#entries_detail" class="detail_shower" subID="'+data[iter][2][z][1]+'">'+data[iter][2][z][0]+'</a></li>';
                             }
                             $('#entriesList').append(options);
                             $('#entriesList').trigger("create");
