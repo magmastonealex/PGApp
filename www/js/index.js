@@ -147,7 +147,7 @@ function formDetailHandle(){
             }
         });
         console.log($("#entries_super_detail_content").html());
-
+        $("#entries_super_detail").trigger("create");
     });
 }
 
