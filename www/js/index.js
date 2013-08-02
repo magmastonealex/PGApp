@@ -155,7 +155,7 @@ function populate_detail(subID){
         });
         console.log($("#entries_detail_content").html());
         $("#entries_detail").trigger("create");
-
+        window.hasinitteddetail = true;
 }
 
 
@@ -384,7 +384,7 @@ function updateData(){
     $('#formContent').trigger("create");
 }
 
-
+function attach
 
  window.getData = function(){
     
@@ -608,7 +608,6 @@ function updateData(){
                     $('#entries_detail_content').trigger("create");
                     $('#entries_detail').trigger("create");
                 });
-                
                 $('#entries_detail').on('pageaftershow', function(event){
                     $('#entries_detail_header').trigger("create");
                 })
@@ -621,8 +620,8 @@ function updateData(){
                             console.log("Pos: " + data[dataiter][0]+","+data[dataiter][1]);
 
                             $('#mapdiv').gmap('addMarker', {'position': data[dataiter][0]+","+data[dataiter][1], 'bounds':true}).click(function(){
-                                populate_detail(data[dataiter][2])
-                                $('#mapdiv').gmap('openInfoWindow', {'content':'<a href="#entries_detail">More Information:'+data[dataiter][2]+'</a>'}, this);
+                                
+                                $('#mapdiv').gmap('openInfoWindow', {'content':'<a href="#entries_detail" data-role="button">More Information:'+data[dataiter][2]+'</a>'}, this);
                             });
                                 console.log(data[dataiter][2]);
                             }
