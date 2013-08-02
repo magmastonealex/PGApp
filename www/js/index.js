@@ -333,6 +333,7 @@ function updateData(){
 
             }
     console.log("COMPLETE");
+    $.mobile.changePage("#form","slide");
     $('#formContent').trigger("create");
 }
 
@@ -543,8 +544,12 @@ function updateData(){
                     $('#entries_detail_content').trigger("create");
                     $('#entries_detail').trigger("create");
                 });
-                $('#mapScreen').on('pagebeforeshow',function(event){
-                    $('#mapdiv').gmap('addMarker', {'position': '57.7972222,12.0505307', 'bounds': true});
+                $('#mapScreen').on('pageinit',function(event){
+                    console.log("Map INIT:");
+                    $('#mapdiv').gmap().on('init', function(event, goooooglmap) {
+                        $('#mapdiv').gmap('addMarker', {'position': '57.732333,12.04242407', 'bounds': true});
+                    });
+                    console.log("Map DONE");
                 })
         });
 
