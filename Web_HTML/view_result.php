@@ -37,9 +37,17 @@ if(!$finalResult=$db->query($resultsQuery)){
 }
 $finalarray=array();
 $increment = 0;
+$increment_fldnames = 0;
 while($row = $finalResult->fetch_assoc()){
-	array_push($finalarray, array($fieldNames[$increment],$row["submissionValue"]));
+	
+	if($fieldNames[$increment][1] == "text"){
+		$increment_fldnames=$increment_fldnames+1;
+	}
+	array_push($finalarray, array($fieldNames[$increment_fldnames],$row["submissionValue"]));
+
+	array_push($finalarray, array($fieldNames[$increment],$row["subDetailID"]));
 	$increment = $increment+1;
+	$increment_fldnames=$increment_fldnames+1;
 }
 echo json_encode($finalarray);
 ?>
