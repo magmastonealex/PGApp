@@ -72,19 +72,11 @@ function setupPageClickHandler(){
     });
 }
 
+function populate_detail(subID){
 
-function formDetailHandle(){
-    $('.detail_shower').on("tap",function(event){
-        console.log($(this).attr("subID"));
-        if($(event.target).html() != undefined){
-        $("#entries_detail_header").html("<h1>"+$(this).html()+"</h1>");
-        $("#entries_detail").trigger("create");
-        $("#entries_detail_header").trigger("create");
-    }
-        
-        $.ajaxSetup({async: false, error: function(error){alert("Error downloading Detail");}});
+    $.ajaxSetup({async: false, error: function(error){alert("Error downloading Detail");}});
             
-        $.getJSON("http://app.d2dpro.com/view_result.php", {"subID":$(this).attr("subID")}).done(function(data){
+        $.getJSON("http://app.d2dpro.com/view_result.php", {"subID":subID}).done(function(data){
             
             console.log(JSON.stringify(data));
             $("#entries_detail_content").html("");
@@ -100,7 +92,7 @@ function formDetailHandle(){
                         options ="";
                         break;
                     case "TextInput":
-                        options += '<p>'+data[iter][1]+'</p>';
+                        options += '<p><b>'+data[iter][1]+'</b></p>';
                         $("#entries_detail_content").append(options);
                         $("#entries_detail_content").trigger("create");
                         options ="";
@@ -163,6 +155,20 @@ function formDetailHandle(){
         });
         console.log($("#entries_detail_content").html());
         $("#entries_detail").trigger("create");
+
+}
+
+
+function formDetailHandle(){
+    $('.detail_shower').on("tap",function(event){
+        console.log($(this).attr("subID"));
+        if($(event.target).html() != undefined){
+        $("#entries_detail_header").html("<h1>"+$(this).html()+"</h1>");
+        $("#entries_detail").trigger("create");
+        $("#entries_detail_header").trigger("create");
+    }
+        populate_detail($(this).attr("subID"));
+        
     });
 }
 
@@ -583,7 +589,7 @@ function updateData(){
                     $("#entriesList").html("");
                   $.getJSON("http://app.d2dpro.com/get_form_data.php",{"userID":window.userID}).done(function(data){
 
-                        for(var iter=0; iter<data.length;iter++){
+                    for(var iter=0; iter<data.length;iter++){
                             options = '<li data-role="list-divider" data-theme="a">'+data[iter][0]+'</li>'
                             for(var z=0; z<data[iter][2].length;z++){
                                 options += '<li><a href="#entries_detail" class="detail_shower" subID="'+data[iter][2][z][1]+'">'+data[iter][2][z][0]+'</a></li>';
@@ -595,22 +601,30 @@ function updateData(){
                         console.log($('#entriesList').html());
                         formDetailHandle();
                     });
-            });
+                });
+                
                 $('#entries_detail').on('pagebeforeshow', function(event) {
                     $('#entries_detail_header').trigger("create");
                     $('#entries_detail_content').trigger("create");
                     $('#entries_detail').trigger("create");
                 });
+                
+                $('#entries_detail').on('pageaftershow', function(event){
+                    $('#entries_detail_header').trigger("create");
+                })
+
                 $('#mapScreen').on('pageshow',function(event){
                     $('#mapdiv').gmap({'disableDefaultUI':true}).bind('init',function(event,map){
                         $.getJSON( 'http://app.d2dpro.com/get_locations.php',{"userID":window.userID}).done(function(data) {
                             console.log("Map START");
                             for (var dataiter=0; dataiter < data.length; dataiter++){
                             console.log("Pos: " + data[dataiter][0]+","+data[dataiter][1]);
-                            $('#mapdiv').gmap('addMarker', {'position': data[dataiter][0]+","+data[dataiter][1], 'bounds':true} );
-                            console.log(data[dataiter][2]);
+
+                            $('#mapdiv').gmap('addMarker', {'position': data[dataiter][0]+","+data[dataiter][1], 'bounds':true}).on("tap", function(){
+                                $('#mapdiv').gmap('openInfoWindow', {'content':data[dataiter][2]}, this);
+                            });
+                                console.log(data[dataiter][2]);
                             }
-                          
                             $('#mapdiv').gmap('refresh');
                             console.log("Map DONE");
                         });
