@@ -3,7 +3,7 @@ $db = new mysqli('localhost', 'appd2dpr_php', '9&3mPMjCJM8+uKy6o', 'appd2dpr_mob
 
 $userID = $db->real_escape_string($_GET["userID"]);
 
-$locQuery = 'SELECT * FROM submission WHERE userID="'+$userID+'"';
+$locQuery = 'SELECT * FROM submission WHERE userID="'.$userID.'"';
 
 if(!$locations=$db->query($locQuery)){
 		die("Error: " . $db->error);
