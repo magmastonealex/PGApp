@@ -72,8 +72,10 @@ function setupPageClickHandler(){
 function formEntryHandler(){
     $('.formEntry_old').on("tap",function(){
         $('#entries_detail_header').html("<h1>"+$(this).html()+"</h1>");
+        $("#entries_detail").trigger("create");
+        $("#entries_detail_header").trigger("create");
         $('#entries_detail_list').html("");
-        $.ajaxSetup({async: true, error: function(error){alert("Error downloading");}});
+        $.ajaxSetup({async: false, error: function(error){alert("Error downloading");}});
         $.getJSON("http://app.d2dpro.com/get_form_entries.php",{"formID":$(this).attr("formID")}).done(function(data){
             console.log(JSON.stringify(data));
             for(var iter=0; iter<data.length;iter++){
@@ -96,7 +98,7 @@ function formDetailHandle(){
         $("#entries_super_detail_header").trigger("create");
     }
         
-        $.ajaxSetup({async: true, error: function(error){alert("Error downloading Detail");}});
+        $.ajaxSetup({async: false, error: function(error){alert("Error downloading Detail");}});
             
         $.getJSON("http://app.d2dpro.com/view_result.php", {"subID":$(this).attr("subID")}).done(function(data){
             
