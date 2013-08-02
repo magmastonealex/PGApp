@@ -547,10 +547,8 @@ function updateData(){
                 });
                 $('#mapScreen').on('pageshow',function(event){
                     $('#mapdiv').gmap({'center': '59.3426606750, 18.0736160278', 'disableDefaultUI':true});
-                    $('#mapdiv').gmap({'callback': function() {
-                      this.addMarker({'position': '59.3426606750,18.0736160278', 'bounds': true})
-                    }});
-                    $('#mapdiv').gmap('refresh');
+                    $('#mapdiv').addMarker({'position': '59.3426606750,18.0736160278', 'bounds': true});
+                    $('#mapdiv').refresh();
                     console.log("Map DONE");
                 })
         });
