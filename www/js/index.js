@@ -99,6 +99,12 @@ function formDetailHandle(){
                         $("#entries_detail_content").trigger("create");
                         options ="";
                         break;
+                    case "TextInput":
+                        options += '<p>'+data[iter][1]+'</p>';
+                        $("#entries_detail_content").append(options);
+                        $("#entries_detail_content").trigger("create");
+                        options ="";
+                        break;
                     case "select":
                         options += "<b>"+data[iter][1]+"</b>";
                         $("#entries_detail_content").append(options);
@@ -176,7 +182,11 @@ function updateData(){
                     $('#formContent').append("<p>"+formData[formPart][2][0]+"</p>");
                     formIDs.push(["text","text"]);
                     break;
-
+                    case "TextInput":
+                    console.log("TextInput");
+                    $('formContent').append('<input type="text" id="text-'+formPart+'"><br>');
+                    formIDs.push(["TextInput", "text-"+formPart]);
+                    break;
                     case "select":
                     console.log("Select");
                     var options = "";
@@ -375,6 +385,9 @@ function updateData(){
     for (var formPart = 0; formPart < formIDs.length; formPart++) {
         switch(formIDs[formPart][0]){
             case "select":
+            formValues.push([formData[formPart][1], $('#'+formIDs[formPart][1]).val()]);
+            break;
+            case "TextInput":
             formValues.push([formData[formPart][1], $('#'+formIDs[formPart][1]).val()]);
             break;
             case "MultipleChoice":
