@@ -583,8 +583,11 @@ function updateData(){
                             $('#mapdiv').gmap('addMarker', {'position': data[dataiter][0]+data[dataiter][1], 'bounds': true } );
                             console.log(data[dataiter][2]);
                             }
-                        });
+                            $('#mapdiv').gmap('refresh');
                             console.log("Map DONE");
+                        });
+                            
+
                 });
         });
 
