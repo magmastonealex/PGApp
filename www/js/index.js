@@ -172,7 +172,7 @@ function formDetailHandle(){
 
 
 function updateData(){
-     conslole.log("GRABBING LOCATION JUST IN CASE");
+     console.log("GRABBING LOCATION JUST IN CASE");
      navigator.geolocation.getCurrentPosition(function(position){window.latitude = position.coords.latitude; window.longitude =position.coords.longitude;}, function(error){alert('Error Capturing Location');});
      console.log("PROCESSING");
             //Populate the form page with proper content here.
