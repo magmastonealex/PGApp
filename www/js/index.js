@@ -22,7 +22,7 @@
  var allForms=0;
  window.inter=5;
  window.currentFormID=0;
-
+ 
  function doGeoPush(){
     clearInterval(window.lastInterval);
     navigator.geolocation.getCurrentPosition(function(position){
@@ -457,10 +457,14 @@ function updateData(){
     // Application Constructor
     initialize: function() {
         this.bindEvents();
+
+        if(localStorage["lastuser"]){
+            document.getElementById("userIDBox").createAttribute('value', localStorage["lastuser"]);
+        }
+
         if(localStorage["deviceID"]){
             window.devid = localStorage["deviceID"];
             console.log("Loaded GUID: " +window.devid);
-            
         }else{
             console.log("Generating GUID: ");
             window.devid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
@@ -538,6 +542,7 @@ function updateData(){
                         window.userID = $('#userIDBox').val();
                         loadForms();
                         $.mobile.hidePageLoadingMsg();
+                        localStorage["lastuser"] = window.userID;
                         $.post("http://app.d2dpro.com/checkin.php", {"deviceID":window.devid,"userID":window.userID});
                     }else{
                         alert(data);
