@@ -141,6 +141,7 @@ function updateData(){
             //Populate the form page with proper content here.
             $('#formContent').html("<br>");
             $('#FormName').html($(this).html());
+            formIDs = [];
             for (var formPart = 0; formPart < formData.length; formPart++) {
                 switch(formData[formPart][0]){
                     case "text":
