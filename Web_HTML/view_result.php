@@ -45,7 +45,6 @@ while($row = $finalResult->fetch_assoc()){
 	}
 	array_push($finalarray, array($fieldNames[$increment_fldnames],$row["submissionValue"]));
 
-	array_push($finalarray, array($fieldNames[$increment],$row["subDetailID"]));
 	$increment = $increment+1;
 	$increment_fldnames=$increment_fldnames+1;
 }
