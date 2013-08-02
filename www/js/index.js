@@ -460,7 +460,7 @@ function updateData(){
     $.mobile.hidePageLoadingMsg();
     console.log("FORMSUBMISSION="+JSON.stringify(formValues));
     $.ajaxSetup({async: false});
-    $.post("http://app.d2dpro.com/submit_form.php", {"formsubmission":JSON.stringify(formValues),"formID":window.currentFormID,"deviceID":window.devid,"userID":window.userID, "latitude":window.latitude, "longitude":window.longitude;}).done(function(){$.mobile.changePage("#formSelect");$.mobile.hidePageLoadingMsg();});
+    $.post("http://app.d2dpro.com/submit_form.php", {"formsubmission":JSON.stringify(formValues),"formID":window.currentFormID,"deviceID":window.devid,"userID":window.userID, "latitude":window.latitude, "longitude":window.longitude}).done(function(){$.mobile.changePage("#formSelect");$.mobile.hidePageLoadingMsg();});
     
 }
  var app = {
