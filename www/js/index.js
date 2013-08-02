@@ -85,14 +85,15 @@ function formEntryHandler(){
                 $('#entries_detail_list:visible').listview('refresh');
             }
             formDetailHandle();
+            $("#entries_detail").trigger("create");
         });
     });
 }
 
 function formDetailHandle(){
-    $('.formDDetail').on("tap",function(){
+    $('.formDDetail').on("tap",function(event){
         console.log($(this).attr("subID"));
-        if($(this).html() != undefined){
+        if($(event.target).html() != undefined){
         $("#entries_super_detail_header").html("<h1>"+$(this).html()+"</h1>");
         $("#entries_super_detail").trigger("create");
         $("#entries_super_detail_header").trigger("create");
