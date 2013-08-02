@@ -13,7 +13,26 @@ while($row = $allFormIds->fetch_assoc()){
 		die("Error: " . $db->error);
 	}
 	while($nameRow = $formNames->fetch_assoc()){
-		array_push($form_list, array($nameRow["frmName"],$nameRow["formID"]));
+		//array_push($form_list, array($nameRow["frmName"],));
+	$formID = $nameRow["formID"];
+	$getFormFieldIDQuery='SELECT * FROM form_fields WHERE formID="'.$formID.'" ORDER BY formFieldID ASC';
+	if(!$FFIDR=$db->query($getFormFieldIDQuery)){
+		die("Error: " . $db->error);
+	}
+
+	$fFID_arr= $FFIDR->fetch_assoc();
+	$fFID = $fFID_arr["formFieldID"];
+    $subid=array();
+	$subIDsQuery = 'SELECT * FROM submission WHERE formID="'.$formID.'" AND userID="'+$userID+'"';
+	if(!$submissionIDs=$db->query($subIDsQuery)){
+		die("Error: " . $db->error);
+	}
+
+	while($subIDRow = $submissionIDs->fetch_assoc()){
+		
+		array_push($subid, array($subIDRow["timeStamp"],$subIDRow["subID"]));
+	}
+		array_push($form_list, array($row["frmName"],$row["formID"],$subid));
 	}
 }
 echo json_encode($form_list);
