@@ -543,6 +543,9 @@ function updateData(){
                     $('#entries_detail_content').trigger("create");
                     $('#entries_detail').trigger("create");
                 });
+                $('#mapScreen').on('pagebeforeshow',function(event){
+                    $('#mapdiv').gmap('addMarker', {'position': '57.7972222,12.0505307', 'bounds': true});
+                })
         });
 
 
