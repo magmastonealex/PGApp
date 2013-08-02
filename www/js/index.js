@@ -332,6 +332,7 @@ function updateData(){
                 }
 
             }
+    console.log("COMPLETE");
     $('#formContent').trigger("create");
 }
 
