@@ -90,9 +90,11 @@ function formEntryHandler(){
 function formDetailHandle(){
     $('.formDDetail').on("tap",function(){
         console.log($(this).attr("subID"));
-        $.ajaxSetup({async: true, error: function(error){alert("Error downloading Detail");}});
-        $("#entries_super_detail_header").html("<h1>"+$(this).html()+"</h1>");
+        $.ajaxSetup({async: false, error: function(error){alert("Error downloading Detail");}});
+
         $.getJSON("http://app.d2dpro.com/view_result.php", {"subID":$(this).attr("subID")}).done(function(data){
+            $("#entries_super_detail_header").html("<h1>"+$(this).html()+"</h1>");
+            $("#entries_super_detail").trigger("create");
             console.log(JSON.stringify(data));
             $("#entries_super_detail_content").html("");
             for(var iter=0; iter<data.length;iter++){
