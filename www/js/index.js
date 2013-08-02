@@ -579,6 +579,7 @@ function updateData(){
                 $('#mapScreen').on('pageshow',function(event){
                     $('#mapdiv').gmap({'disableDefaultUI':true}).bind('init',function(event,map){
                         $.getJSON( 'http://app.d2dpro.com/get_locations.php',{"userID":window.userID}).done(function(data) {
+                            console.log("Map START");
                             for (var dataiter=0; dataiter < data.length; dataiter++){
                             $('#mapdiv').gmap('addMarker', {'position': data[dataiter][0]+data[dataiter][1], 'bounds': true } );
                             console.log(data[dataiter][2]);
