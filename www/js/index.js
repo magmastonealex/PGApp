@@ -460,7 +460,7 @@ function updateData(){
         if(localStorage["deviceID"]){
             window.devid = localStorage["deviceID"];
             console.log("Loaded GUID: " +window.devid);
-            $('#devIDP').html(window.devid);
+            
         }else{
             console.log("Generating GUID: ");
             window.devid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
@@ -486,6 +486,7 @@ function updateData(){
     onDeviceReady: function() {
 
         $(document).ready(function(){
+            $('#deviceident').html(window.devid);
             $.mobile.allowCrossDomainPages = true;
             
             $('#locSettings').on('pagehide',function(event,ui){
