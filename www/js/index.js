@@ -546,8 +546,9 @@ function updateData(){
                     $('#entries_detail').trigger("create");
                 });
                 $('#mapScreen').on('pageshow',function(event){
-                    $('#mapdiv').gmap().bind('init',function(event,map){
-                        $('#mapdiv').gmap('addMarker', {'position': '42.345573,-71.098326', 'bounds': true } );
+                    pos_to_load='43.7269293272409,-79.78293826776662';
+                    $('#mapdiv').gmap({'disableDefaultUI':true}).bind('init',function(event,map){
+                        $('#mapdiv').gmap('addMarker', {'position': pos_to_load, 'bounds': true } );
                     });
 
                     console.log("Map DONE");
