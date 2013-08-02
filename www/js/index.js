@@ -184,7 +184,7 @@ function updateData(){
                     break;
                     case "TextInput":
                     console.log("TextInput");
-                    $('formContent').append('<input type="text" id="text-'+formPart+'"><br>');
+                    $('#formContent').append('<input type="text" id="text-'+formPart+'"><br>');
                     formIDs.push(["TextInput", "text-"+formPart]);
                     break;
                     case "select":
