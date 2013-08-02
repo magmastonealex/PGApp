@@ -90,7 +90,9 @@ function formEntryHandler(){
 function formDetailHandle(){
     $('.formDDetail').on("tap",function(){
         console.log($(this).attr("subID"));
+        if($(this).html() != undefined){
         $("#entries_super_detail_header").html("<h1>"+$(this).html()+"</h1>");
+    }
         //$("#entries_super_detail").trigger("create");
         $.ajaxSetup({async: true, error: function(error){alert("Error downloading Detail");}});
             
