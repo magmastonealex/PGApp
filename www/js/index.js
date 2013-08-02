@@ -620,8 +620,8 @@ function updateData(){
                             for (var dataiter=0; dataiter < data.length; dataiter++){
                             console.log("Pos: " + data[dataiter][0]+","+data[dataiter][1]);
 
-                            $('#mapdiv').gmap('addMarker', {'position': data[dataiter][0]+","+data[dataiter][1], 'bounds':true}).on("tap", function(){
-                                $('#mapdiv').gmap('openInfoWindow', {'content':data[dataiter][2]}, this);
+                            $('#mapdiv').gmap('addMarker', {'position': data[dataiter][0]+","+data[dataiter][1], 'bounds':true}).click(function(){
+                                $('#mapdiv').gmap('openInfoWindow', {'content':"Textcontent"}, this);
                             });
                                 console.log(data[dataiter][2]);
                             }
