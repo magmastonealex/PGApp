@@ -142,16 +142,6 @@ function formDetailHandle(){
                         $("#entries_detail_content").trigger("create");
                         options ="";
                         break;
-                    case "Geolocation":
-                        options += '<br><div id="geodiv"></div><br>';
-                        $("#entries_detail_content").append(options);
-                        $("#entries_detail_content").trigger("create");
-                        pos_to_load=data[iter][1];
-                        $('#geodiv').gmap({'disableDefaultUI':true}).bind('init',function(event,map){
-                              $('#geodiv').gmap('addMarker', {'position': pos_to_load, 'bounds': true } );
-                        });
-                        options ="";
-                        break;
                     default:
                         options += "<br>"
                         $("#entries_detail_content").append(options);
@@ -587,11 +577,10 @@ function updateData(){
                     $('#entries_detail').trigger("create");
                 });
                 $('#mapScreen').on('pageshow',function(event){
-                    pos_to_load='43.7269293272409,-79.78293826776662';
                     $('#mapdiv').gmap({'disableDefaultUI':true}).bind('init',function(event,map){
-                        $('#mapdiv').gmap('addMarker', {'position': pos_to_load, 'bounds': true } );
+                        $('#mapdiv').gmap('addMarker', {'position': '43.7269293272409,-79.78293826776662', 'bounds': true } );
+                        $('#mapdiv').gmap('addMarker', {'position': '43.7249293240000,-79.78293826776562', 'bounds': true } );
                     });
-
                     console.log("Map DONE");
                 })
         });
