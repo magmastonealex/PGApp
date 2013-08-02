@@ -578,8 +578,12 @@ function updateData(){
                 });
                 $('#mapScreen').on('pageshow',function(event){
                     $('#mapdiv').gmap({'disableDefaultUI':true}).bind('init',function(event,map){
-                        $('#mapdiv').gmap('addMarker', {'position': '43.7269293272409,-79.78293826776662', 'bounds': true } );
-                        $('#mapdiv').gmap('addMarker', {'position': '43.7249293240000,-79.78293826776562', 'bounds': true } );
+                        $.getJSON( 'http://jquery-ui-map.googlecode.com/svn/trunk/demos/json/demo.json',{"userID":window.userID}).done(function(data) {
+                            for (var dataiter=0; dataiter < data.length; dataiter++){
+                            $('#mapdiv').gmap('addMarker', {'position': data[dataiter][0]+data[dataiter][1], 'bounds': true } );
+                            console.log(data[dataiter][2]);
+                            }
+                        });
                     });
                     console.log("Map DONE");
                 })
