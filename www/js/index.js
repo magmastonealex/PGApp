@@ -374,7 +374,7 @@ function updateData(){
              var filer = new FileTransfer();
             $.mobile.showPageLoadingMsg("a", "Uploading");
             console.log("Audio Upload path: " + AP);
-            filer.upload(AP, encodeURI("http://app.d2dpro.com/upload_audio.php"), function(r){$.mobile.hidePageLoadingMsg();}, function(error){alert("Audio Upload Failed");},options);
+            filer.upload(AP, encodeURI("http://app.d2dpro.com/upload_audio.php"), function(r){alert("Audio Upload complete");}, function(error){alert("Audio Upload Failed");},options);
             formValues.push([formData[formPart][1], AudioPathComponents[AudioPathComponents.length-1]]);
             break;
             case "VideoCapture":
@@ -391,7 +391,7 @@ function updateData(){
              var filer = new FileTransfer();
              $.mobile.showPageLoadingMsg("a", "Uploading");
              console.log("Video Upload path: " + AP+" ");
-             filer.upload(AP, encodeURI("http://app.d2dpro.com/upload_video.php"), function(r){$.mobile.hidePageLoadingMsg();}, function(error){alert("Video Upload Failed");},options);
+             filer.upload(AP, encodeURI("http://app.d2dpro.com/upload_video.php"), function(r){alert("Video Upload complete");}, function(error){alert("Video Upload Failed");},options);
 
             formValues.push([formData[formPart][1], AudioPathComponents[AudioPathComponents.length-1]]);
             break;
@@ -409,7 +409,7 @@ function updateData(){
             $.mobile.showPageLoadingMsg("a", "Uploading");
             window.ftAuuid="";
             console.log("Picture Upload path: " + AP);
-            filer.upload(AP, encodeURI("http://app.d2dpro.com/upload_pic.php"), function(r){$.mobile.showPageLoadingMsg("Done Picture")}, function(error){alert("Picture Upload Failed");},options);
+            filer.upload(AP, encodeURI("http://app.d2dpro.com/upload_pic.php"), function(r){alert("Picture Upload complete");}, function(error){alert("Picture Upload Failed");},options);
             formValues.push([formData[formPart][1], AudioPathComponents[AudioPathComponents.length-1]]);
             break;
             case "Geolocation":
@@ -420,9 +420,9 @@ function updateData(){
     }
     $.mobile.hidePageLoadingMsg();
     console.log("FORMSUBMISSION="+JSON.stringify(formValues));
-    $.ajaxSetup({async: true});
-    $.post("http://app.d2dpro.com/submit_form.php", {"formsubmission":JSON.stringify(formValues),"formID":window.currentFormID,"deviceID":window.devid,"userID":window.userID});
-    $.mobile.hidePageLoadingMsg();
+    $.ajaxSetup({async: false});
+    $.post("http://app.d2dpro.com/submit_form.php", {"formsubmission":JSON.stringify(formValues),"formID":window.currentFormID,"deviceID":window.devid,"userID":window.userID}).done(function(){$.mobile.changePage("#formSelect");$.mobile.hidePageLoadingMsg();});
+    
 }
  var app = {
     // Application Constructor
