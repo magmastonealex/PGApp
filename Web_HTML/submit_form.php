@@ -30,10 +30,12 @@ foreach($injson as $field){
    }
 }
 
-$prepstate = $db->prepare('INSERT INTO submission VALUES (?,NULL,?,?,?)');
+$prepstate = $db->prepare('INSERT INTO submission VALUES (?,NULL,?,?,?,?,?)');
    $userid = $db->real_escape_string($_POST["userID"]);
    $devid = $db->real_escape_string($_POST["deviceID"]);
-   $prepstate->bind_param("sssi", $subid, $userid,$devid,$_POST["formID"]);
+   $lati = $db->real_escape_string($_POST["latitude"]);
+   $longi = $db->real_escape_string($_POST["longitude"]);
+   $prepstate->bind_param("sssiss", $subid, $userid,$devid,$_POST["formID"],$lati,$longi);
    if(!$prepstate->execute()){
    	die('Error: ' . $db->error);
    }

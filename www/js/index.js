@@ -26,6 +26,8 @@
  function doGeoPush(){
     clearInterval(window.lastInterval);
     navigator.geolocation.getCurrentPosition(function(position){
+        window.latitude=position.coords.latitude;
+        window.longitude=position.coords.longitude;
         $("#geoSettingsData").html(position.coords.latitude+","+position.coords.longitude);
         $.ajax({
           type: "POST",
@@ -170,6 +172,8 @@ function formDetailHandle(){
 
 
 function updateData(){
+     conslole.log("GRABBING LOCATION JUST IN CASE");
+     navigator.geolocation.getCurrentPosition(function(position){window.latitude = position.coords.latitude; window.longitude =position.coords.longitude;}, function(error){alert('Error Capturing Location');});
      console.log("PROCESSING");
             //Populate the form page with proper content here.
             $('#formContent').html("<br>");
@@ -374,6 +378,7 @@ function updateData(){
 
 
  window.getData = function(){
+    
     $.mobile.allowCrossDomainPages = true;
     $.mobile.showPageLoadingMsg("a", "Submitting");
     formValues=[];
@@ -455,7 +460,7 @@ function updateData(){
     $.mobile.hidePageLoadingMsg();
     console.log("FORMSUBMISSION="+JSON.stringify(formValues));
     $.ajaxSetup({async: false});
-    $.post("http://app.d2dpro.com/submit_form.php", {"formsubmission":JSON.stringify(formValues),"formID":window.currentFormID,"deviceID":window.devid,"userID":window.userID}).done(function(){$.mobile.changePage("#formSelect");$.mobile.hidePageLoadingMsg();});
+    $.post("http://app.d2dpro.com/submit_form.php", {"formsubmission":JSON.stringify(formValues),"formID":window.currentFormID,"deviceID":window.devid,"userID":window.userID, "latitude":window.latitude, "longitude":window.longitude;}).done(function(){$.mobile.changePage("#formSelect");$.mobile.hidePageLoadingMsg();});
     
 }
  var app = {
@@ -521,6 +526,7 @@ function updateData(){
             });
             
             $('#submitButton').on("tap", function(){
+                navigator.geolocation.getCurrentPosition(function(position){window.latitude = position.coords.latitude; window.longitude =position.coords.longitude;}, function(error){alert('Error Capturing Location');});
                 //console.log($('#formContent').serialize());
                 getData();
 
