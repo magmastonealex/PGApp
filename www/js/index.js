@@ -93,39 +93,72 @@ function formDetailHandle(){
                  switch(data[iter][0][1]){
                     case "PictureCapture":
                         options += '<img class="retImage" src="http://app.d2dpro.com/upload_picture/'+data[iter][1]+'"></img>';
+                        $("#entries_detail_content").append(options);
+                        $("#entries_detail_content").trigger("create");
+                        options ="";
                         break;
                     case "select":
                         options += "<b>"+data[iter][1]+"</b>";
+                        $("#entries_detail_content").append(options);
+                        $("#entries_detail_content").trigger("create");
+                        options ="";
                         break;
                     case "MultipleChoice":
                         options += "<b>"+data[iter][1]+"</b>";
+                        $("#entries_detail_content").append(options);
+                        $("#entries_detail_content").trigger("create");
+                        options ="";
                         break;
                     case "CheckBoxes":
                         splitChecks = data[iter][1].split(";");
                         for(var SPI=0;SPI<splitChecks.length;SPI++){
                             options += "<b>"+splitChecks[SPI]+"</b><br>";
                         }
+                        $("#entries_detail_content").append(options);
+                        $("#entries_detail_content").trigger("create");
+                        options ="";
                         break;
                     case "ImageCapture":
                         options += "<b>"+data[iter][1]+"</b>";
+                        $("#entries_detail_content").append(options);
+                        $("#entries_detail_content").trigger("create");
+                        options ="";
                         break;
                     case "VideoCapture":
                         options +='<video src="http://app.d2dpro.com/upload_video/'+data[iter][1]+'" width="320" height="240" controls>';
                         options +='Not supported here!';
                         options +='</video>';
+                        $("#entries_detail_content").append(options);
+                        $("#entries_detail_content").trigger("create");
+                        options ="";
                         break;
                     case "AudioCapture":
                         options += '<audio src="http://app.d2dpro.com/upload_audio/'+data[iter][1]+'">';
                         options += 'Not supported!';
                         options += '</audio>';
+                        $("#entries_detail_content").append(options);
+                        $("#entries_detail_content").trigger("create");
+                        options ="";
+                        break;
+                    case "Geolocation":
+                        options += '<br><div id="geodiv"></div><br>';
+                        $("#entries_detail_content").append(options);
+                        $("#entries_detail_content").trigger("create");
+                        pos_to_load=data[iter][1];
+                        $('#geodiv').gmap({'disableDefaultUI':true}).bind('init',function(event,map){
+                              $('#geodiv').gmap('addMarker', {'position': pos_to_load, 'bounds': true } );
+                        });
+                        options ="";
                         break;
                     default:
                         options += "<br>"
+                        $("#entries_detail_content").append(options);
+                        $("#entries_detail_content").trigger("create");
+                        options ="";
                         break;
                 }
                 options += "<br><hr>"
-                $("#entries_detail_content").append(options);
-                $("#entries_detail_content").trigger("create");
+
             }
         $("#entries_detail").trigger("create");
 
@@ -432,6 +465,7 @@ function updateData(){
         if(localStorage["deviceID"]){
             window.devid = localStorage["deviceID"];
             console.log("Loaded GUID: " +window.devid);
+            $('#devIDP').html(window.devid);
         }else{
             console.log("Generating GUID: ");
             window.devid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
@@ -440,6 +474,7 @@ function updateData(){
             });
             localStorage["deviceID"]=window.devid;
             console.log("Created GUID");
+            $('#devIDP').html(window.devid);
         }
     },
     // Bind Event Listeners

@@ -85,7 +85,7 @@
         <h1>Settings</h1>
     </div>
     <div data-role="content">
-        <fieldset data-role="controlgroup" data-type="horizontal">
+        <fieldset data-role="controlgroup">
             <legend>Geolocation Interval</legend>
             <input type="radio" name="geomin" id="geo5min" content="5"/>
             <label for="geo5min">5 min</label>
@@ -100,6 +100,9 @@
         <p> Last recorded location: </p>
         <p id="geoSettingsData"></p>
         <br>
+        <br>
+        <p> Device ID: </p>
+        <p id="devIDP">
     </div>
 
     <div data-role="footer" data-position="fixed" data-theme="d">
@@ -121,7 +124,7 @@
     </div>
 
     <div data-role="content">
-    <div id="mapdiv" style="width:400px;height:200px"></div>
+    <div id="mapdiv" style="width:100%;height:100%"></div>
     </div>
 
     <div data-role="footer" data-position="fixed" data-theme="d">
