@@ -619,8 +619,9 @@ function updateData(){
                             console.log("Pos: " + data[dataiter][0]+","+data[dataiter][1]);
                             var ourdata=data[dataiter][2];
                             $('#mapdiv').gmap('addMarker', {'position': data[dataiter][0]+","+data[dataiter][1], 'bounds':true}).click(function(){
-                                
-                                $('#mapdiv').gmap('openInfoWindow', {'content':'<a href="#entries_detail" data-role="button">More Information:'+ourdata+'</a>'}, this);
+                                var thisdata = ourdata;
+
+                                $('#mapdiv').gmap('openInfoWindow', {'content':'<a href="#entries_detail" data-role="button">More Information:'+thisdata+'</a>'}, this);
                             });
                                 console.log(data[dataiter][2]);
                             }
