@@ -99,10 +99,28 @@ function formDetailHandle(){
                 
                 options ="";
                 options += "<p>"+data[iter][0][0]+":</p>";
-                options += "<b>"+data[iter][1]+"</b><br>";
                 switch(data[iter][0][1]){
                     case "PictureCapture":
-                        options += '<img src="http://app.d2dpro.com/upload_picture/'+data[iter][1]+'"></img>';
+                        options += '<img class="retImage" src="http://app.d2dpro.com/upload_picture/'+data[iter][1]+'"></img>';
+                    case "select":
+                        options += "<b>"+data[iter][1]+"</b>";
+                    case "MultipleChoice":
+                        options += "<b>"+data[iter][1]+"</b>";
+                    case "CheckBoxes":
+                        splitChecks = data[iter][1].split(";");
+                        for(var SPI=0;SPI<splitChecks.length;SPI++){
+                            options += "<b>"+splitChecks[SPI]+"</b><br>";
+                        }
+                    case "ImageCapture":
+                        options += "<b>"+data[iter][1]+"</b>";
+                    case "VideoCapture":
+                        options +='<video src="http://app.d2dpro.com/upload_video/'+data[iter][1]+'" width="320" height="240" controls>';
+                        options +='Not supported here!';
+                        options +='</video>';
+                    case "AudioCapture":
+                        options += '<audio src="http://app.d2dpro.com/upload_audio/'+data[iter][1]+'">';
+                        options += 'Not supported!';
+                        options += '</audio>';
                     default:
                         options += "<br>"
                 }
