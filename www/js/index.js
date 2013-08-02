@@ -384,7 +384,6 @@ function updateData(){
     $('#formContent').trigger("create");
 }
 
-function attach
 
  window.getData = function(){
     
