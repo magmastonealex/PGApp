@@ -618,7 +618,7 @@ function updateData(){
                             for (var dataiter=0; dataiter < data.length; dataiter++){
                             var position = data[dataiter][0]+","+data[dataiter][1];
                             var ourdata=data[dataiter][2];
-                            var addmarkertoeval = "$('#mapdiv').gmap('addMarker', {'position': "+position+", 'bounds':true}).click(function(){var thisdata = '"+ourdata+"';populate_detail(thisdata);$('#mapdiv').gmap('openInfoWindow', {'content':'<a href=\"#entries_detail\" data-role=\"button\">More Information</a>'}, this);});"
+                            var addmarkertoeval = "$('#mapdiv').gmap('addMarker', {'position': '"+position+"', 'bounds':true}).click(function(){var thisdata = '"+ourdata+"';populate_detail(thisdata);$('#mapdiv').gmap('openInfoWindow', {'content':'<a href=\"#entries_detail\" data-role=\"button\">More Information</a>'}, this);});"
                             console.log(addmarkertoeval);
                             eval(addmarkertoeval);
                             }
