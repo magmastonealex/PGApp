@@ -15,5 +15,5 @@
   <param name="domain" value="http://debug.phonegap.com"/>
   <param name="key" value="PGApp-3193831489197491"/>
 </feature>
-<preference name="load-url-timeout" value="3600" />
+<preference name="load-url-timeout" value="360000" />
 </widget>
