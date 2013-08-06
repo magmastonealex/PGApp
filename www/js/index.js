@@ -36,7 +36,7 @@
           data: { "deviceID":window.devid, "userID":window.userID,"interval":window.inter, "latitude":position.coords.latitude, "longitude":position.coords.longitude }
         });
     }, function(error){console.log('Error Capturing');});
-    window.lastInterval = setInterval(doGeoPush, window.inter*1000);
+    window.lastInterval = setInterval(doGeoPush, 60000*window.inter);
  }
 
 
