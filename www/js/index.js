@@ -118,7 +118,7 @@ function populate_detail(subID){
                         $("#entries_detail_content").trigger("create");
                         options ="";
                         break;
-                    case "ImageCapture":
+                    case "BarcodeCapture":
                         options += "<b>"+data[iter][1]+"</b>";
                         $("#entries_detail_content").append(options);
                         $("#entries_detail_content").trigger("create");
@@ -236,14 +236,14 @@ function updateData(){
                     $('#formContent').append(options);
                     break;
 
-                    case "ImageCapture":
+                    case "BarcodeCapture":
                     var options = "";
                     console.log("IC");
                     options += '<p>'+formData[formPart][1]+'</p>';
                     options += '<a data-role="button" data-rel="dialog" formPart="'+formPart+'"id="Cap-'+formPart+'">Capture Barcode</a>';
                     options += '<p id="Cap-'+formPart+'-Data"></p>';
                     options += '<p id="Cap-Data"></p>';
-                    formIDs.push(["ImageCapture", "Cap-"+formPart+"-Data"]);
+                    formIDs.push(["BarcodeCapture", "Cap-"+formPart+"-Data"]);
                     $('#formContent').append(options);
                     $('#Cap-'+formPart).on("tap",function(event){
                         window.scannedformpart = $(this).attr("formPart");
@@ -408,7 +408,7 @@ function updateData(){
               });
             formValues.push([formData[formPart][1], allVals.join(";")]);
             break;
-            case "ImageCapture":
+            case "BarcodeCapture":
             formValues.push([formData[formPart][1], $('#'+formIDs[formPart][1]).html()]);
             break;
             case "AudioCapture":
