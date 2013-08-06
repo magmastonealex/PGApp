@@ -83,7 +83,7 @@ function populate_detail(subID){
             for(var iter=0; iter<data.length;iter++){
                 
                 options ="";
-                options += "<p>"+data[iter][0][0]+":</p>";
+                options += data[iter][0][0]+":";
                  switch(data[iter][0][1]){
                     case "PictureCapture":
                         options += '<div class="ReviewText">'
@@ -160,6 +160,7 @@ function populate_detail(subID){
                         break;
                 }
                 options += "<br><hr>"
+                $("#entries_detail_content").append(options);
 
             }
         $("#entries_detail").trigger("create");
