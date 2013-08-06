@@ -86,65 +86,77 @@ function populate_detail(subID){
                 options += "<p>"+data[iter][0][0]+":</p>";
                  switch(data[iter][0][1]){
                     case "PictureCapture":
+                        options += '<div class="ReviewText">'
                         options += '<img class="retImage" src="http://app.d2dpro.com/upload_picture/'+data[iter][1]+'"></img>';
+                        options += '</div>'
                         $("#entries_detail_content").append(options);
                         $("#entries_detail_content").trigger("create");
                         options ="";
                         break;
                     case "TextInput":
+                        options += '<div class="ReviewText">'
                         options += '<p><b>'+data[iter][1]+'</b></p>';
+                        options += '</div>'
                         $("#entries_detail_content").append(options);
                         $("#entries_detail_content").trigger("create");
                         options ="";
                         break;
                     case "select":
+                        options += '<div class="ReviewText">'
                         options += "<b>"+data[iter][1]+"</b>";
+                        options += '</div>'
                         $("#entries_detail_content").append(options);
                         $("#entries_detail_content").trigger("create");
                         options ="";
                         break;
                     case "MultipleChoice":
+                        options += '<div class="ReviewText">'
                         options += "<b>"+data[iter][1]+"</b>";
+                        options += '</div>'
                         $("#entries_detail_content").append(options);
                         $("#entries_detail_content").trigger("create");
                         options ="";
                         break;
                     case "CheckBoxes":
+                        options += '<div class="ReviewText">'
                         splitChecks = data[iter][1].split(";");
                         for(var SPI=0;SPI<splitChecks.length;SPI++){
                             options += "<b>"+splitChecks[SPI]+"</b><br>";
                         }
+                        options += '</div>'
                         $("#entries_detail_content").append(options);
                         $("#entries_detail_content").trigger("create");
                         options ="";
                         break;
                     case "BarcodeCapture":
+                        options += '<div class="ReviewText">'
                         options += "<b>"+data[iter][1]+"</b>";
+                        options += '</div>'
                         $("#entries_detail_content").append(options);
                         $("#entries_detail_content").trigger("create");
                         options ="";
                         break;
                     case "VideoCapture":
+                        options += '<div class="ReviewText">'
                         options +='<video src="http://app.d2dpro.com/upload_video/'+data[iter][1]+'" width="320" height="240" controls>';
                         options +='Not supported here!';
                         options +='</video>';
+                        options += '</div>'
                         $("#entries_detail_content").append(options);
                         $("#entries_detail_content").trigger("create");
                         options ="";
                         break;
                     case "AudioCapture":
+                        options += '<div class="ReviewText">'
                         options += '<audio src="http://app.d2dpro.com/upload_audio/'+data[iter][1]+'">';
                         options += 'Not supported!';
                         options += '</audio>';
+                        options += '</div>'
                         $("#entries_detail_content").append(options);
                         $("#entries_detail_content").trigger("create");
                         options ="";
                         break;
                     default:
-                        options += "<br>"
-                        $("#entries_detail_content").append(options);
-                        $("#entries_detail_content").trigger("create");
-                        options ="";
                         break;
                 }
                 options += "<br><hr>"
