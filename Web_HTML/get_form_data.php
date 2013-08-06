@@ -16,7 +16,7 @@ while($row = $allFormIds->fetch_assoc()){
 		//array_push($form_list, array($nameRow["frmName"],));
 	$formID = $nameRow["formID"];
     $subid=array();
-	$subIDsQuery = 'SELECT * FROM submission WHERE formID="'.$formID.'" AND userID="'.$userID.'"';
+	$subIDsQuery = 'SELECT * FROM submission WHERE formID="'.$formID.'" AND userID="'.$userID.'" ORDER BY timeStamp DESC';
 	if(!$submissionIDs=$db->query($subIDsQuery)){
 		die("Error4: " . $db->error);
 	}
