@@ -523,21 +523,25 @@ function updateData(){
                switch($('input:radio[name="geomin"]:checked').attr("content")){
                 case "5":
                     inter = 5;
+                    localStorage["intervalGeo"]=inter;
                     clearInterval(window.lastInterval);
                     doGeoPush();
                     break;
                 case "10":
                     inter = 10;
+                    localStorage["intervalGeo"]=inter;
                     clearInterval(window.lastInterval);
                     doGeoPush();
                     break;
                 case "15":
                     inter = 15;
+                    localStorage["intervalGeo"]=inter;
                     clearInterval(window.lastInterval);
                     doGeoPush();
                     break;
                 case "never":
                     inter = 10000;
+                    localStorage["intervalGeo"]=inter;
                     clearInterval(window.lastInterval);
                }
             });
@@ -569,6 +573,11 @@ function updateData(){
                         loadForms();
                         $.mobile.hidePageLoadingMsg();
                         localStorage["lastuser"] = window.userID;
+                        if(localStorage["intervalGeo"] != 0 && localStorage["intervalGeo"] != undefined){
+                            window.inter = localStorage["intervalGeo"];
+                            doGeoPush();
+                        }
+
                         $.post("http://app.d2dpro.com/checkin.php", {"deviceID":window.devid,"userID":window.userID});
                     }else{
                         alert(data);
