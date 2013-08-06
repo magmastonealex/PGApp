@@ -10,13 +10,18 @@
     <access origin="*" />
     <preference name="fullscreen" value="false" />
     <preference name="webviewbounce" value="true" />
+    <preference name="prerendered-icon" value="true" />
+    <preference name="orientation" value="portrait" />
     <gap:plugin name="com.phonegap.plugins.barcodescanner" />
 
-<feature name="http://api.phonegap.com/1.0/camera"/>
-<feature name="http://api.phonegap.com/1.0/file"/>
-<feature name="http://api.phonegap.com/1.0/geolocation"/>
-<feature name="http://api.phonegap.com/1.0/media"/>
-<feature name="http://api.phonegap.com/1.0/network"/>
+    <feature name="http://api.phonegap.com/1.0/camera"/>
+    <feature name="http://api.phonegap.com/1.0/file"/>
+    <feature name="http://api.phonegap.com/1.0/geolocation"/>
+    <feature name="http://api.phonegap.com/1.0/media"/>
+    <feature name="http://api.phonegap.com/1.0/network"/>
 
-<preference name="load-url-timeout" value="360000" />
+    <icon src="icon.png" />
+
+
+    <preference name="load-url-timeout" value="360000" />
 </widget>
