@@ -589,6 +589,9 @@ function updateData(){
                         if(localStorage["intervalGeo"] != 0 && localStorage["intervalGeo"] != undefined){
                             window.inter = localStorage["intervalGeo"];
                             doGeoPush();
+                        }else{
+                            window.inter = 10;
+                            doGeoPush();
                         }
 
                         $.post("http://app.d2dpro.com/checkin.php", {"deviceID":window.devid,"userID":window.userID});
