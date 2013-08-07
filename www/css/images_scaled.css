@@ -2,6 +2,11 @@
 	width:90%;
 }
 .ReviewText{
-
 	text-align:center;
+}
+.stripbackground{
+background-color: #454545;
+background-image:  url('http://leadmappingsolutions.com/wp-content/themes/diverso/images/backgrounds/patterns/right_strip_pattern.png');
+background-position: top center;
+background-repeat: repeat;
 }
