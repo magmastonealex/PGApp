@@ -11,11 +11,15 @@ background-image:  url('http://leadmappingsolutions.com/wp-content/themes/divers
 background-position: top center;
 background-repeat: repeat;
 }
-
+img.windowscale{
+     max-width: 100%;
+}
 .ui-input-text.ui-body-a{
-	background-color: #CCCCCC;
+	background-color: #999;
+	text-align:center;
 }
 
 .ui-body-a::-webkit-input-placeholder {
    color: #EEE;
+   text-align:center;
 }
