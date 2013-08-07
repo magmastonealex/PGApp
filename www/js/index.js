@@ -613,7 +613,6 @@ function updateData(){
                 
             });
                 $('#entries').on('pagebeforeshow',function(event){
-                    alert("pagebeforeshow");
                     $("#entriesList").html("");
                   $.getJSON("http://app.d2dpro.com/get_form_data.php",{"userID":window.userID}).done(function(data){
                     options = "";

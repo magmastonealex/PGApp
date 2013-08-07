@@ -47,11 +47,13 @@
         <div data-role="content" data-theme="a" class="stripbackground">
             
             <center>
-            <div style="width:80%"><img class="windowscale" src="img/d2dpro.png"></img></div>
+            <div style="width:90%"><img class="windowscale" src="img/d2dpro.png"></img></div>
             <br />
-            <div data-role="fieldcontain" style="width:75%">
-               <input type="text" name="Username" id="userIDBox" placeholder="Username" autocorrect="off" autocapitalize="off" autocomplete="off" spellcheck="false" />
-               <input type="password" name="password" id="uPasswordBox" placeholder="Password" />
+            <br>
+            <br>
+            <div data-role="fieldcontain" style="width:80%">
+               <input type="text" name="Username" class="centeredtext" id="userIDBox" placeholder="Username" autocorrect="off" autocapitalize="off" autocomplete="off" spellcheck="false" />
+               <input type="password" name="password" class="centeredtext" id="uPasswordBox" placeholder="Password" />
                <br>
                <a data-role="button" data-rel="dialog" id="logi">L0g1n</a>
            </div>
@@ -59,7 +61,7 @@
        </div>
    </div>
 
-   <div data-role="page" id="formSelect">
+   <div data-role="page" data-theme="a" id="formSelect">
     <div data-role="header">
         <h1>Select Form</h1>
     </div>
@@ -81,7 +83,7 @@
     </div>
 </div>
 
-<div data-role="page" id="locSettings">
+<div data-role="page" data-theme="a" id="locSettings">
     <div data-role="header">
         <h1>Settings</h1>
     </div>
@@ -106,7 +108,7 @@
         <p id="deviceident"></p>
     </div>
 
-    <div data-role="footer" data-position="fixed" data-theme="d">
+    <div data-role="footer" data-theme="a" data-position="fixed" data-theme="d">
         <div data-role="navbar">
             <ul>
                 <li><a href="#formSelect" data-icon="grid" data-transition="pop">Forms</a></li>
@@ -118,7 +120,7 @@
     </div>
 </div>
 
-<div data-role="page" id="mapScreen">
+<div data-role="page" data-theme="a" id="mapScreen">
 
     <div data-role="header">
         <h1>Map</h1>
@@ -144,7 +146,7 @@
 </div>
 
 
-<div data-role="page" id="entries">
+<div data-role="page" data-theme="a" id="entries">
 
     <div data-role="header">
         <h1>Entries</h1>
@@ -167,7 +169,7 @@
     </div>
 </div>
 
-<div data-role="page" id="entries_detail" data-add-back-btn="true">
+<div data-role="page" id="entries_detail" data-theme="a" data-add-back-btn="true">
     <div data-role="header" >
         <h1 id="entries_detail_header">Detail</h1>
     </div>
@@ -180,7 +182,7 @@
 
 </div>
 
-<div data-role="page" id="entries_super_detail">
+<div data-role="page" data-theme="a" id="entries_super_detail">
     <div data-role="header" id="entries_super_detail_header">
     <h1>Page Detail</h1>
     </div>
@@ -192,7 +194,7 @@
     </div>
 </div>
 
-<div data-role="page" id="form">
+<div data-role="page" data-theme="a" id="form">
     <div data-role="header" id="formHeader">
         <h1 id="FormName">Form Name</h1>
     </div>

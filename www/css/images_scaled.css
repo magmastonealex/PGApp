@@ -16,9 +16,10 @@ img.windowscale{
 }
 .ui-input-text.ui-body-a{
 	background-color: #999;
+}
+.centeredtext{
 	text-align:center;
 }
-
 .ui-body-a::-webkit-input-placeholder {
    color: #EEE;
    text-align:center;
