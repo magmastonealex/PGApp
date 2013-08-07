@@ -349,6 +349,7 @@ function updateData(){
                     $('#PCap-'+formPart).on("tap",function(event){
                     window.scannedformpart = $(this).attr("formPart");
                     navigator.device.capture.captureImage(function(mediaFiles){
+                    alert("GotFromPC");
                     window.picpath = mediaFiles[0].fullPath;
                     window.requestFileSystem(LocalFileSystem.TEMPORARY, 0, goMove, function(error){alert("Could not get temp folder");});
                     function goMove(fileSys){
