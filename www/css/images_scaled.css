@@ -4,9 +4,18 @@
 .ReviewText{
 	text-align:center;
 }
-.stripbackground{
+.ui-body-a,
+.ui-page{
 background-color: #454545;
 background-image:  url('http://leadmappingsolutions.com/wp-content/themes/diverso/images/backgrounds/patterns/right_strip_pattern.png');
 background-position: top center;
 background-repeat: repeat;
+}
+
+.ui-input-text.ui-body-a{
+	background-color: #CCCCCC;
+}
+
+.ui-body-a::-webkit-input-placeholder {
+   color: #EEE;
 }
