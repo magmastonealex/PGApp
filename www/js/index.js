@@ -401,7 +401,7 @@ function updateData(){
  window.getData = function(){
     
     $.mobile.allowCrossDomainPages = true;
-    $.mobile.showPageLoadingMsg("a", "Submitting");
+    $.blockUI({ message: '<h1>Submitting Form</h1>' });
     formValues=[];
     for (var formPart = 0; formPart < formIDs.length; formPart++) {
         switch(formIDs[formPart][0]){
@@ -483,8 +483,8 @@ function updateData(){
     }
     
     console.log("FORMSUBMISSION="+JSON.stringify(formValues));
-    $.ajaxSetup({async: false});
-    $.post("http://app.d2dpro.com/submit_form.php", {"formsubmission":JSON.stringify(formValues),"formID":window.currentFormID,"deviceID":window.devid,"userID":window.userID, "latitude":window.latitude, "longitude":window.longitude}).done(function(){$.mobile.changePage("#formSelect");$.mobile.hidePageLoadingMsg();$.mobile.hidePageLoadingMsg();});
+    $.ajaxSetup({async: true});
+    $.post("http://app.d2dpro.com/submit_form.php", {"formsubmission":JSON.stringify(formValues),"formID":window.currentFormID,"deviceID":window.devid,"userID":window.userID, "latitude":window.latitude, "longitude":window.longitude}).done(function(){$.mobile.changePage("#formSelect");$.unblockUI();$.mobile.hidePageLoadingMsg();});
     
 }
  var app = {
