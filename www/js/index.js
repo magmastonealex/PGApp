@@ -435,7 +435,7 @@ function updateData(){
                 options.mimeType = "audio/amr";
 
              var filer = new FileTransfer();
-            $.mobile.showPageLoadingMsg("a", "Uploading");
+            
             console.log("Audio Upload path: " + AP);
             filer.upload(AP, encodeURI("http://app.d2dpro.com/upload_audio.php"), function(r){alert("Audio Upload complete");}, function(error){alert("Audio Upload Failed");},options);
             formValues.push([formData[formPart][1], AudioPathComponents[AudioPathComponents.length-1]]);
@@ -469,7 +469,7 @@ function updateData(){
                 options.mimeType = "image/jpg";
 
              var filer = new FileTransfer();
-            $.mobile.showPageLoadingMsg("a", "Uploading");
+            
             window.ftAuuid="";
             console.log("Picture Upload path: " + AP);
             filer.upload(AP, encodeURI("http://app.d2dpro.com/upload_pic.php"), function(r){alert("Picture Upload complete");}, function(error){alert("Picture Upload Failed");},options);
@@ -481,10 +481,10 @@ function updateData(){
             break;
         }
     }
-    $.mobile.hidePageLoadingMsg();
+    
     console.log("FORMSUBMISSION="+JSON.stringify(formValues));
     $.ajaxSetup({async: false});
-    $.post("http://app.d2dpro.com/submit_form.php", {"formsubmission":JSON.stringify(formValues),"formID":window.currentFormID,"deviceID":window.devid,"userID":window.userID, "latitude":window.latitude, "longitude":window.longitude}).done(function(){$.mobile.changePage("#formSelect");$.mobile.hidePageLoadingMsg();});
+    $.post("http://app.d2dpro.com/submit_form.php", {"formsubmission":JSON.stringify(formValues),"formID":window.currentFormID,"deviceID":window.devid,"userID":window.userID, "latitude":window.latitude, "longitude":window.longitude}).done(function(){$.mobile.changePage("#formSelect");$.mobile.hidePageLoadingMsg();$.mobile.hidePageLoadingMsg();});
     
 }
  var app = {
@@ -566,6 +566,7 @@ function updateData(){
             $('#submitButton').on("tap", function(){
                 navigator.geolocation.getCurrentPosition(function(position){window.latitude = position.coords.latitude; window.longitude =position.coords.longitude;}, function(error){alert('Error Capturing Location');});
                 //console.log($('#formContent').serialize());
+
                 getData();
 
             });
