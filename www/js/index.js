@@ -609,7 +609,7 @@ function updateData(){
                   dataType: "text",
                   success: function(data){
                     if(data == "SUCCESS"){
-                        $.mobile.changePage("#formSelect");
+                        $.mobile.changePage("#dashboard");
                         window.userID = $('#userIDBox').val();
                         loadForms();
                         $.mobile.hidePageLoadingMsg();
