@@ -92,7 +92,7 @@ function populate_detail(subID){
             options = "";
             for(var iter=0; iter<data.length;iter++){
                 
-                options +='<center><table style="width:100%"><tr><td><div data-role="header">';
+                options +='<center><table style="width:100%"><tr><td style= "padding-bottom:0px;"><div data-role="header">';
                 options += "<h1>"+data[iter][0][0]+"</h1 ></div></td></tr>";
                  switch(data[iter][0][1]){
                     case "PictureCapture":
@@ -544,7 +544,7 @@ function updateData(){
             var d2dHeight = $("#d2dheight").height();
             var dashHeight=(wHeight-d2dHeight)*0.9;
             $("#dashGrid").css("height", dashHeight+"px");
-
+            $("#mapdiv").css("height", wHeight*0.9);
 
 
 
