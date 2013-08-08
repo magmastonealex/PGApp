@@ -540,9 +540,11 @@ function updateData(){
         $(document).bind('mobileinit',function(){
             $.mobile.selectmenu.prototype.options.nativeMenu = false;
             $.mobile.listview.prototype.options.headerTheme = "a";
+            $.mobile.page.prototype.options.addBackBtn = true;
         });
         $(document).ready(function(){
             $.mobile.listview.prototype.options.headerTheme = "a";
+            $.mobile.page.prototype.options.addBackBtn = true;
             if(localStorage["lastuser"]){
             console.log("Retreived" + localStorage["lastuser"]);
             $("#userIDBox").attr("value", localStorage["lastuser"]);
