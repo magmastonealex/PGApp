@@ -58,6 +58,7 @@ function loadForms(){
 
 function loadCompanyImage(){
     //Data is link to logo.
+    $.ajaxSetup({async: true, error: function(error){alert("Error downloading");}});
     $.post("http://app.d2dpro.com/get_logo.php", {'userID':window.userID}).done(function(data){
         $("#companylogo").attr("src", data);
     });
@@ -620,7 +621,7 @@ function updateData(){
                   type: "POST",
                   url: "http://app.d2dpro.com/login.php",
                   data: {"userid":$('#userIDBox').val(), "password":$('#uPasswordBox').val()},
-                  async: false,
+                  async: true,
                   cache: false,
                   dataType: "text",
                   success: function(data){
