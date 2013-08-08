@@ -89,11 +89,11 @@ function populate_detail(subID){
             $("#entries_detail_content").html("");
             for(var iter=0; iter<data.length;iter++){
                 
-                options ='<center><table style="width:100%"><tr><td><div data-role="header" data-backbtn="false">';
+                options ='<center><table style="width:100%"><tr><td><div data-role="header">';
                 options += "<h1>"+data[iter][0][0]+"</h1 ></div></td></tr>";
                  switch(data[iter][0][1]){
                     case "PictureCapture":
-                        options += '<tr><td>'
+                        options += '<tr><td style="background-color:#454545;border-radius: 15px;">'
                         options += '<div class="ReviewText">'
                         options += '<img class="retImage" src="http://app.d2dpro.com/upload_picture/'+data[iter][1]+'"></img>';
                         options += '</div>'                       
@@ -183,7 +183,7 @@ function populate_detail(subID){
                         options += '<tr><td>'
                         break;
                 }
-                options += "<br><hr>"
+                options += "<br>"
                 $("#entries_detail_content").append(options);
 
             }
