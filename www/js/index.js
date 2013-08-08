@@ -570,7 +570,7 @@ function updateData(){
             $.mobile.allowCrossDomainPages = true;
             
             $('.changerbutton').on('tap', function(event){
-                var togoto = $(event.target).find(".gotobutton").attr("goto");
+                var togoto = $(event.target).attr("goto");
                 console.log(event.target)
                 $.mobile.changePage(togoto);
             });
