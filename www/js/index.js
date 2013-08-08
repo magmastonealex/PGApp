@@ -49,8 +49,6 @@ function loadForms(){
                 for (var formNumber = 0; formNumber < data.length; formNumber++) {
                     formLinkOptions = '<li><a href="#form" class="formlink" formID="'+allForms[formNumber][0]+'" data-transition="pop">'+allForms[formNumber][1]+'</a></li>'
                     $('#linksForm').append(formLinkOptions);
-                    $('#linksForm').trigger("create");
-                    $('#linksForm').listview('refresh');
                 }
                 
                 setupPageClickHandler();
@@ -677,7 +675,10 @@ function updateData(){
                 $('#entries_detail').on('pageaftershow', function(event){
                     $('#entries_detail_header').trigger("create");
                 })
-
+                $('#formSelect').on('pagebeforeshow',function(event){
+                    $('#linksForm').trigger("create");
+                    $('#linksForm').listview('refresh');
+                });
                 $('#mapScreen').on('pageshow',function(event){
                     $('#mapdiv').gmap({'disableDefaultUI':true}).bind('init',function(event,map){
                         $.getJSON( 'http://app.d2dpro.com/get_locations.php',{"userID":window.userID}).done(function(data) {
