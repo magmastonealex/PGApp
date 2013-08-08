@@ -565,7 +565,7 @@ function updateData(){
             $('.changerbutton').on('tap', function(event){
                 var togoto = $(event.target).children().children().attr("goto");
                 $.mobile.changePage(togoto);
-            }
+            });
 
 
 
