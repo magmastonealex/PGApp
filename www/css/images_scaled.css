@@ -11,6 +11,9 @@ background-image:  url('http://leadmappingsolutions.com/wp-content/themes/divers
 background-position: top center;
 background-repeat: repeat;
 }
+.noimage{
+	background-image:none; !important
+}
 img.windowscale{
      max-width: 100%;
 }
@@ -27,5 +30,6 @@ img.windowscale{
 
 .changerbutton{
 	background: #454545;
-	border-radius: 15px;
+	border-width: 0 1px;
+
 }
