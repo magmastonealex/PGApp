@@ -82,8 +82,8 @@ function populate_detail(subID){
             $("#entries_detail_content").html("");
             for(var iter=0; iter<data.length;iter++){
                 
-                options ='<center><table style="width:100%"><tr><td><div data-role="header">';
-                options += data[iter][0][0]+"</div></td></tr>";
+                options ='<center><table style="width:100%"><tr><td><div data-role="header" data-add-back-btn="false">';
+                options += "<h1>"+data[iter][0][0]+"</h1></div></td></tr>";
                  switch(data[iter][0][1]){
                     case "PictureCapture":
                         options += '<tr><td>'
