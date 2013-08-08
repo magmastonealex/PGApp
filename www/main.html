@@ -42,46 +42,42 @@
 <body>
     <div data-role="page" id="login">
         <div data-role="content" data-theme="a" class="stripbackground">
-            
-             <center>
-        <br>
-        <br>
-        <div style="width:90%" id="d2dheight"><img class="windowscale" src="img/d2dpro.png"></img></div>
-        <br>
-        <br>
-        <div class="ui-grid-b" id="dashGrid">
-          <div class="ui-block-a" style="height:33%">Block A</div>
-          <div class="ui-block-b" style="height:33%"> </div>
-          <div class="ui-block-c" style="height:33%">C</div>
-          <div class="ui-block-a" style="height:33%">4</div>
-          <div class="ui-block-b" style="height:33%">4</div>
-          <div class="ui-block-c" style="height:33%">4</div>
-          <div class="ui-block-a" style="height:33%">A</div>
-          <div class="ui-block-b" style="height:33%"></div>
-          <div class="ui-block-c" style="height:33%">Block C</div>
-        </div>
-        </center>
+                      <center>
+            <br />
+            <br />
+            <div style="width:90%"><img class="windowscale" src="img/d2dpro.png"></img></div>
+            <br />
+            <br />
+            <br />
+            <div data-role="fieldcontain" style="width:80%">
+               <input type="text" name="Username" class="centeredtext" id="userIDBox" placeholder="Username" autocorrect="off" autocapitalize="off" autocomplete="off" spellcheck="false" />
+               <input type="password" name="password" class="centeredtext" id="uPasswordBox" placeholder="Password" />
+               <br>
+               <a data-role="button" data-rel="dialog" id="logi">Sign In</a>
+           </div>
+           </center>  
 
        </div>
    </div>
    <div data-role="page" data-theme="a" id="dashboard">
     <div data-role="content" data-theme="a">
-        <center>
+                     <center>
         <br>
         <br>
-        <div style="width:90%"><img class="windowscale" src="img/d2dpro.png"></img></div>
+        <div style="width:90%" id="d2dheight"><img class="windowscale" src="img/d2dpro.png"></img></div>
         <br>
+
         <br>
-        <div class="ui-grid-b">
-          <div class="ui-block-a">Block A</div>
-          <div class="ui-block-b"> </div>
-          <div class="ui-block-c">C</div>
-          <div class="ui-block-a" style="height:40%"></div>
-          <div class="ui-block-b" style="height:40%"></div>
-          <div class="ui-block-c" style="height:40%"></div>
-          <div class="ui-block-a">A</div>
-          <div class="ui-block-b"></div>
-          <div class="ui-block-c">Block C</div>
+        <div class="ui-grid-b" id="dashGrid">
+          <div class="ui-block-a changerbutton" style="height:33%;line-height:100%"><center><h4 goto="#formSelect" data-icon="grid">Forms</h4></center></div>
+          <div class="ui-block-b" style="height:33%"> </div>
+          <div class="ui-block-c changerbutton" style="height:33%;line-height:100%"><center><h4 goto="#entries" data-icon="info">Entries</h4></center></div>
+          <div class="ui-block-a" style="height:33%"></div>
+          <div class="ui-block-b" style="height:33%"></div>
+          <div class="ui-block-c" style="height:33%"></div>
+          <div class="ui-block-a changerbutton" style="height:33%;line-height:100%"><center><h4 goto="#mapScreen" data-icon="star">Map</h4></center></div>
+          <div class="ui-block-b" style="height:33%"></div>
+          <div class="ui-block-c changerbutton" style="height:33%;line-height:100%"><center><h4 goto="#locSettings" data-icon="gear">Settings</h4></center></div>
         </div>
         </center>
     </div>

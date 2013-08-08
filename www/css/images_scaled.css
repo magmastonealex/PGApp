@@ -24,3 +24,14 @@ img.windowscale{
    color: #EEE;
    text-align:center;
 }
+
+.changerbutton{
+	background: #454545;
+	border-radius: 15px;
+	background-image: -webkit-gradient(linear, left top, left bottom, from( #373737), to( #454545)); /* Saf4+, Chrome */
+	background-image: -webkit-linear-gradient( #373737, #454545);
+	background-image:    -moz-linear-gradient( #373737 , #454545 ); /* FF3.6 */
+	background-image:     -ms-linear-gradient( #373737 , #454545 ); /* IE10 */
+	background-image:      -o-linear-gradient( #373737 , #454545 ); /* Opera 11.10+ */
+	background-image:         linear-gradient( #373737 , #454545 );
+}
