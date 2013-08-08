@@ -549,6 +549,9 @@ function updateData(){
             var dashHeight=(wHeight-d2dHeight)*0.9;
             $("#dashGrid").css("height", dashHeight+"px");
 
+
+
+
             $.mobile.listview.prototype.options.headerTheme = "a";
             $.mobile.page.prototype.options.addBackBtn = true;
             if(localStorage["lastuser"]){
@@ -559,6 +562,13 @@ function updateData(){
             $('#deviceident').html(window.devid);
             $.mobile.allowCrossDomainPages = true;
             
+            $('.changerbutton').on('tap', function(event){
+                var togoto = $(event.target).children().children().attr("goto");
+                $.mobile.changePage(togoto);
+            }
+
+
+
             $('#locSettings').on('pagehide',function(event,ui){
                switch($('input:radio[name="geomin"]:checked').attr("content")){
                 case "5":
