@@ -51,6 +51,7 @@
 	background: #808080 /*{a-body-background-color}*/;
 }
 .ui-overlay-a {
+	background-image: none;
 	border-width: 0;
 }
 .ui-body-a,
@@ -157,6 +158,7 @@
 	background: #cccccc /*{b-body-background-color}*/;
 }
 .ui-overlay-b {
+	background-image: none;
 	border-width: 0;
 }
 .ui-body-b,
@@ -265,6 +267,7 @@
 	background: #cccccc /*{c-body-background-color}*/;
 }
 .ui-overlay-c {
+	background-image: none;
 	border-width: 0;
 }
 .ui-body-c,
@@ -373,6 +376,7 @@
 	background: #cccccc /*{d-body-background-color}*/;
 }
 .ui-overlay-d {
+	background-image: none;
 	border-width: 0;
 }
 .ui-body-d,
