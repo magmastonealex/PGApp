@@ -547,7 +547,6 @@ function updateData(){
             var wHeight = $(window).height();
             var d2dHeight = $("#d2dheight").height();
             var dashHeight=(wHeight-d2dHeight)*0.9;
-            alert(dashHeight);
             $("#dashGrid").css("height", dashHeight+"px");
 
             $.mobile.listview.prototype.options.headerTheme = "a";
@@ -610,7 +609,7 @@ function updateData(){
                   dataType: "text",
                   success: function(data){
                     if(data == "SUCCESS"){
-                        $.mobile.changePage("#dashboard");
+                        $.mobile.changePage("#formSelect");
                         window.userID = $('#userIDBox').val();
                         loadForms();
                         $.mobile.hidePageLoadingMsg();
