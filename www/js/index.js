@@ -573,6 +573,7 @@ function updateData(){
                 var togoto = $(event.target).attr("goto");
                 console.log(event.target);
                 console.log(togoto);
+                console.log(event.target.id);
                 $.mobile.changePage(togoto);
             });
 
