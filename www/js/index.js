@@ -96,40 +96,40 @@ function populate_detail(subID){
                 options += "<h1>"+data[iter][0][0]+"</h1 ></div></td></tr>";
                  switch(data[iter][0][1]){
                     case "PictureCapture":
-                        options += '<tr><td style="background-color:#454545;border-radius: 15px;">'
-                        options += '<div class="ReviewText">'
+                        options += '<tr><td class="ReviewText">'
+                        options += '<div >'
                         options += '<img class="retImage" src="http://app.d2dpro.com/upload_picture/'+data[iter][1]+'"></img>';
                         options += '</div>'                       
                         options += '</td></tr></table></center>'
                         
                         break;
                     case "TextInput":
-                        options += '<tr><td>'
-                        options += '<div class="ReviewText">'
+                        options += '<tr><td class="ReviewText">'
+                        options += '<div >'
                         options += '<p><b>'+data[iter][1]+'</b></p>';
                         options += '</div>'
                         options += '</td></tr></table></center>'
                         
                         break;
                     case "select":
-                        options += '<tr><td>'
-                        options += '<div class="ReviewText">'
+                        options += '<tr><td class="ReviewText">'
+                        options += '<div >'
                         options += "<b>"+data[iter][1]+"</b>";
                         options += '</div>'
                         options += '</td></tr></table></center>'
                         
                         break;
                     case "MultipleChoice":
-                        options += '<tr><td>'
-                        options += '<div class="ReviewText">'
+                        options += '<tr><td class="ReviewText">'
+                        options += '<div >'
                         options += "<b>"+data[iter][1]+"</b>";
                         options += '</div>'
                         options += '</td></tr></table></center>'
                         
                         break;
                     case "CheckBoxes":
-                        options += '<tr><td>'
-                        options += '<div class="ReviewText">'
+                        options += '<tr><td class="ReviewText">'
+                        options += '<div >'
                         splitChecks = data[iter][1].split(";");
                         for(var SPI=0;SPI<splitChecks.length;SPI++){
                             options += "<b>"+splitChecks[SPI]+"</b><br>";
@@ -139,16 +139,16 @@ function populate_detail(subID){
                         
                         break;
                     case "BarcodeCapture":
-                        options += '<tr><td>'
-                        options += '<div class="ReviewText">'
+                        options += '<tr><td class="ReviewText">'
+                        options += '<div >'
                         options += "<b>"+data[iter][1]+"</b>";
                         options += '</div>'
                         options += '</td></tr></table></center>'
                         
                         break;
                     case "VideoCapture":
-                        options += '<tr><td>'
-                        options += '<div class="ReviewText">'
+                        options += '<tr><td class="ReviewText">'
+                        options += '<div >'
                         options +='<video src="http://app.d2dpro.com/upload_video/'+data[iter][1]+'" width="320" height="240" controls>';
                         options +='Not supported here!';
                         options +='</video>';
@@ -157,8 +157,8 @@ function populate_detail(subID){
                         
                         break;
                     case "AudioCapture":
-                        options += '<tr><td>'
-                        options += '<div class="ReviewText">'
+                        options += '<tr><td class="ReviewText">'
+                        options += '<div >'
                         options += '<audio src="http://app.d2dpro.com/upload_audio/'+data[iter][1]+'">';
                         options += 'Not supported!';
                         options += '</audio>';
@@ -189,7 +189,7 @@ function formDetailHandle(){
     $('.detail_shower').on("tap",function(event){
         console.log($(this).attr("subID"));
         if($(event.target).html() != undefined){
-        $("#entries_detail_header").html("<h1>"+$(this).html()+"</h1>");
+        $("#entries_detail_header").html('<h1>'+$(this).html()+"</h1>");
         $("#entries_detail").trigger("create");
         $("#entries_detail_header").trigger("create");
     }

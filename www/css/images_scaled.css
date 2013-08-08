@@ -3,6 +3,12 @@
 }
 .ReviewText{
 	text-align:center;
+    background-color: #757575;
+    -webkit-border-radius: 0px 0px 15px 15px;
+    -moz-border-radius: 0px 0px 15px 15px;
+    border-radius: 0px 0px 15px 15px;
+    border:1px solid #FFFFFF;
+    background-color:#757575
 }
 .ui-body-a,
 .ui-page{
@@ -17,6 +23,8 @@ background-repeat: repeat;
 .windowscale{
      max-width: 100%;
 }
+
+
 .windowscale-height{
      max-height: 100%;
      max-width: 100%;
