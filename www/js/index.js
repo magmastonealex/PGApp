@@ -82,81 +82,98 @@ function populate_detail(subID){
             $("#entries_detail_content").html("");
             for(var iter=0; iter<data.length;iter++){
                 
-                options ="";
-                options += data[iter][0][0]+":";
+                options ='<center><table style="width:100%"><tr class="ui-bar"><td>';
+                options += data[iter][0][0]+"</td></tr>";
                  switch(data[iter][0][1]){
                     case "PictureCapture":
+                        options += '<tr><td>'
                         options += '<div class="ReviewText">'
                         options += '<img class="retImage" src="http://app.d2dpro.com/upload_picture/'+data[iter][1]+'"></img>';
-                        options += '</div>'
+                        options += '</div>'                       
+                        options += '</td></tr></table></center>'
                         $("#entries_detail_content").append(options);
                         $("#entries_detail_content").trigger("create");
                         options ="";
                         break;
                     case "TextInput":
+                        options += '<tr><td>'
                         options += '<div class="ReviewText">'
                         options += '<p><b>'+data[iter][1]+'</b></p>';
                         options += '</div>'
+                        options += '</td></tr></table></center>'
                         $("#entries_detail_content").append(options);
                         $("#entries_detail_content").trigger("create");
                         options ="";
                         break;
                     case "select":
+                        options += '<tr><td>'
                         options += '<div class="ReviewText">'
                         options += "<b>"+data[iter][1]+"</b>";
                         options += '</div>'
+                        options += '</td></tr></table></center>'
                         $("#entries_detail_content").append(options);
                         $("#entries_detail_content").trigger("create");
                         options ="";
                         break;
                     case "MultipleChoice":
+                        options += '<tr><td>'
                         options += '<div class="ReviewText">'
                         options += "<b>"+data[iter][1]+"</b>";
                         options += '</div>'
+                        options += '</td></tr></table></center>'
                         $("#entries_detail_content").append(options);
                         $("#entries_detail_content").trigger("create");
                         options ="";
                         break;
                     case "CheckBoxes":
+                        options += '<tr><td>'
                         options += '<div class="ReviewText">'
                         splitChecks = data[iter][1].split(";");
                         for(var SPI=0;SPI<splitChecks.length;SPI++){
                             options += "<b>"+splitChecks[SPI]+"</b><br>";
                         }
                         options += '</div>'
+                        options += '</td></tr></table></center>'
                         $("#entries_detail_content").append(options);
                         $("#entries_detail_content").trigger("create");
                         options ="";
                         break;
                     case "BarcodeCapture":
+                        options += '<tr><td>'
                         options += '<div class="ReviewText">'
                         options += "<b>"+data[iter][1]+"</b>";
                         options += '</div>'
+                        options += '</td></tr></table></center>'
                         $("#entries_detail_content").append(options);
                         $("#entries_detail_content").trigger("create");
                         options ="";
                         break;
                     case "VideoCapture":
+                        options += '<tr><td>'
                         options += '<div class="ReviewText">'
                         options +='<video src="http://app.d2dpro.com/upload_video/'+data[iter][1]+'" width="320" height="240" controls>';
                         options +='Not supported here!';
                         options +='</video>';
                         options += '</div>'
+                        options += '</td></tr></table></center>'
                         $("#entries_detail_content").append(options);
                         $("#entries_detail_content").trigger("create");
                         options ="";
                         break;
                     case "AudioCapture":
+                        options += '<tr><td>'
                         options += '<div class="ReviewText">'
                         options += '<audio src="http://app.d2dpro.com/upload_audio/'+data[iter][1]+'">';
                         options += 'Not supported!';
                         options += '</audio>';
                         options += '</div>'
+                        options += '</td></tr></table></center>'
                         $("#entries_detail_content").append(options);
                         $("#entries_detail_content").trigger("create");
                         options ="";
                         break;
                     default:
+                        options += '<tr><td>'
                         break;
                 }
                 options += "<br><hr>"
@@ -522,8 +539,10 @@ function updateData(){
     onDeviceReady: function() {
         $(document).bind('mobileinit',function(){
             $.mobile.selectmenu.prototype.options.nativeMenu = false;
+            $.mobile.listview.prototype.options.headerTheme = "a";
         });
         $(document).ready(function(){
+            $.mobile.listview.prototype.options.headerTheme = "a";
             if(localStorage["lastuser"]){
             console.log("Retreived" + localStorage["lastuser"]);
             $("#userIDBox").attr("value", localStorage["lastuser"]);
