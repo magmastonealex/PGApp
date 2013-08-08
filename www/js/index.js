@@ -82,8 +82,8 @@ function populate_detail(subID){
             $("#entries_detail_content").html("");
             for(var iter=0; iter<data.length;iter++){
                 
-                options ='<center><table style="width:100%"><tr class="ui-bar"><td>';
-                options += data[iter][0][0]+"</td></tr>";
+                options ='<center><table style="width:100%"><tr><td><div data-role="header">';
+                options += data[iter][0][0]+"</div></td></tr>";
                  switch(data[iter][0][1]){
                     case "PictureCapture":
                         options += '<tr><td>'
@@ -603,7 +603,7 @@ function updateData(){
                   dataType: "text",
                   success: function(data){
                     if(data == "SUCCESS"){
-                        $.mobile.changePage("#formSelect");
+                        $.mobile.changePage("#dashboard");
                         window.userID = $('#userIDBox').val();
                         loadForms();
                         $.mobile.hidePageLoadingMsg();
