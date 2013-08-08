@@ -56,6 +56,14 @@ function loadForms(){
     $.ajaxSetup({async: true});
 }
 
+function loadCompanyImage(){
+    //Data is link to logo.
+    $.post("http://app.d2dpro.com/get_logo.php", {'userID':window.userID}).done(function(data){
+        $("#companylogo").attr("src", data);
+    });
+    
+}
+
 
 function setupPageClickHandler(){
     $('.formlink').on("tap",function(){
@@ -619,6 +627,7 @@ function updateData(){
                     if(data == "SUCCESS"){
                         $.mobile.changePage("#dashboard");
                         window.userID = $('#userIDBox').val();
+                        loadCompanyImage();
                         loadForms();
                         $.mobile.hidePageLoadingMsg();
                         localStorage["lastuser"] = window.userID;
