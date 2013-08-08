@@ -571,7 +571,8 @@ function updateData(){
             
             $('.changerbutton').on('tap', function(event){
                 var togoto = $(event.target).attr("goto");
-                console.log(event.target)
+                console.log(event.target);
+                console.log(togoto);
                 $.mobile.changePage(togoto);
             });
 
