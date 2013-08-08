@@ -15,10 +15,11 @@ background-repeat: repeat;
 	background-image:none; !important
 }
 .windowscale{
-     max-width: 100%;
+     max-width: 50%;
 }
 .windowscale-height{
-     max-height: 100%;
+     width:auto;
+     height:auto;
 }
 .ui-input-text.ui-body-a{
 	background-color: #999;
