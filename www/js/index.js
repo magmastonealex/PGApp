@@ -87,9 +87,12 @@ function populate_detail(subID){
             
             console.log(JSON.stringify(data));
             $("#entries_detail_content").html("");
+            $("#entries_detail").trigger("create");
+            $("#entries_detail_content").trigger("create");
+            options = "";
             for(var iter=0; iter<data.length;iter++){
                 
-                options ='<center><table style="width:100%"><tr><td><div data-role="header">';
+                options +='<center><table style="width:100%"><tr><td><div data-role="header">';
                 options += "<h1>"+data[iter][0][0]+"</h1 ></div></td></tr>";
                  switch(data[iter][0][1]){
                     case "PictureCapture":
@@ -98,9 +101,7 @@ function populate_detail(subID){
                         options += '<img class="retImage" src="http://app.d2dpro.com/upload_picture/'+data[iter][1]+'"></img>';
                         options += '</div>'                       
                         options += '</td></tr></table></center>'
-                        $("#entries_detail_content").append(options);
-                        $("#entries_detail_content").trigger("create");
-                        options ="";
+                        
                         break;
                     case "TextInput":
                         options += '<tr><td>'
@@ -108,9 +109,7 @@ function populate_detail(subID){
                         options += '<p><b>'+data[iter][1]+'</b></p>';
                         options += '</div>'
                         options += '</td></tr></table></center>'
-                        $("#entries_detail_content").append(options);
-                        $("#entries_detail_content").trigger("create");
-                        options ="";
+                        
                         break;
                     case "select":
                         options += '<tr><td>'
@@ -118,9 +117,7 @@ function populate_detail(subID){
                         options += "<b>"+data[iter][1]+"</b>";
                         options += '</div>'
                         options += '</td></tr></table></center>'
-                        $("#entries_detail_content").append(options);
-                        $("#entries_detail_content").trigger("create");
-                        options ="";
+                        
                         break;
                     case "MultipleChoice":
                         options += '<tr><td>'
@@ -128,9 +125,7 @@ function populate_detail(subID){
                         options += "<b>"+data[iter][1]+"</b>";
                         options += '</div>'
                         options += '</td></tr></table></center>'
-                        $("#entries_detail_content").append(options);
-                        $("#entries_detail_content").trigger("create");
-                        options ="";
+                        
                         break;
                     case "CheckBoxes":
                         options += '<tr><td>'
@@ -141,9 +136,7 @@ function populate_detail(subID){
                         }
                         options += '</div>'
                         options += '</td></tr></table></center>'
-                        $("#entries_detail_content").append(options);
-                        $("#entries_detail_content").trigger("create");
-                        options ="";
+                        
                         break;
                     case "BarcodeCapture":
                         options += '<tr><td>'
@@ -151,9 +144,7 @@ function populate_detail(subID){
                         options += "<b>"+data[iter][1]+"</b>";
                         options += '</div>'
                         options += '</td></tr></table></center>'
-                        $("#entries_detail_content").append(options);
-                        $("#entries_detail_content").trigger("create");
-                        options ="";
+                        
                         break;
                     case "VideoCapture":
                         options += '<tr><td>'
@@ -163,9 +154,7 @@ function populate_detail(subID){
                         options +='</video>';
                         options += '</div>'
                         options += '</td></tr></table></center>'
-                        $("#entries_detail_content").append(options);
-                        $("#entries_detail_content").trigger("create");
-                        options ="";
+                        
                         break;
                     case "AudioCapture":
                         options += '<tr><td>'
@@ -175,19 +164,19 @@ function populate_detail(subID){
                         options += '</audio>';
                         options += '</div>'
                         options += '</td></tr></table></center>'
-                        $("#entries_detail_content").append(options);
-                        $("#entries_detail_content").trigger("create");
-                        options ="";
+                        
                         break;
                     default:
                         options += '<tr><td>'
                         break;
                 }
                 options += "<br>"
-                $("#entries_detail_content").append(options);
+                
 
             }
-        $("#entries_detail").trigger("create");
+            $("#entries_detail_content").append(options);
+            $("#entries_detail").trigger("create");
+            $("#entries_detail_content").trigger("create");
 
         });
         console.log($("#entries_detail_content").html());
