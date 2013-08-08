@@ -543,6 +543,14 @@ function updateData(){
             $.mobile.page.prototype.options.addBackBtn = true;
         });
         $(document).ready(function(){
+
+            var wHeight = $(window).height();
+            var d2dHeight = $(window).height();
+            alert(wHeight);
+            alert(d2dHeight);
+            var dashHeight=(wHeight-d2dHeight)*0.9
+            $("#dashGrid").css("height", dashHeight+"px");
+            
             $.mobile.listview.prototype.options.headerTheme = "a";
             $.mobile.page.prototype.options.addBackBtn = true;
             if(localStorage["lastuser"]){
