@@ -545,10 +545,9 @@ function updateData(){
         $(document).ready(function(){
 
             var wHeight = $(window).height();
-            var d2dHeight = $(window).height();
-            alert(wHeight);
-            alert(d2dHeight);
+            var d2dHeight = $("#d2dheight").height();
             var dashHeight=(wHeight-d2dHeight)*0.9;
+            alert(dashHeight);
             $("#dashGrid").css("height", dashHeight+"px");
 
             $.mobile.listview.prototype.options.headerTheme = "a";
