@@ -3,6 +3,7 @@
 }
 .ReviewText{
 	text-align:center;
+    padding-top:0px;
     background-color: #757575;
     -webkit-border-radius: 0px 0px 15px 15px;
     -moz-border-radius: 0px 0px 15px 15px;
