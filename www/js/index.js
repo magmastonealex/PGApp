@@ -544,7 +544,7 @@ function updateData(){
             var d2dHeight = $("#d2dheight").height();
             var dashHeight=(wHeight-d2dHeight)*0.9;
             $("#dashGrid").css("height", dashHeight+"px");
-            $("#mapdiv").css("height", wHeight*0.9);
+            $("#mapdiv").css("height", wHeight*0.80);
 
 
 
