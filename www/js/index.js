@@ -87,7 +87,7 @@ function populate_detail(subID){
             
             console.log(JSON.stringify(data));
             $("#entries_detail_content").html("");
-            $("#entries_detail").trigger("create");
+
             $("#entries_detail_content").trigger("create");
             options = "";
             for(var iter=0; iter<data.length;iter++){
@@ -175,7 +175,7 @@ function populate_detail(subID){
 
             }
             $("#entries_detail_content").append(options);
-            $("#entries_detail").trigger("create");
+            $("#entries_detail").trigger("pagecreate");
             $("#entries_detail_content").trigger("create");
 
         });
