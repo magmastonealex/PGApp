@@ -41,7 +41,7 @@
 
 
 function loadForms(){
-    $.ajaxSetup({async: true, error: function(error){alert("Error downloading");}});
+    $.ajaxSetup({async: true, error: function(error){alert("Error downloading");loadForms();}});
     $.getJSON("http://app.d2dpro.com/get_form.php", {"userID":window.userID}).done(function(data){
                 $('#linksForm').html("");
                 allForms = data;
@@ -53,7 +53,7 @@ function loadForms(){
                 
                 setupPageClickHandler();
             });
-    $.ajaxSetup({async: true});
+    $.ajaxSetup({async: true,error: function(error){alert("Error downloading");});
 }
 
 function loadCompanyImage(){
@@ -61,6 +61,7 @@ function loadCompanyImage(){
     $.ajaxSetup({async: true, error: function(error){alert("Error downloading");}});
     $.post("http://app.d2dpro.com/get_logo.php", {'userID':window.userID}).done(function(data){
         $("#companylogo").attr("src", data);
+        alert(data);
     });
     
 }
@@ -544,7 +545,7 @@ function updateData(){
             var d2dHeight = $("#d2dheight").height();
             var dashHeight=(wHeight-d2dHeight)*0.9;
             $("#dashGrid").css("height", dashHeight+"px");
-            $("#mapdiv").css("height", wHeight*0.80);
+            $("#mapdiv").css("height", wHeight*0.75);
 
 
 

@@ -54,7 +54,7 @@
             <div data-role="fieldcontain" style="width:90%">
                <input type="text" name="Username" class="centeredtext" id="userIDBox" placeholder="Username" autocorrect="off" autocapitalize="off" autocomplete="off" spellcheck="false" />
                <br>
-               <input type="password" name="password" class="centeredtext" id="uPasswordBox" placeholder="P4ssword" />
+               <input type="password" name="password" class="centeredtext" id="uPasswordBox" placeholder="Password" />
                <br>
                <a style="width:50%"data-role="button" data-rel="dialog" id="logi">Sign In</a>
            </div>
@@ -64,8 +64,8 @@
 
 </div>
 </div>
-<div data-role="page" data-theme="a" id="dashboard" class="noimage">
-    <div data-role="content" data-theme="a" class="noimage">
+<div data-role="page" data-theme="a" id="dashboard">
+    <div data-role="content" data-theme="a">
         <center>
                 <br>
                 <br>
@@ -73,31 +73,26 @@
                 <br>
 
                 <br>
-               <div class="ui-grid-b" id="dashGrid">
-                   <div class="ui-block-a changerbutton" id="cfs" goto="#formSelect" style="height:22%;border-bottom: 1px solid;border-right: 1px solid;display:table-cell; vertical-align:middle">
-                          <img src="icons/forms.png" goto="#formSelect" class="icon_image_tall">
+               <div class="ui-grid-a" id="dashGrid">
+                   <div class="ui-block-a changerbutton" id="cfs" goto="#formSelect" style="height:40%;border-bottom: 1px solid;border-right: 1px solid;display:table-cell; vertical-align:middle">
+                          <img src="icons/forms-dark.png" goto="#formSelect" class="icon_image_tall">
                          <h4 class="gotobutton" goto="#formSelect" data-icon="grid">F0rms</h4>
       
                  </div>
-                 <div class="ui-block-b" style="height:22%"> </div>
-                 <div class="ui-block-c changerbutton" goto="#entries" style="height:22%;border-bottom: 1px solid;border-left: 1px solid;display:table-cell; vertical-align:middle">
-                     <img goto="#entries" src="icons/entries.png" class="icon_image">
+                 <div class="ui-block-b changerbutton" goto="#entries" style="height:40%;border-bottom: 1px solid;border-left: 1px solid;display:table-cell; vertical-align:middle">
+                     <img goto="#entries" src="icons/entries-dark.png" class="icon_image">
                      <h4 class="gotobutton" goto="#entries" data-icon="info">Entries</h4>
              </div>
-             <div class="ui-block-a" style="height:22%"></div>
-             <div class="ui-block-b" style="height:22%"></div>
-             <div class="ui-block-c" style="height:22%"></div>
-             <div class="ui-block-a changerbutton" goto="#mapScreen" style="height:22%;border-top: 1px solid;border-right: 1px solid;display:table-cell; vertical-align:middle">
+             <div class="ui-block-a changerbutton" goto="#mapScreen" style="height:40%;border-top: 1px solid;border-right: 1px solid;display:table-cell; vertical-align:middle">
               
                  <h4 class="gotobutton" goto="#mapScreen" data-icon="star">Map</h4>
-                 <img src="icons/map.png"  goto="#mapScreen" style="width:25px">
+                 <img src="icons/map-dark.png"  goto="#mapScreen" style="width:25px">
              
          </div>
-         <div class="ui-block-b" style="height:22%"></div>
-         <div class="ui-block-c changerbutton" goto="#locSettings" style="height:22%;border-top: 1px solid;border-left: 1px solid;display:table-cell; vertical-align:middle">
+         <div class="ui-block-b changerbutton" goto="#locSettings" style="height:40%;border-top: 1px solid;border-left: 1px solid;display:table-cell; vertical-align:middle">
           
              <h4 class="gotobutton" goto="#locSettings" data-icon="gear">Settings</h4>
-             <img src="icons/settings.png" goto="#locSettings" class="icon_image">
+             <img src="icons/settings-dark.png" goto="#locSettings" class="icon_image">
          
      </div>
  </div>
