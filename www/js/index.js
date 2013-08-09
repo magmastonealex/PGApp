@@ -61,7 +61,6 @@ function loadCompanyImage(){
     $.ajaxSetup({async: true, error: function(error){alert("Error downloading");}});
     $.post("http://app.d2dpro.com/get_logo.php", {'userID':window.userID}).done(function(data){
         $("#companylogo").attr("src", data);
-        alert(data);
     });
     
 }
@@ -543,10 +542,11 @@ function updateData(){
 
             var wHeight = $(window).height();
             var d2dHeight = $("#d2dheight").height();
-            var dashHeight=(wHeight-d2dHeight)*0.9;
+            var dashHeight=(wHeight-d2dHeight)*0.7;
             $("#dashGrid").css("height", dashHeight+"px");
             $("#mapdiv").css("height", wHeight*0.75);
-
+            
+            
 
 
             $.mobile.listview.prototype.options.headerTheme = "a";
@@ -681,6 +681,17 @@ function updateData(){
                 $('#formSelect').on('pagebeforeshow',function(event){
                     $('#linksForm').trigger("create");
                     $('#linksForm').listview('refresh');
+                });
+                $('#dashboard').on('pageshow',function(event){
+                    var divHeight=$("#ic1").height();
+                    var divWidth=$("#ic1").width();
+                    $(".innercenter").css("margin-top", "-"+divHeight/2+"px");
+                    $(".innercenter").css("margin-left", "-"+divWidth/2+"px");
+                    
+                    if($("#ic1").height() > $("#cfs").height()){
+                        var scalefactor = Math.floor(($("#cfs").height()/$("#ic1").height())*100);
+                        $(".windowscale_height").css("width", scalefactor+"%");
+                    }
                 });
                 $('#mapScreen').on('pageshow',function(event){
                     $('#mapdiv').gmap({'disableDefaultUI':true}).bind('init',function(event,map){

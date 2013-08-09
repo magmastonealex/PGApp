@@ -104,6 +104,7 @@
 /Users/Anne/PGNew/platforms/android/assets/www/themes \
 /Users/Anne/PGNew/platforms/android/assets/www/css/images_scaled.css \
 /Users/Anne/PGNew/platforms/android/assets/www/css/index.css \
+/Users/Anne/PGNew/platforms/android/assets/www/css/jquery.mobile.structure-1.3.2.min.css \
 /Users/Anne/PGNew/platforms/android/assets/www/icons/entries-dark.png \
 /Users/Anne/PGNew/platforms/android/assets/www/icons/entries.png \
 /Users/Anne/PGNew/platforms/android/assets/www/icons/forms-dark.png \
@@ -113,11 +114,14 @@
 /Users/Anne/PGNew/platforms/android/assets/www/icons/settings-dark.png \
 /Users/Anne/PGNew/platforms/android/assets/www/icons/settings.png \
 /Users/Anne/PGNew/platforms/android/assets/www/img/Background-image-lighter.jpg \
+/Users/Anne/PGNew/platforms/android/assets/www/img/Background-image-XL-lighter.jpg \
 /Users/Anne/PGNew/platforms/android/assets/www/img/background.jpg.jpg \
 /Users/Anne/PGNew/platforms/android/assets/www/img/d2dpro.png \
 /Users/Anne/PGNew/platforms/android/assets/www/img/logo.png \
 /Users/Anne/PGNew/platforms/android/assets/www/js/get_form_data.php \
+/Users/Anne/PGNew/platforms/android/assets/www/js/googlemaps.js \
 /Users/Anne/PGNew/platforms/android/assets/www/js/index.js \
+/Users/Anne/PGNew/platforms/android/assets/www/js/jquery-1.9.1.min.js \
 /Users/Anne/PGNew/platforms/android/assets/www/js/jquery.blockUI.js \
 /Users/Anne/PGNew/platforms/android/assets/www/js/jquery.mobile-1.3.2.js \
 /Users/Anne/PGNew/platforms/android/assets/www/js/jquery.ui.map.min.js \

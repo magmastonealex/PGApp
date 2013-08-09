@@ -14,7 +14,7 @@
 .ui-body-a,
 .ui-page{
 
-background-image:  url('../img/Background-image-lighter.jpg');
+background-image:  url('../img/Background-image-XL-lighter.jpg');
 background-position: top center;
 background-repeat: repeat;
 background-color: #707070;
@@ -27,7 +27,7 @@ background-color: #707070;
 }
 
 
-.windowscale-height{
+.windowscale_height{
      max-height: 100%;
      max-width: 100%;
      min-height: 1%;
@@ -60,9 +60,14 @@ div.changerbutton {
    color: #EEE;
    text-align:center;
 }
+.innercenter{
+	position:absolute;
+	top:50%;
+	left:50%;
+}
 
 .changerbutton{
-	background: #A0A0A0;
+	background: rgba(160, 160, 160, 0.4);
 	border-width: 0 1px;
-
+	position:relative;
 }
