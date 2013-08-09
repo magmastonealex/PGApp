@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="net.magmastone.PGP" versionCode="008" version="0.0.8" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0" xmlns:gap="http://phonegap.com/ns/1.0">
+    <name>D2DPro</name>
+    <description>
+        A mobile app for the D2DPro service.
+    </description>
+    <author email="me@magmastone.net" href="http://magmastone.net">
+        Alex Roth
+    </author>
+    
+    <access origin="*" />
+    
+    <preference name="fullscreen" value="false" />
+    <preference name="webviewbounce" value="true" />
+    <preference name="prerendered-icon" value="true" />
+    <preference name="orientation" value="portrait" />
+    <gap:plugin name="com.phonegap.plugins.barcodescanner" />
+
+    <feature name="http://api.phonegap.com/1.0/camera"/>
+    <feature name="http://api.phonegap.com/1.0/file"/>
+    <feature name="http://api.phonegap.com/1.0/geolocation"/>
+    <feature name="http://api.phonegap.com/1.0/media"/>
+    <feature name="http://api.phonegap.com/1.0/network"/>
+
+    <icon src="icon.png" />
+
+
+    <preference name="load-url-timeout" value="360000" />
+</widget>

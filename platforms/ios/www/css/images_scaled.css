@@ -1,0 +1,68 @@
+.retImage{
+	width:90%;
+}
+.ReviewText{
+	text-align:center;
+    padding-top:0px;
+    background-color: #757575;
+    -webkit-border-radius: 0px 0px 15px 15px;
+    -moz-border-radius: 0px 0px 15px 15px;
+    border-radius: 0px 0px 15px 15px;
+    border:1px solid #FFFFFF;
+    background-color:#757575
+}
+.ui-body-a,
+.ui-page{
+
+background-image:  url('../img/Background-image-lighter.jpg');
+background-position: top center;
+background-repeat: repeat;
+background-color: #707070;
+}
+.noimage{
+	background-image:none; !important
+}
+.windowscale{
+     max-width: 100%;
+}
+
+
+.windowscale-height{
+     max-height: 100%;
+     max-width: 100%;
+     min-height: 1%;
+     min-height: 1%;
+}
+
+div.changerbutton {
+    text-align: center;
+}
+.icon_image{
+	width:30px;
+}
+.icon_image_tall{
+	height:50px;
+}
+.windowscale-height{
+     max-height: 100%;
+     max-width: 100%;
+     min-height: 1%;
+     min-height: 1%;
+}
+
+.ui-input-text.ui-body-a{
+	background-color: #999;
+}
+.centeredtext{
+	text-align:center;
+}
+.ui-body-a::-webkit-input-placeholder {
+   color: #EEE;
+   text-align:center;
+}
+
+.changerbutton{
+	background: #A0A0A0;
+	border-width: 0 1px;
+
+}
