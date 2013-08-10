@@ -32,8 +32,7 @@
 
 @implementation AppDelegate
 
-@synthesize window, viewController;
-
+@synthesize window, viewController, locGrabber;
 - (id)init
 {
     /** If you need to do any extra app-specific initialization, you can do it here
@@ -88,6 +87,8 @@
     self.window.rootViewController = self.viewController;
     [self.window makeKeyAndVisible];
 
+    locGrabber = [[LocationGrabberBackground alloc] init];
+    [locGrabber insertHandler];
     return YES;
 }
 

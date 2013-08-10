@@ -23,7 +23,7 @@ while($row = $allFormIds->fetch_assoc()){
 
 	while($subIDRow = $submissionIDs->fetch_assoc()){
 		
-		array_push($subid, array($subIDRow["timeStamp"],$subIDRow["subID"]));
+		array_push($subid, array($subIDRow["Name"],$subIDRow["subID"]));
 	}
 		array_push($form_list, array($nameRow["frmName"],$row["formID"],$subid));
 	}

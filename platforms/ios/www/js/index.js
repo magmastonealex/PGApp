@@ -23,9 +23,12 @@
  window.inter=5;
  window.currentFormID=0;
  
- function doGeoPush(){
-    clearInterval(window.lastInterval);
-    navigator.geolocation.getCurrentPosition(function(position){
+window.intervalUpdate = function(str, callback) {
+        cordova.exec(callback, callback, "LocPlugin", "intervalUpdate", [str,window.userID,window.devid]);
+};
+
+function geoManual(){
+        navigator.geolocation.getCurrentPosition(function(position){
         window.latitude=position.coords.latitude;
         window.longitude=position.coords.longitude;
         $("#geoSettingsData").html(position.coords.latitude+","+position.coords.longitude);
@@ -36,7 +39,11 @@
           data: { "deviceID":window.devid, "userID":window.userID,"interval":window.inter, "latitude":position.coords.latitude, "longitude":position.coords.longitude }
         });
     }, function(error){console.log('Error Capturing');});
-    window.lastInterval = setInterval(doGeoPush, 60000*window.inter);
+}
+
+ function doGeoPush(){
+    window.intervalUpdate(inter.toString(), function(e){console.log("Done!");});
+
  }
 
 
@@ -207,6 +214,11 @@ function updateData(){
             $('#formContent').html("<br>");
             $('#FormName').html($(this).html());
             formIDs = [];
+                    options = "";
+                    options += '<p>Form Name</p>'
+                    options += '<input type="text" id="form-user-name"><br>';
+                    $('#formContent').append(options);
+                    $('#formContent').append("<hr>");
             for (var formPart = 0; formPart < formData.length; formPart++) {
                 switch(formData[formPart][0]){
                     case "text":
@@ -497,7 +509,7 @@ function updateData(){
     
     console.log("FORMSUBMISSION="+JSON.stringify(formValues));
     $.ajaxSetup({async: true});
-    $.post("http://app.d2dpro.com/submit_form.php", {"formsubmission":JSON.stringify(formValues),"formID":window.currentFormID,"deviceID":window.devid,"userID":window.userID, "latitude":window.latitude, "longitude":window.longitude}).done(function(){$.mobile.changePage("#formSelect");$.unblockUI();$.mobile.hidePageLoadingMsg();});
+    $.post("http://app.d2dpro.com/submit_form.php", {"formsubmission":JSON.stringify(formValues),"formID":window.currentFormID,"deviceID":window.devid,"userID":window.userID, "latitude":window.latitude, "longitude":window.longitude, "name":$('#form-user-name').val()}).done(function(){$.mobile.changePage("#formSelect");$.unblockUI();$.mobile.hidePageLoadingMsg();});
     
 }
  var app = {
@@ -545,9 +557,6 @@ function updateData(){
             var dashHeight=(wHeight-d2dHeight)*0.7;
             $("#dashGrid").css("height", dashHeight+"px");
             $("#mapdiv").css("height", wHeight*0.75);
-            
-            
-
 
             $.mobile.listview.prototype.options.headerTheme = "a";
             $.mobile.page.prototype.options.addBackBtn = true;
@@ -593,6 +602,7 @@ function updateData(){
                     inter = 10000;
                     localStorage["intervalGeo"]=inter;
                     clearInterval(window.lastInterval);
+                    doGeoPush();
                }
             });
 
@@ -625,6 +635,7 @@ function updateData(){
                         loadForms();
                         $.mobile.hidePageLoadingMsg();
                         localStorage["lastuser"] = window.userID;
+                        
                         if(localStorage["intervalGeo"] != 0 && localStorage["intervalGeo"] != undefined){
                             window.inter = localStorage["intervalGeo"];
                             doGeoPush();

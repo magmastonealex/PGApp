@@ -66,6 +66,10 @@ div.changerbutton {
 	left:50%;
 }
 
+.gotobutton{
+	font-weight:bold;
+}
+
 .changerbutton{
 	background: rgba(160, 160, 160, 0.4);
 	border-width: 0 1px;

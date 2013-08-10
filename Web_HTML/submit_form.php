@@ -1,8 +1,6 @@
 <?php
 $db = new mysqli('localhost', 'appd2dpr_php', '9&3mPMjCJM8+uKy6o', 'appd2dpr_mobileApp');
 
-file_put_contents("submittest.txt", file_get_contents("php://input"));
-
 
 $injson_proc = str_replace("\\", "", $_POST["formsubmission"]);
 $injson = json_decode($injson_proc);
@@ -30,12 +28,13 @@ foreach($injson as $field){
    }
 }
 
-$prepstate = $db->prepare('INSERT INTO submission VALUES (?,NULL,?,?,?,?,?)');
+$prepstate = $db->prepare('INSERT INTO submission VALUES (?,NULL,?,?,?,?,?,?)');
    $userid = $db->real_escape_string($_POST["userID"]);
    $devid = $db->real_escape_string($_POST["deviceID"]);
    $lati = $db->real_escape_string($_POST["latitude"]);
    $longi = $db->real_escape_string($_POST["longitude"]);
-   $prepstate->bind_param("sssiss", $subid, $userid,$devid,$_POST["formID"],$lati,$longi);
+   $name= $db->real_escape_string($_POST["name"]);
+   $prepstate->bind_param("sssiss", $subid, $userid,$devid,$_POST["formID"],$lati,$longi,$name);
    if(!$prepstate->execute()){
    	die('Error: ' . $db->error);
    }

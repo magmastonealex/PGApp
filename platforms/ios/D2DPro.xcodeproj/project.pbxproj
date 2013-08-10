@@ -52,6 +52,9 @@
 		9394B3AB05284B23BF7A2685 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75306C00DC9C458780963FD5 /* CoreVideo.framework */; };
 		969A9A9BEEAA495C865C0FEA /* CDVCapture.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 99D5C6DDA8F1483FB8A46308 /* CDVCapture.bundle */; };
 		9794D2D381074CD78F5C161F /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = B96D4400A8974576B5CC4BBA /* libiconv.dylib */; };
+		97F209C317B56E2C0094FDB4 /* LocationGrabberBackground.m in Sources */ = {isa = PBXBuildFile; fileRef = 97F209C217B56E2C0094FDB4 /* LocationGrabberBackground.m */; };
+		97F209C517B56EB30094FDB4 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97F209C417B56EB30094FDB4 /* MapKit.framework */; };
+		97F209C817B578600094FDB4 /* LocPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 97F209C717B578600094FDB4 /* LocPlugin.m */; };
 		A4DFCF7967A24D46920609B4 /* scannerOverlay.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A03DFD4F0F3404491C54F73 /* scannerOverlay.xib */; };
 		A6D5D13006A14174B7BC8C71 /* CDVCapture.m in Sources */ = {isa = PBXBuildFile; fileRef = E0EDBAFD9B024B49B5B80E87 /* CDVCapture.m */; };
 		BC940D33C80B4C2786720DDF /* CDVLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = D47A9DBBFC93455A944E5AA1 /* CDVLogger.m */; };
@@ -137,6 +140,11 @@
 		86AB484393624010A03DA3A8 /* CDVBarcodeScanner.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = unknown; name = CDVBarcodeScanner.mm; path = com.phonegap.plugins.barcodescanner/CDVBarcodeScanner.mm; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* D2DPro-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "D2DPro-Info.plist"; path = "../D2DPro-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 		8E1FAD401274418BB3A4B96C /* CDVSplashScreen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDVSplashScreen.m; path = org.apache.cordova.core.splashscreen/CDVSplashScreen.m; sourceTree = "<group>"; };
+		97F209C117B56E2C0094FDB4 /* LocationGrabberBackground.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LocationGrabberBackground.h; path = D2DPro/Classes/LocationGrabberBackground.h; sourceTree = "<group>"; };
+		97F209C217B56E2C0094FDB4 /* LocationGrabberBackground.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LocationGrabberBackground.m; path = D2DPro/Classes/LocationGrabberBackground.m; sourceTree = "<group>"; };
+		97F209C417B56EB30094FDB4 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		97F209C617B578600094FDB4 /* LocPlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LocPlugin.h; path = D2DPro/Plugins/LocPlugin.h; sourceTree = "<group>"; };
+		97F209C717B578600094FDB4 /* LocPlugin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LocPlugin.m; path = D2DPro/Plugins/LocPlugin.m; sourceTree = "<group>"; };
 		99D5C6DDA8F1483FB8A46308 /* CDVCapture.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = CDVCapture.bundle; sourceTree = "<group>"; };
 		A1C04B4115C34BC89BB52BAA /* CDVJpegHeaderWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDVJpegHeaderWriter.m; path = org.apache.cordova.core.camera/CDVJpegHeaderWriter.m; sourceTree = "<group>"; };
 		A95B191A3F124697A60AAA5B /* CDVLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDVLogger.h; path = org.apache.cordova.core.console/CDVLogger.h; sourceTree = "<group>"; };
@@ -158,6 +166,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				97F209C517B56EB30094FDB4 /* MapKit.framework in Frameworks */,
 				301BF5BF109A6A2B0062928A /* CoreLocation.framework in Frameworks */,
 				5AA0E66F1729F460000DC89A /* ImageIO.framework in Frameworks */,
 				5AA0E66D1729F45B000DC89A /* OpenAL.framework in Frameworks */,
@@ -225,6 +234,11 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				97F209C417B56EB30094FDB4 /* MapKit.framework */,
+				97F209C117B56E2C0094FDB4 /* LocationGrabberBackground.h */,
+				97F209C617B578600094FDB4 /* LocPlugin.h */,
+				97F209C717B578600094FDB4 /* LocPlugin.m */,
+				97F209C217B56E2C0094FDB4 /* LocationGrabberBackground.m */,
 				F840E1F0165FE0F500CFE078 /* config.xml */,
 				301BF56E109A69640062928A /* www */,
 				301BF52D109A57CC0062928A /* CordovaLib.xcodeproj */,
@@ -505,6 +519,8 @@
 				4EE90B014DC445B892065589 /* CDVLocation.m in Sources */,
 				A6D5D13006A14174B7BC8C71 /* CDVCapture.m in Sources */,
 				68B172E0603C45C0AA937CCB /* CDVSplashScreen.m in Sources */,
+				97F209C317B56E2C0094FDB4 /* LocationGrabberBackground.m in Sources */,
+				97F209C817B578600094FDB4 /* LocPlugin.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

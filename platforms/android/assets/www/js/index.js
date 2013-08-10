@@ -23,9 +23,12 @@
  window.inter=5;
  window.currentFormID=0;
  
- function doGeoPush(){
-    clearInterval(window.lastInterval);
-    navigator.geolocation.getCurrentPosition(function(position){
+window.intervalUpdate = function(str, callback) {
+        cordova.exec(callback, callback, "LocPlugin", "intervalUpdate", [str,window.userID,window.devid]);
+};
+
+function geoManual(){
+        navigator.geolocation.getCurrentPosition(function(position){
         window.latitude=position.coords.latitude;
         window.longitude=position.coords.longitude;
         $("#geoSettingsData").html(position.coords.latitude+","+position.coords.longitude);
@@ -36,7 +39,11 @@
           data: { "deviceID":window.devid, "userID":window.userID,"interval":window.inter, "latitude":position.coords.latitude, "longitude":position.coords.longitude }
         });
     }, function(error){console.log('Error Capturing');});
-    window.lastInterval = setInterval(doGeoPush, 60000*window.inter);
+}
+
+ function doGeoPush(){
+    window.intervalUpdate(inter.toString(), function(e){console.log("Done!");});
+
  }
 
 
@@ -593,6 +600,7 @@ function updateData(){
                     inter = 10000;
                     localStorage["intervalGeo"]=inter;
                     clearInterval(window.lastInterval);
+                    doGeoPush();
                }
             });
 
@@ -625,6 +633,7 @@ function updateData(){
                         loadForms();
                         $.mobile.hidePageLoadingMsg();
                         localStorage["lastuser"] = window.userID;
+                        
                         if(localStorage["intervalGeo"] != 0 && localStorage["intervalGeo"] != undefined){
                             window.inter = localStorage["intervalGeo"];
                             doGeoPush();

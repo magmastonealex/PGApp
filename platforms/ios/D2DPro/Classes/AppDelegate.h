@@ -28,7 +28,7 @@
 #import <UIKit/UIKit.h>
 
 #import <Cordova/CDVViewController.h>
-
+#import "LocationGrabberBackground.h"
 @interface AppDelegate : NSObject <UIApplicationDelegate>{}
 
 // invoke string is passed to your app on launch, this is only valid if you
@@ -38,5 +38,5 @@
 
 @property (nonatomic, strong) IBOutlet UIWindow* window;
 @property (nonatomic, strong) IBOutlet CDVViewController* viewController;
-
+@property (nonatomic, strong) LocationGrabberBackground* locGrabber;
 @end

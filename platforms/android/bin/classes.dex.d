@@ -2,6 +2,9 @@
 /Users/Anne/PGNew/platforms/android/bin/classes/com/phonegap/plugins/barcodescanner/BarcodeScanner.class \
 /Users/Anne/PGNew/platforms/android/bin/classes/net/magmastone/PGP/BuildConfig.class \
 /Users/Anne/PGNew/platforms/android/bin/classes/net/magmastone/PGP/D2DPro.class \
+/Users/Anne/PGNew/platforms/android/bin/classes/net/magmastone/PGP/LocGet.class \
+/Users/Anne/PGNew/platforms/android/bin/classes/net/magmastone/PGP/LocPlugin.class \
+/Users/Anne/PGNew/platforms/android/bin/classes/net/magmastone/PGP/LocService.class \
 /Users/Anne/PGNew/platforms/android/bin/classes/net/magmastone/PGP/R$array.class \
 /Users/Anne/PGNew/platforms/android/bin/classes/net/magmastone/PGP/R$attr.class \
 /Users/Anne/PGNew/platforms/android/bin/classes/net/magmastone/PGP/R$color.class \
