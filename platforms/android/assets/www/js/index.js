@@ -166,7 +166,8 @@ function populate_detail(subID){
                     case "AudioCapture":
                         options += '<tr><td class="ReviewText">'
                         options += '<div >'
-                        options += '<audio src="http://app.d2dpro.com/upload_audio/'+data[iter][1]+'">';
+                        options += '<audio controls>'
+                        options += '<source src="http://app.d2dpro.com/upload_audio/'+data[iter][1]+'">';
                         options += 'Not supported!';
                         options += '</audio>';
                         options += '</div>'
@@ -214,6 +215,11 @@ function updateData(){
             $('#formContent').html("<br>");
             $('#FormName').html($(this).html());
             formIDs = [];
+                    options = "";
+                    options += '<p>Form Name</p>'
+                    options += '<input type="text" id="form-user-name"><br>';
+                    $('#formContent').append(options);
+                    $('#formContent').append("<hr>");
             for (var formPart = 0; formPart < formData.length; formPart++) {
                 switch(formData[formPart][0]){
                     case "text":
@@ -504,7 +510,7 @@ function updateData(){
     
     console.log("FORMSUBMISSION="+JSON.stringify(formValues));
     $.ajaxSetup({async: true});
-    $.post("http://app.d2dpro.com/submit_form.php", {"formsubmission":JSON.stringify(formValues),"formID":window.currentFormID,"deviceID":window.devid,"userID":window.userID, "latitude":window.latitude, "longitude":window.longitude}).done(function(){$.mobile.changePage("#formSelect");$.unblockUI();$.mobile.hidePageLoadingMsg();});
+    $.post("http://app.d2dpro.com/submit_form.php", {"formsubmission":JSON.stringify(formValues),"formID":window.currentFormID,"deviceID":window.devid,"userID":window.userID, "latitude":window.latitude, "longitude":window.longitude, "name":$('#form-user-name').val()}).done(function(){$.mobile.changePage("#formSelect");$.unblockUI();$.mobile.hidePageLoadingMsg();});
     
 }
  var app = {
@@ -552,9 +558,6 @@ function updateData(){
             var dashHeight=(wHeight-d2dHeight)*0.7;
             $("#dashGrid").css("height", dashHeight+"px");
             $("#mapdiv").css("height", wHeight*0.75);
-            
-            
-
 
             $.mobile.listview.prototype.options.headerTheme = "a";
             $.mobile.page.prototype.options.addBackBtn = true;

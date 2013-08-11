@@ -166,7 +166,8 @@ function populate_detail(subID){
                     case "AudioCapture":
                         options += '<tr><td class="ReviewText">'
                         options += '<div >'
-                        options += '<audio src="http://app.d2dpro.com/upload_audio/'+data[iter][1]+'">';
+                        options += '<audio controls>'
+                        options += '<source src="http://app.d2dpro.com/upload_audio/'+data[iter][1]+'" type="audio/3gpp">';
                         options += 'Not supported!';
                         options += '</audio>';
                         options += '</div>'

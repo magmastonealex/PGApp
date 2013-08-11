@@ -40,7 +40,7 @@ $increment = 0;
 $increment_fldnames = 0;
 while($row = $finalResult->fetch_assoc()){
 	
-	if($fieldNames[$increment][1] == "text"){
+	if($fieldNames[$increment_fldnames][1] == "text"){
 		$increment_fldnames=$increment_fldnames+1;
 	}
 	array_push($finalarray, array($fieldNames[$increment_fldnames],$row["submissionValue"]));
