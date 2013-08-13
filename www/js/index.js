@@ -464,7 +464,7 @@ function updateData(){
             
             console.log("Audio Upload path: " + AP);
             filer.upload(AP, encodeURI("http://app.d2dpro.com/upload_audio.php"), function(r){alert("Audio Upload complete");}, function(error){alert("Audio Upload Failed");},options);
-            formValues.push([formData[formPart][1], AudioPathComponents[AudioPathComponents.length-1]]);
+            formValues.push([formData[formPart][1], AudioPathComponents[AudioPathComponents.length-1]+".mp4"]);
             break;
             case "VideoCapture":
 
@@ -482,7 +482,7 @@ function updateData(){
              console.log("Video Upload path: " + AP+" ");
              filer.upload(AP, encodeURI("http://app.d2dpro.com/upload_video.php"), function(r){alert("Video Upload complete");}, function(error){alert("Video Upload Failed");},options);
 
-            formValues.push([formData[formPart][1], AudioPathComponents[AudioPathComponents.length-1]]);
+            formValues.push([formData[formPart][1], AudioPathComponents[AudioPathComponents.length-1]+".mp4"]);
             break;
             case "PictureCapture":
              var AudioPathComponents = $("#PCap-"+formPart+"-Data").html().split("/");
@@ -675,8 +675,7 @@ function updateData(){
                         }
                         console.log(options);
                         $('#entriesList').append(options);
-                            $('#entriesList').trigger("create");
-                            $('#entriesList').listview('refresh');
+                        $('#entriesList').trigger("create");
                         
                         formDetailHandle();
                     });
@@ -702,7 +701,7 @@ function updateData(){
                     
                     if($("#ic1").height() > $("#cfs").height()){
                         var scalefactor = Math.floor(($("#cfs").height()/$("#ic1").height())*100);
-                        $(".windowscale_height").css("width", scalefactor+"%");
+                        $(".windowscale_height").css("width", scalefactor-5+"%");
                     }
                 });
                 $('#mapScreen').on('pageshow',function(event){

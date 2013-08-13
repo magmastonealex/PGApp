@@ -1,2 +1,2 @@
-/Users/Anne/PGNew/platforms/android/bin/AndroidManifest.xml : \
-/Users/Anne/PGNew/platforms/android/AndroidManifest.xml \
+/Users/Alex/Desktop/PGApp/platforms/android/bin/AndroidManifest.xml : \
+/Users/Alex/Desktop/PGApp/platforms/android/AndroidManifest.xml \

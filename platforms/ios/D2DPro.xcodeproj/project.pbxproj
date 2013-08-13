@@ -63,6 +63,10 @@
 		EF51E9CE870A410B9E6210F6 /* CDVFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A3AE9A8D34C49E6BD89A928 /* CDVFile.m */; };
 		F17F87FE647F451DA6830597 /* zxing-all-in-one.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E972D1A2E8D14C4F98D190AF /* zxing-all-in-one.cpp */; };
 		F840E1F1165FE0F500CFE078 /* config.xml in Resources */ = {isa = PBXBuildFile; fileRef = F840E1F0165FE0F500CFE078 /* config.xml */; };
+		FA95A38B17B95DEB00FFA988 /* icon-iPhone.png in Resources */ = {isa = PBXBuildFile; fileRef = FA95A38A17B95DEB00FFA988 /* icon-iPhone.png */; };
+		FA95A38D17B95DED00FFA988 /* icon-retina-iPhone.png in Resources */ = {isa = PBXBuildFile; fileRef = FA95A38C17B95DED00FFA988 /* icon-retina-iPhone.png */; };
+		FA95A38F17B95DF400FFA988 /* icon-iPad.png in Resources */ = {isa = PBXBuildFile; fileRef = FA95A38E17B95DF400FFA988 /* icon-iPad.png */; };
+		FA95A39117B95DF700FFA988 /* icon-iPad-retina.png in Resources */ = {isa = PBXBuildFile; fileRef = FA95A39017B95DF700FFA988 /* icon-iPad-retina.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -159,6 +163,10 @@
 		EDBE71DF675E42BDA98E99BF /* CDVDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDVDevice.h; path = org.apache.cordova.core.device/CDVDevice.h; sourceTree = "<group>"; };
 		F71ECC25A15C4C0AA2443E98 /* CDVFileTransfer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDVFileTransfer.h; path = "org.apache.cordova.core.file-transfer/CDVFileTransfer.h"; sourceTree = "<group>"; };
 		F840E1F0165FE0F500CFE078 /* config.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = config.xml; path = D2DPro/config.xml; sourceTree = "<group>"; };
+		FA95A38A17B95DEB00FFA988 /* icon-iPhone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-iPhone.png"; sourceTree = "<group>"; };
+		FA95A38C17B95DED00FFA988 /* icon-retina-iPhone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-retina-iPhone.png"; sourceTree = "<group>"; };
+		FA95A38E17B95DF400FFA988 /* icon-iPad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-iPad.png"; sourceTree = "<group>"; };
+		FA95A39017B95DF700FFA988 /* icon-iPad-retina.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-iPad-retina.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -234,6 +242,10 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				FA95A39017B95DF700FFA988 /* icon-iPad-retina.png */,
+				FA95A38E17B95DF400FFA988 /* icon-iPad.png */,
+				FA95A38C17B95DED00FFA988 /* icon-retina-iPhone.png */,
+				FA95A38A17B95DEB00FFA988 /* icon-iPhone.png */,
 				97F209C417B56EB30094FDB4 /* MapKit.framework */,
 				97F209C117B56E2C0094FDB4 /* LocationGrabberBackground.h */,
 				97F209C617B578600094FDB4 /* LocPlugin.h */,
@@ -478,6 +490,10 @@
 				30FC414916E50CA1004E6F35 /* icon-72@2x.png in Resources */,
 				A4DFCF7967A24D46920609B4 /* scannerOverlay.xib in Resources */,
 				969A9A9BEEAA495C865C0FEA /* CDVCapture.bundle in Resources */,
+				FA95A38B17B95DEB00FFA988 /* icon-iPhone.png in Resources */,
+				FA95A38D17B95DED00FFA988 /* icon-retina-iPhone.png in Resources */,
+				FA95A38F17B95DF400FFA988 /* icon-iPad.png in Resources */,
+				FA95A39117B95DF700FFA988 /* icon-iPad-retina.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
