@@ -75,7 +75,7 @@ function loadCompanyImage(){
 
 function setupPageClickHandler(){
     $('.formlink').on("tap",function(){
-        $.ajaxSetup({async: false, error: function(error){alert("Error downloading");}});
+        $.ajaxSetup({async: true, error: function(error){alert("Error downloading");}});
                 console.log("BEGIN DOWNLOAD: "+$(this).attr("formID"));
                 window.currentFormID = $(this).attr("formID");
             $.getJSON("http://app.d2dpro.com/get_form_field.php",{'formID':$(this).attr("formID")}).done(function(data){
@@ -88,7 +88,7 @@ function setupPageClickHandler(){
 
 function populate_detail(subID){
 
-    $.ajaxSetup({async: false, error: function(error){alert("Error downloading Detail");}});
+    $.ajaxSetup({async: true, error: function(error){alert("Error downloading Detail");}});
             
         $.getJSON("http://app.d2dpro.com/view_result.php", {"subID":subID}).done(function(data){
             
@@ -663,7 +663,7 @@ function updateData(){
                 
             });
                 $('#entries').on('pagebeforeshow',function(event){
-                    $("#entriesList").html("");
+                  $("#entriesList").html("");
                   $.getJSON("http://app.d2dpro.com/get_form_data.php",{"userID":window.userID}).done(function(data){
                     options = "";
                     for(var iter=0; iter<data.length;iter++){
@@ -672,12 +672,12 @@ function updateData(){
                                 options += '<li><a href="#entries_detail" class="detail_shower" subID="'+data[iter][2][z][1]+'">'+data[iter][2][z][0]+'</a></li>';
                             }
                             options += '</ul></li>';
-                        }
-                        console.log(options);
+                    }
+
+                        console.log("Called pagebeforeshow");
                         $('#entriesList').append(options);
-                            $('#entriesList').trigger("create");
-                            $('#entriesList').listview('refresh');
-                        
+                        $('#entriesList').trigger("create");
+                        $('#entriesList').listview("refresh"); 
                         formDetailHandle();
                     });
                 });

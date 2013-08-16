@@ -675,8 +675,7 @@ function updateData(){
                         }
                         console.log(options);
                         $('#entriesList').append(options);
-                            $('#entriesList').trigger("create");
-                            $('#entriesList').listview('refresh');
+                        $('#entriesList').trigger("create");
                         
                         formDetailHandle();
                     });
