@@ -90,7 +90,7 @@ function setupPageClickHandler(){
                 console.log("Entering form");
                 window.currentFormID = $(this).attr("formID");
                 formData = window.allForms[$(this).attr("formNumber")][2];
-                updateData();
+                updateData($(this).html());
                 console.log("Entering form Done");
     });
 }
@@ -223,17 +223,17 @@ function formDetailHandle(){
 }
 
 
-function updateData(){
+function updateData(name){
      console.log("GRABBING LOCATION JUST IN CASE");
      navigator.geolocation.getCurrentPosition(function(position){window.latitude = position.coords.latitude; window.longitude =position.coords.longitude;}, function(error){alert('Error Capturing Location');});
      console.log("PROCESSING");
             //Populate the form page with proper content here.
             $('#formContent').html("<br>");
-            $('#FormName').html($(this).html());
+            $('#FormName').html(name);
             formIDs = [];
                     options = "";
-                    options += '<form onSubmit="return false;"><p>Form Name</p>'
-                    options += '<input type="text" id="form-user-name" ><br>';
+                    options += '<form onSubmit="return false;">'
+                    options += '<br>';
                     $('#formContent').append(options);
                     $('#formContent').append("<hr>");
             for (var formPart = 0; formPart < formData.length; formPart++) {
@@ -732,7 +732,7 @@ var app = {
                 $.ajax({
                   type: "POST",
                   url: "http://app.d2dpro.com/login.php",
-                  data: {"userid":$('#userIDBox').val(), "password":$('#uPasswordBox').val()},
+                  data: {"userid":$('#userIDBox').val(), "password":$('#uPasswordBox').val(), "deviceID":window.devid},
                   async: true,
                   cache: false,
                   dataType: "text",
@@ -753,8 +753,6 @@ var app = {
                             window.inter = 10;
                             doGeoPush();
                         }
-
-                        $.post("http://app.d2dpro.com/checkin.php", {"deviceID":window.devid,"userID":window.userID});
                     }else{
                         alert(data);
                         $.mobile.hidePageLoadingMsg();
@@ -834,7 +832,7 @@ var app = {
                             for (var dataiter=0; dataiter < data.length; dataiter++){
                             var position = data[dataiter][0]+","+data[dataiter][1];
                             var ourdata=data[dataiter][2];
-                            var addmarkertoeval = "$('#mapdiv').gmap('addMarker', {'position': '"+position+"', 'bounds':true}).click(function(){var thisdata = '"+ourdata+"';populate_detail(thisdata);$('#mapdiv').gmap('openInfoWindow', {'content':'<a href=\"#entries_detail\" data-role=\"button\">More Information</a>'}, this);});"
+                            var addmarkertoeval = "$('#mapdiv').gmap('addMarker', {'position': '"+position+"', 'bounds':true}).click(function(){var thisdata = '"+ourdata+"';populate_detail(thisdata);$('#mapdiv').gmap('openInfoWindow', {'content':'<a href=\"#entries_detail\" data-role=\"button\">"+data[dataiter][3]+"</a>'}, this);});"
                             console.log(addmarkertoeval);
                             eval(addmarkertoeval);
                             }

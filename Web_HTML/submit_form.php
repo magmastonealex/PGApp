@@ -15,7 +15,7 @@ if($db->connect_errno > 0){
     die('Error :  ' . $db->connect_error);
 }
 $subid = md5(uniqid());
-
+$name ="No Name";
 foreach($injson as $field){
   $fieldidquery = "SELECT * FROM form_fields WHERE fldName='".mysqli_real_escape_string($db,$field[0])."';";
   if(!$result = $db->query($fieldidquery)){
@@ -24,7 +24,11 @@ foreach($injson as $field){
   $fid = 0;
   while($resurow=$result->fetch_assoc()){
     $fid = $resurow["formFieldID"];
+    if($resurow["fldStatus"] == 3){
+      $name = $field[1];
+    }
   }
+
   echo $fid;
    $prepstate = $db->prepare('INSERT INTO submission_details VALUES (NULL,?,?,?);');
    $prepstate->bind_param("iss", $fid, mysqli_real_escape_string($db,$field[1]),$subid);
@@ -38,7 +42,6 @@ $prepstate = $db->prepare('INSERT INTO submission VALUES (?,NULL,?,?,?,?,?,?)');
    $devid = $db->real_escape_string($_POST["deviceID"]);
    $lati = $db->real_escape_string($_POST["latitude"]);
    $longi = $db->real_escape_string($_POST["longitude"]);
-   $name= $db->real_escape_string($_POST["name"]);
    $prepstate->bind_param("sssisss", $subid, $userid,$devid,$_POST["formID"],$lati,$longi,$name);
    if(!$prepstate->execute()){
     die('Error: ' . $db->error);

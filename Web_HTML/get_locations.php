@@ -16,7 +16,7 @@ if(!$locations=$db->query($locQuery)){
 }
 $locationsArray=array();
 while($locationRow=$locations->fetch_assoc()){
-	array_push($locationsArray, array($locationRow["latitude"], $locationRow["longitude"], $locationRow["subID"]));
+	array_push($locationsArray, array($locationRow["latitude"], $locationRow["longitude"], $locationRow["subID"], $locationRow["Name"]));
 }
 echo json_encode($locationsArray);
 ?>
