@@ -127,6 +127,7 @@
 /Users/Alex/Desktop/PGApp/platforms/android/assets/www/js/jquery.blockUI.js \
 /Users/Alex/Desktop/PGApp/platforms/android/assets/www/js/jquery.mobile-1.3.2.js \
 /Users/Alex/Desktop/PGApp/platforms/android/assets/www/js/jquery.ui.map.min.js \
+/Users/Alex/Desktop/PGApp/platforms/android/assets/www/js/signature_pad.js \
 /Users/Alex/Desktop/PGApp/platforms/android/assets/www/plugins/org.apache.cordova.core.camera \
 /Users/Alex/Desktop/PGApp/platforms/android/assets/www/plugins/org.apache.cordova.core.device \
 /Users/Alex/Desktop/PGApp/platforms/android/assets/www/plugins/org.apache.cordova.core.file \

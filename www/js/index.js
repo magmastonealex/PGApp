@@ -22,7 +22,8 @@
  var allForms=0;
  window.inter=5;
  window.currentFormID=0;
- 
+ window.formsToSend=[];
+ window.toupload=[];
 window.intervalUpdate = function(str, callback) {
         cordova.exec(callback, callback, "LocPlugin", "intervalUpdate", [str,window.userID,window.devid]);
 };
@@ -48,13 +49,24 @@ function geoManual(){
 
 
 function loadForms(){
-    $.ajaxSetup({async: true, error: function(error){alert("Error downloading");}});
+    $.ajaxSetup({async: true, error: function(error){
+        alert("Using stored data, this might not be the most recent version.");
+        window.allForms = $.parseJSON(localStorage["formList"]);
+        for (var formNumber = 0; formNumber < window.allForms.length; formNumber++) {
+                    formLinkOptions = '<li><a href="#form" class="formlink" formID="'+allForms[formNumber][0]+'" formNumber="'+formNumber+'" data-transition="pop">'+allForms[formNumber][1]+'</a></li>'
+                    $('#linksForm').append(formLinkOptions);
+        }
+        setupPageClickHandler();
+    }});
     $.getJSON("http://app.d2dpro.com/get_form.php", {"userID":window.userID}).done(function(data){
+                $.get("http://app.d2dpro.com/get_form.php", {"userID":window.userID}).done(function(data){
+                    localStorage["formList"] = data;
+                });
                 $('#linksForm').html("");
                 allForms = data;
                 console.log("GOT DATA" + data);
                 for (var formNumber = 0; formNumber < data.length; formNumber++) {
-                    formLinkOptions = '<li><a href="#form" class="formlink" formID="'+allForms[formNumber][0]+'" data-transition="pop">'+allForms[formNumber][1]+'</a></li>'
+                    formLinkOptions = '<li><a href="#form" class="formlink" formID="'+allForms[formNumber][0]+'" formNumber="'+formNumber+'" data-transition="pop">'+allForms[formNumber][1]+'</a></li>'
                     $('#linksForm').append(formLinkOptions);
                 }
                 
@@ -75,14 +87,11 @@ function loadCompanyImage(){
 
 function setupPageClickHandler(){
     $('.formlink').on("tap",function(){
-        $.ajaxSetup({async: true, error: function(error){alert("Error downloading");}});
-                console.log("BEGIN DOWNLOAD: "+$(this).attr("formID"));
+                console.log("Entering form");
                 window.currentFormID = $(this).attr("formID");
-            $.getJSON("http://app.d2dpro.com/get_form_field.php",{'formID':$(this).attr("formID")}).done(function(data){
-                formData = data;
-                console.log("DONE DOWNLOAD");
+                formData = window.allForms[$(this).attr("formNumber")][2];
                 updateData();
-            });      
+                console.log("Entering form Done");
     });
 }
 
@@ -148,7 +157,7 @@ function populate_detail(subID){
                     case "BarcodeCapture":
                         options += '<tr><td class="ReviewText">'
                         options += '<div >'
-                        options += "<b>"+data[iter][1]+"</b>";
+                        options += "<b><p>"+data[iter][1]+"</p></b>";
                         options += '</div>'
                         options += '</td></tr></table></center>'
                         
@@ -174,6 +183,13 @@ function populate_detail(subID){
                         options += '</td></tr></table></center>'
                         
                         break;
+                    case "sign":
+                        options += '<tr><td class="ReviewText">'
+                        options += '<div>'
+                        options +='<img src="'+data[iter][1]+'"></img>';
+                        options += '</div>'
+                        options += '</td></tr></table></center>'
+
                     default:
                         options += '<tr><td>'
                         break;
@@ -216,8 +232,8 @@ function updateData(){
             $('#FormName').html($(this).html());
             formIDs = [];
                     options = "";
-                    options += '<p>Form Name</p>'
-                    options += '<input type="text" id="form-user-name"><br>';
+                    options += '<form onSubmit="return false;"><p>Form Name</p>'
+                    options += '<input type="text" id="form-user-name" ><br>';
                     $('#formContent').append(options);
                     $('#formContent').append("<hr>");
             for (var formPart = 0; formPart < formData.length; formPart++) {
@@ -261,7 +277,14 @@ function updateData(){
                     formIDs.push(["MultipleChoice", "rChoice-"+formPart]);
                     $('#formContent').append(options);
                     break;
-
+                    case "sign":
+                    var options = "";
+                    console.log("Signature");
+                    options += '<div><p>'+formData[formPart][1]+'</p><br><center><canvas id="signcanvas-'+formPart+'" class="signer" style="border-style:solid;border-width:2px;border-color:white"></canvas></center></div>';
+                    formIDs.push(["sign", "signcanvas-"+formPart]);
+                    $('#formContent').append(options);
+                    sipad = new SignaturePad(document.getElementById("signcanvas-"+formPart));
+                    break;
                     case "CheckBoxes":
                     var options = "";
                     console.log("CB");
@@ -312,7 +335,7 @@ function updateData(){
                     window.scannedformpart = $(this).attr("formPart");
                     navigator.device.capture.captureVideo(function(mediaFiles){
                        window.picpath = mediaFiles[0].fullPath;
-                    window.requestFileSystem(LocalFileSystem.TEMPORARY, 0, goMove, function(error){console.log("Could not get temp folder");});
+                    window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, goMove, function(error){console.log("Could not get temp folder");});
                     function goMove(fileSys){
                         window.picRoot = fileSys.root;
                         window.resolveLocalFileSystemURI(window.picpath, renameFile,function(error){window.resolveLocalFileSystemURI("file://"+window.picpath, renameFile,function(error){alert("REALLY FAILED:" + "file://"+window.picpath);})});
@@ -343,7 +366,7 @@ function updateData(){
                     window.scannedformpart = $(this).attr("formPart");
                     navigator.device.capture.captureAudio(function(mediaFiles){
                         window.picpath = mediaFiles[0].fullPath;
-                    window.requestFileSystem(LocalFileSystem.TEMPORARY, 0, goMove, function(error){console.log("Could not get temp folder");});
+                    window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, goMove, function(error){console.log("Could not get temp folder");});
                     function goMove(fileSys){
                         window.picRoot = fileSys.root;
                         window.resolveLocalFileSystemURI(window.picpath, renameFile,function(error){window.resolveLocalFileSystemURI("file://"+window.picpath, renameFile,function(error){alert("REALLY FAILED:" + "file://"+window.picpath);})});
@@ -376,7 +399,7 @@ function updateData(){
                     window.scannedformpart = $(this).attr("formPart");
                     navigator.device.capture.captureImage(function(mediaFiles){
                     window.picpath = mediaFiles[0].fullPath;
-                    window.requestFileSystem(LocalFileSystem.TEMPORARY, 0, goMove, function(error){alert("Could not get temp folder");});
+                    window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, goMove, function(error){alert("Could not get temp folder");});
                     function goMove(fileSys){
                         window.picRoot = fileSys.root;
                         window.resolveLocalFileSystemURI(window.picpath, renameFile,function(error){window.resolveLocalFileSystemURI("file://"+window.picpath, renameFile,function(error){alert("REALLY FAILED:" + "file://"+window.picpath);})});
@@ -418,13 +441,14 @@ function updateData(){
                 }
 
             }
+    $('#formContent').append("</form>");
     console.log("COMPLETE");
     $.mobile.changePage("#form","slide");
     $('#formContent').trigger("create");
 }
 
 
- window.getData = function(){
+window.getData = function(){
     
     $.mobile.allowCrossDomainPages = true;
     $.blockUI({ message: '<p>Submitting Form</p>' });
@@ -450,6 +474,10 @@ function updateData(){
             case "BarcodeCapture":
             formValues.push([formData[formPart][1], $('#'+formIDs[formPart][1]).html()]);
             break;
+            case "sign":
+            signpad = new SignaturePad(document.getElementById("signcanvas-"+formPart));
+            formValues.push([formData[formPart][1],signpad.toDataURL()]);
+            break;
             case "AudioCapture":
              var AudioPathComponents = $("#ACap-"+formPart+"-Data").html().split("/");
                 var AP = $("#ACap-"+formPart+"-Data").html();
@@ -463,7 +491,7 @@ function updateData(){
              var filer = new FileTransfer();
             
             console.log("Audio Upload path: " + AP);
-            filer.upload(AP, encodeURI("http://app.d2dpro.com/upload_audio.php"), function(r){alert("Audio Upload complete");}, function(error){alert("Audio Upload Failed");},options);
+            filer.upload(AP, encodeURI("http://app.d2dpro.com/upload_audio.php"), function(r){alert("Audio Upload complete");}, function(error){alert("Audio Upload Failed. Will upload on next launch"); window.toupload.push(["audio",AP]);localStorage["uploadnext"]=JSON.stringify(window.toupload)},options);
             formValues.push([formData[formPart][1], AudioPathComponents[AudioPathComponents.length-1]+".mp4"]);
             break;
             case "VideoCapture":
@@ -480,7 +508,7 @@ function updateData(){
              var filer = new FileTransfer();
              $.mobile.showPageLoadingMsg("a", "Uploading");
              console.log("Video Upload path: " + AP+" ");
-             filer.upload(AP, encodeURI("http://app.d2dpro.com/upload_video.php"), function(r){alert("Video Upload complete");}, function(error){alert("Video Upload Failed");},options);
+             filer.upload(AP, encodeURI("http://app.d2dpro.com/upload_video.php"), function(r){alert("Video Upload complete");}, function(error){alert("Video Upload Failed. Will upload on next launch"); window.toupload.push(["video",AP]);localStorage["uploadnext"]=JSON.stringify(window.toupload)},options);
 
             formValues.push([formData[formPart][1], AudioPathComponents[AudioPathComponents.length-1]+".mp4"]);
             break;
@@ -498,7 +526,7 @@ function updateData(){
             
             window.ftAuuid="";
             console.log("Picture Upload path: " + AP);
-            filer.upload(AP, encodeURI("http://app.d2dpro.com/upload_pic.php"), function(r){alert("Picture Upload complete");}, function(error){alert("Picture Upload Failed");},options);
+            filer.upload(AP, encodeURI("http://app.d2dpro.com/upload_pic.php"), function(r){alert("Picture Upload complete");}, function(error){alert("Picture Upload Failed. Will upload on next launch"); window.toupload.push(["picture",AP]);localStorage["uploadnext"]=JSON.stringify(window.toupload)},options);
             formValues.push([formData[formPart][1], AudioPathComponents[AudioPathComponents.length-1]]);
             break;
             case "Geolocation":
@@ -509,11 +537,90 @@ function updateData(){
     }
     
     console.log("FORMSUBMISSION="+JSON.stringify(formValues));
-    $.ajaxSetup({async: true});
+    $.ajaxSetup({async: true, error:function(error){
+        alert("Not connected? Will submit form on next connected");
+        window.formsToSend.push([window.currentFormID,window.longitude,window.latitude,$('#form-user-name').val(),JSON.stringify(formValues)]);
+        localStorage["FTS"] = JSON.stringify(window.formsToSend);
+        $.mobile.changePage("#formSelect");
+        $.unblockUI();
+        $.mobile.hidePageLoadingMsg();
+    }});
     $.post("http://app.d2dpro.com/submit_form.php", {"formsubmission":JSON.stringify(formValues),"formID":window.currentFormID,"deviceID":window.devid,"userID":window.userID, "latitude":window.latitude, "longitude":window.longitude, "name":$('#form-user-name').val()}).done(function(){$.mobile.changePage("#formSelect");$.unblockUI();$.mobile.hidePageLoadingMsg();});
     
 }
- var app = {
+
+function uploadSavedContent(){
+    items = $.parseJSON(localStorage["uploadnext"]);
+    for (var i = 0; i < items.length; i++) {
+        switch(items[i][0]){
+            case "audio":
+             var AudioPathComponents = items[i][1].split("/");
+                var AP = items[i][1].html();
+
+              var options = new FileUploadOptions();
+
+               options.fileKey = "upFile";
+               options.fileName = AudioPathComponents[AudioPathComponents.length-1];
+                options.mimeType = "audio/amr";
+
+             var filer = new FileTransfer();
+            
+            console.log("Audio Upload path: " + AP);
+            filer.upload(AP, encodeURI("http://app.d2dpro.com/upload_audio.php"), function(r){alert("Audio Upload complete");}, function(error){alert("Audio Upload Failed. Will upload on next launch"); window.toupload.push(["audio",$("#ACap-"+formPart+"-Data").html()]);localStorage["uploadnext"]=JSON.stringify(window.toupload)},options);
+            break;
+            case "video":
+
+            var AudioPathComponents = items[i][1].split("/");
+                var AP = items[i][1];
+
+              var options = new FileUploadOptions();
+
+               options.fileKey = "upFile";
+               options.fileName = AudioPathComponents[AudioPathComponents.length-1];
+                options.mimeType = "video/3gpp";
+
+             var filer = new FileTransfer();
+             $.mobile.showPageLoadingMsg("a", "Uploading");
+             console.log("Video Upload path: " + AP+" ");
+             filer.upload(AP, encodeURI("http://app.d2dpro.com/upload_video.php"), function(r){alert("Video Upload complete");}, function(error){alert("Video Upload Failed. Will upload on next launch"); window.toupload.push(["video",$("#VCap-"+formPart+"-Data").html()]);localStorage["uploadnext"]=JSON.stringify(window.toupload)},options);
+
+            break;
+            case "picture":
+             var AudioPathComponents = items[i][1].split("/");
+                var AP = items[i][1];
+
+              var options = new FileUploadOptions();
+
+               options.fileKey = "upFile";
+               options.fileName = AudioPathComponents[AudioPathComponents.length-1];
+                options.mimeType = "image/jpg";
+
+             var filer = new FileTransfer();
+            
+            window.ftAuuid="";
+            console.log("Picture Upload path: " + AP);
+            filer.upload(AP, encodeURI("http://app.d2dpro.com/upload_pic.php"), function(r){alert("Picture Upload complete");}, function(error){alert("Picture Upload Failed. Will upload on next launch"); window.toupload.push(["picture",$("#PCap-"+formPart+"-Data").html()]);localStorage["uploadnext"]=JSON.stringify(window.toupload)},options);
+            break;
+        }
+    }
+    localStorage["uploadnext"] = "";
+    $.mobile.hidePageLoadingMsg();
+}
+function uploadSavedForms(){
+    items = $.parseJSON(localStorage["FTS"]);
+    for (var i = 0; i < items.length; i++){
+        $.post("http://app.d2dpro.com/submit_form.php", {"formsubmission":items[i][4],
+            "formID":items[i][0],
+            "deviceID":window.devid,
+            "userID":window.userID,
+            "latitude":items[i][2],
+            "longitude":items[i][1],
+            "name":items[i][3]});
+    }
+    localStorage["FTS"] = "";
+    $.mobile.hidePageLoadingMsg();
+}
+var app = {
     // Application Constructor
     initialize: function() {
         this.bindEvents();
@@ -558,7 +665,8 @@ function updateData(){
             var dashHeight=(wHeight-d2dHeight)*0.7;
             $("#dashGrid").css("height", dashHeight+"px");
             $("#mapdiv").css("height", wHeight*0.75);
-
+            $(".signer").css("height", "300px");
+            $(".signer").css("width", $(window).width()*0.80+"px");
             $.mobile.listview.prototype.options.headerTheme = "a";
             $.mobile.page.prototype.options.addBackBtn = true;
             if(localStorage["lastuser"]){
@@ -624,7 +732,7 @@ function updateData(){
                 $.ajax({
                   type: "POST",
                   url: "http://app.d2dpro.com/login.php",
-                  data: {"userid":$('#userIDBox').val(), "password":$('#uPasswordBox').val()},
+                  data: {"userid":$('#userIDBox').val(), "password":$('#uPasswordBox').val(), "deviceID":window.devid},
                   async: true,
                   cache: false,
                   dataType: "text",
@@ -636,7 +744,8 @@ function updateData(){
                         loadForms();
                         $.mobile.hidePageLoadingMsg();
                         localStorage["lastuser"] = window.userID;
-                        
+                        uploadSavedForms();
+                        uploadSavedContent();
                         if(localStorage["intervalGeo"] != 0 && localStorage["intervalGeo"] != undefined){
                             window.inter = localStorage["intervalGeo"];
                             doGeoPush();
@@ -644,8 +753,6 @@ function updateData(){
                             window.inter = 10;
                             doGeoPush();
                         }
-
-                        $.post("http://app.d2dpro.com/checkin.php", {"deviceID":window.devid,"userID":window.userID});
                     }else{
                         alert(data);
                         $.mobile.hidePageLoadingMsg();
@@ -654,10 +761,23 @@ function updateData(){
                     }
                 },
                 error: function(){
+                    if(localStorage["lastuser"] != undefined){
+                    
+                    alert("Logging in using stored name: " + localStorage["lastuser"]);
+                    
+                    $.mobile.hidePageLoadingMsg();
+                    $('#userIDBox').removeAttr("disabled");
+                    $('#uPasswordBox').removeAttr("disabled");
+                    $.mobile.changePage("#dashboard");
+                    window.userID=localStorage["lastuser"];
+                    loadForms();
+
+                } else{
                     alert("Failed to login. Internet issues?");
                     $.mobile.hidePageLoadingMsg();
                     $('#userIDBox').removeAttr("disabled");
                     $('#uPasswordBox').removeAttr("disabled");
+                }
                 }
                 });
                 
