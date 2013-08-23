@@ -22,13 +22,14 @@ package net.magmastone.PGP;
 import android.os.Bundle;
 import org.apache.cordova.*;
 
+
 public class D2DPro extends DroidGap
 {
     @Override
     public void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        // Set by <content src="index.html" /> in config.xml
+              // Set by <content src="index.html" /> in config.xml
         super.loadUrl(Config.getStartUrl());
         //super.loadUrl("file:///android_asset/www/index.html")
     }

@@ -27,6 +27,7 @@
 
 #import "AppDelegate.h"
 #import "MainViewController.h"
+#import "TestFlight.h"
 
 #import <Cordova/CDVPlugin.h>
 
@@ -77,6 +78,9 @@
         self.viewController = [[[MainViewController alloc] init] autorelease];
 #endif
 
+    
+    [TestFlight takeOff:@"ce5e9693-624c-4e3e-a71a-0ba05e5fb09e"];
+    
     // Set your app's start page by setting the <content src='foo.html' /> tag in config.xml.
     // If necessary, uncomment the line below to override it.
     // self.viewController.startPage = @"index.html";
