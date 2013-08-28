@@ -27,6 +27,7 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+        <activity android:label="Signature Confirmation" android:name=".CaptureSignature" android:theme="@android:style/Theme.Holo.Light.Dialog" />
         <service android:name="net.magmastone.PGP.LocService" />
     </application>
     <uses-sdk android:minSdkVersion="10" android:targetSdkVersion="18" />

@@ -26,6 +26,7 @@
 /Users/Alex/Desktop/PGApp/platforms/android/res/layout/search_book_contents_header.xml \
 /Users/Alex/Desktop/PGApp/platforms/android/res/layout/search_book_contents_list_item.xml \
 /Users/Alex/Desktop/PGApp/platforms/android/res/layout/share.xml \
+/Users/Alex/Desktop/PGApp/platforms/android/res/layout/signature.xml \
 /Users/Alex/Desktop/PGApp/platforms/android/res/layout-land/encode.xml \
 /Users/Alex/Desktop/PGApp/platforms/android/res/layout-land/share.xml \
 /Users/Alex/Desktop/PGApp/platforms/android/res/layout-ldpi/capture.xml \

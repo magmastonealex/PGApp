@@ -17,9 +17,12 @@
 # view res/xml/preferences.xml #generated:98
 -keep class com.google.zxing.client.android.pref.BSPlusPreference { <init>(...); }
 
+# view AndroidManifest.xml #generated:30
+-keep class net.magmastone.PGP.CaptureSignature { <init>(...); }
+
 # view AndroidManifest.xml #generated:6
 -keep class net.magmastone.PGP.D2DPro { <init>(...); }
 
-# view AndroidManifest.xml #generated:30
+# view AndroidManifest.xml #generated:31
 -keep class net.magmastone.PGP.LocService { <init>(...); }
 

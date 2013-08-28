@@ -5,6 +5,7 @@
 	};
 	objectVersion = 46;
 	objects = {
+
 /* Begin PBXBuildFile section */
 		1D3623260D0F684500981E51 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* AppDelegate.m */; };
 		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
@@ -52,9 +53,9 @@
 		9394B3AB05284B23BF7A2685 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75306C00DC9C458780963FD5 /* CoreVideo.framework */; };
 		969A9A9BEEAA495C865C0FEA /* CDVCapture.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 99D5C6DDA8F1483FB8A46308 /* CDVCapture.bundle */; };
 		9794D2D381074CD78F5C161F /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = B96D4400A8974576B5CC4BBA /* libiconv.dylib */; };
-		97F209C317B56E2C0094FDB4 /* LocationGrabberBackground.m in Sources */ = {isa = PBXBuildFile; fileRef = 97F209C217B56E2C0094FDB4 /* LocationGrabberBackground.m */; };
+		97F209C317B56E2C0094FDB4 /* LocationGrabberBackground.m in Sources */ = {isa = PBXBuildFile; fileRef = 97F209C217B56E2C0094FDB4 /* LocationGrabberBackground.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		97F209C517B56EB30094FDB4 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97F209C417B56EB30094FDB4 /* MapKit.framework */; };
-		97F209C817B578600094FDB4 /* LocPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 97F209C717B578600094FDB4 /* LocPlugin.m */; };
+		97F209C817B578600094FDB4 /* LocPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 97F209C717B578600094FDB4 /* LocPlugin.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		A4DFCF7967A24D46920609B4 /* scannerOverlay.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A03DFD4F0F3404491C54F73 /* scannerOverlay.xib */; };
 		A6D5D13006A14174B7BC8C71 /* CDVCapture.m in Sources */ = {isa = PBXBuildFile; fileRef = E0EDBAFD9B024B49B5B80E87 /* CDVCapture.m */; };
 		BC940D33C80B4C2786720DDF /* CDVLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = D47A9DBBFC93455A944E5AA1 /* CDVLogger.m */; };
@@ -63,12 +64,22 @@
 		EF51E9CE870A410B9E6210F6 /* CDVFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A3AE9A8D34C49E6BD89A928 /* CDVFile.m */; };
 		F17F87FE647F451DA6830597 /* zxing-all-in-one.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E972D1A2E8D14C4F98D190AF /* zxing-all-in-one.cpp */; };
 		F840E1F1165FE0F500CFE078 /* config.xml in Resources */ = {isa = PBXBuildFile; fileRef = F840E1F0165FE0F500CFE078 /* config.xml */; };
+		FA2C82D117CD7731006B761B /* fingerTip.png in Resources */ = {isa = PBXBuildFile; fileRef = FA2C82CA17CD7731006B761B /* fingerTip.png */; };
+		FA2C82D217CD7731006B761B /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = FA2C82CB17CD7731006B761B /* README.md */; };
+		FA2C82D317CD7731006B761B /* SignatureView.m in Sources */ = {isa = PBXBuildFile; fileRef = FA2C82CD17CD7731006B761B /* SignatureView.m */; };
+		FA2C82D417CD7731006B761B /* SignatureView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA2C82CE17CD7731006B761B /* SignatureView.xib */; };
+		FA2C82D517CD7731006B761B /* SignatureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA2C82D017CD7731006B761B /* SignatureViewController.m */; };
+		FA2C82D817CD78F3006B761B /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = FA2C82D717CD78F3006B761B /* NSData+Base64.m */; };
 		FA51054B17C7B50A0059F9F1 /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FA51054717C7B50A0059F9F1 /* libTestFlight.a */; };
 		FA51054D17C7B53B0059F9F1 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FA51054C17C7B53B0059F9F1 /* libz.dylib */; };
+		FA81141B17CE30C700761785 /* SVPlugin-iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA81141A17CE30C700761785 /* SVPlugin-iPhone.xib */; };
 		FA95A38B17B95DEB00FFA988 /* icon-iPhone.png in Resources */ = {isa = PBXBuildFile; fileRef = FA95A38A17B95DEB00FFA988 /* icon-iPhone.png */; };
 		FA95A38D17B95DED00FFA988 /* icon-retina-iPhone.png in Resources */ = {isa = PBXBuildFile; fileRef = FA95A38C17B95DED00FFA988 /* icon-retina-iPhone.png */; };
 		FA95A38F17B95DF400FFA988 /* icon-iPad.png in Resources */ = {isa = PBXBuildFile; fileRef = FA95A38E17B95DF400FFA988 /* icon-iPad.png */; };
 		FA95A39117B95DF700FFA988 /* icon-iPad-retina.png in Resources */ = {isa = PBXBuildFile; fileRef = FA95A39017B95DF700FFA988 /* icon-iPad-retina.png */; };
+		FAC0E99717CD682900F8428D /* SVPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = FAC0E99517CD682900F8428D /* SVPlugin.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		FAC0E99817CD682900F8428D /* SVPlugin.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAC0E99617CD682900F8428D /* SVPlugin.xib */; };
+		FAC0E9A517CD6C3000F8428D /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAC0E9A417CD6C3000F8428D /* OpenGLES.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -165,15 +176,29 @@
 		EDBE71DF675E42BDA98E99BF /* CDVDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDVDevice.h; path = org.apache.cordova.core.device/CDVDevice.h; sourceTree = "<group>"; };
 		F71ECC25A15C4C0AA2443E98 /* CDVFileTransfer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDVFileTransfer.h; path = "org.apache.cordova.core.file-transfer/CDVFileTransfer.h"; sourceTree = "<group>"; };
 		F840E1F0165FE0F500CFE078 /* config.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = config.xml; path = D2DPro/config.xml; sourceTree = "<group>"; };
+		FA2C82CA17CD7731006B761B /* fingerTip.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fingerTip.png; sourceTree = "<group>"; };
+		FA2C82CB17CD7731006B761B /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
+		FA2C82CC17CD7731006B761B /* SignatureView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignatureView.h; sourceTree = "<group>"; };
+		FA2C82CD17CD7731006B761B /* SignatureView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignatureView.m; sourceTree = "<group>"; };
+		FA2C82CE17CD7731006B761B /* SignatureView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SignatureView.xib; sourceTree = "<group>"; };
+		FA2C82CF17CD7731006B761B /* SignatureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignatureViewController.h; sourceTree = "<group>"; };
+		FA2C82D017CD7731006B761B /* SignatureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignatureViewController.m; sourceTree = "<group>"; };
+		FA2C82D617CD78F3006B761B /* NSData+Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Base64.h"; sourceTree = "<group>"; };
+		FA2C82D717CD78F3006B761B /* NSData+Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Base64.m"; sourceTree = "<group>"; };
 		FA51054717C7B50A0059F9F1 /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTestFlight.a; sourceTree = "<group>"; };
 		FA51054817C7B50A0059F9F1 /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
 		FA51054917C7B50A0059F9F1 /* TestFlight+AsyncLogging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+AsyncLogging.h"; sourceTree = "<group>"; };
 		FA51054A17C7B50A0059F9F1 /* TestFlight+ManualSessions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+ManualSessions.h"; sourceTree = "<group>"; };
 		FA51054C17C7B53B0059F9F1 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		FA81141A17CE30C700761785 /* SVPlugin-iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "SVPlugin-iPhone.xib"; sourceTree = "<group>"; };
 		FA95A38A17B95DEB00FFA988 /* icon-iPhone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-iPhone.png"; sourceTree = "<group>"; };
 		FA95A38C17B95DED00FFA988 /* icon-retina-iPhone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-retina-iPhone.png"; sourceTree = "<group>"; };
 		FA95A38E17B95DF400FFA988 /* icon-iPad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-iPad.png"; sourceTree = "<group>"; };
 		FA95A39017B95DF700FFA988 /* icon-iPad-retina.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-iPad-retina.png"; sourceTree = "<group>"; };
+		FAC0E99417CD682900F8428D /* SVPlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVPlugin.h; sourceTree = "<group>"; };
+		FAC0E99517CD682900F8428D /* SVPlugin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVPlugin.m; sourceTree = "<group>"; };
+		FAC0E99617CD682900F8428D /* SVPlugin.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SVPlugin.xib; sourceTree = "<group>"; };
+		FAC0E9A417CD6C3000F8428D /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,6 +206,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAC0E9A517CD6C3000F8428D /* OpenGLES.framework in Frameworks */,
 				FA51054D17C7B53B0059F9F1 /* libz.dylib in Frameworks */,
 				97F209C517B56EB30094FDB4 /* MapKit.framework in Frameworks */,
 				301BF5BF109A6A2B0062928A /* CoreLocation.framework in Frameworks */,
@@ -251,8 +277,21 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				FAC0E99417CD682900F8428D /* SVPlugin.h */,
+				FAC0E99517CD682900F8428D /* SVPlugin.m */,
+				FAC0E99617CD682900F8428D /* SVPlugin.xib */,
+				FA81141A17CE30C700761785 /* SVPlugin-iPhone.xib */,
+				FA2C82D617CD78F3006B761B /* NSData+Base64.h */,
+				FA2C82D717CD78F3006B761B /* NSData+Base64.m */,
 				FA95A39017B95DF700FFA988 /* icon-iPad-retina.png */,
 				FA95A38E17B95DF400FFA988 /* icon-iPad.png */,
+				FA2C82CA17CD7731006B761B /* fingerTip.png */,
+				FA2C82CB17CD7731006B761B /* README.md */,
+				FA2C82CC17CD7731006B761B /* SignatureView.h */,
+				FA2C82CD17CD7731006B761B /* SignatureView.m */,
+				FA2C82CE17CD7731006B761B /* SignatureView.xib */,
+				FA2C82CF17CD7731006B761B /* SignatureViewController.h */,
+				FA2C82D017CD7731006B761B /* SignatureViewController.m */,
 				FA95A38C17B95DED00FFA988 /* icon-retina-iPhone.png */,
 				FA95A38A17B95DEB00FFA988 /* icon-iPhone.png */,
 				97F209C417B56EB30094FDB4 /* MapKit.framework */,
@@ -307,6 +346,7 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FAC0E9A417CD6C3000F8428D /* OpenGLES.framework */,
 				FA51054C17C7B53B0059F9F1 /* libz.dylib */,
 				5AEE5B34173C68D80009041E /* CoreLocation.framework */,
 				5AA0E66E1729F460000DC89A /* ImageIO.framework */,
@@ -485,11 +525,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA81141B17CE30C700761785 /* SVPlugin-iPhone.xib in Resources */,
 				F840E1F1165FE0F500CFE078 /* config.xml in Resources */,
 				308D05371370CCF300D202BF /* icon-72.png in Resources */,
 				308D05381370CCF300D202BF /* icon.png in Resources */,
 				308D05391370CCF300D202BF /* icon@2x.png in Resources */,
+				FA2C82D217CD7731006B761B /* README.md in Resources */,
 				1F766FE113BBADB100FB74C0 /* Localizable.strings in Resources */,
+				FAC0E99817CD682900F8428D /* SVPlugin.xib in Resources */,
 				1F766FE213BBADB100FB74C0 /* Localizable.strings in Resources */,
 				302D95F214D2391D003F00A1 /* MainViewController.xib in Resources */,
 				30A0434814DC770100060A13 /* Localizable.strings in Resources */,
@@ -498,6 +541,8 @@
 				3088BBBE154F3926009F9C59 /* Default-Landscape~ipad.png in Resources */,
 				3088BBBF154F3926009F9C59 /* Default-Portrait@2x~ipad.png in Resources */,
 				3088BBC0154F3926009F9C59 /* Default-Portrait~ipad.png in Resources */,
+				FA2C82D117CD7731006B761B /* fingerTip.png in Resources */,
+				FA2C82D417CD7731006B761B /* SignatureView.xib in Resources */,
 				3088BBC1154F3926009F9C59 /* Default@2x~iphone.png in Resources */,
 				3088BBC2154F3926009F9C59 /* Default~iphone.png in Resources */,
 				D4A0D8761607E02300AEF8BB /* Default-568h@2x~iphone.png in Resources */,
@@ -538,10 +583,12 @@
 				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
 				1D3623260D0F684500981E51 /* AppDelegate.m in Sources */,
 				302D95F114D2391D003F00A1 /* MainViewController.m in Sources */,
+				FA2C82D317CD7731006B761B /* SignatureView.m in Sources */,
 				3951397CD3394F2D9F4E7AA6 /* CDVBarcodeScanner.mm in Sources */,
 				F17F87FE647F451DA6830597 /* zxing-all-in-one.cpp in Sources */,
 				D6268981D375482A9B6631FE /* CDVCamera.m in Sources */,
 				3B43A38B9ED14183BF31A018 /* CDVJpegHeaderWriter.m in Sources */,
+				FA2C82D517CD7731006B761B /* SignatureViewController.m in Sources */,
 				BC940D33C80B4C2786720DDF /* CDVLogger.m in Sources */,
 				7FFC467A51864151841BF77E /* CDVDevice.m in Sources */,
 				EF51E9CE870A410B9E6210F6 /* CDVFile.m in Sources */,
@@ -550,7 +597,9 @@
 				A6D5D13006A14174B7BC8C71 /* CDVCapture.m in Sources */,
 				68B172E0603C45C0AA937CCB /* CDVSplashScreen.m in Sources */,
 				97F209C317B56E2C0094FDB4 /* LocationGrabberBackground.m in Sources */,
+				FA2C82D817CD78F3006B761B /* NSData+Base64.m in Sources */,
 				97F209C817B578600094FDB4 /* LocPlugin.m in Sources */,
+				FAC0E99717CD682900F8428D /* SVPlugin.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -613,7 +662,7 @@
 				GCC_THUMB_SUPPORT = NO;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "D2DPro/D2DPro-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/Alex/Desktop/PGApp/platforms/ios/D2DPro,
@@ -648,7 +697,7 @@
 				GCC_THUMB_SUPPORT = NO;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "D2DPro/D2DPro-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/Alex/Desktop/PGApp/platforms/ios/D2DPro,

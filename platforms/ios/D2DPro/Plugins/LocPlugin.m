@@ -9,6 +9,8 @@
 #import "LocPlugin.h"
 #import "AppDelegate.h"
 #import "LocationGrabberBackground.h"
+#import "SVPlugin.h"
+#import "AppDelegate.h"
 @implementation LocPlugin
 
 - (void)intervalUpdate:(CDVInvokedUrlCommand*)command
@@ -22,4 +24,23 @@
     CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:@"Success"];
     [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
 }
+
+- (void)presentView:(CDVInvokedUrlCommand*)command
+{
+    NSLog(@"Displaying signature");
+    NSString* name = @"";
+    
+    if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad){
+        name=@"SVPlugin";
+    }else{
+        name=@"SVPlugin-iPhone";
+        NSLog(@"Using iPhone");
+    }
+    SVPlugin * viewCtl = [[SVPlugin alloc] initWithNibName:name bundle:nil delegate:self];
+    
+    [[(AppDelegate*)[[UIApplication sharedApplication] delegate] viewController] presentModalViewController:viewCtl animated:YES];
+    CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:@"Success"];
+    [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
+}
+
 @end

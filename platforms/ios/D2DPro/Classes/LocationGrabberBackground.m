@@ -7,7 +7,7 @@
 //
 
 #import "LocationGrabberBackground.h"
-
+#import "TestFlight.h"
 @implementation LocationGrabberBackground
 @synthesize locationManager;
 @synthesize devid;
@@ -59,7 +59,7 @@ long triggerTime;
             [request setValue:[NSString stringWithFormat:@"%d", freqMinutes] forHTTPHeaderField:@"interval"];
             [request setValue:[NSString stringWithFormat:@"%f", loc.coordinate.latitude] forHTTPHeaderField:@"latitude"];
             [request setValue:[NSString stringWithFormat:@"%f", loc.coordinate.longitude] forHTTPHeaderField:@"longitude"];
-            NSLog(@"Will post request. %i,%@,%@", freqMinutes, devid, userID);
+            TFLog(@"Will post request. %i,%@,%@", freqMinutes, devid, userID);
         NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
             [connection start];
             
@@ -69,7 +69,7 @@ long triggerTime;
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection
 {
-    NSLog(@"Finished Posting");
+    TFLog(@"Finished Posting");
 }
 
 

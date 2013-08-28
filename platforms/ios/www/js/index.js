@@ -24,10 +24,13 @@
  window.currentFormID=0;
  window.formsToSend=[];
  window.toupload=[];
+ window.signatureMPad=0;
 window.intervalUpdate = function(str, callback) {
         cordova.exec(callback, callback, "LocPlugin", "intervalUpdate", [str,window.userID,window.devid]);
 };
-
+window.openSigner=function(){
+    cordova.exec(function(){alert("success")}, function(){alert("failed")}, "LocPlugin", "presentView", [window.devid]);
+}
 function geoManual(){
         navigator.geolocation.getCurrentPosition(function(position){
         window.latitude=position.coords.latitude;
@@ -47,13 +50,18 @@ function geoManual(){
 
  }
 
-
+function updatedSig(data){
+    //data = 'iVBORw0KGgoAAAANSUhEUgAAAhwAAAB4CAIAAAA2ZrxOAAAAHGlET1QAAAACAAAAAAAAADwAAAAoAAAAPAAAADwAAARKyVZ/CAAABBZJREFUeAHs2euOqyAUBtC+/0vP4aSJIait0q1yWfOLKm5hQf1i5/XnjwABAgQIBAm8guooQ4AAAQIE/oSKTUCAAAECYQJCJYxSIQIECBAQKvYAAQIECIQJCJUwSoUIECBAQKjYAwQIECAQJiBUwigVIkCAAAGhYg8QIECAQJiAUAmjVIgAAQIEhIo9QIAAAQJhAkIljFIhAgQIEBAq9gABAgQIhAkIlTBKhQgQIEBAqNgDBAgQIBAmIFTCKBUiQIAAAaFiDxAgQIBAmIBQCaNUiAABAgSEij1AgAABAmECQiWMUiECBAgQaDdUXlt/FowAAQIEWhboLFRS0LSsaWwECBCYXKDdZ/TWi8r/Y5MvmOkTIECgZYGmn9FypeWtY2wECBBYCwiVtYkjBAgQIFAp0HSopDltvqxUztVlBAgQIHCxQJeh4j8rF+8K5QkQIFApIFQq4VxGgAABAmuB1kMljXjzFzAvK+u1dIQAAQKPCwiVx5fAAAgQIDCOgFAZZy3NhAABAo8LdBwqfgF7fPcYAAECBAoBoVKA+EiAAAEC9QIdhEqa3N7/6r2s1K+8KwkQIHCBgFC5AFVJAgQIzCrQX6iklcpfXGZdOPMmQIBAiwLdh4pfwFrcVsZEgMCsAl2GSlosLyuz7ljzJkCgaQGh0vTyGBwBAgT6EhAqfa2X0RIgQKBpAaHS9PIYHAECBPoSGCFU/K++rz1ntAQIDCzQa6ikJfG/+oH3pakRINCpwCCh4mWl0/1n2AQIDCYgVAZbUNMhQIDAkwIdh0pi8wvYk3vHvQkQILASGCdU/AK2WlwHCBAgcLdA36GStLys3L1l3I8AAQL7AkOFipeV/YV2hgABAncI9BcqRXLkbyrFqTv83GMmAZttptU210qB7kMlzTv/qlcyuGxEgXxjVLTfJB8uHNHMnAj8KtBHqKRZ5t/tYtL5qdQuzvo4rUCxMcI/Tgtr4gQ+CHTzCM6fCOv5fD677u/IDAL5rriiPYOhORI4KzBgqKTHx1mFs/2veELlNc+OR/9NgZz0uvbmrR0kMK3A5c/fKNn8obCumZ9N7XWHH48U9e/5+OOYXV4IWLUCxEcCVwjEP3+vGGWqmT8RNm/xtcPmVV8P5mUfaX8doQ5fBR5ZuOWmX4enA4GRBMYMlfR9/n2RlodCI43fZzRJhevWKwEGFp9kOUxzNoGAh+89ZPmXee+OR/rsXZsfz+vstfP+ge292y3HA+81RqlFpq6RIxyvsFx1/JLjPZfiGgR6FBg2VNJ3uHo99r7/1QXPXrg3gOX42YJD9l80TjWOUBwvWFQ7fuGHnkVNHwn0JVD/5L1znh++gbGn3pNa17xzsvm91iN5H8n7TNLeozh4/LjSwYJ5t73ieZ/j7b1qjhPoQuAfAAAA///R8ZB9AAAKAElEQVTtXOEO5iYMu/d/6Y2JKfOSkKYUWuDz/QrBcRxDP6TT6f78tcOfP9/9WcEeO/0Kqt7RYGfPZJ5oU/xCpfK4FIwEuHs3FhIGdGBHB/4sLvruBzkJv4JLONoKeqZqwGEz8UAx2M6lRYCKBa/yshQAAzpwqgN8VOR7TwUf3gPU96GMd1rjsEE8Qwy2C/gRlokDKm7RgZMc2PJRuTwA9ZFf4itAVcXLJOdAGOoZSLsaFY6p4nekYtNMR8S7cYaEGDpwjANLPyruJ1qSGfexNoNHDNZexlg4NUYlUxt9Qo7TqfhlPdg90xrxrTjDQwwdOMOB1A/0V6M++URtbX4KW5vJ5Pn7kKihj2HNKpxLxZ8IRg15AVgVxHlCIunApg4s+qgEn2XZynuNPH1VlaHWIttlnG+XRGLHZMnKMBynFX+iH8XkBWBVJs4zE0kH9nLgxg/0m4PFn2VeieLJFxakqi1LKbdbQUaqHgbY4iHVCuU4joq/lYdiMkoQX+NaZfOYyTATQwd2dOC/H8ql1OPnV+KiDTN5qVhVebpr3XLFHy/zrV0kkruAXZI4iIpXGAElZfQgvsaqygIwo8Bc0oHdHTj8USnHgx+w+83HR5gst7AgE3d0dxWbi1k8qUbA5VLK88IQWeN4EIuXTFzIXTqwkQOLPirFQfnebHDL30/KbVM3kx8Ey/NViyBRvIoXUYgyUCHmbYzIGluMm7GFknHxTNKBjRw4/1GphyEf7a2PXw5SlZelbMWBLXQzt0hi8Dq77qQquY5aUYIKJakCxNRYAeKlLVeZuJy7dGBlB7I/jl/NoD62ux+wWz4vGbiUadoqV7Ut2Dp5Jdgu15FqlaBau1sziKlxCxnkLYlkgqpgS8pLEMC4RQemOrD65cPvRGLriGytGaDgjELElxhL1NZqS5TqxqsJtnpQtt2tmQymVWvzyKZiCw4yqrYsAzC36MAkBzqvnb2+826w7YVe2N0DMsGAuLVOfOn5OlIvleAsLhgBJXYxHUlFi8skG5bUOFlIGB0Y6EDnJ2Gvr2QGiqtUwvyDQXEApx7iLRK+Fg9R/g4JeuJ2vAS4Vfkk8qs4JlFgXMaF3KUDAx0Y/6jIVR6pUkjvBy0ZlqmFbOUtAzOxAy0nl8rjCEoYbtVYAYYsbReVibso8DydsQzu/qwDEx+VgbfZ/U5s8tYp2vKHgluEzFsHbp3Uy2BUq1rjVo0VYODS9pJMsovgJUgWEkYHnjjQ+ajUlnJZM8EjlWGDSczdtKFYbv7jQLe3LxSqE8KOuIX5qTE2VXHcV4FlGVdxlw48dGDM5y339TK4K/eSUAB3mREvJBggII6x6jfjwJ/AkKDqwy0lWJS08gKYGqjuuIz7IrLGMZ67dOChA2MelSrCXt8gk9QdMLhbSVoFc6lqUiHrMsB/u4VqXSUIuIxdhlbyCdtl7csAnFFau0nZfS1AGSp2NShMXbpIJunAEAdGPipVkHuJW8nLGeJCu3tJGAMs4SKZIvuWEouPB7/cvex+yVABMU+SZDZMiSztbGa2hha/UmKXbqGFlYyLZJIOPHRg/MVyr+9lsjXGZaELaLHFeZeqO9nq1U1YCwttB0NLTDKf6fg+VbJjHwxHLgy4LHEf58AqpQeXrS6IqXELyTwdeOLAxM/DXuIg05ohKOFWhwMtn+O8bVTxKh+TqF1V6y5VyZtLV09NvinjsldeZwt52YIAOnDLgYmPStXRuspuviXdBR+ZLA68M1fLaptXehAQbCEsjhWJXcblk3atDMlM6viEVrTZQNFeAhSeSzpw14HBj4q9sh0ZO0MHyaYldvaSmTeL204lVfdgV23dWqou7vIW4RCwlTGEdh6JFVwzqqOFKQCXdKDbgRUfFbnxMpVkSiBJDBDAuMMBNFPFyKa2yjLetfjLDBK24kuSUQArYBTzJB4rWGVqX5XE5SRhpP0dB/zf6O758XYOj/OqbOug1oJ/PINeKStwq8YIsLvdGaRtxd3ktwqx+63CD8Go2Y2rtmDrQ/FsvbsDOz0q8g1cmi5IG7RqLfLHM9UoNMG17hLgVuWTyK/iPEk3UnUsy26q9wut+HzmfbXseIwD33wk+cudQbYOI6htlYzNWwEtfotcM4P6rULcHR7bdpIZ3ksIpYUEsrVRIOJVICOofFnKFgM6cNeBL2+PvcoPM63hLW0LOSP/SXfb9IXMDPcUZzCFQj5ftno9Z/6EoTVOyVc9FvCJTjbd3YEvH5XWVbaXuzsTt3jn8Kz4d/pmulhtTzKZjqMwgc7ZLUbxf8IT+Ga3PlHIprs7cPijIt9JOSeJVfDOEX7S9O5oSmR+ebfRc/yltictYvInzOvUxjPi7jqaqWQLB75/VMQmvMfvxyJjUqAmmtRlLK3S3FqObXqLrSXJ5pO0ttDNJNlWhrlzxcmVx6G2dRxY6FGppsTXet7uC0eC4l9oN6oFynbjUY2e8LjC3GTcxZYIHrckuXuAQ13Guw9L/e84cOyjUuy7/EhcwDzfVbt5jYYzK+XucnjTDkJXmJu05C6sJAVpAbJ1QGCna2UOGJYjTHXgv29mapsO8tadTuaxY7IEYVg+MH6hxUC1QoWy87GUvx/kRQZIJdsiFeCApZ2xlTlgWI4wyYHlHhW8xGVmXPbFYtytcqkaGygNY8lfYFP6Hy5fEFxbdOhsaUOqFmb3PM7YinefkfrnObD6oyKTty53Mi88JUiWFBhWDYlV6yGcH5Kocd5Zds/7RJ40VSSSPzJQw9rlkVNzqIcOjP/dfCoIbi5SQfpRiJw1vqSzJU8y2O4Jz1K1ONRPxUudwiQxwYFO6kjarR3Y5lGpLgf3++6WOrZMuSrpW2KjPoYtqnDMg+MtzmKUSHuOo5jJc5IDyz0qSXPt/VaZwqMy7tK2c2GYtCW3MgOpbvVdCowmfBu7tuQlueVnJ9GcsyfldH0O7Pqo1Gnxfrfigmxtufkkc5/dSkw3yW8WuufVkbzrXtDiLhXxdOB4B/Z+VOR4gs9+0pa0TgaujGQtYUs5gEe5lDCKoQMrOHDIo1KtxK/9hThzfrGMDAMxdIAO0IGNHDjqUam+x7/j83bVqWcaqRIu6QAdoAO7O3DgoyJHkvlZF0ytkuXUQBQyoAN0gA4c5sDJj0o9quTz4J5rsjYJc1swSQfoAB04yQE+Kv++CHcPNfmQVNhdcuLpAB2gA5s6cP6jIgcTPwMC6wtc8j4qVtEBOkAH9nXghx6VfQ+JyukAHaADuzjAR2WXk6JOOkAH6MAGDvBR2eCQKJEO0AE6sIsDfFR2OSnqpAN0gA787z+dWtMOPiprngtV0QE6QAccB/DfBDnbC6T4qCxwCJRAB+gAHcg5wEcl5xNRdIAO0AE6kHCAj0rCJELoAB2gA3TgFAf411+nnCTnoAN0gA4s4AAflQUOgRLoAB2gA6c48Dfyk+iJ7El6OAAAAABJRU5ErkJggg==';
+    console.log("Updated Signature "+data);
+    window.signaturedata = data;
+    $("#signatureImage").attr("src", "data:image/png;base64,"+data);
+}
 function loadForms(){
     $.ajaxSetup({async: true, error: function(error){
         alert("Using stored data, this might not be the most recent version.");
         window.allForms = $.parseJSON(localStorage["formList"]);
         for (var formNumber = 0; formNumber < window.allForms.length; formNumber++) {
-                    formLinkOptions = '<li><a href="#form" class="formlink" formID="'+allForms[formNumber][0]+'" formNumber="'+formNumber+'" data-transition="pop">'+allForms[formNumber][1]+'</a></li>'
+                    formLinkOptions = '<li><a href="#form" class="formlink" formID="'+allForms[formNumber][0]+'" formNumber="'+formNumber+'" data-transition="slide">'+allForms[formNumber][1]+'</a></li>'
                     $('#linksForm').append(formLinkOptions);
         }
         setupPageClickHandler();
@@ -66,7 +74,7 @@ function loadForms(){
                 allForms = data;
                 console.log("GOT DATA" + data);
                 for (var formNumber = 0; formNumber < data.length; formNumber++) {
-                    formLinkOptions = '<li><a href="#form" class="formlink" formID="'+allForms[formNumber][0]+'" formNumber="'+formNumber+'" data-transition="pop">'+allForms[formNumber][1]+'</a></li>'
+                    formLinkOptions = '<li><a href="#form" class="formlink" formID="'+allForms[formNumber][0]+'" formNumber="'+formNumber+'" data-transition="slide">'+allForms[formNumber][1]+'</a></li>'
                     $('#linksForm').append(formLinkOptions);
                 }
                 
@@ -80,6 +88,7 @@ function loadCompanyImage(){
     $.ajaxSetup({async: true, error: function(error){alert("Error downloading");}});
     $.post("http://app.d2dpro.com/get_logo.php", {'userID':window.userID}).done(function(data){
         $("#companylogo").attr("src", data);
+        //alert("D:loaded_logo");
     });
     
 }
@@ -96,11 +105,11 @@ function setupPageClickHandler(){
 }
 
 function populate_detail(subID){
-
+    //alert("D:popping");
     $.ajaxSetup({async: true, error: function(error){alert("Error downloading Detail");}});
             
         $.getJSON("http://app.d2dpro.com/view_result.php", {"subID":subID}).done(function(data){
-            
+            //alert("D:loaded");
             console.log(JSON.stringify(data));
             $("#entries_detail_content").html("");
 
@@ -204,6 +213,7 @@ function populate_detail(subID){
 
         });
         console.log($("#entries_detail_content").html());
+        //alert("D:done");
         $("#entries_detail").trigger("create");
         window.hasinitteddetail = true;
 }
@@ -232,7 +242,6 @@ function updateData(name){
             $('#FormName').html(name);
             formIDs = [];
                     options = "";
-                    options += '<form onSubmit="return false;">'
                     options += '<br>';
                     $('#formContent').append(options);
                     $('#formContent').append("<hr>");
@@ -247,7 +256,7 @@ function updateData(name){
                     console.log("TextInput");
                     options = "";
                     options += '<p>'+formData[formPart][1]+'</p>'
-                    options += '<input type="text" id="text-'+formPart+'"><br>';
+                    options += '<input type="text" onSubmit="return false;" id="text-'+formPart+'"><br>';
                     $('#formContent').append(options);
                     formIDs.push(["TextInput", "text-"+formPart]);
                     break;
@@ -280,10 +289,11 @@ function updateData(name){
                     case "sign":
                     var options = "";
                     console.log("Signature");
-                    options += '<div><p>'+formData[formPart][1]+'</p><br><center><canvas id="signcanvas-'+formPart+'" class="signer" style="border-style:solid;border-width:2px;border-color:white"></canvas></center></div>';
-                    formIDs.push(["sign", "signcanvas-"+formPart]);
+                    options += '<div><p>'+formData[formPart][1]+'</p><br><center><a onclick="window.openSigner();" data-role="button">Sign</a><br><img id="signatureImage"src=""></img></center></div>';
+                    formIDs.push(["sign", "know"]);
                     $('#formContent').append(options);
-                    sipad = new SignaturePad(document.getElementById("signcanvas-"+formPart));
+                    //$("#signcanvas-"+formPart).css("background", "#888");
+                    //sipad = new SignaturePad(document.getElementById("signcanvas-"+formPart));
                     break;
                     case "CheckBoxes":
                     var options = "";
@@ -441,7 +451,6 @@ function updateData(name){
                 }
 
             }
-    $('#formContent').append("</form>");
     console.log("COMPLETE");
     $.mobile.changePage("#form","slide");
     $('#formContent').trigger("create");
@@ -453,6 +462,7 @@ window.getData = function(){
     $.mobile.allowCrossDomainPages = true;
     $.blockUI({ message: '<p>Submitting Form</p>' });
     formValues=[];
+    window.bailForm = false;
     for (var formPart = 0; formPart < formIDs.length; formPart++) {
         switch(formIDs[formPart][0]){
             case "select":
@@ -475,13 +485,17 @@ window.getData = function(){
             formValues.push([formData[formPart][1], $('#'+formIDs[formPart][1]).html()]);
             break;
             case "sign":
-            signpad = new SignaturePad(document.getElementById("signcanvas-"+formPart));
-            formValues.push([formData[formPart][1],signpad.toDataURL()]);
+            //signpad = new SignaturePad(document.getElementById("signcanvas-"+formPart));
+            formValues.push([formData[formPart][1],"data:image/png;base64,"+window.signaturedata]);
             break;
             case "AudioCapture":
              var AudioPathComponents = $("#ACap-"+formPart+"-Data").html().split("/");
                 var AP = $("#ACap-"+formPart+"-Data").html();
-
+                if($("#ACap-"+formPart+"-Data").html() ==""){
+                    if(!confirm("Sure you don't want to add audio?")){
+                        window.bailForm = true;
+                    }
+                }
               var options = new FileUploadOptions();
 
                options.fileKey = "upFile";
@@ -498,7 +512,11 @@ window.getData = function(){
 
             var AudioPathComponents = $("#VCap-"+formPart+"-Data").html().split("/");
                 var AP = $("#VCap-"+formPart+"-Data").html();
-
+                if($("#VCap-"+formPart+"-Data").html() ==""){
+                    if(!confirm("Sure you don't want to add video?")){
+                        window.bailForm = true;                    
+                    }
+                }
               var options = new FileUploadOptions();
 
                options.fileKey = "upFile";
@@ -515,7 +533,11 @@ window.getData = function(){
             case "PictureCapture":
              var AudioPathComponents = $("#PCap-"+formPart+"-Data").html().split("/");
                 var AP = $("#PCap-"+formPart+"-Data").html();
-
+                if($("#PCap-"+formPart+"-Data").html() ==""){
+                    if(!confirm("Sure you don't want to add a picture?")){
+                        window.bailForm = true;
+                    }
+                }
               var options = new FileUploadOptions();
 
                options.fileKey = "upFile";
@@ -535,7 +557,7 @@ window.getData = function(){
             break;
         }
     }
-    
+    if(window.bailForm == false){
     console.log("FORMSUBMISSION="+JSON.stringify(formValues));
     $.ajaxSetup({async: true, error:function(error){
         alert("Not connected? Will submit form on next connected");
@@ -546,7 +568,11 @@ window.getData = function(){
         $.mobile.hidePageLoadingMsg();
     }});
     $.post("http://app.d2dpro.com/submit_form.php", {"formsubmission":JSON.stringify(formValues),"formID":window.currentFormID,"deviceID":window.devid,"userID":window.userID, "latitude":window.latitude, "longitude":window.longitude, "name":$('#form-user-name').val()}).done(function(){$.mobile.changePage("#formSelect");$.unblockUI();$.mobile.hidePageLoadingMsg();});
-    
+    } else{
+        console.log("Did not submit form");
+        $.unblockUI();
+        $.mobile.hidePageLoadingMsg();
+    }
 }
 
 function uploadSavedContent(){
@@ -620,6 +646,10 @@ function uploadSavedForms(){
     localStorage["FTS"] = "";
     $.mobile.hidePageLoadingMsg();
 }
+function doDrawing() {
+
+}
+
 var app = {
     // Application Constructor
     initialize: function() {
@@ -659,14 +689,12 @@ var app = {
             $.mobile.page.prototype.options.addBackBtn = true;
         });
         $(document).ready(function(){
-
+            //window.signatureMPad = new SignatureCapture("signaturecanvas");
             var wHeight = $(window).height();
             var d2dHeight = $("#d2dheight").height();
             var dashHeight=(wHeight-d2dHeight)*0.7;
             $("#dashGrid").css("height", dashHeight+"px");
             $("#mapdiv").css("height", wHeight*0.75);
-            $(".signer").css("height", "300px");
-            $(".signer").css("width", $(window).width()*0.80+"px");
             $.mobile.listview.prototype.options.headerTheme = "a";
             $.mobile.page.prototype.options.addBackBtn = true;
             if(localStorage["lastuser"]){
@@ -676,14 +704,16 @@ var app = {
             }
             $('#deviceident').html(window.devid);
             $.mobile.allowCrossDomainPages = true;
+
+            $("#formContent").submit(function(){
+                return false;
+            });
             
             $('.changerbutton').on('tap', function(event){
                 var togoto = $(event.target).attr("goto");
-                console.log(event.target);
-                console.log(togoto);
-                console.log(event.target.id);
                 $.mobile.changePage(togoto);
             });
+
 
 
 
@@ -825,6 +855,16 @@ var app = {
                         $(".windowscale_height").css("width", scalefactor-5+"%");
                     }
                 });
+                $('#signhere').on('pagebeforeshow',function(event){
+                    $("#signaturePage").height(300);
+                    
+                });
+                $('#signhere').on('pageshow',function(event){
+                    $("#signaturePage").jSignature();
+                    $("#signaturePage").jSignature("reset");
+                });
+                
+                
                 $('#mapScreen').on('pageshow',function(event){
                     $('#mapdiv').gmap({'disableDefaultUI':true}).bind('init',function(event,map){
                         $.getJSON( 'http://app.d2dpro.com/get_locations.php',{"userID":window.userID}).done(function(data) {

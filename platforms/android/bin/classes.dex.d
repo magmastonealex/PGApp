@@ -1,6 +1,11 @@
 /Users/Alex/Desktop/PGApp/platforms/android/bin/classes.dex : \
 /Users/Alex/Desktop/PGApp/platforms/android/bin/classes/com/phonegap/plugins/barcodescanner/BarcodeScanner.class \
 /Users/Alex/Desktop/PGApp/platforms/android/bin/classes/net/magmastone/PGP/BuildConfig.class \
+/Users/Alex/Desktop/PGApp/platforms/android/bin/classes/net/magmastone/PGP/CaptureSignature$1.class \
+/Users/Alex/Desktop/PGApp/platforms/android/bin/classes/net/magmastone/PGP/CaptureSignature$2.class \
+/Users/Alex/Desktop/PGApp/platforms/android/bin/classes/net/magmastone/PGP/CaptureSignature$3.class \
+/Users/Alex/Desktop/PGApp/platforms/android/bin/classes/net/magmastone/PGP/CaptureSignature$signature.class \
+/Users/Alex/Desktop/PGApp/platforms/android/bin/classes/net/magmastone/PGP/CaptureSignature.class \
 /Users/Alex/Desktop/PGApp/platforms/android/bin/classes/net/magmastone/PGP/D2DPro.class \
 /Users/Alex/Desktop/PGApp/platforms/android/bin/classes/net/magmastone/PGP/LocGet.class \
 /Users/Alex/Desktop/PGApp/platforms/android/bin/classes/net/magmastone/PGP/LocPlugin.class \
