@@ -119,6 +119,7 @@
 /Users/Alex/Desktop/PGApp/platforms/android/assets/www/img/Background-image-lighter.jpg \
 /Users/Alex/Desktop/PGApp/platforms/android/assets/www/img/Background-image-XL-lighter.jpg \
 /Users/Alex/Desktop/PGApp/platforms/android/assets/www/img/background.jpg.jpg \
+/Users/Alex/Desktop/PGApp/platforms/android/assets/www/img/background.png \
 /Users/Alex/Desktop/PGApp/platforms/android/assets/www/img/d2dpro.png \
 /Users/Alex/Desktop/PGApp/platforms/android/assets/www/img/logo.png \
 /Users/Alex/Desktop/PGApp/platforms/android/assets/www/js/assets \
