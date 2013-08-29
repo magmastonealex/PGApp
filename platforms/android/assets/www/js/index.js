@@ -195,7 +195,7 @@ function populate_detail(subID){
                     case "sign":
                         options += '<tr><td class="ReviewText">'
                         options += '<div>'
-                        options +='<img src="'+data[iter][1]+'"></img>';
+                        options +='<img style="max-height:100px"src="'+data[iter][1]+'"></img>';
                         options += '</div>'
                         options += '</td></tr></table></center>'
 
@@ -289,7 +289,7 @@ function updateData(name){
                     case "sign":
                     var options = "";
                     console.log("Signature");
-                    options += '<div><p>'+formData[formPart][1]+'</p><br><center><a onclick="window.openSigner();" data-role="button">Sign</a><br><img id="signatureImage"src=""></img></center></div>';
+                    options += '<div><p>'+formData[formPart][1]+'</p><br><center><a onclick="window.openSigner();" data-role="button">Sign</a><br><img style="max-height:100px;"id="signatureImage"src=""></img></center></div>';
                     formIDs.push(["sign", "know"]);
                     $('#formContent').append(options);
                     //$("#signcanvas-"+formPart).css("background", "#888");
@@ -463,6 +463,7 @@ window.getData = function(){
     $.blockUI({ message: '<p>Submitting Form</p>' });
     formValues=[];
     window.bailForm = false;
+    window.skipFailed=false;
     for (var formPart = 0; formPart < formIDs.length; formPart++) {
         switch(formIDs[formPart][0]){
             case "select":
@@ -494,6 +495,9 @@ window.getData = function(){
                 if($("#ACap-"+formPart+"-Data").html() ==""){
                     if(!confirm("Sure you don't want to add audio?")){
                         window.bailForm = true;
+                        window.skipFailed=true;
+                    }else{
+                        window.skipFailed=true;
                     }
                 }
               var options = new FileUploadOptions();
@@ -505,7 +509,11 @@ window.getData = function(){
              var filer = new FileTransfer();
             
             console.log("Audio Upload path: " + AP);
-            filer.upload(AP, encodeURI("http://app.d2dpro.com/upload_audio.php"), function(r){alert("Audio Upload complete");}, function(error){alert("Audio Upload Failed. Will upload on next launch"); window.toupload.push(["audio",AP]);localStorage["uploadnext"]=JSON.stringify(window.toupload)},options);
+            filer.upload(AP, encodeURI("http://app.d2dpro.com/upload_audio.php"), function(r){alert("Audio Upload complete");}, function(error){if(!window.skipFailed){
+                alert("Audio Upload Failed. Will upload on next launch");
+                window.toupload.push(["audio",AP]);
+                localStorage["uploadnext"]=JSON.stringify(window.toupload)
+            }else{window.skipFailed=false;}},options);
             formValues.push([formData[formPart][1], AudioPathComponents[AudioPathComponents.length-1]+".mp4"]);
             break;
             case "VideoCapture":
@@ -515,6 +523,9 @@ window.getData = function(){
                 if($("#VCap-"+formPart+"-Data").html() ==""){
                     if(!confirm("Sure you don't want to add video?")){
                         window.bailForm = true;                    
+                        window.skipFailed=true;
+                    }else{
+                        window.skipFailed=true;
                     }
                 }
               var options = new FileUploadOptions();
@@ -526,7 +537,7 @@ window.getData = function(){
              var filer = new FileTransfer();
              $.mobile.showPageLoadingMsg("a", "Uploading");
              console.log("Video Upload path: " + AP+" ");
-             filer.upload(AP, encodeURI("http://app.d2dpro.com/upload_video.php"), function(r){alert("Video Upload complete");}, function(error){alert("Video Upload Failed. Will upload on next launch"); window.toupload.push(["video",AP]);localStorage["uploadnext"]=JSON.stringify(window.toupload)},options);
+             filer.upload(AP, encodeURI("http://app.d2dpro.com/upload_video.php"), function(r){alert("Video Upload complete");}, function(error){if(!window.skipFailed){alert("Video Upload Failed. Will upload on next launch"); window.toupload.push(["video",AP]);localStorage["uploadnext"]=JSON.stringify(window.toupload)}else{window.skipFailed=false;}},options);
 
             formValues.push([formData[formPart][1], AudioPathComponents[AudioPathComponents.length-1]+".mp4"]);
             break;
@@ -536,6 +547,9 @@ window.getData = function(){
                 if($("#PCap-"+formPart+"-Data").html() ==""){
                     if(!confirm("Sure you don't want to add a picture?")){
                         window.bailForm = true;
+                        window.skipFailed=true;
+                    }else{
+                        window.skipFailed=true;
                     }
                 }
               var options = new FileUploadOptions();
@@ -544,11 +558,11 @@ window.getData = function(){
                options.fileName = AudioPathComponents[AudioPathComponents.length-1];
                 options.mimeType = "image/jpg";
 
-             var filer = new FileTransfer();
+            var filer = new FileTransfer();
             
             window.ftAuuid="";
             console.log("Picture Upload path: " + AP);
-            filer.upload(AP, encodeURI("http://app.d2dpro.com/upload_pic.php"), function(r){alert("Picture Upload complete");}, function(error){alert("Picture Upload Failed. Will upload on next launch"); window.toupload.push(["picture",AP]);localStorage["uploadnext"]=JSON.stringify(window.toupload)},options);
+            filer.upload(AP, encodeURI("http://app.d2dpro.com/upload_pic.php"), function(r){alert("Picture Upload complete");}, function(error){if(!window.skipFailed){alert("Picture Upload Failed. Will upload on next launch"); window.toupload.push(["picture",AP]);localStorage["uploadnext"]=JSON.stringify(window.toupload)}else{window.skipFailed=false;}},options);
             formValues.push([formData[formPart][1], AudioPathComponents[AudioPathComponents.length-1]]);
             break;
             case "Geolocation":

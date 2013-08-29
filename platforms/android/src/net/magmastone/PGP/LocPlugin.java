@@ -12,6 +12,7 @@ import android.view.Gravity;
 import android.widget.Toast;
 import android.util.Log;
 import android.app.Activity;
+import java.lang.Exception;
 
 public class LocPlugin extends CordovaPlugin {
     public static final int SIGNATURE_ACTIVITY = 3;
@@ -46,10 +47,14 @@ public class LocPlugin extends CordovaPlugin {
         public void onActivityResult(int requestCode, int resultCode, Intent data)
     {
         switch(requestCode) {
-        case SIGNATURE_ACTIVITY: 
+        case SIGNATURE_ACTIVITY:
+                    try{
                     Log.i("D2DPro:Sign", "Got signature back.");
                     Log.i("D2DPro:Sign", data.getExtras().getString("sigData"));
                     webView.sendJavascript("updatedSig('"+data.getExtras().getString("sigData")+"');");
+                } catch(Exception e){
+                    Log.i("D2DPro:Sign", "Cancelled");
+                }
             break;
         }
  

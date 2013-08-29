@@ -123,7 +123,7 @@ public class CaptureSignature extends Activity {
     b.putString("status", "cancel");
     Intent intent = new Intent();
     intent.putExtras(b);
-    setResult(RESULT_OK,intent); 
+    setResult(RESULT_OK,intent);
     finish();
     }
     });

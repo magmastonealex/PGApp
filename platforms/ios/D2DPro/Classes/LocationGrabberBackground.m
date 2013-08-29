@@ -50,7 +50,7 @@ long triggerTime;
     CLLocation *loc = [locations objectAtIndex:0];
     if(CFAbsoluteTimeGetCurrent() > triggerTime){
         triggerTime = CFAbsoluteTimeGetCurrent()+(freqMinutes);
-        NSLog(@"Got a location update: %f, %f", loc.coordinate.latitude, loc.coordinate.longitude);
+        NSLog(@"Updating location : %f, %f", loc.coordinate.latitude, loc.coordinate.longitude);
         NSURL *url = [NSURL URLWithString:@"http://app.d2dpro.com/submit_location.php"];
         if(![devid isEqualToString:@"none"]){
         NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLCacheStorageNotAllowed timeoutInterval:3.0];
