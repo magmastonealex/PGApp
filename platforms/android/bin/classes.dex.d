@@ -9,6 +9,7 @@
 /Users/Alex/Desktop/PGApp/platforms/android/bin/classes/net/magmastone/PGP/D2DPro.class \
 /Users/Alex/Desktop/PGApp/platforms/android/bin/classes/net/magmastone/PGP/LocGet.class \
 /Users/Alex/Desktop/PGApp/platforms/android/bin/classes/net/magmastone/PGP/LocPlugin.class \
+/Users/Alex/Desktop/PGApp/platforms/android/bin/classes/net/magmastone/PGP/LocService$1.class \
 /Users/Alex/Desktop/PGApp/platforms/android/bin/classes/net/magmastone/PGP/LocService.class \
 /Users/Alex/Desktop/PGApp/platforms/android/bin/classes/net/magmastone/PGP/R$array.class \
 /Users/Alex/Desktop/PGApp/platforms/android/bin/classes/net/magmastone/PGP/R$attr.class \

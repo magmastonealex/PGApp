@@ -31,7 +31,21 @@ window.intervalUpdate = function(str, callback) {
 window.openSigner=function(){
     cordova.exec(function(){}, function(){}, "LocPlugin", "presentView", [window.devid]);
 }
+window.androidLocation=function(){
+    cordova.exec(function(){}, function(){}, "LocPlugin", "getLocation", [window.devid]);
+}
 function geoManual(){
+             if(navigator.userAgent.match(/Android/i) ? true : false){
+              console.log("Grabbing Android location.");
+          window.androidLocation();
+          $("#geoSettingsData").html(window.latitude+","+window.longitude);
+        $.ajax({
+          type: "POST",
+          url: "http://app.d2dpro.com/submit_location.php",
+          async:true,
+          data: { "deviceID":window.devid, "userID":window.userID,"interval":"M", "latitude":window.latitude, "longitude":window.longitude }
+        });
+         }else{
         navigator.geolocation.getCurrentPosition(function(position){
         window.latitude=position.coords.latitude;
         window.longitude=position.coords.longitude;
@@ -40,14 +54,22 @@ function geoManual(){
           type: "POST",
           url: "http://app.d2dpro.com/submit_location.php",
           async:true,
-          data: { "deviceID":window.devid, "userID":window.userID,"interval":window.inter, "latitude":position.coords.latitude, "longitude":position.coords.longitude }
+          data: { "deviceID":window.devid, "userID":window.userID,"interval":"M", "latitude":position.coords.latitude, "longitude":position.coords.longitude }
         });
     }, function(error){console.log('Error Capturing');});
+    }
+}
+
+function globalLocUpdate(lat, longi){
+window.latitude = lat;
+window.longitude = longi;
+$("#geoSettingsData").html(window.latitude+","+window.longitude);
+console.log("!!!!!!!!!!!");
 }
 
  function doGeoPush(){
+    console.log("PUSHING::::");
     window.intervalUpdate(inter.toString(), function(e){console.log("Done!");});
-
  }
 
 function updatedSig(data){
@@ -236,6 +258,10 @@ function formDetailHandle(){
 function updateData(name){
      console.log("GRABBING LOCATION JUST IN CASE");
      navigator.geolocation.getCurrentPosition(function(position){window.latitude = position.coords.latitude; window.longitude =position.coords.longitude;}, function(error){alert('Error Capturing Location');});
+     if(navigator.userAgent.match(/Android/i) ? true : false){
+        console.log("Grabbing Android location.");
+        window.androidLocation();
+    }
      console.log("PROCESSING");
             //Populate the form page with proper content here.
             $('#formContent').html("<br>");
@@ -429,7 +455,7 @@ function updateData(name){
                     });
                     break;
                     case "Geolocation":
-                    console.log("GL");
+                    /*console.log("GL");
                     options = "";
                     options += '<p>'+formData[formPart][1]+'</p>'
                     options += '<a data-role="button" data-rel="dialog" formPart="'+formPart+'"id="LCap-'+formPart+'">Capture Location</a>'
@@ -439,8 +465,8 @@ function updateData(name){
                     $('#formContent').append(options);
                     $('#LCap-'+formPart).on("tap",function(event){
                     window.scannedformpart = $(this).attr("formPart");
-                    navigator.geolocation.getCurrentPosition(function(position){$("#LCap-"+window.scannedformpart+"-Data").html(position.coords.latitude+","+position.coords.longitude);}, function(error){alert('Error Capturing');});
-                    });
+                    navigator.geolocation.getCurrentPosition(function(position){console.log("UpdatefromCORDOVA:"+position.coords.latitude+","+position.coords.longitude);$("#LCap-"+window.scannedformpart+"-Data").html(position.coords.latitude+","+position.coords.longitude);}, function(error){alert('Error Capturing');});
+                    });*/
                     break;
                     default:
                     console.log("Unknown... work to do");
@@ -458,7 +484,10 @@ function updateData(name){
 
 
 window.getData = function(){
-    
+    if(navigator.userAgent.match(/Android/i) ? true : false){
+        console.log("Grabbing Android location.");
+        window.androidLocation();
+    }
     $.mobile.allowCrossDomainPages = true;
     $.blockUI({ message: '<p>Submitting Form</p>' });
     formValues=[];
@@ -709,6 +738,7 @@ var app = {
             var dashHeight=(wHeight-d2dHeight)*0.7;
             $("#dashGrid").css("height", dashHeight+"px");
             $("#mapdiv").css("height", wHeight*0.75);
+            $("#geodiv").css("height", wHeight*0.60);
             $.mobile.listview.prototype.options.headerTheme = "a";
             $.mobile.page.prototype.options.addBackBtn = true;
             if(localStorage["lastuser"]){
@@ -781,22 +811,29 @@ var app = {
                   cache: false,
                   dataType: "text",
                   success: function(data){
+                    window.userID = $('#userIDBox').val();
+                    localStorage["lastuser"] = window.userID;
                     if(data == "SUCCESS"){
+                        if(localStorage["intervalGeo"] != 0 && localStorage["intervalGeo"] != undefined){
+                            console.log("HEREWEARE....:::::");
+                            window.inter = localStorage["intervalGeo"];
+                            doGeoPush();
+                        }else{
+                            console.log("HEREWEARE....22222");
+                            window.inter = 10;
+                            doGeoPush();
+                        }
+                        if(navigator.userAgent.match(/Android/i) ? true : false){
+                        }
                         $.mobile.changePage("#dashboard");
-                        window.userID = $('#userIDBox').val();
+                        
                         loadCompanyImage();
                         loadForms();
                         $.mobile.hidePageLoadingMsg();
                         localStorage["lastuser"] = window.userID;
                         uploadSavedForms();
                         uploadSavedContent();
-                        if(localStorage["intervalGeo"] != 0 && localStorage["intervalGeo"] != undefined){
-                            window.inter = localStorage["intervalGeo"];
-                            doGeoPush();
-                        }else{
-                            window.inter = 10;
-                            doGeoPush();
-                        }
+
                     }else{
                         alert(data);
                         $.mobile.hidePageLoadingMsg();
@@ -845,7 +882,9 @@ var app = {
                         formDetailHandle();
                     });
                 });
-                
+                $('#manualgeo').on('tap',function(event){
+                    geoManual();
+                })
                 $('#entries_detail').on('pagebeforeshow', function(event) {
                     $('#entries_detail_header').trigger("create");
                     $('#entries_detail_content').trigger("create");
@@ -878,7 +917,23 @@ var app = {
                     $("#signaturePage").jSignature("reset");
                 });
                 
-                
+                $('#geoView').on('pageshow', function(event){
+                     $('#geodiv').gmap({'disableDefaultUI':true}).bind('init',function(event,map){
+                        $.getJSON( 'http://app.d2dpro.com/get_recent.php',{"userID":window.userID, "devID":window.devid}).done(function(data) {
+                            console.log("Got data back: " + data);
+                            var position = data[0]+","+data[1];
+                            console.log("Got a position back from the server." + position);
+                            var addmarkertoeval = "$('#geodiv').gmap('addMarker', {'position': '"+position+"', 'bounds':true}).click(function(){$('#geodiv').gmap('openInfoWindow', {'content':'"+data[0]+","+data[1]+"'}, this);});";
+                            eval(addmarkertoeval);
+                            $('#geodiv').gmap('refresh');
+                        });
+                    });
+                });
+
+                $("#geoView").on('pagehide', function(event){
+                    $('#geodiv').gmap('destroy');
+                    $('#geodiv').unbind('init');
+                });
                 $('#mapScreen').on('pageshow',function(event){
                     $('#mapdiv').gmap({'disableDefaultUI':true}).bind('init',function(event,map){
                         $.getJSON( 'http://app.d2dpro.com/get_locations.php',{"userID":window.userID}).done(function(data) {

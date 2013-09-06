@@ -46,5 +46,16 @@ $prepstate = $db->prepare('INSERT INTO submission VALUES (?,NULL,?,?,?,?,?,?)');
    if(!$prepstate->execute()){
     die('Error: ' . $db->error);
    }
+   $sql = 'INSERT INTO tracker_table VALUES (0,NULL,"'.$devid.'","'.$userid.'","F",'.$lati.','.$longi.',"")';
+   file_put_contents("SQLSubmit.txt",$sql);
+   if(!$db->query($sql)){
+        file_put_contents("sqlerror.txt",$db->error);
+        $sqlUpdate = 'UPDATE tracker_table SET `userID`="'.$userid.'",`interval`="F",`latitude`="'.$lati.'",`longitude`="'.$longi.'" WHERE `deviceID`="'.$devid.'";';
+        file_put_contents("SQLSubmit-U.txt",$sqlUpdate);
+        echo $sqlUpdate;
+        if(!$db->query($sqlUpdate)){
+         die ("error: ". $db->error);
+        }
+   }
 
 ?>

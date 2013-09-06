@@ -7,11 +7,11 @@ $db = new mysqli('localhost', 'appd2dpr_php', '9&3mPMjCJM8+uKy6o', 'appd2dpr_mob
    $longit = $db->real_escape_string($_POST['longitude']);
    file_put_contents("file.txt", $userid."@".$devid."@".$interval."@".$lat."@".$longit);
    $status="false";
-   $sql = 'INSERT INTO tracker_table VALUES (0,NULL,"'.$devid.'","'.$userid.'",'.$interval.','.$lat.','.$longit.','.$status.')';
+   $sql = 'INSERT INTO tracker_table VALUES (0,NULL,"'.$devid.'","'.$userid.'","'.$interval.'",'.$lat.','.$longit.','.$status.')';
    echo $sql.'<br>';
    if(!$db->query($sql)){
-        echo "Possible error:".$db->error;
-        $sqlUpdate = 'UPDATE tracker_table SET `userID`="'.$userid.'",`interval`='.$interval.',`latitude`="'.$lat.'",`longitude`="'.$longit.'" WHERE `deviceID`="'.$devid.'";';
+        file_put_contents("sqlperror.txt", "Possible error:".$db->error);
+        $sqlUpdate = 'UPDATE tracker_table SET `userID`="'.$userid.'",`interval`="'.$interval.'",`latitude`="'.$lat.'",`longitude`="'.$longit.'" WHERE `deviceID`="'.$devid.'";';
         echo $sqlUpdate;
         if(!$db->query($sqlUpdate)){
          die ("error: ". $db->error);

@@ -41,13 +41,6 @@
     <title>Hello World</title>
 </head>
 <body>
-    <div data-role="page" id="first" >
-        <div data-role="content" data-theme="a" >
-
-        <a href="#login" data-role="button">Go to login</a>
-
-</div>
-</div>
 
 <div data-role="page" id="login">
 <div data-role="content" data-theme="a">
@@ -127,6 +120,7 @@
                 <li><a href="#formSelect" data-icon="grid" class="ui-btn-active" data-transition="pop">Forms</a></li>
                 <li><a href="#mapScreen" data-transition="pop" data-icon="star">Map</a></li>
                 <li><a href="#entries" data-transition="pop"  data-icon="info">Entries</a></li>
+                <li><a href="#geoView" data-transition="pop" data-icon="check">Geo</a></li>
                 <li><a href="#locSettings"  data-icon="gear" data-transition="pop">Settings</a></li>
             </ul>
         </div>
@@ -166,6 +160,7 @@
                 <li><a href="#formSelect" data-icon="grid" data-transition="pop">Forms</a></li>
                 <li><a href="#mapScreen" data-transition="pop" data-icon="star">Map</a></li>
                 <li><a href="#entries" data-transition="pop"  data-icon="info">Entries</a></li>
+                <li><a href="#geoView" data-transition="pop" data-icon="check">Geo</a></li>
                 <li><a href="#locSettings"  data-icon="gear" class="ui-btn-active" data-transition="pop">Settings</a></li>
             </ul>
         </div>
@@ -193,6 +188,7 @@
                 <li><a href="#formSelect" data-icon="grid" data-transition="pop">Forms</a></li>
                 <li><a href="#mapScreen" data-transition="pop" class="ui-btn-active" data-icon="star">Map</a></li>
                 <li><a href="#entries" data-transition="pop" data-icon="info">Entries</a></li>
+                <li><a href="#geoView" data-transition="pop" data-icon="check">Geo</a></li>
                 <li><a href="#locSettings"  data-icon="gear" data-transition="pop">Settings</a></li>
             </ul>
         </div>
@@ -219,6 +215,7 @@
                 <li><a href="#formSelect" data-icon="grid" data-transition="pop">Forms</a></li>
                 <li><a href="#mapScreen" data-transition="pop" data-icon="star">Map</a></li>
                 <li><a href="#entries" data-transition="pop" class="ui-btn-active" data-icon="info">Entries</a></li>
+                <li><a href="#geoView" data-transition="pop" data-icon="check">Geo</a></li>
                 <li><a href="#locSettings"  data-icon="gear" data-transition="pop">Settings</a></li>
             </ul>
         </div>
@@ -239,6 +236,29 @@
     </div>
 
 
+</div>
+
+<div data-role="page" data-theme="a" id="geoView">
+    <div data-role="header" id="entries_super_detail_header">
+        <h1>Geolocation View</h1>
+    </div>
+
+    <div data-role="content" id="entries_super_detail_content">
+    <a href="" id="manualgeo" data-role="button">Manual Locate</a>
+    <div id="geodiv" style="height:450px"></div>
+   </div>
+
+        <div data-role="footer" data-position="fixed" data-theme="d">
+        <div data-role="navbar">
+            <ul>
+                <li><a href="#formSelect" data-icon="grid" data-transition="pop">Forms</a></li>
+                <li><a href="#mapScreen" data-transition="pop"  data-icon="star">Map</a></li>
+                <li><a href="#entries" data-transition="pop" data-icon="info">Entries</a></li>
+                <li><a href="#geoView" data-transition="pop" class="ui-btn-active" data-icon="check">Geo</a></li>
+                <li><a href="#locSettings"  data-icon="gear" data-transition="pop">Settings</a></li>
+            </ul>
+        </div>
+    </div>
 </div>
 
 <div data-role="page" data-theme="a" id="entries_super_detail">

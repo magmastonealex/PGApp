@@ -45,6 +45,18 @@ long triggerTime;
     NSLog(@"Began updating location. every %ld", triggerTime);
 }
 
+- (NSData*)encodeDictionary:(NSDictionary*)dictionary {
+    NSMutableArray *parts = [[NSMutableArray alloc] init];
+    for (NSString *key in dictionary) {
+        NSString *encodedValue = [[dictionary objectForKey:key] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        NSString *encodedKey = [key stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        NSString *part = [NSString stringWithFormat: @"%@=%@", encodedKey, encodedValue];
+        [parts addObject:part];
+    }
+    NSString *encodedDictionary = [parts componentsJoinedByString:@"&"];
+    return [encodedDictionary dataUsingEncoding:NSUTF8StringEncoding];
+}
+
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations{
     CLLocation *loc = [locations objectAtIndex:0];
@@ -54,12 +66,24 @@ long triggerTime;
         NSURL *url = [NSURL URLWithString:@"http://app.d2dpro.com/submit_location.php"];
         if(![devid isEqualToString:@"none"]){
         NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLCacheStorageNotAllowed timeoutInterval:3.0];
-            [request setValue:devid forHTTPHeaderField:@"deviceID"];
-            [request setValue:userID forHTTPHeaderField:@"userID"];
-            [request setValue:[NSString stringWithFormat:@"%d", freqMinutes] forHTTPHeaderField:@"interval"];
-            [request setValue:[NSString stringWithFormat:@"%f", loc.coordinate.latitude] forHTTPHeaderField:@"latitude"];
-            [request setValue:[NSString stringWithFormat:@"%f", loc.coordinate.longitude] forHTTPHeaderField:@"longitude"];
-            TFLog(@"Will post request. %i,%@,%@", freqMinutes, devid, userID);
+            
+            
+            
+            NSMutableDictionary * mutPostDict = [[NSMutableDictionary alloc] initWithCapacity:7];
+            [mutPostDict setValue:devid forKey:@"deviceID"];
+            [mutPostDict setValue:userID forKey:@"userID"];
+            [mutPostDict setValue:[NSString stringWithFormat:@"%d", freqMinutes] forKey:@"interval"];
+            [mutPostDict setValue:[NSString stringWithFormat:@"%f", loc.coordinate.latitude] forKey:@"latitude"];
+            [mutPostDict setValue:[NSString stringWithFormat:@"%f", loc.coordinate.longitude] forKey:@"longitude"];
+            
+            NSData * postData = [self encodeDictionary:mutPostDict];
+            
+            [request setHTTPMethod:@"POST"];
+            [request setValue:[NSString stringWithFormat:@"%d", postData.length] forHTTPHeaderField:@"Content-Length"];
+            [request setValue:@"application/x-www-form-urlencoded charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+            [request setHTTPBody:postData];
+            
+            NSLog(@"Will post request. %@", [request description]);
         NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
             [connection start];
             
