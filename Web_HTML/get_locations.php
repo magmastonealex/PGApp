@@ -9,14 +9,19 @@ if($tokenresult->num_rows == 0){
 }
 $userID = $db->real_escape_string($_GET["userID"]);
 
-$locQuery = 'SELECT * FROM submission WHERE userID="'.$userID.'"';
+$locQuery = 'SELECT * FROM `leadsAssign` WHERE userID="'.$userID.'"';
 
 if(!$locations=$db->query($locQuery)){
 		die("Error: " . $db->error);
 }
 $locationsArray=array();
 while($locationRow=$locations->fetch_assoc()){
-	array_push($locationsArray, array($locationRow["latitude"], $locationRow["longitude"], $locationRow["subID"], $locationRow["Name"]));
+	$disp = 'SELECT * FROM `disposition` WHERE `id`='.$locationRow["leadID"];
+	
+	$disps=$db->query($disp);
+	$dispRow = $disps->fetch_assoc();
+
+	array_push($locationsArray, array($locationRow["dispid"],array($dispRow["name"], $dispRow["address"], $dispRow["apartment"], $dispRow["city"], $dispRow["state"], $dispRow["zip"], $dispRow["disp"], $dispRow["subid"])));
 }
 echo json_encode($locationsArray);
 ?>

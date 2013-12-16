@@ -62,6 +62,32 @@ div.changerbutton {
 .centeredtext{
 	text-align:center;
 }
+.linkie{
+    color: blue;
+    text-decoration: underline;
+}
+.ui-icon-d2dpro-settings{
+background-image: url("../icons/settings-icon.png");
+background-color: #FFF;
+}
+.ui-icon-d2dpro-entries{
+background-image: url("../icons/entries-icon.png");
+background-color: #FFF;
+border-radius: 1px;
+
+}
+.ui-icon-d2dpro-forms{
+background-image: url("../icons/forms-icon.png");
+background-color: #FFF;
+}
+.ui-icon-d2dpro-map{
+background-image: url("../icons/map-icon.png");
+background-color: #FFF;
+}
+.ui-icon-d2dpro-geo{
+background-image: url("../icons/geo-icon.png");
+background-color: #FFF;
+}
 .ui-body-a::-webkit-input-placeholder {
    color: #EEE;
    text-align:center;

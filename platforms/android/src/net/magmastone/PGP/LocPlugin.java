@@ -76,6 +76,15 @@ private double[] getGPS() {
         }else if(action.equals("getLocation")){
                 double[] locData = getGPS();
                 webView.sendJavascript("globalLocUpdate('"+Double.toString(locData[0])+"','"+Double.toString(locData[1])+"')");
+        }else if(action.equals("share")){
+                Intent i = new Intent(Intent.ACTION_SEND);
+                i.setType("text/plain");
+                i.putExtra(Intent.EXTRA_TEXT, args.getString(0));
+                try {
+                 this.cordova.getActivity().startActivity(Intent.createChooser(i, "Send..."));
+                } catch (Exception ex) {
+   
+                }
         }
         return false;
     }

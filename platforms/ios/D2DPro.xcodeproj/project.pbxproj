@@ -71,6 +71,9 @@
 		FA2C82D817CD78F3006B761B /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = FA2C82D717CD78F3006B761B /* NSData+Base64.m */; };
 		FA51054B17C7B50A0059F9F1 /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FA51054717C7B50A0059F9F1 /* libTestFlight.a */; };
 		FA51054D17C7B53B0059F9F1 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FA51054C17C7B53B0059F9F1 /* libz.dylib */; };
+		FA62BA0817ED0B1700BFFF65 /* iphone-retina-7.png in Resources */ = {isa = PBXBuildFile; fileRef = FA62BA0717ED0B1700BFFF65 /* iphone-retina-7.png */; };
+		FA62BA0B17ED0B4F00BFFF65 /* ipad-7.png in Resources */ = {isa = PBXBuildFile; fileRef = FA62BA0917ED0B4F00BFFF65 /* ipad-7.png */; };
+		FA62BA0C17ED0B4F00BFFF65 /* ipad-retina-7.png in Resources */ = {isa = PBXBuildFile; fileRef = FA62BA0A17ED0B4F00BFFF65 /* ipad-retina-7.png */; };
 		FA81141B17CE30C700761785 /* SVPlugin-iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA81141A17CE30C700761785 /* SVPlugin-iPhone.xib */; };
 		FA95A38B17B95DEB00FFA988 /* icon-iPhone.png in Resources */ = {isa = PBXBuildFile; fileRef = FA95A38A17B95DEB00FFA988 /* icon-iPhone.png */; };
 		FA95A38D17B95DED00FFA988 /* icon-retina-iPhone.png in Resources */ = {isa = PBXBuildFile; fileRef = FA95A38C17B95DED00FFA988 /* icon-retina-iPhone.png */; };
@@ -189,6 +192,9 @@
 		FA51054917C7B50A0059F9F1 /* TestFlight+AsyncLogging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+AsyncLogging.h"; sourceTree = "<group>"; };
 		FA51054A17C7B50A0059F9F1 /* TestFlight+ManualSessions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+ManualSessions.h"; sourceTree = "<group>"; };
 		FA51054C17C7B53B0059F9F1 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		FA62BA0717ED0B1700BFFF65 /* iphone-retina-7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iphone-retina-7.png"; sourceTree = "<group>"; };
+		FA62BA0917ED0B4F00BFFF65 /* ipad-7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ipad-7.png"; sourceTree = "<group>"; };
+		FA62BA0A17ED0B4F00BFFF65 /* ipad-retina-7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ipad-retina-7.png"; sourceTree = "<group>"; };
 		FA81141A17CE30C700761785 /* SVPlugin-iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "SVPlugin-iPhone.xib"; sourceTree = "<group>"; };
 		FA95A38A17B95DEB00FFA988 /* icon-iPhone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-iPhone.png"; sourceTree = "<group>"; };
 		FA95A38C17B95DED00FFA988 /* icon-retina-iPhone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-retina-iPhone.png"; sourceTree = "<group>"; };
@@ -278,11 +284,14 @@
 			children = (
 				FAC0E99417CD682900F8428D /* SVPlugin.h */,
 				FAC0E99517CD682900F8428D /* SVPlugin.m */,
+				FA62BA0917ED0B4F00BFFF65 /* ipad-7.png */,
+				FA62BA0A17ED0B4F00BFFF65 /* ipad-retina-7.png */,
 				FAC0E99617CD682900F8428D /* SVPlugin.xib */,
 				FA81141A17CE30C700761785 /* SVPlugin-iPhone.xib */,
 				FA2C82D617CD78F3006B761B /* NSData+Base64.h */,
 				FA2C82D717CD78F3006B761B /* NSData+Base64.m */,
 				FA95A39017B95DF700FFA988 /* icon-iPad-retina.png */,
+				FA62BA0717ED0B1700BFFF65 /* iphone-retina-7.png */,
 				FA95A38E17B95DF400FFA988 /* icon-iPad.png */,
 				FA2C82CA17CD7731006B761B /* fingerTip.png */,
 				FA2C82CB17CD7731006B761B /* README.md */,
@@ -479,6 +488,11 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 460;
+				TargetAttributes = {
+					1D6058900D05DD3D006BFB54 = {
+						DevelopmentTeam = HL8AW8RQCZ;
+					};
+				};
 			};
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "D2DPro" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -526,6 +540,7 @@
 			files = (
 				FA81141B17CE30C700761785 /* SVPlugin-iPhone.xib in Resources */,
 				F840E1F1165FE0F500CFE078 /* config.xml in Resources */,
+				FA62BA0C17ED0B4F00BFFF65 /* ipad-retina-7.png in Resources */,
 				308D05371370CCF300D202BF /* icon-72.png in Resources */,
 				308D05381370CCF300D202BF /* icon.png in Resources */,
 				308D05391370CCF300D202BF /* icon@2x.png in Resources */,
@@ -547,9 +562,11 @@
 				D4A0D8761607E02300AEF8BB /* Default-568h@2x~iphone.png in Resources */,
 				30FC414916E50CA1004E6F35 /* icon-72@2x.png in Resources */,
 				A4DFCF7967A24D46920609B4 /* scannerOverlay.xib in Resources */,
+				FA62BA0817ED0B1700BFFF65 /* iphone-retina-7.png in Resources */,
 				969A9A9BEEAA495C865C0FEA /* CDVCapture.bundle in Resources */,
 				FA95A38B17B95DEB00FFA988 /* icon-iPhone.png in Resources */,
 				FA95A38D17B95DED00FFA988 /* icon-retina-iPhone.png in Resources */,
+				FA62BA0B17ED0B4F00BFFF65 /* ipad-7.png in Resources */,
 				FA95A38F17B95DF400FFA988 /* icon-iPad.png in Resources */,
 				FA95A39117B95DF700FFA988 /* icon-iPad-retina.png in Resources */,
 			);
@@ -653,6 +670,8 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ENABLE_OBJC_ARC = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -681,6 +700,7 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = D2DPro;
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -690,6 +710,8 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ENABLE_OBJC_ARC = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "D2DPro/D2DPro-Prefix.pch";
@@ -716,6 +738,7 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = D2DPro;
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

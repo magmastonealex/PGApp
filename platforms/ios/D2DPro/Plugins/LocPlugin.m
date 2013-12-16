@@ -43,4 +43,17 @@
     [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
 }
 
+- (void)share:(CDVInvokedUrlCommand*)command
+{
+    NSLog(@"Sharing POS");
+    NSString* position = [command argumentAtIndex:0];
+    CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:@"Success"];
+    [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
+    NSArray *items = @[position];
+    UIActivityViewController *activityVC = [[UIActivityViewController alloc] initWithActivityItems:items applicationActivities:nil];
+    activityVC.excludedActivityTypes = @[UIActivityTypePrint, UIActivityTypeCopyToPasteboard]; //or whichever you don't need
+    [[(AppDelegate*)[[UIApplication sharedApplication] delegate] viewController] presentViewController:activityVC animated:YES completion:nil];
+    
+}
+
 @end

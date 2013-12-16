@@ -23,7 +23,7 @@ long triggerTime;
         devid = @"none";
         userID = @"none";
     }
-    NSLog(@"Ready to start updating location.");
+    //NSLog(@"Ready to start updating location.");
     
     return self;
 }
@@ -31,7 +31,7 @@ long triggerTime;
 -(void)locationFrequency:(NSString*)freqMin{
     if([freqMin intValue] == 10000){
         [self.locationManager stopUpdatingLocation];
-        NSLog(@"Stopped updating location.");
+   //     NSLog(@"Stopped updating location.");
     }
     else{
     [self.locationManager startUpdatingLocation];
@@ -42,7 +42,7 @@ long triggerTime;
 -(void)insertHandler{
     triggerTime = CFAbsoluteTimeGetCurrent()+5;
     [self.locationManager startUpdatingLocation];
-    NSLog(@"Began updating location. every %ld", triggerTime);
+   // NSLog(@"Began updating location. every %ld", triggerTime);
 }
 
 - (NSData*)encodeDictionary:(NSDictionary*)dictionary {
@@ -62,7 +62,7 @@ long triggerTime;
     CLLocation *loc = [locations objectAtIndex:0];
     if(CFAbsoluteTimeGetCurrent() > triggerTime){
         triggerTime = CFAbsoluteTimeGetCurrent()+(freqMinutes);
-        NSLog(@"Updating location : %f, %f", loc.coordinate.latitude, loc.coordinate.longitude);
+        //NSLog(@"Updating location : %f, %f", loc.coordinate.latitude, loc.coordinate.longitude);
         NSURL *url = [NSURL URLWithString:@"http://app.d2dpro.com/submit_location.php"];
         if(![devid isEqualToString:@"none"]){
         NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLCacheStorageNotAllowed timeoutInterval:3.0];
@@ -83,7 +83,7 @@ long triggerTime;
             [request setValue:@"application/x-www-form-urlencoded charset=utf-8" forHTTPHeaderField:@"Content-Type"];
             [request setHTTPBody:postData];
             
-            NSLog(@"Will post request. %@", [request description]);
+           // NSLog(@"Will post request. %@", [request description]);
         NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
             [connection start];
             

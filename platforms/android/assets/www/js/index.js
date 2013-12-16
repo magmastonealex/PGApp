@@ -25,6 +25,7 @@
  window.formsToSend=[];
  window.toupload=[];
  window.signatureMPad=0;
+ window.loctoshare=0;
 window.intervalUpdate = function(str, callback) {
         cordova.exec(callback, callback, "LocPlugin", "intervalUpdate", [str,window.userID,window.devid]);
 };
@@ -33,6 +34,9 @@ window.openSigner=function(){
 }
 window.androidLocation=function(){
     cordova.exec(function(){}, function(){}, "LocPlugin", "getLocation", [window.devid]);
+}
+function shareloc(data){
+    cordova.exec(function(){}, function(){}, "LocPlugin", "share", [window.loctoshare]);
 }
 function geoManual(){
              if(navigator.userAgent.match(/Android/i) ? true : false){
@@ -43,7 +47,11 @@ function geoManual(){
           type: "POST",
           url: "http://app.d2dpro.com/submit_location.php",
           async:true,
-          data: { "deviceID":window.devid, "userID":window.userID,"interval":"M", "latitude":window.latitude, "longitude":window.longitude }
+          data: { "deviceID":window.devid, "userID":window.userID,"interval":"M", "latitude":window.latitude, "longitude":window.longitude },
+          success: function(){
+            alert("Successful Locate");
+            mapshow();    
+          }
         });
          }else{
         navigator.geolocation.getCurrentPosition(function(position){
@@ -54,11 +62,36 @@ function geoManual(){
           type: "POST",
           url: "http://app.d2dpro.com/submit_location.php",
           async:true,
-          data: { "deviceID":window.devid, "userID":window.userID,"interval":"M", "latitude":position.coords.latitude, "longitude":position.coords.longitude }
+          data: { "deviceID":window.devid, "userID":window.userID,"interval":"M", "latitude":position.coords.latitude, "longitude":position.coords.longitude },
+          success: function(){
+            alert("Successful Locate");
+            mapshow();    
+          }
         });
     }, function(error){console.log('Error Capturing');});
     }
 }
+
+function mapshow(){
+    $('#geodiv').gmap('destroy');
+       $('#geodiv').gmap({'disableDefaultUI':true}).bind('init',function(event,map){
+          $.getJSON( 'http://app.d2dpro.com/get_recent.php',{"userID":window.userID, "devID":window.devid}).done(function(data) {
+              console.log("Got data back: " + data);
+              var position = data[0]+","+data[1];
+              window.loctoshare = position;
+              console.log("Got a position back from the server." + position);
+              $.getJSON("http://maps.googleapis.com/maps/api/geocode/json",{"latlng":data[0]+","+data[1],"sensor":"true"}).done(function(data){
+                  console.log("Google got back " +position);
+                  var addmarkertoeval = "$('#geodiv').gmap('addMarker', {'position': '"+position+"', 'bounds':true}).click(function(){$('#geodiv').gmap('openInfoWindow', {'content':'<p style=\"color:black\">"+data["results"][0]["formatted_address"]+"</p><br><a class=\"linkie\"onclick=\"shareloc()\">Share</a>'}, this);});";
+                  eval(addmarkertoeval);
+                  $('#geodiv').gmap('refresh');
+              })
+            
+            
+        });
+    });
+}
+
 
 function globalLocUpdate(lat, longi){
 window.latitude = lat;
@@ -115,14 +148,24 @@ function loadCompanyImage(){
     
 }
 
+function enterForm(id){
+    console.log("Entering form");
+    window.currentFormID = $(this).attr("formID");
+    formNum = 0;
+    for (var i = window.allForms.length - 1; i >= 0; i--) {
+        if(window.allForms[i][0] == id){
+            formNum = i
+            break;
+        }
+    }
+    formData = window.allForms[formNum][2];
+    updateData(window.allForms[formNum][1]);
+    console.log("Entering form Done");
+}
 
 function setupPageClickHandler(){
     $('.formlink').on("tap",function(){
-                console.log("Entering form");
-                window.currentFormID = $(this).attr("formID");
-                formData = window.allForms[$(this).attr("formNumber")][2];
-                updateData($(this).html());
-                console.log("Entering form Done");
+                enterForm(parseInt($(this).attr("formID")));
     });
 }
 
@@ -141,7 +184,13 @@ function populate_detail(subID){
                 
                 options +='<center><table style="width:100%"><tr><td style= "padding-bottom:0px;"><div data-role="header">';
                 options += "<h1>"+data[iter][0][0]+"</h1 ></div></td></tr>";
+                if(data[iter][0][1] != "sign"){
+                console.log(data[iter][0][1]+":"+data[iter][1]);
+            }else{
+                console.log(data[iter][0][1]+":SDATA");
+            }
                  switch(data[iter][0][1]){
+
                     case "PictureCapture":
                         options += '<tr><td class="ReviewText">'
                         options += '<div >'
@@ -865,6 +914,7 @@ var app = {
             });
                 $('#entries').on('pagebeforeshow',function(event){
                   $("#entriesList").html("");
+                  $('#entriesList').listview("refresh");
                   $.getJSON("http://app.d2dpro.com/get_form_data.php",{"userID":window.userID}).done(function(data){
                     options = "";
                     for(var iter=0; iter<data.length;iter++){
@@ -881,9 +931,13 @@ var app = {
                         $('#entriesList').listview("refresh"); 
                         formDetailHandle();
                     });
+
                 });
+
                 $('#manualgeo').on('tap',function(event){
                     geoManual();
+                    
+                    
                 })
                 $('#entries_detail').on('pagebeforeshow', function(event) {
                     $('#entries_detail_header').trigger("create");
@@ -922,10 +976,16 @@ var app = {
                         $.getJSON( 'http://app.d2dpro.com/get_recent.php',{"userID":window.userID, "devID":window.devid}).done(function(data) {
                             console.log("Got data back: " + data);
                             var position = data[0]+","+data[1];
+                            window.loctoshare = position;
                             console.log("Got a position back from the server." + position);
-                            var addmarkertoeval = "$('#geodiv').gmap('addMarker', {'position': '"+position+"', 'bounds':true}).click(function(){$('#geodiv').gmap('openInfoWindow', {'content':'"+data[0]+","+data[1]+"'}, this);});";
-                            eval(addmarkertoeval);
-                            $('#geodiv').gmap('refresh');
+                            $.getJSON("http://maps.googleapis.com/maps/api/geocode/json",{"latlng":data[0]+","+data[1],"sensor":"true"}).done(function(data){
+                                console.log("Google got back " +position);
+                                var addmarkertoeval = "$('#geodiv').gmap('addMarker', {'position': '"+position+"', 'bounds':true}).click(function(){$('#geodiv').gmap('openInfoWindow', {'content':'<p style=\"color:black\">"+data["results"][0]["formatted_address"]+"</p><br><a class=\"linkie\"onclick=\"shareloc()\">Share</a>'}, this);});";
+                                eval(addmarkertoeval);
+                                $('#geodiv').gmap('refresh');
+                            })
+                            
+                            
                         });
                     });
                 });
@@ -934,17 +994,71 @@ var app = {
                     $('#geodiv').gmap('destroy');
                     $('#geodiv').unbind('init');
                 });
+                $("#dispSelect").change(function(event){
+                        val = $("#dispSelect").val();
+                        if(val == 7){
+                            //Display "show form" button
+                            $("#formbutton").html("<button id='gotoform'>Go to Form</button");
+                            $("#gotoform").button();
+                            $("#gotoform").on("tap", function(){
+                                disp = window.dispositions[window.dispdata];
+                                if(disp[7]!= ""){
+                                    populate_detail(disp[7]);
+                                    $.mobile.changePage("#entries_detail", "push");
+                                }else{
+                                    enterForm(allForms[0][0]);
+                                }
+                            });
+                        }else{
+                            $("#formbutton").html("");
+                        }
+                });
+                $('#dispInfo').on('pageshow', function(){
+                    disp = window.dispositions[window.dispdata];
+                    $("#di-name").val(disp[0]);
+                    $("#di-addr").val(disp[1]);
+                    $("#di-apart").val(disp[2]);
+                    $("#di-city").val(disp[3]);
+                    $("#di-state").val(disp[4]);
+                    $("#di-zip").val(disp[5]);
+                    $("#dispSelect").val(disp[6].toString());
+                    $("#dispSelect").selectmenu("refresh");
+                    
+                    if(disp[6].toString() == "7"){
+                        $("#formbutton").html("<button id='gotoform'>Go to Form</button");
+                            $("#gotoform").button();
+                            $("#gotoform").on("tap", function(){
+                                if(disp[7]!= ""){
+                                    populate_detail(disp[7]);
+                                    $.mobile.changePage("#entries_detail", "push");
+                                }else{
+                                    enterForm(allForms[0][0]);
+                                }
+                            });
+                    }
+
+                });
                 $('#mapScreen').on('pageshow',function(event){
                     $('#mapdiv').gmap({'disableDefaultUI':true}).bind('init',function(event,map){
                         $.getJSON( 'http://app.d2dpro.com/get_locations.php',{"userID":window.userID}).done(function(data) {
                             console.log("Map START");
+                            window.dispositions=[];
                             for (var dataiter=0; dataiter < data.length; dataiter++){
-                            var position = data[dataiter][0]+","+data[dataiter][1];
-                            var ourdata=data[dataiter][2];
-                            var addmarkertoeval = "$('#mapdiv').gmap('addMarker', {'position': '"+position+"', 'bounds':true}).click(function(){var thisdata = '"+ourdata+"';populate_detail(thisdata);$('#mapdiv').gmap('openInfoWindow', {'content':'<a href=\"#entries_detail\" data-role=\"button\">"+data[dataiter][3]+"</a>'}, this);});"
-                            console.log(addmarkertoeval);
-                            eval(addmarkertoeval);
+
+                                var position = data[dataiter][0]+","+data[dataiter][1];
+                                var ourdata=dataiter;
+                                window.dispositions.push(data[dataiter][3]);
+
+                                /*
+                                    Change page to one with basic information about the pin point.
+                                    array($dispRow["name"], $dispRow["address"], $dispRow["apartment"], $dispRow["city"], $dispRow["state"], $dispRow["zip"], $dispRow["disp"], $dispRow["subid"])
+                                */
+                                var addmarkertoeval = "$('#mapdiv').gmap('addMarker', {'position': '"+position+"', 'bounds':true}).click(function(){ window.dispdata = '"+ourdata+"';$.mobile.changePage('#dispInfo', 'slide');});";
+                                console.log(addmarkertoeval);
+                                eval(addmarkertoeval);
                             }
+                            console.log("--------");
+                            console.log(window.dispositions);
                             $('#mapdiv').gmap('refresh');
                             console.log("Map DONE");
                         });
